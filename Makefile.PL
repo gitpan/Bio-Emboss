@@ -66,7 +66,7 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 @emboss_undefs = qw(ELSE WORD apply);
 # --- some EMBOSS terms need to be redefined, because they are
 #     already used by Perl
-@emboss_redefs = qw(regexp);
+@emboss_redefs = qw(regexp OP_NOT OP_REF OP_REVERSE);
 
 
 
