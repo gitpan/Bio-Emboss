@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_feat		PACKAGE = Bio::Emboss		
 
@@ -216,9 +217,21 @@ ajFeatRead (ftin)
     OUTPUT:
        RETVAL
 
+
+#ifdef HAVE_EMBOSS_2_7_0
+
+void
+ajFeatReverse (thys, ilen)
+       AjPFeature  thys
+       ajint ilen
+
+#else
+
 void
 ajFeatReverse (thys)
        AjPFeature thys
+
+#endif
 
 AjBool
 ajFeatSetDesc (thys, desc)
@@ -535,6 +548,26 @@ ajFeatTagIter (thys)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_7_0
+
+AjBool
+ajFeatTagSet (thys, tag, value)
+       AjPFeature thys
+       AjPStr tag
+       AjPStr value
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagSetC (thys, tag, value)
+       AjPFeature thys
+       char* tag
+       AjPStr value
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjPStr
 ajFeatTagSet (thys, tag, value)
        AjPFeature thys
@@ -550,6 +583,8 @@ ajFeatTagSetC (thys, tag, value)
        AjPStr value
     OUTPUT:
        RETVAL
+
+#endif
 
 void
 ajFeatTagTrace (thys)

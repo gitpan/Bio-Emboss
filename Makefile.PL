@@ -42,7 +42,7 @@ $EMB_DEFS = "";
 #     $EMB_INC:  The *.h files are taken from the subdirectories
 #                nucleus, ajax and plplot in $EMB_SRC_ROOT by default.
 #
-@emb_libs = qw(nucleus ajaxg ajax plplot);
+@emb_libs = qw(nucleus ajax ajaxg plplot);
 
 $EMB_LIBS = "-L$EMB_ROOT/lib " .
             join (" ", map { "-l$_" } @emb_libs) .
@@ -289,6 +289,10 @@ sub write_config_h {
 #define EMBOSS_VERSION "$eversion"
 #endif
 EOB
+
+    if ($eversion ge "2.7.0") {
+	$configh .= "#define HAVE_EMBOSS_2_7_0\n";
+    }
 
     if ($eversion ge "2.6.0") {
 	$configh .= "#define HAVE_EMBOSS_2_6_0\n";

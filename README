@@ -1,4 +1,4 @@
-Bio::Emboss perl module version 0.2
+Bio::Emboss perl module version 0.3
 ===================================
 
 This module interfaces to the libraries of the EMBOSS package
@@ -40,7 +40,7 @@ This module requires an EMBOSS installation (including .h files
 of the source distribution) available at
 http://www.uk.embnet.org/Software/EMBOSS/
 
-The module was tested with EMBOSS-2.5.1 and EMBOSS-2.6.0.
+The module was tested with EMBOSS (versions 2.5.1 ... 2.7.1).
 
 COPYRIGHT AND LICENCE
 
