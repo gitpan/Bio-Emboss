@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_embgroup		PACKAGE = Bio::Emboss		
 
@@ -14,6 +15,22 @@ embGrpCompareTwoGnodes (a, b)
        char * b
     OUTPUT:
        RETVAL
+
+#ifdef HAVE_EMBOSS_2_10_0
+
+void
+embGrpGetProgGroups (glist, alpha, env, emboss, embassy, embassyname, explode, colon, gui)
+       AjPList glist
+       AjPList alpha
+       char **env
+       AjBool emboss
+       AjBool embassy
+       const AjPStr embassyname
+       AjBool explode
+       AjBool colon
+       AjBool gui
+
+#else
 
 void
 embGrpGetProgGroups (glist, alpha, env, emboss, embassy, explode, colon, gui)
@@ -25,6 +42,8 @@ embGrpGetProgGroups (glist, alpha, env, emboss, embassy, explode, colon, gui)
        AjBool explode
        AjBool colon
        AjBool gui
+
+#endif
 
 void
 embGrpGroupsListDel (groupslist)

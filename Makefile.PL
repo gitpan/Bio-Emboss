@@ -15,8 +15,9 @@ $EMB_ROOT     = "/usr/local";
 
 
 # --- path to EMBOSS' sources (for the *.h files)
+#     (not needed since EMBOSS-2.10.0)
 
-$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
+#$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
 
 
 # --- external libraries required by EMBOSS
@@ -40,14 +41,23 @@ $EMB_DEFS = "";
 #     $EMB_LIBS: The nucleus, ajaxg, ajax and plplot libraries are taken
 #                from the lib/ subdirectory in $EMB_ROOT by default.
 #     $EMB_INC:  The *.h files are taken from the subdirectories
-#                nucleus, ajax and plplot in $EMB_SRC_ROOT by default.
+#                nucleus, ajax and plplot in $EMB_SRC_ROOT by default,
+#                or the include subdirectory in $EMB_ROOT.
 #
 @emb_libs = qw(nucleus ajax ajaxg plplot);
 
 $EMB_LIBS = "-L$EMB_ROOT/lib " .
             join (" ", map { "-l$_" } @emb_libs) .
            " " . $EMB_EXT_LIBS;
-$EMB_INC =  join " ", map { "-I$EMB_SRC_ROOT/$_" } @emb_libs;
+unless ($EMB_SRC_ROOT) {
+    $EMB_INC = "-I$EMB_ROOT/include";
+} else {
+    $EMB_INC =  join " ", map { "-I$EMB_SRC_ROOT/$_" } @emb_libs;
+}
+
+print "Searching EMBOSS libraries in $EMB_ROOT/lib\n";
+print "Searching EMBOSS headers in $EMB_INC\n";
+
 
 # --- look for EMBOSS in $EMB_ROOT and $EMB_SRC_ROOT
 #     (disable if you change $EMB_LIBS or $EMB_INC manually)
@@ -158,7 +168,7 @@ WriteMakefile(
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (
        # ABSTRACT_FROM => 'Emboss.pm', # retrieve abstract from module
-       AUTHOR     => 'Peter Ernst <P.Ernst@dkfz-heidelberg.de>') : ()),
+       AUTHOR     => 'Peter Ernst <pernst@cpan.org>') : ()),
 
     'XS'                => \%XS,    # all the modules
     'OBJECT'            => $OBJECT, # all the modules
@@ -223,8 +233,9 @@ if ($check_installation) {
     }
 
     my $incfile = $EMB_SRC_ROOT . "/nucleus/emboss.h";
-    unless (-r $incfile ) {
-	$dmsg .= "couldn't find '$incfile' in \$EMB_SRC_ROOT ($EMB_SRC_ROOT)\n";
+    my $incfile2 = $EMB_ROOT . "/include/emboss.h";
+    unless (-r $incfile or -r $incfile2 ) {
+	$dmsg .= "couldn't find '$incfile' or '$incfile2' in \$EMB_SRC_ROOT or \$EMB_ROOT\n";
     }
 
     if ($dmsg) {
@@ -295,12 +306,13 @@ sub write_config_h {
 #endif
 EOB
     my ($v);
-    foreach $v qw(2.9.0
+    foreach $v (qw(2.10.0
+		  2.9.0
 		  2.8.0
 		  2.7.0
 		  2.6.0
-		  2.5.1) {
-	if ($eversion ge $v) {
+		  2.5.1)) {
+	if (version_ge($eversion, $v)) {
 	    my $label = $v;
 	    $label =~ tr/./_/;
 	    $configh .= "#define HAVE_EMBOSS_$label\n";
@@ -310,4 +322,17 @@ EOB
     open (CONFIGH, ">$outfile");
     print CONFIGH $configh;
     close(CONFIGH);
+}
+
+
+sub version_ge {
+    my @a = split (/\./, $_[0], 3);
+    my @b = split (/\./, $_[1], 3);
+
+    my ($i);
+    for ($i = 0; $i < 3; $i++) {
+	return 0 if $a[$i] < $b[$i];
+	return 1 if $a[$i] > $b[$i];
+    }
+    return 1;
 }

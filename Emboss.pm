@@ -31,7 +31,7 @@ require Bio::Emboss::Methods;
 	
 );
 
-$VERSION = '0.6';
+$VERSION = '0.7';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -173,7 +173,7 @@ Export C<ajAcdGet...> functions only.
 
 =head1 SEE ALSO
 
-http://www.uk.embnet.org/Software/EMBOSS/
+http://emboss.sourceforge.net/
 
 perldoc Bio::Emboss::Ajax  (if installed)
 

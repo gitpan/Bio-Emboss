@@ -17,12 +17,25 @@ ajRangeNewI (n)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_10_0
+
+AjBool
+ajRangeDefault (thys, s)
+       AjPRange thys
+       AjPSeq s
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjBool
 ajRangeDefault (thys, s)
        AjPRange thys
        AjPStr s
     OUTPUT:
        RETVAL
+
+#endif
 
 void
 ajRangeDel (thys)
