@@ -1,0 +1,9 @@
+Revision history for Perl extension Bio::Emboss.
+
+0.01  Sat Jan  4 16:59:35 2003
+	- original version; created by h2xs 1.22 with options
+		-n Bio::Emboss -b 5.0.0
+
+0.1  Tue Jan 14 11:42:35 CET 2003
+	- first release version prepared
+

@@ -1,0 +1,51 @@
+Bio::Emboss perl module version 0.1
+===================
+
+This module interfaces to the libraries of the EMBOSS package
+(European Molecular Biology Open Software Suite).
+
+With this module you can access EMBOSS databases and use EMBOSS
+functions to manipulate your data. You can write perl programs that
+look like any other EMBOSS program (command-line, web interface).
+
+INSTALLATION
+
+Before installation, edit Makefile.PL !
+
+  You must define $EMB_ROOT       -- EMBOSS installation path
+           and    $EMB_SRC_ROOT   -- EMBOSS source code path
+
+  Maybe also $EMB_EXT_LIBS        -- libraries used for building EMBOSS
+        and  $EMB_DEFS            -- definitions used when building EMBOSS
+
+Then, to install this module type the following:
+
+   perl Makefile.PL
+   make
+
+   make test                   # optional
+   perl t/seqret.pl -help      # optional
+   perl t/graphtest.pl         # optional
+
+   make epods                  # optional, 
+                               #   creates ajax documentation in
+			       #   perl POD format
+                               #   % perldoc Bio::Emboss::Ajax
+
+   make install
+
+DEPENDENCIES
+
+This module requires an EMBOSS installation (including .h files
+of the source distribution) available at
+http://www.uk.embnet.org/Software/EMBOSS/
+
+The module was tested with EMBOSS-2.5.1.
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2003 Peter Ernst <P.Ernst@dkfz-heidelberg.de>
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
+
