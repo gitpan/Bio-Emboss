@@ -1,7 +1,7 @@
 /* ***************************************************
    This header file was created 
      by scripts/create_cpp_undefs_redefs.pl 
-     on Fri Jan 31 00:55:00 2003 GMT 
+     on Thu Jun 19 00:16:22 2003 GMT 
 
    This is a wrapper arround #include "emboss.h"
    ***************************************************
@@ -24,10 +24,6 @@
 #undef apply
 #endif
 
-#ifdef do_open
-#define do_open_BACKUP_BIO_EMBOSS do_open
-#undef do_open
-#endif
 
 #ifdef regexp
 #define regexp_BACKUP_BIO_EMBOSS regexp
@@ -59,7 +55,7 @@
 #endif
 
 #define regexp regexp_BACKUP_BIO_EMBOSS
-#undef regexp_BACKUP_BIO_EMBOSS
+/* #undef regexp_BACKUP_BIO_EMBOSS */
 #endif
 
 #ifdef ELSE_BACKUP_BIO_EMBOSS
@@ -69,7 +65,7 @@
 #endif
 
 #define ELSE ELSE_BACKUP_BIO_EMBOSS
-#undef ELSE_BACKUP_BIO_EMBOSS
+/* #undef ELSE_BACKUP_BIO_EMBOSS */
 #endif
 
 #ifdef WORD_BACKUP_BIO_EMBOSS
@@ -79,7 +75,7 @@
 #endif
 
 #define WORD WORD_BACKUP_BIO_EMBOSS
-#undef WORD_BACKUP_BIO_EMBOSS
+/* #undef WORD_BACKUP_BIO_EMBOSS */
 #endif
 
 #ifdef apply_BACKUP_BIO_EMBOSS
@@ -89,16 +85,6 @@
 #endif
 
 #define apply apply_BACKUP_BIO_EMBOSS
-#undef apply_BACKUP_BIO_EMBOSS
-#endif
-
-#ifdef do_open_BACKUP_BIO_EMBOSS
-
-#ifdef do_open
-#undef do_open
-#endif
-
-#define do_open do_open_BACKUP_BIO_EMBOSS
-#undef do_open_BACKUP_BIO_EMBOSS
+/* #undef apply_BACKUP_BIO_EMBOSS */
 #endif
 

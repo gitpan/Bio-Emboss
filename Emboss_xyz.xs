@@ -318,15 +318,6 @@ ajXyzScopToScophit (source, target)
        target
 
 ajint
-ajXyzScopBinSearch (id, arr, siz)
-       AjPStr id
-       AjPScop &arr
-       ajint siz
-    OUTPUT:
-       RETVAL
-       arr
-
-ajint
 ajXyzScopCompId (hit1, hit2)
        char *hit1
        char *hit2

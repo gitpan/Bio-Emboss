@@ -105,10 +105,6 @@ ajReportWriteTail (thys, ftable, seq)
        AjPFeattable ftable
        AjPSeq seq
 
-void
-ajReportTrace (thys)
-       AjPReport thys
-
 AjBool
 ajReportValid (thys)
        AjPReport thys
@@ -120,10 +116,6 @@ ajReportWrite (thys, ftable, seq)
        AjPReport thys
        AjPFeattable ftable
        AjPSeq seq
-
-void
-ajReportWriteClose (thys)
-       AjPReport thys
 
 void
 ajReportWriteHeader (thys, ftable, seq)

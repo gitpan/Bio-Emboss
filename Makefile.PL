@@ -16,7 +16,7 @@ $EMB_ROOT     = "/usr/local";
 
 # --- path to EMBOSS' sources (for the *.h files)
 
-$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.5.1";
+$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
 
 
 # --- external libraries required by EMBOSS
@@ -63,7 +63,7 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 # --- solving name conflicts Perl <-> Emboss:
 
 # --- some Perl defines need to be undefined for EMBOSS
-@emboss_undefs = qw(ELSE WORD apply do_open);
+@emboss_undefs = qw(ELSE WORD apply);
 # --- some EMBOSS terms need to be redefined, because they are
 #     already used by Perl
 @emboss_redefs = qw(regexp);

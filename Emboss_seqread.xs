@@ -91,13 +91,6 @@ ajSeqinSetRange (seqin, ibegin, iend)
        ajint ibegin
        ajint iend
 
-AjBool
-ajSeqReadSelex (inf, outf)
-       AjPFile inf
-       AjPFile outf
-    OUTPUT:
-       RETVAL
-
 void
 ajSeqinUsa (pthis, Usa)
        AjPSeqin& pthis

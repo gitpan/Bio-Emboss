@@ -81,7 +81,7 @@ sub print_undefs_undo {
 #endif
 
 #define $_ ${_}_BACKUP_${tag}
-#undef ${_}_BACKUP_${tag}
+/* #undef ${_}_BACKUP_${tag} */
 #endif
 
 EOB

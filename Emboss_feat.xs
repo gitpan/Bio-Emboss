@@ -11,43 +11,9 @@ MODULE = Bio::Emboss_feat		PACKAGE = Bio::Emboss
 
  # code from ajfeat.h: automatically generated
 
-AjPFeature
-ajFeatAdd (thys, type, start, end, score, strand, frame, desc)
-       AjPFeattable thys
-       AjPStr type
-       ajint start
-       ajint end
-       float score
-       char strand
-       ajint frame
-       AjPStr desc
-    OUTPUT:
-       RETVAL
-
-AjPFeature
-ajFeatAddC (thys, type, start, end, score, strand, frame, desc)
-       AjPFeattable thys
-       char* type
-       ajint start
-       ajint end
-       float score
-       char strand
-       ajint frame
-       AjPStr desc
-    OUTPUT:
-       RETVAL
-
 AjBool
 ajFeatIsChild (gf)
        AjPFeature gf
-    OUTPUT:
-       RETVAL
-
-void *
-ajFeatClearTag (thys, table, tag)
-       AjPFeature thys
-       AjPFeattable table
-       AjPStr tag
     OUTPUT:
        RETVAL
 
@@ -518,12 +484,6 @@ ajFeattabOutSet (thys, ufo)
     OUTPUT:
        RETVAL
 
-AjPFeattable
-ajFeattabRead (ftin)
-       AjPFeattabIn ftin
-    OUTPUT:
-       RETVAL
-
 void
 ajFeatTagAdd (thys, tag, value)
        AjPFeature thys
@@ -606,10 +566,6 @@ ajFeatTest ()
 void
 ajFeatTrace (thys)
        AjPFeature thys
-
-void
-ajFeatTraceOld (thys)
-       AjPFeattable thys
 
 AjBool
 ajFeatUfoRead (pthis, tabin, Ufo)

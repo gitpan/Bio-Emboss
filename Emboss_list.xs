@@ -38,11 +38,6 @@ ajListInsert (iter, x)
        AjIList iter
        char * x
 
-void
-ajListInsertOld (iter, x)
-       AjIList iter
-       char * x
-
 AjIList
 ajListIter (listhead)
        AjPList listhead

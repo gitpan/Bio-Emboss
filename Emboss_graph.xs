@@ -161,22 +161,6 @@ ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
        yoff
 
 void
-ajGraphGetOutputDeviceParams (xp, yp, xleng, yleng, xoff, yoff)
-       float &xp
-       float &yp
-       ajint &xleng
-       ajint &yleng
-       ajint &xoff
-       ajint &yoff
-    OUTPUT:
-       xp
-       yp
-       xleng
-       yleng
-       xoff
-       yoff
-
-void
 ajGraphHoriBars (numofpoints, y, xmin, xmax)
        ajint numofpoints
        PLFLT *y
@@ -572,10 +556,6 @@ ajGraphxyNewI (numofpoints)
        RETVAL
 
 void
-ajGraphxyPrint (graphs)
-       AjPGraph graphs
-
-void
 ajGraphxyCheckMaxMin (graphs)
        AjPGraph graphs
 
@@ -771,10 +751,6 @@ void
 ajGraphxyTitleC (graphs, title)
        AjPGraph graphs
        char *title
-
-void
-ajGraphxyTrace (thys)
-       AjPGraph thys
 
 void
 ajGraphxyXtitle (graphs, title)

@@ -380,12 +380,6 @@ ajSeqCvtNewZero (bases)
     OUTPUT:
        RETVAL
 
-ajint
-ajSeqCvtSize (cvt)
-       AjPSeqCvt cvt
-    OUTPUT:
-       RETVAL
-
 void
 ajSeqCvtTrace (cvt)
        AjPSeqCvt cvt

@@ -17,15 +17,6 @@ ajNamDatabase (name)
        RETVAL
 
 AjBool
-ajNamDbAccess (dbname, qry, method)
-       AjPStr dbname
-       AjPSeqQuery qry
-       AjPStr& method
-    OUTPUT:
-       RETVAL
-       method
-
-AjBool
 ajNamDbDetails (name, type, id, qry, all, comment, release)
        AjPStr name
        AjPStr& type
@@ -42,14 +33,6 @@ ajNamDbDetails (name, type, id, qry, all, comment, release)
        all
        comment
        release
-
-AjBool
-ajNamDbGetAlias (dbname, dbalias)
-       AjPStr dbname
-       AjPStr& dbalias
-    OUTPUT:
-       RETVAL
-       dbalias
 
 AjBool
 ajNamDbGetDbalias (dbname, dbalias)
@@ -90,12 +73,6 @@ ajNamDebugOrigin ()
 
 void
 ajNamDebugDatabases ()
-
-void
-ajNamDebugEnvironmentals ()
-
-void
-ajNamEnvironmentals ()
 
 void
 ajNamExit ()
