@@ -743,6 +743,9 @@
   XS(XS_Bio__Emboss_ajSeqWrite); /* prototype */
   XS(XS_Bio__Emboss_ajSeqWriteClose); /* prototype */
   XS(XS_Bio__Emboss_ajSeqWriteXyz); /* prototype */
+#ifdef HAVE_EMBOSS_2_6_0
+  XS(XS_Bio__Emboss_ajSssWriteXyz); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajCharFree); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewC); /* prototype */
   XS(XS_Bio__Emboss_ajCharNew); /* prototype */
@@ -1103,7 +1106,11 @@
   XS(XS_Bio__Emboss_ajXyzSignatureCompile); /* prototype */
   XS(XS_Bio__Emboss_ajXyzSignatureAlignSeq); /* prototype */
   XS(XS_Bio__Emboss_ajXyzSignatureAlignSeqall); /* prototype */
+#ifdef HAVE_EMBOSS_2_6_0
   XS(XS_Bio__Emboss_ajXyzSignatureHitsWrite); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajXyzSignatureHitsWrite); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajXyzSignatureAlignWrite); /* prototype */
   XS(XS_Bio__Emboss_ajXyzHetentNew); /* prototype */
   XS(XS_Bio__Emboss_ajXyzHetentDel); /* prototype */

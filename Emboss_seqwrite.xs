@@ -4,7 +4,8 @@
 
 #include "ppport.h"
 
-#include "emboss.h"
+#include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_seqwrite		PACKAGE = Bio::Emboss		
 
@@ -117,4 +118,14 @@ ajSeqWriteXyz (outf, seq, prefix)
        AjPFile outf
        AjPStr seq
        char *prefix
+
+#ifdef HAVE_EMBOSS_2_6_0
+
+void
+ajSssWriteXyz (outf, seq, prefix)
+       AjPFile outf
+       AjPStr seq
+       char *prefix
+
+#endif
 

@@ -4,7 +4,8 @@
 
 #include "ppport.h"
 
-#include "emboss.h"
+#include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_xyz		PACKAGE = Bio::Emboss		
 
@@ -1069,6 +1070,19 @@ ajXyzSignatureAlignSeqall (sig, db, n, hits, nterm)
        RETVAL
        hits
 
+#ifdef HAVE_EMBOSS_2_6_0
+
+AjBool
+ajXyzSignatureHitsWrite (outf, sig, hits, n)
+       AjPFile outf
+       AjPSignature sig
+       AjPHitlist hits
+       ajint n
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjBool
 ajXyzSignatureHitsWrite (outf, sig, hits)
        AjPFile outf
@@ -1076,6 +1090,8 @@ ajXyzSignatureHitsWrite (outf, sig, hits)
        AjPHitlist hits
     OUTPUT:
        RETVAL
+
+#endif
 
 AjBool
 ajXyzSignatureAlignWrite (outf, sig, hits)

@@ -7,6 +7,11 @@ while (<>) {
     next unless /^($mregex\w+).*\(.*\)/o;
 
     $method = $1;
+
+    # --- only once
+    next if $m_hash{ $method };
+    $m_hash{ $method } = 1;
+
     push (@methods, $method);
 
     # --- the following line starts with "AjP..." ?

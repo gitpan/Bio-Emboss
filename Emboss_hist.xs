@@ -4,7 +4,7 @@
 
 #include "ppport.h"
 
-#include "emboss.h"
+#include "emboss_perl.h"
 #include "ajhist.h"
 
 MODULE = Bio::Emboss_hist		PACKAGE = Bio::Emboss		

@@ -4,7 +4,7 @@
 
 #include "ppport.h"
 
-#include "emboss.h"
+#include "emboss_perl.h"
 
 MODULE = Bio::Emboss_seqread		PACKAGE = Bio::Emboss		
 

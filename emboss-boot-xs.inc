@@ -744,6 +744,9 @@ BOOT:
         newXS("Bio::Emboss::ajSeqWrite", XS_Bio__Emboss_ajSeqWrite, file);
         newXS("Bio::Emboss::ajSeqWriteClose", XS_Bio__Emboss_ajSeqWriteClose, file);
         newXS("Bio::Emboss::ajSeqWriteXyz", XS_Bio__Emboss_ajSeqWriteXyz, file);
+#ifdef HAVE_EMBOSS_2_6_0
+        newXS("Bio::Emboss::ajSssWriteXyz", XS_Bio__Emboss_ajSssWriteXyz, file);
+#endif
         newXS("Bio::Emboss::ajCharFree", XS_Bio__Emboss_ajCharFree, file);
         newXS("Bio::Emboss::ajCharNewC", XS_Bio__Emboss_ajCharNewC, file);
         newXS("Bio::Emboss::ajCharNew", XS_Bio__Emboss_ajCharNew, file);
@@ -1104,7 +1107,11 @@ BOOT:
         newXS("Bio::Emboss::ajXyzSignatureCompile", XS_Bio__Emboss_ajXyzSignatureCompile, file);
         newXS("Bio::Emboss::ajXyzSignatureAlignSeq", XS_Bio__Emboss_ajXyzSignatureAlignSeq, file);
         newXS("Bio::Emboss::ajXyzSignatureAlignSeqall", XS_Bio__Emboss_ajXyzSignatureAlignSeqall, file);
+#ifdef HAVE_EMBOSS_2_6_0
         newXS("Bio::Emboss::ajXyzSignatureHitsWrite", XS_Bio__Emboss_ajXyzSignatureHitsWrite, file);
+#else
+        newXS("Bio::Emboss::ajXyzSignatureHitsWrite", XS_Bio__Emboss_ajXyzSignatureHitsWrite, file);
+#endif
         newXS("Bio::Emboss::ajXyzSignatureAlignWrite", XS_Bio__Emboss_ajXyzSignatureAlignWrite, file);
         newXS("Bio::Emboss::ajXyzHetentNew", XS_Bio__Emboss_ajXyzHetentNew, file);
         newXS("Bio::Emboss::ajXyzHetentDel", XS_Bio__Emboss_ajXyzHetentDel, file);

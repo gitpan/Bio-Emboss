@@ -4,8 +4,9 @@
 
 #include "ppport.h"
 
-#include "emboss.h"
+#include "emboss_perl.h"
 
+#include "bio_emboss_config.h"
 #include "const-c.inc"
 
 #include "emboss-boot-c.inc" /* prototypes of other modules */
