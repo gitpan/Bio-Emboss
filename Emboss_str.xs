@@ -5,10 +5,68 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_str		PACKAGE = Bio::Emboss		
 
  # code from ajstr.h: automatically generated
+
+
+#ifdef HAVE_EMBOSS_2_9_0
+
+void
+ajCharFree (txt)
+       char*& txt
+    OUTPUT:
+       txt
+
+char*
+ajCharNewC (txt)
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+void
+ajStrFix (pthys)
+       AjPStr& pthys
+    OUTPUT:
+       pthys
+
+void
+ajStrFixI (pthys, ilen)
+       AjPStr& pthys
+       ajint ilen
+    OUTPUT:
+       pthys
+
+void
+ajStrFixTestI (pthis, ilen)
+       AjPStr& pthis
+       ajint ilen
+    OUTPUT:
+       pthis
+
+const char*
+ajStrStr (thys)
+       const AjPStr thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrTokenCount (line, delim)
+       const AjPStr  line
+       const char *delim
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrTokenCountR (line, delim)
+       const AjPStr  line
+       const char *delim
+    OUTPUT:
+       RETVAL
+
+#else
 
 char*
 ajCharFree (txt)
@@ -22,6 +80,44 @@ ajCharNewC (len, txt)
        char* txt
     OUTPUT:
        RETVAL
+
+void
+ajStrFix (thys)
+       AjPStr thys
+
+void
+ajStrFixI (thys, ilen)
+       AjPStr thys
+       ajint ilen
+
+void
+ajStrFixTestI (thys, ilen)
+       AjPStr thys
+       ajint ilen
+
+char*
+ajStrStr (thys)
+       AjPStr thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrTokenCount (line, delim)
+       AjPStr &line
+       char *delim
+    OUTPUT:
+       RETVAL
+       line
+
+ajint
+ajStrTokenCountR (line, delim)
+       AjPStr& line
+       char *delim
+    OUTPUT:
+       RETVAL
+       line
+
+#endif
 
 char*
 ajCharNew (thys)
@@ -443,20 +539,6 @@ ajStrFill (thys, count, fill)
        char fill
     OUTPUT:
        thys
-
-void
-ajStrFix (thys)
-       AjPStr thys
-
-void
-ajStrFixI (thys, ilen)
-       AjPStr thys
-       ajint ilen
-
-void
-ajStrFixTestI (thys, ilen)
-       AjPStr thys
-       ajint ilen
 
 AjBool
 ajStrFromBool (pthis, boule)
@@ -1018,12 +1100,6 @@ void
 ajStrStat (title)
        char* title
 
-char*
-ajStrStr (thys)
-       AjPStr thys
-    OUTPUT:
-       RETVAL
-
 AjBool
 ajStrSub (pthis, begin, len)
        AjPStr& pthis
@@ -1165,22 +1241,6 @@ ajStrTokenClear (token)
        AjPStrTok &token
     OUTPUT:
        token
-
-ajint
-ajStrTokenCount (line, delim)
-       AjPStr &line
-       char *delim
-    OUTPUT:
-       RETVAL
-       line
-
-ajint
-ajStrTokenCountR (line, delim)
-       AjPStr& line
-       char *delim
-    OUTPUT:
-       RETVAL
-       line
 
 AjPStrTok
 ajStrTokenInit (thys, delim)

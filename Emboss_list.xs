@@ -5,15 +5,39 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_list		PACKAGE = Bio::Emboss		
 
  # code from ajlist.h: automatically generated
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+void
+ajListAppend (list, tail)
+       AjPList list
+       AjPListNode &tail
+    OUTPUT:
+       tail
+
+void
+ajListIterFree (iter)
+       AjIList &iter
+    OUTPUT:
+       iter
+
+#else
+
 void
 ajListAppend (list, tail)
        AjPList list
        AjPListNode tail
+
+void
+ajListIterFree (iter)
+       AjIList iter
+
+#endif
 
 AjPList
 ajListCopy (list)
@@ -67,10 +91,6 @@ ajListIterBackNext (iter)
        AjIList iter
     OUTPUT:
        RETVAL
-
-void
-ajListIterFree (iter)
-       AjIList iter
 
 void*
 ajListIterNext (iter)

@@ -22,11 +22,19 @@ BOOT:
         newXS("Bio::Emboss::ajAcdGetMatrix", XS_Bio__Emboss_ajAcdGetMatrix, file);
         newXS("Bio::Emboss::ajAcdGetMatrixf", XS_Bio__Emboss_ajAcdGetMatrixf, file);
         newXS("Bio::Emboss::ajAcdGetOutfile", XS_Bio__Emboss_ajAcdGetOutfile, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajAcdGetCpdb", XS_Bio__Emboss_ajAcdGetCpdb, file);
+#else
+        newXS("Bio::Emboss::ajAcdGetCpdb", XS_Bio__Emboss_ajAcdGetCpdb, file);
+#endif
         newXS("Bio::Emboss::ajAcdGetRange", XS_Bio__Emboss_ajAcdGetRange, file);
         newXS("Bio::Emboss::ajAcdGetRegexp", XS_Bio__Emboss_ajAcdGetRegexp, file);
         newXS("Bio::Emboss::ajAcdGetReport", XS_Bio__Emboss_ajAcdGetReport, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajAcdGetScop", XS_Bio__Emboss_ajAcdGetScop, file);
+#else
+        newXS("Bio::Emboss::ajAcdGetScop", XS_Bio__Emboss_ajAcdGetScop, file);
+#endif
         newXS("Bio::Emboss::ajAcdGetSelect", XS_Bio__Emboss_ajAcdGetSelect, file);
         newXS("Bio::Emboss::ajAcdGetSelectI", XS_Bio__Emboss_ajAcdGetSelectI, file);
         newXS("Bio::Emboss::ajAcdGetSeq", XS_Bio__Emboss_ajAcdGetSeq, file);
@@ -37,13 +45,25 @@ BOOT:
         newXS("Bio::Emboss::ajAcdGetSeqset", XS_Bio__Emboss_ajAcdGetSeqset, file);
         newXS("Bio::Emboss::ajAcdGetString", XS_Bio__Emboss_ajAcdGetString, file);
         newXS("Bio::Emboss::ajAcdPrintType", XS_Bio__Emboss_ajAcdPrintType, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajAcdProgram", XS_Bio__Emboss_ajAcdProgram, file);
+#else
+        newXS("Bio::Emboss::ajAcdProgram", XS_Bio__Emboss_ajAcdProgram, file);
+#endif
         newXS("Bio::Emboss::ajAcdProgramS", XS_Bio__Emboss_ajAcdProgramS, file);
         newXS("Bio::Emboss::ajAcdStdout", XS_Bio__Emboss_ajAcdStdout, file);
         newXS("Bio::Emboss::ajAcdValue", XS_Bio__Emboss_ajAcdValue, file);
         newXS("Bio::Emboss::ajFeatIsChild", XS_Bio__Emboss_ajFeatIsChild, file);
         newXS("Bio::Emboss::ajFeatIsCompMult", XS_Bio__Emboss_ajFeatIsCompMult, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajFeatCopy", XS_Bio__Emboss_ajFeatCopy, file);
+        newXS("Bio::Emboss::ajFeattableCopy", XS_Bio__Emboss_ajFeattableCopy, file);
+        newXS("Bio::Emboss::ajFeatUfoRead", XS_Bio__Emboss_ajFeatUfoRead, file);
+#else
+        newXS("Bio::Emboss::ajFeatCopy", XS_Bio__Emboss_ajFeatCopy, file);
+        newXS("Bio::Emboss::ajFeattableCopy", XS_Bio__Emboss_ajFeattableCopy, file);
+        newXS("Bio::Emboss::ajFeatUfoRead", XS_Bio__Emboss_ajFeatUfoRead, file);
+#endif
         newXS("Bio::Emboss::ajFeatDel", XS_Bio__Emboss_ajFeatDel, file);
         newXS("Bio::Emboss::ajFeatExit", XS_Bio__Emboss_ajFeatExit, file);
         newXS("Bio::Emboss::ajFeatGetEnd", XS_Bio__Emboss_ajFeatGetEnd, file);
@@ -77,7 +97,6 @@ BOOT:
         newXS("Bio::Emboss::ajFeattableAdd", XS_Bio__Emboss_ajFeattableAdd, file);
         newXS("Bio::Emboss::ajFeattableBegin", XS_Bio__Emboss_ajFeattableBegin, file);
         newXS("Bio::Emboss::ajFeattableClear", XS_Bio__Emboss_ajFeattableClear, file);
-        newXS("Bio::Emboss::ajFeattableCopy", XS_Bio__Emboss_ajFeattableCopy, file);
         newXS("Bio::Emboss::ajFeattableDel", XS_Bio__Emboss_ajFeattableDel, file);
         newXS("Bio::Emboss::ajFeattableEnd", XS_Bio__Emboss_ajFeattableEnd, file);
         newXS("Bio::Emboss::ajFeattableGetName", XS_Bio__Emboss_ajFeattableGetName, file);
@@ -131,7 +150,6 @@ BOOT:
         newXS("Bio::Emboss::ajFeatTagval", XS_Bio__Emboss_ajFeatTagval, file);
         newXS("Bio::Emboss::ajFeatTest", XS_Bio__Emboss_ajFeatTest, file);
         newXS("Bio::Emboss::ajFeatTrace", XS_Bio__Emboss_ajFeatTrace, file);
-        newXS("Bio::Emboss::ajFeatUfoRead", XS_Bio__Emboss_ajFeatUfoRead, file);
         newXS("Bio::Emboss::ajFeatUfoWrite", XS_Bio__Emboss_ajFeatUfoWrite, file);
         newXS("Bio::Emboss::ajFeatWrite", XS_Bio__Emboss_ajFeatWrite, file);
         newXS("Bio::Emboss::ajFileBuffClear", XS_Bio__Emboss_ajFileBuffClear, file);
@@ -163,7 +181,9 @@ BOOT:
         newXS("Bio::Emboss::ajFileBuffSetFile", XS_Bio__Emboss_ajFileBuffSetFile, file);
         newXS("Bio::Emboss::ajFileBuffSize", XS_Bio__Emboss_ajFileBuffSize, file);
         newXS("Bio::Emboss::ajFileBuffStripHtml", XS_Bio__Emboss_ajFileBuffStripHtml, file);
+#ifndef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajFileBuffStripSrs", XS_Bio__Emboss_ajFileBuffStripSrs, file);
+#endif
         newXS("Bio::Emboss::ajFileBuffTrace", XS_Bio__Emboss_ajFileBuffTrace, file);
         newXS("Bio::Emboss::ajFileBuffTraceFull", XS_Bio__Emboss_ajFileBuffTraceFull, file);
         newXS("Bio::Emboss::ajFileClose", XS_Bio__Emboss_ajFileClose, file);
@@ -215,12 +235,20 @@ BOOT:
         newXS("Bio::Emboss::ajFileReadUint", XS_Bio__Emboss_ajFileReadUint, file);
         newXS("Bio::Emboss::ajFileScan", XS_Bio__Emboss_ajFileScan, file);
         newXS("Bio::Emboss::ajFileSeek", XS_Bio__Emboss_ajFileSeek, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajFileStat", XS_Bio__Emboss_ajFileStat, file);
+#else
+        newXS("Bio::Emboss::ajFileStat", XS_Bio__Emboss_ajFileStat, file);
+#endif
         newXS("Bio::Emboss::ajFileStderr", XS_Bio__Emboss_ajFileStderr, file);
         newXS("Bio::Emboss::ajFileStdin", XS_Bio__Emboss_ajFileStdin, file);
         newXS("Bio::Emboss::ajFileStdout", XS_Bio__Emboss_ajFileStdout, file);
         newXS("Bio::Emboss::ajFileTell", XS_Bio__Emboss_ajFileTell, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajFileTempName", XS_Bio__Emboss_ajFileTempName, file);
+#else
+        newXS("Bio::Emboss::ajFileTempName", XS_Bio__Emboss_ajFileTempName, file);
+#endif
         newXS("Bio::Emboss::ajFileTestSkip", XS_Bio__Emboss_ajFileTestSkip, file);
         newXS("Bio::Emboss::ajFileTrace", XS_Bio__Emboss_ajFileTrace, file);
         newXS("Bio::Emboss::ajFileUnbuffer", XS_Bio__Emboss_ajFileUnbuffer, file);
@@ -231,148 +259,16 @@ BOOT:
         newXS("Bio::Emboss::ajFileWriteInt4", XS_Bio__Emboss_ajFileWriteInt4, file);
         newXS("Bio::Emboss::ajFileWriteInt8", XS_Bio__Emboss_ajFileWriteInt8, file);
         newXS("Bio::Emboss::ajFileWriteStr", XS_Bio__Emboss_ajFileWriteStr, file);
-        newXS("Bio::Emboss::ajGraphBox", XS_Bio__Emboss_ajGraphBox, file);
-        newXS("Bio::Emboss::ajGraphBoxFill", XS_Bio__Emboss_ajGraphBoxFill, file);
-        newXS("Bio::Emboss::ajGraphCheckColour", XS_Bio__Emboss_ajGraphCheckColour, file);
-        newXS("Bio::Emboss::ajGraphCircle", XS_Bio__Emboss_ajGraphCircle, file);
-        newXS("Bio::Emboss::ajGraphClose", XS_Bio__Emboss_ajGraphClose, file);
-        newXS("Bio::Emboss::ajGraphCloseWin", XS_Bio__Emboss_ajGraphCloseWin, file);
-        newXS("Bio::Emboss::ajGraphColourBack", XS_Bio__Emboss_ajGraphColourBack, file);
-        newXS("Bio::Emboss::ajGraphColourFore", XS_Bio__Emboss_ajGraphColourFore, file);
-        newXS("Bio::Emboss::ajGraphDataDel", XS_Bio__Emboss_ajGraphDataDel, file);
-        newXS("Bio::Emboss::ajGraphDataObjAddLine", XS_Bio__Emboss_ajGraphDataObjAddLine, file);
-        newXS("Bio::Emboss::ajGraphDataObjAddRect", XS_Bio__Emboss_ajGraphDataObjAddRect, file);
-        newXS("Bio::Emboss::ajGraphDataObjAddText", XS_Bio__Emboss_ajGraphDataObjAddText, file);
-        newXS("Bio::Emboss::ajGraphDataxySetMaxMin", XS_Bio__Emboss_ajGraphDataxySetMaxMin, file);
-        newXS("Bio::Emboss::ajGraphDataxyMaxMin", XS_Bio__Emboss_ajGraphDataxyMaxMin, file);
-        newXS("Bio::Emboss::ajGraphDataxySetMaxima", XS_Bio__Emboss_ajGraphDataxySetMaxima, file);
-        newXS("Bio::Emboss::ajGraphDataxySetTypeC", XS_Bio__Emboss_ajGraphDataxySetTypeC, file);
-        newXS("Bio::Emboss::ajGraphDia", XS_Bio__Emboss_ajGraphDia, file);
-        newXS("Bio::Emboss::ajGraphDiaFill", XS_Bio__Emboss_ajGraphDiaFill, file);
-        newXS("Bio::Emboss::ajGraphDots", XS_Bio__Emboss_ajGraphDots, file);
-        newXS("Bio::Emboss::ajGraphDumpDevices", XS_Bio__Emboss_ajGraphDumpDevices, file);
-        newXS("Bio::Emboss::ajGraphGetCharSize", XS_Bio__Emboss_ajGraphGetCharSize, file);
-        newXS("Bio::Emboss::ajGraphGetColour", XS_Bio__Emboss_ajGraphGetColour, file);
-        newXS("Bio::Emboss::ajGraphGetOut", XS_Bio__Emboss_ajGraphGetOut, file);
-        newXS("Bio::Emboss::ajGraphHoriBars", XS_Bio__Emboss_ajGraphHoriBars, file);
-        newXS("Bio::Emboss::ajGraphInfo", XS_Bio__Emboss_ajGraphInfo, file);
-        newXS("Bio::Emboss::ajGraphInitSeq", XS_Bio__Emboss_ajGraphInitSeq, file);
-        newXS("Bio::Emboss::ajGraphLabel", XS_Bio__Emboss_ajGraphLabel, file);
-        newXS("Bio::Emboss::ajGraphLabelYRight", XS_Bio__Emboss_ajGraphLabelYRight, file);
-        newXS("Bio::Emboss::ajGraphLine", XS_Bio__Emboss_ajGraphLine, file);
-        newXS("Bio::Emboss::ajGraphLines", XS_Bio__Emboss_ajGraphLines, file);
-        newXS("Bio::Emboss::ajGraphNew", XS_Bio__Emboss_ajGraphNew, file);
-        newXS("Bio::Emboss::ajGraphNewPage", XS_Bio__Emboss_ajGraphNewPage, file);
-        newXS("Bio::Emboss::ajGraphObjAddLine", XS_Bio__Emboss_ajGraphObjAddLine, file);
-        newXS("Bio::Emboss::ajGraphObjAddRect", XS_Bio__Emboss_ajGraphObjAddRect, file);
-        newXS("Bio::Emboss::ajGraphObjAddText", XS_Bio__Emboss_ajGraphObjAddText, file);
-        newXS("Bio::Emboss::ajGraphObjDel", XS_Bio__Emboss_ajGraphObjDel, file);
-        newXS("Bio::Emboss::ajGraphDataObjDel", XS_Bio__Emboss_ajGraphDataObjDel, file);
-        newXS("Bio::Emboss::ajGraphOpen", XS_Bio__Emboss_ajGraphOpen, file);
-        newXS("Bio::Emboss::ajGraphOpenPlot", XS_Bio__Emboss_ajGraphOpenPlot, file);
-        newXS("Bio::Emboss::ajGraphOpenWin", XS_Bio__Emboss_ajGraphOpenWin, file);
-        newXS("Bio::Emboss::ajGraphPlenv", XS_Bio__Emboss_ajGraphPlenv, file);
-        newXS("Bio::Emboss::ajGraphPoly", XS_Bio__Emboss_ajGraphPoly, file);
-        newXS("Bio::Emboss::ajGraphPolyFill", XS_Bio__Emboss_ajGraphPolyFill, file);
-        newXS("Bio::Emboss::ajGraphPrintType", XS_Bio__Emboss_ajGraphPrintType, file);
-        newXS("Bio::Emboss::ajGraphRect", XS_Bio__Emboss_ajGraphRect, file);
-        newXS("Bio::Emboss::ajGraphRectFill", XS_Bio__Emboss_ajGraphRectFill, file);
-        newXS("Bio::Emboss::ajGraphSet", XS_Bio__Emboss_ajGraphSet, file);
-        newXS("Bio::Emboss::ajGraphSetDevice", XS_Bio__Emboss_ajGraphSetDevice, file);
-        newXS("Bio::Emboss::ajGraphSetCharSize", XS_Bio__Emboss_ajGraphSetCharSize, file);
-        newXS("Bio::Emboss::ajGraphSetBackBlack", XS_Bio__Emboss_ajGraphSetBackBlack, file);
-        newXS("Bio::Emboss::ajGraphSetBackWhite", XS_Bio__Emboss_ajGraphSetBackWhite, file);
-        newXS("Bio::Emboss::ajGraphSetPenWidth", XS_Bio__Emboss_ajGraphSetPenWidth, file);
-        newXS("Bio::Emboss::ajGraphSetFillPat", XS_Bio__Emboss_ajGraphSetFillPat, file);
-        newXS("Bio::Emboss::ajGraphSetFore", XS_Bio__Emboss_ajGraphSetFore, file);
-        newXS("Bio::Emboss::ajGraphSetLineStyle", XS_Bio__Emboss_ajGraphSetLineStyle, file);
-        newXS("Bio::Emboss::ajGraphSetMulti", XS_Bio__Emboss_ajGraphSetMulti, file);
-        newXS("Bio::Emboss::ajGraphSetName", XS_Bio__Emboss_ajGraphSetName, file);
-        newXS("Bio::Emboss::ajGraphSetOri", XS_Bio__Emboss_ajGraphSetOri, file);
-        newXS("Bio::Emboss::ajGraphSymbols", XS_Bio__Emboss_ajGraphSymbols, file);
-        newXS("Bio::Emboss::ajGraphText", XS_Bio__Emboss_ajGraphText, file);
-        newXS("Bio::Emboss::ajGraphTextEnd", XS_Bio__Emboss_ajGraphTextEnd, file);
-        newXS("Bio::Emboss::ajGraphTextMid", XS_Bio__Emboss_ajGraphTextMid, file);
-        newXS("Bio::Emboss::ajGraphTextLine", XS_Bio__Emboss_ajGraphTextLine, file);
-        newXS("Bio::Emboss::ajGraphTextStart", XS_Bio__Emboss_ajGraphTextStart, file);
-        newXS("Bio::Emboss::ajGraphTrace", XS_Bio__Emboss_ajGraphTrace, file);
-        newXS("Bio::Emboss::ajGraphTraceInt", XS_Bio__Emboss_ajGraphTraceInt, file);
-        newXS("Bio::Emboss::ajGraphTri", XS_Bio__Emboss_ajGraphTri, file);
-        newXS("Bio::Emboss::ajGraphTriFill", XS_Bio__Emboss_ajGraphTriFill, file);
-        newXS("Bio::Emboss::ajGraphUnused", XS_Bio__Emboss_ajGraphUnused, file);
-        newXS("Bio::Emboss::ajGraphVertBars", XS_Bio__Emboss_ajGraphVertBars, file);
-        newXS("Bio::Emboss::ajGraphxyAddDataCalcPtr", XS_Bio__Emboss_ajGraphxyAddDataCalcPtr, file);
-        newXS("Bio::Emboss::ajGraphxyAddDataPtrPtr", XS_Bio__Emboss_ajGraphxyAddDataPtrPtr, file);
-        newXS("Bio::Emboss::ajGraphxyAddGraph", XS_Bio__Emboss_ajGraphxyAddGraph, file);
-        newXS("Bio::Emboss::ajGraphxyReplaceGraph", XS_Bio__Emboss_ajGraphxyReplaceGraph, file);
-        newXS("Bio::Emboss::ajGraphxyDataNew", XS_Bio__Emboss_ajGraphxyDataNew, file);
-        newXS("Bio::Emboss::ajGraphxyDataNewI", XS_Bio__Emboss_ajGraphxyDataNewI, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetSubtitle", XS_Bio__Emboss_ajGraphxyDataSetSubtitle, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetSubtitleC", XS_Bio__Emboss_ajGraphxyDataSetSubtitleC, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetTitle", XS_Bio__Emboss_ajGraphxyDataSetTitle, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetTitleC", XS_Bio__Emboss_ajGraphxyDataSetTitleC, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetXtitle", XS_Bio__Emboss_ajGraphxyDataSetXtitle, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetXtitleC", XS_Bio__Emboss_ajGraphxyDataSetXtitleC, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetYtitle", XS_Bio__Emboss_ajGraphxyDataSetYtitle, file);
-        newXS("Bio::Emboss::ajGraphxyDataSetYtitleC", XS_Bio__Emboss_ajGraphxyDataSetYtitleC, file);
-        newXS("Bio::Emboss::ajGraphxyDel", XS_Bio__Emboss_ajGraphxyDel, file);
-        newXS("Bio::Emboss::ajGraphxyDisplay", XS_Bio__Emboss_ajGraphxyDisplay, file);
-        newXS("Bio::Emboss::ajGraphxyInitGraphCalcPtr", XS_Bio__Emboss_ajGraphxyInitGraphCalcPtr, file);
-        newXS("Bio::Emboss::ajGraphxyNewI", XS_Bio__Emboss_ajGraphxyNewI, file);
-        newXS("Bio::Emboss::ajGraphxyCheckMaxMin", XS_Bio__Emboss_ajGraphxyCheckMaxMin, file);
-        newXS("Bio::Emboss::ajGraphxySet", XS_Bio__Emboss_ajGraphxySet, file);
-        newXS("Bio::Emboss::ajGraphxySetCirclePoints", XS_Bio__Emboss_ajGraphxySetCirclePoints, file);
-        newXS("Bio::Emboss::ajGraphxySetColour", XS_Bio__Emboss_ajGraphxySetColour, file);
-        newXS("Bio::Emboss::ajGraphxySetFlag", XS_Bio__Emboss_ajGraphxySetFlag, file);
-        newXS("Bio::Emboss::ajGraphxySetGaps", XS_Bio__Emboss_ajGraphxySetGaps, file);
-        newXS("Bio::Emboss::ajGraphxySetJoinPoints", XS_Bio__Emboss_ajGraphxySetJoinPoints, file);
-        newXS("Bio::Emboss::ajGraphxySetLineType", XS_Bio__Emboss_ajGraphxySetLineType, file);
-        newXS("Bio::Emboss::ajGraphxySetMaxMin", XS_Bio__Emboss_ajGraphxySetMaxMin, file);
-        newXS("Bio::Emboss::ajGraphxySetOut", XS_Bio__Emboss_ajGraphxySetOut, file);
-        newXS("Bio::Emboss::ajGraphxySetOutC", XS_Bio__Emboss_ajGraphxySetOutC, file);
-        newXS("Bio::Emboss::ajGraphxySetOverLap", XS_Bio__Emboss_ajGraphxySetOverLap, file);
-        newXS("Bio::Emboss::ajGraphxySetSubtitleDo", XS_Bio__Emboss_ajGraphxySetSubtitleDo, file);
-        newXS("Bio::Emboss::ajGraphxySetTitleDo", XS_Bio__Emboss_ajGraphxySetTitleDo, file);
-        newXS("Bio::Emboss::ajGraphxySetXBottom", XS_Bio__Emboss_ajGraphxySetXBottom, file);
-        newXS("Bio::Emboss::ajGraphxySetXLabelTop", XS_Bio__Emboss_ajGraphxySetXLabelTop, file);
-        newXS("Bio::Emboss::ajGraphxySetXTick", XS_Bio__Emboss_ajGraphxySetXTick, file);
-        newXS("Bio::Emboss::ajGraphxySetXTop", XS_Bio__Emboss_ajGraphxySetXTop, file);
-        newXS("Bio::Emboss::ajGraphxySetXEnd", XS_Bio__Emboss_ajGraphxySetXEnd, file);
-        newXS("Bio::Emboss::ajGraphxySetXGrid", XS_Bio__Emboss_ajGraphxySetXGrid, file);
-        newXS("Bio::Emboss::ajGraphxySetXInvTicks", XS_Bio__Emboss_ajGraphxySetXInvTicks, file);
-        newXS("Bio::Emboss::ajGraphxySetXLabel", XS_Bio__Emboss_ajGraphxySetXLabel, file);
-        newXS("Bio::Emboss::ajGraphxySetXRangeII", XS_Bio__Emboss_ajGraphxySetXRangeII, file);
-        newXS("Bio::Emboss::ajGraphxySetXStart", XS_Bio__Emboss_ajGraphxySetXStart, file);
-        newXS("Bio::Emboss::ajGraphxySetYLabelLeft", XS_Bio__Emboss_ajGraphxySetYLabelLeft, file);
-        newXS("Bio::Emboss::ajGraphxySetYLeft", XS_Bio__Emboss_ajGraphxySetYLeft, file);
-        newXS("Bio::Emboss::ajGraphxySetYRight", XS_Bio__Emboss_ajGraphxySetYRight, file);
-        newXS("Bio::Emboss::ajGraphxySetYTick", XS_Bio__Emboss_ajGraphxySetYTick, file);
-        newXS("Bio::Emboss::ajGraphxySetYEnd", XS_Bio__Emboss_ajGraphxySetYEnd, file);
-        newXS("Bio::Emboss::ajGraphxySetYGrid", XS_Bio__Emboss_ajGraphxySetYGrid, file);
-        newXS("Bio::Emboss::ajGraphxySetYInvTicks", XS_Bio__Emboss_ajGraphxySetYInvTicks, file);
-        newXS("Bio::Emboss::ajGraphxySetYLabel", XS_Bio__Emboss_ajGraphxySetYLabel, file);
-        newXS("Bio::Emboss::ajGraphxySetYRangeII", XS_Bio__Emboss_ajGraphxySetYRangeII, file);
-        newXS("Bio::Emboss::ajGraphxySetYStart", XS_Bio__Emboss_ajGraphxySetYStart, file);
-        newXS("Bio::Emboss::ajGraphxySubtitle", XS_Bio__Emboss_ajGraphxySubtitle, file);
-        newXS("Bio::Emboss::ajGraphxySubtitleC", XS_Bio__Emboss_ajGraphxySubtitleC, file);
-        newXS("Bio::Emboss::ajGraphxyTitle", XS_Bio__Emboss_ajGraphxyTitle, file);
-        newXS("Bio::Emboss::ajGraphxyTitleC", XS_Bio__Emboss_ajGraphxyTitleC, file);
-        newXS("Bio::Emboss::ajGraphxyXtitle", XS_Bio__Emboss_ajGraphxyXtitle, file);
-        newXS("Bio::Emboss::ajGraphxyXtitleC", XS_Bio__Emboss_ajGraphxyXtitleC, file);
-        newXS("Bio::Emboss::ajGraphxyYtitle", XS_Bio__Emboss_ajGraphxyYtitle, file);
-        newXS("Bio::Emboss::ajGraphxyYtitleC", XS_Bio__Emboss_ajGraphxyYtitleC, file);
-        newXS("Bio::Emboss::ajGraphPartCircle", XS_Bio__Emboss_ajGraphPartCircle, file);
-        newXS("Bio::Emboss::ajGraphDrawTextOnCurve", XS_Bio__Emboss_ajGraphDrawTextOnCurve, file);
-        newXS("Bio::Emboss::ajGraphRectangleOnCurve", XS_Bio__Emboss_ajGraphRectangleOnCurve, file);
-        newXS("Bio::Emboss::ajGraphTextLength", XS_Bio__Emboss_ajGraphTextLength, file);
-        newXS("Bio::Emboss::ajGraphTextHeight", XS_Bio__Emboss_ajGraphTextHeight, file);
-        newXS("Bio::Emboss::ajGraphDistPts", XS_Bio__Emboss_ajGraphDistPts, file);
-        newXS("Bio::Emboss::ajGraphFitTextOnLine", XS_Bio__Emboss_ajGraphFitTextOnLine, file);
-        newXS("Bio::Emboss::ajGraphSetDefCharSize", XS_Bio__Emboss_ajGraphSetDefCharSize, file);
-        newXS("Bio::Emboss::ajGraphFillRectangleOnCurve", XS_Bio__Emboss_ajGraphFillRectangleOnCurve, file);
+#ifdef HAVE_EMBOSS_2_9_0
+#else
+#endif
         newXS("Bio::Emboss::ajHistClose", XS_Bio__Emboss_ajHistClose, file);
         newXS("Bio::Emboss::ajHistCopyData", XS_Bio__Emboss_ajHistCopyData, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajHistDelete", XS_Bio__Emboss_ajHistDelete, file);
+#else
+        newXS("Bio::Emboss::ajHistDelete", XS_Bio__Emboss_ajHistDelete, file);
+#endif
         newXS("Bio::Emboss::ajHistDisplay", XS_Bio__Emboss_ajHistDisplay, file);
         newXS("Bio::Emboss::ajHistNew", XS_Bio__Emboss_ajHistNew, file);
         newXS("Bio::Emboss::ajHistNewG", XS_Bio__Emboss_ajHistNewG, file);
@@ -390,7 +286,13 @@ BOOT:
         newXS("Bio::Emboss::ajHistSetXAxisC", XS_Bio__Emboss_ajHistSetXAxisC, file);
         newXS("Bio::Emboss::ajHistSetYAxisLeftC", XS_Bio__Emboss_ajHistSetYAxisLeftC, file);
         newXS("Bio::Emboss::ajHistSetYAxisRightC", XS_Bio__Emboss_ajHistSetYAxisRightC, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajListAppend", XS_Bio__Emboss_ajListAppend, file);
+        newXS("Bio::Emboss::ajListIterFree", XS_Bio__Emboss_ajListIterFree, file);
+#else
+        newXS("Bio::Emboss::ajListAppend", XS_Bio__Emboss_ajListAppend, file);
+        newXS("Bio::Emboss::ajListIterFree", XS_Bio__Emboss_ajListIterFree, file);
+#endif
         newXS("Bio::Emboss::ajListCopy", XS_Bio__Emboss_ajListCopy, file);
         newXS("Bio::Emboss::ajListDel", XS_Bio__Emboss_ajListDel, file);
         newXS("Bio::Emboss::ajListFree", XS_Bio__Emboss_ajListFree, file);
@@ -400,7 +302,6 @@ BOOT:
         newXS("Bio::Emboss::ajListIterBackDone", XS_Bio__Emboss_ajListIterBackDone, file);
         newXS("Bio::Emboss::ajListIterBackMore", XS_Bio__Emboss_ajListIterBackMore, file);
         newXS("Bio::Emboss::ajListIterBackNext", XS_Bio__Emboss_ajListIterBackNext, file);
-        newXS("Bio::Emboss::ajListIterFree", XS_Bio__Emboss_ajListIterFree, file);
         newXS("Bio::Emboss::ajListIterNext", XS_Bio__Emboss_ajListIterNext, file);
         newXS("Bio::Emboss::ajListIterMore", XS_Bio__Emboss_ajListIterMore, file);
         newXS("Bio::Emboss::ajListIterDone", XS_Bio__Emboss_ajListIterDone, file);
@@ -443,11 +344,18 @@ BOOT:
         newXS("Bio::Emboss::ajRecToPol", XS_Bio__Emboss_ajRecToPol, file);
         newXS("Bio::Emboss::ajRound", XS_Bio__Emboss_ajRound, file);
         newXS("Bio::Emboss::ajRoundF", XS_Bio__Emboss_ajRoundF, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajMemAlloc", XS_Bio__Emboss_ajMemAlloc, file);
         newXS("Bio::Emboss::ajMemCalloc", XS_Bio__Emboss_ajMemCalloc, file);
         newXS("Bio::Emboss::ajMemCalloc0", XS_Bio__Emboss_ajMemCalloc0, file);
-        newXS("Bio::Emboss::ajMemFree", XS_Bio__Emboss_ajMemFree, file);
         newXS("Bio::Emboss::ajMemResize", XS_Bio__Emboss_ajMemResize, file);
+#else
+        newXS("Bio::Emboss::ajMemAlloc", XS_Bio__Emboss_ajMemAlloc, file);
+        newXS("Bio::Emboss::ajMemCalloc", XS_Bio__Emboss_ajMemCalloc, file);
+        newXS("Bio::Emboss::ajMemCalloc0", XS_Bio__Emboss_ajMemCalloc0, file);
+        newXS("Bio::Emboss::ajMemResize", XS_Bio__Emboss_ajMemResize, file);
+#endif
+        newXS("Bio::Emboss::ajMemFree", XS_Bio__Emboss_ajMemFree, file);
         newXS("Bio::Emboss::ajMemStat", XS_Bio__Emboss_ajMemStat, file);
         newXS("Bio::Emboss::ajMemExit", XS_Bio__Emboss_ajMemExit, file);
         newXS("Bio::Emboss::ajNamDatabase", XS_Bio__Emboss_ajNamDatabase, file);
@@ -477,17 +385,26 @@ BOOT:
         newXS("Bio::Emboss::ajRangeNewI", XS_Bio__Emboss_ajRangeNewI, file);
         newXS("Bio::Emboss::ajRangeDefault", XS_Bio__Emboss_ajRangeDefault, file);
         newXS("Bio::Emboss::ajRangeDel", XS_Bio__Emboss_ajRangeDel, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajRangeGet", XS_Bio__Emboss_ajRangeGet, file);
         newXS("Bio::Emboss::ajRangeFile", XS_Bio__Emboss_ajRangeFile, file);
+        newXS("Bio::Emboss::ajRangeStrExtract", XS_Bio__Emboss_ajRangeStrExtract, file);
+        newXS("Bio::Emboss::ajRangeStrExtractList", XS_Bio__Emboss_ajRangeStrExtractList, file);
+        newXS("Bio::Emboss::ajRangeStrStuff", XS_Bio__Emboss_ajRangeStrStuff, file);
+        newXS("Bio::Emboss::ajRangeStrMask", XS_Bio__Emboss_ajRangeStrMask, file);
+#else
+        newXS("Bio::Emboss::ajRangeGet", XS_Bio__Emboss_ajRangeGet, file);
+        newXS("Bio::Emboss::ajRangeFile", XS_Bio__Emboss_ajRangeFile, file);
+        newXS("Bio::Emboss::ajRangeStrExtractList", XS_Bio__Emboss_ajRangeStrExtractList, file);
+        newXS("Bio::Emboss::ajRangeStrExtract", XS_Bio__Emboss_ajRangeStrExtract, file);
+        newXS("Bio::Emboss::ajRangeStrStuff", XS_Bio__Emboss_ajRangeStrStuff, file);
+        newXS("Bio::Emboss::ajRangeStrMask", XS_Bio__Emboss_ajRangeStrMask, file);
+#endif
         newXS("Bio::Emboss::ajRangeNumber", XS_Bio__Emboss_ajRangeNumber, file);
         newXS("Bio::Emboss::ajRangeText", XS_Bio__Emboss_ajRangeText, file);
         newXS("Bio::Emboss::ajRangeValues", XS_Bio__Emboss_ajRangeValues, file);
         newXS("Bio::Emboss::ajRangeChange", XS_Bio__Emboss_ajRangeChange, file);
         newXS("Bio::Emboss::ajRangeBegin", XS_Bio__Emboss_ajRangeBegin, file);
-        newXS("Bio::Emboss::ajRangeStrExtractList", XS_Bio__Emboss_ajRangeStrExtractList, file);
-        newXS("Bio::Emboss::ajRangeStrExtract", XS_Bio__Emboss_ajRangeStrExtract, file);
-        newXS("Bio::Emboss::ajRangeStrStuff", XS_Bio__Emboss_ajRangeStrStuff, file);
-        newXS("Bio::Emboss::ajRangeStrMask", XS_Bio__Emboss_ajRangeStrMask, file);
         newXS("Bio::Emboss::ajRangeOverlapSingle", XS_Bio__Emboss_ajRangeOverlapSingle, file);
         newXS("Bio::Emboss::ajRangeOverlaps", XS_Bio__Emboss_ajRangeOverlaps, file);
         newXS("Bio::Emboss::ajRangeOrdered", XS_Bio__Emboss_ajRangeOrdered, file);
@@ -664,7 +581,11 @@ BOOT:
         newXS("Bio::Emboss::ajSeqABIGetNData", XS_Bio__Emboss_ajSeqABIGetNData, file);
         newXS("Bio::Emboss::ajSeqABIGetPrimerOffset", XS_Bio__Emboss_ajSeqABIGetPrimerOffset, file);
         newXS("Bio::Emboss::ajSeqABIGetPrimerPosition", XS_Bio__Emboss_ajSeqABIGetPrimerPosition, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajSeqABIGetSignal", XS_Bio__Emboss_ajSeqABIGetSignal, file);
+#else
+        newXS("Bio::Emboss::ajSeqABIGetSignal", XS_Bio__Emboss_ajSeqABIGetSignal, file);
+#endif
         newXS("Bio::Emboss::ajSeqABIGetTraceOffset", XS_Bio__Emboss_ajSeqABIGetTraceOffset, file);
         newXS("Bio::Emboss::ajSeqABIMachineName", XS_Bio__Emboss_ajSeqABIMachineName, file);
         newXS("Bio::Emboss::ajSeqABIReadSeq", XS_Bio__Emboss_ajSeqABIReadSeq, file);
@@ -673,7 +594,11 @@ BOOT:
         newXS("Bio::Emboss::ajSeqAccessAsis", XS_Bio__Emboss_ajSeqAccessAsis, file);
         newXS("Bio::Emboss::ajSeqAccessFile", XS_Bio__Emboss_ajSeqAccessFile, file);
         newXS("Bio::Emboss::ajSeqAccessOffset", XS_Bio__Emboss_ajSeqAccessOffset, file);
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajSeqMethod", XS_Bio__Emboss_ajSeqMethod, file);
+#else
+        newXS("Bio::Emboss::ajSeqMethod", XS_Bio__Emboss_ajSeqMethod, file);
+#endif
         newXS("Bio::Emboss::ajSeqPrintAccess", XS_Bio__Emboss_ajSeqPrintAccess, file);
         newXS("Bio::Emboss::ajSeqallFile", XS_Bio__Emboss_ajSeqallFile, file);
         newXS("Bio::Emboss::ajSeqAllRead", XS_Bio__Emboss_ajSeqAllRead, file);
@@ -722,8 +647,25 @@ BOOT:
 #ifdef HAVE_EMBOSS_2_6_0
         newXS("Bio::Emboss::ajSssWriteXyz", XS_Bio__Emboss_ajSssWriteXyz, file);
 #endif
+#ifdef HAVE_EMBOSS_2_9_0
         newXS("Bio::Emboss::ajCharFree", XS_Bio__Emboss_ajCharFree, file);
         newXS("Bio::Emboss::ajCharNewC", XS_Bio__Emboss_ajCharNewC, file);
+        newXS("Bio::Emboss::ajStrFix", XS_Bio__Emboss_ajStrFix, file);
+        newXS("Bio::Emboss::ajStrFixI", XS_Bio__Emboss_ajStrFixI, file);
+        newXS("Bio::Emboss::ajStrFixTestI", XS_Bio__Emboss_ajStrFixTestI, file);
+        newXS("Bio::Emboss::ajStrStr", XS_Bio__Emboss_ajStrStr, file);
+        newXS("Bio::Emboss::ajStrTokenCount", XS_Bio__Emboss_ajStrTokenCount, file);
+        newXS("Bio::Emboss::ajStrTokenCountR", XS_Bio__Emboss_ajStrTokenCountR, file);
+#else
+        newXS("Bio::Emboss::ajCharFree", XS_Bio__Emboss_ajCharFree, file);
+        newXS("Bio::Emboss::ajCharNewC", XS_Bio__Emboss_ajCharNewC, file);
+        newXS("Bio::Emboss::ajStrFix", XS_Bio__Emboss_ajStrFix, file);
+        newXS("Bio::Emboss::ajStrFixI", XS_Bio__Emboss_ajStrFixI, file);
+        newXS("Bio::Emboss::ajStrFixTestI", XS_Bio__Emboss_ajStrFixTestI, file);
+        newXS("Bio::Emboss::ajStrStr", XS_Bio__Emboss_ajStrStr, file);
+        newXS("Bio::Emboss::ajStrTokenCount", XS_Bio__Emboss_ajStrTokenCount, file);
+        newXS("Bio::Emboss::ajStrTokenCountR", XS_Bio__Emboss_ajStrTokenCountR, file);
+#endif
         newXS("Bio::Emboss::ajCharNew", XS_Bio__Emboss_ajCharNew, file);
         newXS("Bio::Emboss::ajCharNewL", XS_Bio__Emboss_ajCharNewL, file);
         newXS("Bio::Emboss::ajCharNewLS", XS_Bio__Emboss_ajCharNewLS, file);
@@ -781,9 +723,6 @@ BOOT:
         newXS("Bio::Emboss::ajStrFindCase", XS_Bio__Emboss_ajStrFindCase, file);
         newXS("Bio::Emboss::ajStrFindCaseC", XS_Bio__Emboss_ajStrFindCaseC, file);
         newXS("Bio::Emboss::ajStrFill", XS_Bio__Emboss_ajStrFill, file);
-        newXS("Bio::Emboss::ajStrFix", XS_Bio__Emboss_ajStrFix, file);
-        newXS("Bio::Emboss::ajStrFixI", XS_Bio__Emboss_ajStrFixI, file);
-        newXS("Bio::Emboss::ajStrFixTestI", XS_Bio__Emboss_ajStrFixTestI, file);
         newXS("Bio::Emboss::ajStrFromBool", XS_Bio__Emboss_ajStrFromBool, file);
         newXS("Bio::Emboss::ajStrFromDouble", XS_Bio__Emboss_ajStrFromDouble, file);
         newXS("Bio::Emboss::ajStrFromDoubleE", XS_Bio__Emboss_ajStrFromDoubleE, file);
@@ -863,7 +802,6 @@ BOOT:
         newXS("Bio::Emboss::ajStrSetC", XS_Bio__Emboss_ajStrSetC, file);
         newXS("Bio::Emboss::ajStrSize", XS_Bio__Emboss_ajStrSize, file);
         newXS("Bio::Emboss::ajStrStat", XS_Bio__Emboss_ajStrStat, file);
-        newXS("Bio::Emboss::ajStrStr", XS_Bio__Emboss_ajStrStr, file);
         newXS("Bio::Emboss::ajStrSub", XS_Bio__Emboss_ajStrSub, file);
         newXS("Bio::Emboss::ajStrSubstitute", XS_Bio__Emboss_ajStrSubstitute, file);
         newXS("Bio::Emboss::ajStrSubstituteCC", XS_Bio__Emboss_ajStrSubstituteCC, file);
@@ -882,8 +820,6 @@ BOOT:
         newXS("Bio::Emboss::ajStrToken", XS_Bio__Emboss_ajStrToken, file);
         newXS("Bio::Emboss::ajStrTokenAss", XS_Bio__Emboss_ajStrTokenAss, file);
         newXS("Bio::Emboss::ajStrTokenClear", XS_Bio__Emboss_ajStrTokenClear, file);
-        newXS("Bio::Emboss::ajStrTokenCount", XS_Bio__Emboss_ajStrTokenCount, file);
-        newXS("Bio::Emboss::ajStrTokenCountR", XS_Bio__Emboss_ajStrTokenCountR, file);
         newXS("Bio::Emboss::ajStrTokenInit", XS_Bio__Emboss_ajStrTokenInit, file);
         newXS("Bio::Emboss::ajStrTokenReset", XS_Bio__Emboss_ajStrTokenReset, file);
         newXS("Bio::Emboss::ajStrTokenRest", XS_Bio__Emboss_ajStrTokenRest, file);
@@ -944,6 +880,8 @@ BOOT:
         newXS("Bio::Emboss::ajUtilRev4", XS_Bio__Emboss_ajUtilRev4, file);
         newXS("Bio::Emboss::ajUtilRev8", XS_Bio__Emboss_ajUtilRev8, file);
         newXS("Bio::Emboss::ajUtilUid", XS_Bio__Emboss_ajUtilUid, file);
+#ifdef HAVE_EMBOSS_2_9_0
+#else
         newXS("Bio::Emboss::ajXyzPdbtospNew", XS_Bio__Emboss_ajXyzPdbtospNew, file);
         newXS("Bio::Emboss::ajXyzPdbtospDel", XS_Bio__Emboss_ajXyzPdbtospDel, file);
         newXS("Bio::Emboss::ajXyzPdbtospRead", XS_Bio__Emboss_ajXyzPdbtospRead, file);
@@ -1094,6 +1032,7 @@ BOOT:
         newXS("Bio::Emboss::ajXyzHetRawRead", XS_Bio__Emboss_ajXyzHetRawRead, file);
         newXS("Bio::Emboss::ajXyzHetRead", XS_Bio__Emboss_ajXyzHetRead, file);
         newXS("Bio::Emboss::ajXyzHetWrite", XS_Bio__Emboss_ajXyzHetWrite, file);
+#endif
         newXS("Bio::Emboss::embGrpCompareTwoGnodes", XS_Bio__Emboss_embGrpCompareTwoGnodes, file);
         newXS("Bio::Emboss::embGrpGetProgGroups", XS_Bio__Emboss_embGrpGetProgGroups, file);
         newXS("Bio::Emboss::embGrpGroupsListDel", XS_Bio__Emboss_embGrpGroupsListDel, file);
@@ -1105,4 +1044,301 @@ BOOT:
         newXS("Bio::Emboss::embGrpOutputProgsList", XS_Bio__Emboss_embGrpOutputProgsList, file);
         newXS("Bio::Emboss::embGrpSortGroupsList", XS_Bio__Emboss_embGrpSortGroupsList, file);
         newXS("Bio::Emboss::embGrpMakeUnique", XS_Bio__Emboss_embGrpMakeUnique, file);
+#ifndef HAVE_EMBOSS_2_9_0
+        newXS("Bio::Emboss::ajGraphBox", XS_Bio__Emboss_ajGraphBox, file);
+        newXS("Bio::Emboss::ajGraphBoxFill", XS_Bio__Emboss_ajGraphBoxFill, file);
+        newXS("Bio::Emboss::ajGraphCheckColour", XS_Bio__Emboss_ajGraphCheckColour, file);
+        newXS("Bio::Emboss::ajGraphCircle", XS_Bio__Emboss_ajGraphCircle, file);
+        newXS("Bio::Emboss::ajGraphClose", XS_Bio__Emboss_ajGraphClose, file);
+        newXS("Bio::Emboss::ajGraphCloseWin", XS_Bio__Emboss_ajGraphCloseWin, file);
+        newXS("Bio::Emboss::ajGraphColourBack", XS_Bio__Emboss_ajGraphColourBack, file);
+        newXS("Bio::Emboss::ajGraphColourFore", XS_Bio__Emboss_ajGraphColourFore, file);
+        newXS("Bio::Emboss::ajGraphDataDel", XS_Bio__Emboss_ajGraphDataDel, file);
+        newXS("Bio::Emboss::ajGraphDataObjAddLine", XS_Bio__Emboss_ajGraphDataObjAddLine, file);
+        newXS("Bio::Emboss::ajGraphDataObjAddRect", XS_Bio__Emboss_ajGraphDataObjAddRect, file);
+        newXS("Bio::Emboss::ajGraphDataObjAddText", XS_Bio__Emboss_ajGraphDataObjAddText, file);
+        newXS("Bio::Emboss::ajGraphDataxySetMaxMin", XS_Bio__Emboss_ajGraphDataxySetMaxMin, file);
+        newXS("Bio::Emboss::ajGraphDataxyMaxMin", XS_Bio__Emboss_ajGraphDataxyMaxMin, file);
+        newXS("Bio::Emboss::ajGraphDataxySetMaxima", XS_Bio__Emboss_ajGraphDataxySetMaxima, file);
+        newXS("Bio::Emboss::ajGraphDataxySetTypeC", XS_Bio__Emboss_ajGraphDataxySetTypeC, file);
+        newXS("Bio::Emboss::ajGraphDia", XS_Bio__Emboss_ajGraphDia, file);
+        newXS("Bio::Emboss::ajGraphDiaFill", XS_Bio__Emboss_ajGraphDiaFill, file);
+        newXS("Bio::Emboss::ajGraphDots", XS_Bio__Emboss_ajGraphDots, file);
+        newXS("Bio::Emboss::ajGraphDumpDevices", XS_Bio__Emboss_ajGraphDumpDevices, file);
+        newXS("Bio::Emboss::ajGraphGetCharSize", XS_Bio__Emboss_ajGraphGetCharSize, file);
+        newXS("Bio::Emboss::ajGraphGetColour", XS_Bio__Emboss_ajGraphGetColour, file);
+        newXS("Bio::Emboss::ajGraphGetOut", XS_Bio__Emboss_ajGraphGetOut, file);
+        newXS("Bio::Emboss::ajGraphHoriBars", XS_Bio__Emboss_ajGraphHoriBars, file);
+        newXS("Bio::Emboss::ajGraphInfo", XS_Bio__Emboss_ajGraphInfo, file);
+        newXS("Bio::Emboss::ajGraphInitSeq", XS_Bio__Emboss_ajGraphInitSeq, file);
+        newXS("Bio::Emboss::ajGraphLabel", XS_Bio__Emboss_ajGraphLabel, file);
+        newXS("Bio::Emboss::ajGraphLabelYRight", XS_Bio__Emboss_ajGraphLabelYRight, file);
+        newXS("Bio::Emboss::ajGraphLine", XS_Bio__Emboss_ajGraphLine, file);
+        newXS("Bio::Emboss::ajGraphLines", XS_Bio__Emboss_ajGraphLines, file);
+        newXS("Bio::Emboss::ajGraphNew", XS_Bio__Emboss_ajGraphNew, file);
+        newXS("Bio::Emboss::ajGraphNewPage", XS_Bio__Emboss_ajGraphNewPage, file);
+        newXS("Bio::Emboss::ajGraphObjAddLine", XS_Bio__Emboss_ajGraphObjAddLine, file);
+        newXS("Bio::Emboss::ajGraphObjAddRect", XS_Bio__Emboss_ajGraphObjAddRect, file);
+        newXS("Bio::Emboss::ajGraphObjAddText", XS_Bio__Emboss_ajGraphObjAddText, file);
+        newXS("Bio::Emboss::ajGraphObjDel", XS_Bio__Emboss_ajGraphObjDel, file);
+        newXS("Bio::Emboss::ajGraphDataObjDel", XS_Bio__Emboss_ajGraphDataObjDel, file);
+        newXS("Bio::Emboss::ajGraphOpen", XS_Bio__Emboss_ajGraphOpen, file);
+        newXS("Bio::Emboss::ajGraphOpenPlot", XS_Bio__Emboss_ajGraphOpenPlot, file);
+        newXS("Bio::Emboss::ajGraphOpenWin", XS_Bio__Emboss_ajGraphOpenWin, file);
+        newXS("Bio::Emboss::ajGraphPlenv", XS_Bio__Emboss_ajGraphPlenv, file);
+        newXS("Bio::Emboss::ajGraphPoly", XS_Bio__Emboss_ajGraphPoly, file);
+        newXS("Bio::Emboss::ajGraphPolyFill", XS_Bio__Emboss_ajGraphPolyFill, file);
+        newXS("Bio::Emboss::ajGraphPrintType", XS_Bio__Emboss_ajGraphPrintType, file);
+        newXS("Bio::Emboss::ajGraphRect", XS_Bio__Emboss_ajGraphRect, file);
+        newXS("Bio::Emboss::ajGraphRectFill", XS_Bio__Emboss_ajGraphRectFill, file);
+        newXS("Bio::Emboss::ajGraphSet", XS_Bio__Emboss_ajGraphSet, file);
+        newXS("Bio::Emboss::ajGraphSetDevice", XS_Bio__Emboss_ajGraphSetDevice, file);
+        newXS("Bio::Emboss::ajGraphSetCharSize", XS_Bio__Emboss_ajGraphSetCharSize, file);
+        newXS("Bio::Emboss::ajGraphSetBackBlack", XS_Bio__Emboss_ajGraphSetBackBlack, file);
+        newXS("Bio::Emboss::ajGraphSetBackWhite", XS_Bio__Emboss_ajGraphSetBackWhite, file);
+        newXS("Bio::Emboss::ajGraphSetPenWidth", XS_Bio__Emboss_ajGraphSetPenWidth, file);
+        newXS("Bio::Emboss::ajGraphSetFillPat", XS_Bio__Emboss_ajGraphSetFillPat, file);
+        newXS("Bio::Emboss::ajGraphSetFore", XS_Bio__Emboss_ajGraphSetFore, file);
+        newXS("Bio::Emboss::ajGraphSetLineStyle", XS_Bio__Emboss_ajGraphSetLineStyle, file);
+        newXS("Bio::Emboss::ajGraphSetMulti", XS_Bio__Emboss_ajGraphSetMulti, file);
+        newXS("Bio::Emboss::ajGraphSetName", XS_Bio__Emboss_ajGraphSetName, file);
+        newXS("Bio::Emboss::ajGraphSetOri", XS_Bio__Emboss_ajGraphSetOri, file);
+        newXS("Bio::Emboss::ajGraphSymbols", XS_Bio__Emboss_ajGraphSymbols, file);
+        newXS("Bio::Emboss::ajGraphText", XS_Bio__Emboss_ajGraphText, file);
+        newXS("Bio::Emboss::ajGraphTextEnd", XS_Bio__Emboss_ajGraphTextEnd, file);
+        newXS("Bio::Emboss::ajGraphTextMid", XS_Bio__Emboss_ajGraphTextMid, file);
+        newXS("Bio::Emboss::ajGraphTextLine", XS_Bio__Emboss_ajGraphTextLine, file);
+        newXS("Bio::Emboss::ajGraphTextStart", XS_Bio__Emboss_ajGraphTextStart, file);
+        newXS("Bio::Emboss::ajGraphTrace", XS_Bio__Emboss_ajGraphTrace, file);
+        newXS("Bio::Emboss::ajGraphTraceInt", XS_Bio__Emboss_ajGraphTraceInt, file);
+        newXS("Bio::Emboss::ajGraphTri", XS_Bio__Emboss_ajGraphTri, file);
+        newXS("Bio::Emboss::ajGraphTriFill", XS_Bio__Emboss_ajGraphTriFill, file);
+        newXS("Bio::Emboss::ajGraphUnused", XS_Bio__Emboss_ajGraphUnused, file);
+        newXS("Bio::Emboss::ajGraphVertBars", XS_Bio__Emboss_ajGraphVertBars, file);
+        newXS("Bio::Emboss::ajGraphxyAddDataCalcPtr", XS_Bio__Emboss_ajGraphxyAddDataCalcPtr, file);
+        newXS("Bio::Emboss::ajGraphxyAddDataPtrPtr", XS_Bio__Emboss_ajGraphxyAddDataPtrPtr, file);
+        newXS("Bio::Emboss::ajGraphxyAddGraph", XS_Bio__Emboss_ajGraphxyAddGraph, file);
+        newXS("Bio::Emboss::ajGraphxyReplaceGraph", XS_Bio__Emboss_ajGraphxyReplaceGraph, file);
+        newXS("Bio::Emboss::ajGraphxyDataNew", XS_Bio__Emboss_ajGraphxyDataNew, file);
+        newXS("Bio::Emboss::ajGraphxyDataNewI", XS_Bio__Emboss_ajGraphxyDataNewI, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetSubtitle", XS_Bio__Emboss_ajGraphxyDataSetSubtitle, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetSubtitleC", XS_Bio__Emboss_ajGraphxyDataSetSubtitleC, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetTitle", XS_Bio__Emboss_ajGraphxyDataSetTitle, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetTitleC", XS_Bio__Emboss_ajGraphxyDataSetTitleC, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetXtitle", XS_Bio__Emboss_ajGraphxyDataSetXtitle, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetXtitleC", XS_Bio__Emboss_ajGraphxyDataSetXtitleC, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetYtitle", XS_Bio__Emboss_ajGraphxyDataSetYtitle, file);
+        newXS("Bio::Emboss::ajGraphxyDataSetYtitleC", XS_Bio__Emboss_ajGraphxyDataSetYtitleC, file);
+#ifdef HAVE_EMBOSS_2_8_0
+        newXS("Bio::Emboss::ajGraphxyDel", XS_Bio__Emboss_ajGraphxyDel, file);
+#else
+        newXS("Bio::Emboss::ajGraphxyDel", XS_Bio__Emboss_ajGraphxyDel, file);
+#endif
+        newXS("Bio::Emboss::ajGraphxyDisplay", XS_Bio__Emboss_ajGraphxyDisplay, file);
+        newXS("Bio::Emboss::ajGraphxyInitGraphCalcPtr", XS_Bio__Emboss_ajGraphxyInitGraphCalcPtr, file);
+        newXS("Bio::Emboss::ajGraphxyNewI", XS_Bio__Emboss_ajGraphxyNewI, file);
+        newXS("Bio::Emboss::ajGraphxyCheckMaxMin", XS_Bio__Emboss_ajGraphxyCheckMaxMin, file);
+        newXS("Bio::Emboss::ajGraphxySet", XS_Bio__Emboss_ajGraphxySet, file);
+        newXS("Bio::Emboss::ajGraphxySetCirclePoints", XS_Bio__Emboss_ajGraphxySetCirclePoints, file);
+        newXS("Bio::Emboss::ajGraphxySetColour", XS_Bio__Emboss_ajGraphxySetColour, file);
+        newXS("Bio::Emboss::ajGraphxySetFlag", XS_Bio__Emboss_ajGraphxySetFlag, file);
+        newXS("Bio::Emboss::ajGraphxySetGaps", XS_Bio__Emboss_ajGraphxySetGaps, file);
+        newXS("Bio::Emboss::ajGraphxySetJoinPoints", XS_Bio__Emboss_ajGraphxySetJoinPoints, file);
+        newXS("Bio::Emboss::ajGraphxySetLineType", XS_Bio__Emboss_ajGraphxySetLineType, file);
+        newXS("Bio::Emboss::ajGraphxySetMaxMin", XS_Bio__Emboss_ajGraphxySetMaxMin, file);
+        newXS("Bio::Emboss::ajGraphxySetOut", XS_Bio__Emboss_ajGraphxySetOut, file);
+        newXS("Bio::Emboss::ajGraphxySetOutC", XS_Bio__Emboss_ajGraphxySetOutC, file);
+        newXS("Bio::Emboss::ajGraphxySetOverLap", XS_Bio__Emboss_ajGraphxySetOverLap, file);
+        newXS("Bio::Emboss::ajGraphxySetSubtitleDo", XS_Bio__Emboss_ajGraphxySetSubtitleDo, file);
+        newXS("Bio::Emboss::ajGraphxySetTitleDo", XS_Bio__Emboss_ajGraphxySetTitleDo, file);
+        newXS("Bio::Emboss::ajGraphxySetXBottom", XS_Bio__Emboss_ajGraphxySetXBottom, file);
+        newXS("Bio::Emboss::ajGraphxySetXLabelTop", XS_Bio__Emboss_ajGraphxySetXLabelTop, file);
+        newXS("Bio::Emboss::ajGraphxySetXTick", XS_Bio__Emboss_ajGraphxySetXTick, file);
+        newXS("Bio::Emboss::ajGraphxySetXTop", XS_Bio__Emboss_ajGraphxySetXTop, file);
+        newXS("Bio::Emboss::ajGraphxySetXEnd", XS_Bio__Emboss_ajGraphxySetXEnd, file);
+        newXS("Bio::Emboss::ajGraphxySetXGrid", XS_Bio__Emboss_ajGraphxySetXGrid, file);
+        newXS("Bio::Emboss::ajGraphxySetXInvTicks", XS_Bio__Emboss_ajGraphxySetXInvTicks, file);
+        newXS("Bio::Emboss::ajGraphxySetXLabel", XS_Bio__Emboss_ajGraphxySetXLabel, file);
+        newXS("Bio::Emboss::ajGraphxySetXRangeII", XS_Bio__Emboss_ajGraphxySetXRangeII, file);
+        newXS("Bio::Emboss::ajGraphxySetXStart", XS_Bio__Emboss_ajGraphxySetXStart, file);
+        newXS("Bio::Emboss::ajGraphxySetYLabelLeft", XS_Bio__Emboss_ajGraphxySetYLabelLeft, file);
+        newXS("Bio::Emboss::ajGraphxySetYLeft", XS_Bio__Emboss_ajGraphxySetYLeft, file);
+        newXS("Bio::Emboss::ajGraphxySetYRight", XS_Bio__Emboss_ajGraphxySetYRight, file);
+        newXS("Bio::Emboss::ajGraphxySetYTick", XS_Bio__Emboss_ajGraphxySetYTick, file);
+        newXS("Bio::Emboss::ajGraphxySetYEnd", XS_Bio__Emboss_ajGraphxySetYEnd, file);
+        newXS("Bio::Emboss::ajGraphxySetYGrid", XS_Bio__Emboss_ajGraphxySetYGrid, file);
+        newXS("Bio::Emboss::ajGraphxySetYInvTicks", XS_Bio__Emboss_ajGraphxySetYInvTicks, file);
+        newXS("Bio::Emboss::ajGraphxySetYLabel", XS_Bio__Emboss_ajGraphxySetYLabel, file);
+        newXS("Bio::Emboss::ajGraphxySetYRangeII", XS_Bio__Emboss_ajGraphxySetYRangeII, file);
+        newXS("Bio::Emboss::ajGraphxySetYStart", XS_Bio__Emboss_ajGraphxySetYStart, file);
+        newXS("Bio::Emboss::ajGraphxySubtitle", XS_Bio__Emboss_ajGraphxySubtitle, file);
+        newXS("Bio::Emboss::ajGraphxySubtitleC", XS_Bio__Emboss_ajGraphxySubtitleC, file);
+        newXS("Bio::Emboss::ajGraphxyTitle", XS_Bio__Emboss_ajGraphxyTitle, file);
+        newXS("Bio::Emboss::ajGraphxyTitleC", XS_Bio__Emboss_ajGraphxyTitleC, file);
+        newXS("Bio::Emboss::ajGraphxyXtitle", XS_Bio__Emboss_ajGraphxyXtitle, file);
+        newXS("Bio::Emboss::ajGraphxyXtitleC", XS_Bio__Emboss_ajGraphxyXtitleC, file);
+        newXS("Bio::Emboss::ajGraphxyYtitle", XS_Bio__Emboss_ajGraphxyYtitle, file);
+        newXS("Bio::Emboss::ajGraphxyYtitleC", XS_Bio__Emboss_ajGraphxyYtitleC, file);
+        newXS("Bio::Emboss::ajGraphPartCircle", XS_Bio__Emboss_ajGraphPartCircle, file);
+        newXS("Bio::Emboss::ajGraphDrawTextOnCurve", XS_Bio__Emboss_ajGraphDrawTextOnCurve, file);
+        newXS("Bio::Emboss::ajGraphRectangleOnCurve", XS_Bio__Emboss_ajGraphRectangleOnCurve, file);
+        newXS("Bio::Emboss::ajGraphTextLength", XS_Bio__Emboss_ajGraphTextLength, file);
+        newXS("Bio::Emboss::ajGraphTextHeight", XS_Bio__Emboss_ajGraphTextHeight, file);
+        newXS("Bio::Emboss::ajGraphDistPts", XS_Bio__Emboss_ajGraphDistPts, file);
+        newXS("Bio::Emboss::ajGraphFitTextOnLine", XS_Bio__Emboss_ajGraphFitTextOnLine, file);
+        newXS("Bio::Emboss::ajGraphSetDefCharSize", XS_Bio__Emboss_ajGraphSetDefCharSize, file);
+        newXS("Bio::Emboss::ajGraphFillRectangleOnCurve", XS_Bio__Emboss_ajGraphFillRectangleOnCurve, file);
+#endif
+#ifdef HAVE_EMBOSS_2_9_0
+        newXS("Bio::Emboss::ajGraphBox", XS_Bio__Emboss_ajGraphBox, file);
+        newXS("Bio::Emboss::ajGraphBoxFill", XS_Bio__Emboss_ajGraphBoxFill, file);
+        newXS("Bio::Emboss::ajGraphCheckColour", XS_Bio__Emboss_ajGraphCheckColour, file);
+        newXS("Bio::Emboss::ajGraphCircle", XS_Bio__Emboss_ajGraphCircle, file);
+        newXS("Bio::Emboss::ajGraphClose", XS_Bio__Emboss_ajGraphClose, file);
+        newXS("Bio::Emboss::ajGraphCloseWin", XS_Bio__Emboss_ajGraphCloseWin, file);
+        newXS("Bio::Emboss::ajGraphColourBack", XS_Bio__Emboss_ajGraphColourBack, file);
+        newXS("Bio::Emboss::ajGraphColourFore", XS_Bio__Emboss_ajGraphColourFore, file);
+        newXS("Bio::Emboss::ajGraphPlpDataAddLine", XS_Bio__Emboss_ajGraphPlpDataAddLine, file);
+        newXS("Bio::Emboss::ajGraphPlpDataAddRect", XS_Bio__Emboss_ajGraphPlpDataAddRect, file);
+        newXS("Bio::Emboss::ajGraphPlpDataAddText", XS_Bio__Emboss_ajGraphPlpDataAddText, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetMaxMin", XS_Bio__Emboss_ajGraphPlpDataSetMaxMin, file);
+        newXS("Bio::Emboss::ajGraphArrayMaxMin", XS_Bio__Emboss_ajGraphArrayMaxMin, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetMaxima", XS_Bio__Emboss_ajGraphPlpDataSetMaxima, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetTypeC", XS_Bio__Emboss_ajGraphPlpDataSetTypeC, file);
+        newXS("Bio::Emboss::ajGraphPlpDataTrace", XS_Bio__Emboss_ajGraphPlpDataTrace, file);
+        newXS("Bio::Emboss::ajGraphClear", XS_Bio__Emboss_ajGraphClear, file);
+        newXS("Bio::Emboss::ajGraphDia", XS_Bio__Emboss_ajGraphDia, file);
+        newXS("Bio::Emboss::ajGraphDiaFill", XS_Bio__Emboss_ajGraphDiaFill, file);
+        newXS("Bio::Emboss::ajGraphDots", XS_Bio__Emboss_ajGraphDots, file);
+        newXS("Bio::Emboss::ajGraphDumpDevices", XS_Bio__Emboss_ajGraphDumpDevices, file);
+        newXS("Bio::Emboss::ajGraphGetCharSize", XS_Bio__Emboss_ajGraphGetCharSize, file);
+        newXS("Bio::Emboss::ajGraphGetColour", XS_Bio__Emboss_ajGraphGetColour, file);
+        newXS("Bio::Emboss::ajGraphGetOut", XS_Bio__Emboss_ajGraphGetOut, file);
+        newXS("Bio::Emboss::ajGraphGetSubTitle", XS_Bio__Emboss_ajGraphGetSubTitle, file);
+        newXS("Bio::Emboss::ajGraphGetSubTitleC", XS_Bio__Emboss_ajGraphGetSubTitleC, file);
+        newXS("Bio::Emboss::ajGraphGetTitle", XS_Bio__Emboss_ajGraphGetTitle, file);
+        newXS("Bio::Emboss::ajGraphGetTitleC", XS_Bio__Emboss_ajGraphGetTitleC, file);
+        newXS("Bio::Emboss::ajGraphGetXTitle", XS_Bio__Emboss_ajGraphGetXTitle, file);
+        newXS("Bio::Emboss::ajGraphGetXTitleC", XS_Bio__Emboss_ajGraphGetXTitleC, file);
+        newXS("Bio::Emboss::ajGraphGetYTitle", XS_Bio__Emboss_ajGraphGetYTitle, file);
+        newXS("Bio::Emboss::ajGraphGetYTitleC", XS_Bio__Emboss_ajGraphGetYTitleC, file);
+        newXS("Bio::Emboss::ajGraphHoriBars", XS_Bio__Emboss_ajGraphHoriBars, file);
+        newXS("Bio::Emboss::ajGraphInfo", XS_Bio__Emboss_ajGraphInfo, file);
+        newXS("Bio::Emboss::ajGraphInitSeq", XS_Bio__Emboss_ajGraphInitSeq, file);
+        newXS("Bio::Emboss::ajGraphIsData", XS_Bio__Emboss_ajGraphIsData, file);
+        newXS("Bio::Emboss::ajGraphLabel", XS_Bio__Emboss_ajGraphLabel, file);
+        newXS("Bio::Emboss::ajGraphLabelYRight", XS_Bio__Emboss_ajGraphLabelYRight, file);
+        newXS("Bio::Emboss::ajGraphLine", XS_Bio__Emboss_ajGraphLine, file);
+        newXS("Bio::Emboss::ajGraphLines", XS_Bio__Emboss_ajGraphLines, file);
+        newXS("Bio::Emboss::ajGraphNew", XS_Bio__Emboss_ajGraphNew, file);
+        newXS("Bio::Emboss::ajGraphNewPage", XS_Bio__Emboss_ajGraphNewPage, file);
+        newXS("Bio::Emboss::ajGraphAddLine", XS_Bio__Emboss_ajGraphAddLine, file);
+        newXS("Bio::Emboss::ajGraphAddRect", XS_Bio__Emboss_ajGraphAddRect, file);
+        newXS("Bio::Emboss::ajGraphAddText", XS_Bio__Emboss_ajGraphAddText, file);
+        newXS("Bio::Emboss::ajGraphPlpDataDel", XS_Bio__Emboss_ajGraphPlpDataDel, file);
+        newXS("Bio::Emboss::ajGraphOpen", XS_Bio__Emboss_ajGraphOpen, file);
+        newXS("Bio::Emboss::ajGraphOpenPlot", XS_Bio__Emboss_ajGraphOpenPlot, file);
+        newXS("Bio::Emboss::ajGraphOpenWin", XS_Bio__Emboss_ajGraphOpenWin, file);
+        newXS("Bio::Emboss::ajGraphPlenv", XS_Bio__Emboss_ajGraphPlenv, file);
+        newXS("Bio::Emboss::ajGraphPoly", XS_Bio__Emboss_ajGraphPoly, file);
+        newXS("Bio::Emboss::ajGraphPolyFill", XS_Bio__Emboss_ajGraphPolyFill, file);
+        newXS("Bio::Emboss::ajGraphPrintType", XS_Bio__Emboss_ajGraphPrintType, file);
+        newXS("Bio::Emboss::ajGraphRect", XS_Bio__Emboss_ajGraphRect, file);
+        newXS("Bio::Emboss::ajGraphRectFill", XS_Bio__Emboss_ajGraphRectFill, file);
+        newXS("Bio::Emboss::ajGraphSet", XS_Bio__Emboss_ajGraphSet, file);
+        newXS("Bio::Emboss::ajGraphSetDevice", XS_Bio__Emboss_ajGraphSetDevice, file);
+        newXS("Bio::Emboss::ajGraphSetBackBlack", XS_Bio__Emboss_ajGraphSetBackBlack, file);
+        newXS("Bio::Emboss::ajGraphSetBackWhite", XS_Bio__Emboss_ajGraphSetBackWhite, file);
+        newXS("Bio::Emboss::ajGraphSetPenWidth", XS_Bio__Emboss_ajGraphSetPenWidth, file);
+        newXS("Bio::Emboss::ajGraphSetFillPat", XS_Bio__Emboss_ajGraphSetFillPat, file);
+        newXS("Bio::Emboss::ajGraphSetFore", XS_Bio__Emboss_ajGraphSetFore, file);
+        newXS("Bio::Emboss::ajGraphSetLineStyle", XS_Bio__Emboss_ajGraphSetLineStyle, file);
+        newXS("Bio::Emboss::ajGraphSetMulti", XS_Bio__Emboss_ajGraphSetMulti, file);
+        newXS("Bio::Emboss::ajGraphSetName", XS_Bio__Emboss_ajGraphSetName, file);
+        newXS("Bio::Emboss::ajGraphSetOri", XS_Bio__Emboss_ajGraphSetOri, file);
+        newXS("Bio::Emboss::ajGraphSymbols", XS_Bio__Emboss_ajGraphSymbols, file);
+        newXS("Bio::Emboss::ajGraphText", XS_Bio__Emboss_ajGraphText, file);
+        newXS("Bio::Emboss::ajGraphTextEnd", XS_Bio__Emboss_ajGraphTextEnd, file);
+        newXS("Bio::Emboss::ajGraphTextMid", XS_Bio__Emboss_ajGraphTextMid, file);
+        newXS("Bio::Emboss::ajGraphTextLine", XS_Bio__Emboss_ajGraphTextLine, file);
+        newXS("Bio::Emboss::ajGraphTextStart", XS_Bio__Emboss_ajGraphTextStart, file);
+        newXS("Bio::Emboss::ajGraphTrace", XS_Bio__Emboss_ajGraphTrace, file);
+        newXS("Bio::Emboss::ajGraphTraceInt", XS_Bio__Emboss_ajGraphTraceInt, file);
+        newXS("Bio::Emboss::ajGraphTri", XS_Bio__Emboss_ajGraphTri, file);
+        newXS("Bio::Emboss::ajGraphTriFill", XS_Bio__Emboss_ajGraphTriFill, file);
+        newXS("Bio::Emboss::ajGraphUnused", XS_Bio__Emboss_ajGraphUnused, file);
+        newXS("Bio::Emboss::ajGraphVertBars", XS_Bio__Emboss_ajGraphVertBars, file);
+        newXS("Bio::Emboss::ajGraphPlpDataCalcXY", XS_Bio__Emboss_ajGraphPlpDataCalcXY, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetXY", XS_Bio__Emboss_ajGraphPlpDataSetXY, file);
+        newXS("Bio::Emboss::ajGraphDataAdd", XS_Bio__Emboss_ajGraphDataAdd, file);
+        newXS("Bio::Emboss::ajGraphDataReplace", XS_Bio__Emboss_ajGraphDataReplace, file);
+        newXS("Bio::Emboss::ajGraphPlpDataNew", XS_Bio__Emboss_ajGraphPlpDataNew, file);
+        newXS("Bio::Emboss::ajGraphPlpDataNewI", XS_Bio__Emboss_ajGraphPlpDataNewI, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetSubTitle", XS_Bio__Emboss_ajGraphPlpDataSetSubTitle, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetSubTitleC", XS_Bio__Emboss_ajGraphPlpDataSetSubTitleC, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetTitle", XS_Bio__Emboss_ajGraphPlpDataSetTitle, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetTitleC", XS_Bio__Emboss_ajGraphPlpDataSetTitleC, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetXTitle", XS_Bio__Emboss_ajGraphPlpDataSetXTitle, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetXTitleC", XS_Bio__Emboss_ajGraphPlpDataSetXTitleC, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetYTitle", XS_Bio__Emboss_ajGraphPlpDataSetYTitle, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetYTitleC", XS_Bio__Emboss_ajGraphPlpDataSetYTitleC, file);
+        newXS("Bio::Emboss::ajGraphxyDel", XS_Bio__Emboss_ajGraphxyDel, file);
+        newXS("Bio::Emboss::ajGraphxyDisplay", XS_Bio__Emboss_ajGraphxyDisplay, file);
+        newXS("Bio::Emboss::ajGraphxyNewI", XS_Bio__Emboss_ajGraphxyNewI, file);
+        newXS("Bio::Emboss::ajGraphxyCheckMaxMin", XS_Bio__Emboss_ajGraphxyCheckMaxMin, file);
+        newXS("Bio::Emboss::ajGraphxySet", XS_Bio__Emboss_ajGraphxySet, file);
+        newXS("Bio::Emboss::ajGraphxySetCirclePoints", XS_Bio__Emboss_ajGraphxySetCirclePoints, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetColour", XS_Bio__Emboss_ajGraphPlpDataSetColour, file);
+        newXS("Bio::Emboss::ajGraphSetFlag", XS_Bio__Emboss_ajGraphSetFlag, file);
+        newXS("Bio::Emboss::ajGraphxySetJoinPoints", XS_Bio__Emboss_ajGraphxySetJoinPoints, file);
+        newXS("Bio::Emboss::ajGraphPlpDataSetLineType", XS_Bio__Emboss_ajGraphPlpDataSetLineType, file);
+        newXS("Bio::Emboss::ajGraphxySetMaxMin", XS_Bio__Emboss_ajGraphxySetMaxMin, file);
+        newXS("Bio::Emboss::ajGraphSetOut", XS_Bio__Emboss_ajGraphSetOut, file);
+        newXS("Bio::Emboss::ajGraphSetOutC", XS_Bio__Emboss_ajGraphSetOutC, file);
+        newXS("Bio::Emboss::ajGraphxySetOverLap", XS_Bio__Emboss_ajGraphxySetOverLap, file);
+        newXS("Bio::Emboss::ajGraphSetSubTitleDo", XS_Bio__Emboss_ajGraphSetSubTitleDo, file);
+        newXS("Bio::Emboss::ajGraphSetTitleDo", XS_Bio__Emboss_ajGraphSetTitleDo, file);
+        newXS("Bio::Emboss::ajGraphxySetXBottom", XS_Bio__Emboss_ajGraphxySetXBottom, file);
+        newXS("Bio::Emboss::ajGraphxySetXLabelTop", XS_Bio__Emboss_ajGraphxySetXLabelTop, file);
+        newXS("Bio::Emboss::ajGraphxySetXTick", XS_Bio__Emboss_ajGraphxySetXTick, file);
+        newXS("Bio::Emboss::ajGraphxySetXTop", XS_Bio__Emboss_ajGraphxySetXTop, file);
+        newXS("Bio::Emboss::ajGraphxySetXEnd", XS_Bio__Emboss_ajGraphxySetXEnd, file);
+        newXS("Bio::Emboss::ajGraphxySetXGrid", XS_Bio__Emboss_ajGraphxySetXGrid, file);
+        newXS("Bio::Emboss::ajGraphxySetXInvTicks", XS_Bio__Emboss_ajGraphxySetXInvTicks, file);
+        newXS("Bio::Emboss::ajGraphxySetXLabel", XS_Bio__Emboss_ajGraphxySetXLabel, file);
+        newXS("Bio::Emboss::ajGraphxySetXRangeII", XS_Bio__Emboss_ajGraphxySetXRangeII, file);
+        newXS("Bio::Emboss::ajGraphxySetXStart", XS_Bio__Emboss_ajGraphxySetXStart, file);
+        newXS("Bio::Emboss::ajGraphxySetYLabelLeft", XS_Bio__Emboss_ajGraphxySetYLabelLeft, file);
+        newXS("Bio::Emboss::ajGraphxySetYLeft", XS_Bio__Emboss_ajGraphxySetYLeft, file);
+        newXS("Bio::Emboss::ajGraphxySetYRight", XS_Bio__Emboss_ajGraphxySetYRight, file);
+        newXS("Bio::Emboss::ajGraphxySetYTick", XS_Bio__Emboss_ajGraphxySetYTick, file);
+        newXS("Bio::Emboss::ajGraphxySetYEnd", XS_Bio__Emboss_ajGraphxySetYEnd, file);
+        newXS("Bio::Emboss::ajGraphxySetYGrid", XS_Bio__Emboss_ajGraphxySetYGrid, file);
+        newXS("Bio::Emboss::ajGraphxySetYInvTicks", XS_Bio__Emboss_ajGraphxySetYInvTicks, file);
+        newXS("Bio::Emboss::ajGraphxySetYLabel", XS_Bio__Emboss_ajGraphxySetYLabel, file);
+        newXS("Bio::Emboss::ajGraphxySetYRangeII", XS_Bio__Emboss_ajGraphxySetYRangeII, file);
+        newXS("Bio::Emboss::ajGraphxySetYStart", XS_Bio__Emboss_ajGraphxySetYStart, file);
+        newXS("Bio::Emboss::ajGraphSetSubTitle", XS_Bio__Emboss_ajGraphSetSubTitle, file);
+        newXS("Bio::Emboss::ajGraphSetSubTitleC", XS_Bio__Emboss_ajGraphSetSubTitleC, file);
+        newXS("Bio::Emboss::ajGraphSetTitle", XS_Bio__Emboss_ajGraphSetTitle, file);
+        newXS("Bio::Emboss::ajGraphSetTitleC", XS_Bio__Emboss_ajGraphSetTitleC, file);
+        newXS("Bio::Emboss::ajGraphSetXTitle", XS_Bio__Emboss_ajGraphSetXTitle, file);
+        newXS("Bio::Emboss::ajGraphSetXTitleC", XS_Bio__Emboss_ajGraphSetXTitleC, file);
+        newXS("Bio::Emboss::ajGraphSetYTitle", XS_Bio__Emboss_ajGraphSetYTitle, file);
+        newXS("Bio::Emboss::ajGraphSetYTitleC", XS_Bio__Emboss_ajGraphSetYTitleC, file);
+        newXS("Bio::Emboss::ajGraphxySetGaps", XS_Bio__Emboss_ajGraphxySetGaps, file);
+        newXS("Bio::Emboss::ajGraphPartCircle", XS_Bio__Emboss_ajGraphPartCircle, file);
+#if 0
+        newXS("Bio::Emboss::ajComputeCoord", XS_Bio__Emboss_ajComputeCoord, file);
+#endif
+        newXS("Bio::Emboss::ajGraphDrawTextOnCurve", XS_Bio__Emboss_ajGraphDrawTextOnCurve, file);
+        newXS("Bio::Emboss::ajGraphRectangleOnCurve", XS_Bio__Emboss_ajGraphRectangleOnCurve, file);
+        newXS("Bio::Emboss::ajGraphTextLength", XS_Bio__Emboss_ajGraphTextLength, file);
+        newXS("Bio::Emboss::ajGraphTextHeight", XS_Bio__Emboss_ajGraphTextHeight, file);
+        newXS("Bio::Emboss::ajGraphDistPts", XS_Bio__Emboss_ajGraphDistPts, file);
+        newXS("Bio::Emboss::ajGraphFitTextOnLine", XS_Bio__Emboss_ajGraphFitTextOnLine, file);
+        newXS("Bio::Emboss::ajGraphSetCharSize", XS_Bio__Emboss_ajGraphSetCharSize, file);
+        newXS("Bio::Emboss::ajGraphSetDefCharSize", XS_Bio__Emboss_ajGraphSetDefCharSize, file);
+        newXS("Bio::Emboss::ajGraphFillRectangleOnCurve", XS_Bio__Emboss_ajGraphFillRectangleOnCurve, file);
+#endif
 

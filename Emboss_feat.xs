@@ -23,12 +23,53 @@ ajFeatIsCompMult (gf)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+AjPFeature
+ajFeatCopy (orig)
+       AjPFeature orig
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajFeattableCopy (orig)
+       AjPFeattable orig
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajFeatUfoRead (tabin, Ufo)
+       AjPFeattabIn tabin
+       AjPStr Ufo
+    OUTPUT:
+       RETVAL
+
+#else
+
 void
 ajFeatCopy (pthys, orig)
        AjPFeature& pthys
        AjPFeature orig
     OUTPUT:
        pthys
+
+void
+ajFeattableCopy (pthys, orig)
+       AjPFeattable& pthys
+       AjPFeattable orig
+    OUTPUT:
+       pthys
+
+AjBool
+ajFeatUfoRead (pthis, tabin, Ufo)
+       AjPFeattable& pthis
+       AjPFeattabIn tabin
+       AjPStr Ufo
+    OUTPUT:
+       RETVAL
+       pthis
+
+#endif
 
 void
 ajFeatDel (pthis)
@@ -239,13 +280,6 @@ ajFeattableBegin (thys)
 void
 ajFeattableClear (thys)
        AjPFeattable thys
-
-void
-ajFeattableCopy (pthys, orig)
-       AjPFeattable& pthys
-       AjPFeattable orig
-    OUTPUT:
-       pthys
 
 void
 ajFeattableDel (pthis)
@@ -566,15 +600,6 @@ ajFeatTest ()
 void
 ajFeatTrace (thys)
        AjPFeature thys
-
-AjBool
-ajFeatUfoRead (pthis, tabin, Ufo)
-       AjPFeattable& pthis
-       AjPFeattabIn tabin
-       AjPStr Ufo
-    OUTPUT:
-       RETVAL
-       pthis
 
 AjBool
 ajFeatUfoWrite (thys, tabout, Ufo)

@@ -21,11 +21,19 @@
   XS(XS_Bio__Emboss_ajAcdGetMatrix); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetMatrixf); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetOutfile); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajAcdGetCpdb); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajAcdGetCpdb); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajAcdGetRange); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetRegexp); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetReport); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajAcdGetScop); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajAcdGetScop); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajAcdGetSelect); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetSelectI); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetSeq); /* prototype */
@@ -36,13 +44,25 @@
   XS(XS_Bio__Emboss_ajAcdGetSeqset); /* prototype */
   XS(XS_Bio__Emboss_ajAcdGetString); /* prototype */
   XS(XS_Bio__Emboss_ajAcdPrintType); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajAcdProgram); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajAcdProgram); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajAcdProgramS); /* prototype */
   XS(XS_Bio__Emboss_ajAcdStdout); /* prototype */
   XS(XS_Bio__Emboss_ajAcdValue); /* prototype */
   XS(XS_Bio__Emboss_ajFeatIsChild); /* prototype */
   XS(XS_Bio__Emboss_ajFeatIsCompMult); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajFeatCopy); /* prototype */
+  XS(XS_Bio__Emboss_ajFeattableCopy); /* prototype */
+  XS(XS_Bio__Emboss_ajFeatUfoRead); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajFeatCopy); /* prototype */
+  XS(XS_Bio__Emboss_ajFeattableCopy); /* prototype */
+  XS(XS_Bio__Emboss_ajFeatUfoRead); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajFeatDel); /* prototype */
   XS(XS_Bio__Emboss_ajFeatExit); /* prototype */
   XS(XS_Bio__Emboss_ajFeatGetEnd); /* prototype */
@@ -76,7 +96,6 @@
   XS(XS_Bio__Emboss_ajFeattableAdd); /* prototype */
   XS(XS_Bio__Emboss_ajFeattableBegin); /* prototype */
   XS(XS_Bio__Emboss_ajFeattableClear); /* prototype */
-  XS(XS_Bio__Emboss_ajFeattableCopy); /* prototype */
   XS(XS_Bio__Emboss_ajFeattableDel); /* prototype */
   XS(XS_Bio__Emboss_ajFeattableEnd); /* prototype */
   XS(XS_Bio__Emboss_ajFeattableGetName); /* prototype */
@@ -130,7 +149,6 @@
   XS(XS_Bio__Emboss_ajFeatTagval); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTest); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTrace); /* prototype */
-  XS(XS_Bio__Emboss_ajFeatUfoRead); /* prototype */
   XS(XS_Bio__Emboss_ajFeatUfoWrite); /* prototype */
   XS(XS_Bio__Emboss_ajFeatWrite); /* prototype */
   XS(XS_Bio__Emboss_ajFileBuffClear); /* prototype */
@@ -162,7 +180,9 @@
   XS(XS_Bio__Emboss_ajFileBuffSetFile); /* prototype */
   XS(XS_Bio__Emboss_ajFileBuffSize); /* prototype */
   XS(XS_Bio__Emboss_ajFileBuffStripHtml); /* prototype */
+#ifndef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajFileBuffStripSrs); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajFileBuffTrace); /* prototype */
   XS(XS_Bio__Emboss_ajFileBuffTraceFull); /* prototype */
   XS(XS_Bio__Emboss_ajFileClose); /* prototype */
@@ -214,12 +234,20 @@
   XS(XS_Bio__Emboss_ajFileReadUint); /* prototype */
   XS(XS_Bio__Emboss_ajFileScan); /* prototype */
   XS(XS_Bio__Emboss_ajFileSeek); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajFileStat); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajFileStat); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajFileStderr); /* prototype */
   XS(XS_Bio__Emboss_ajFileStdin); /* prototype */
   XS(XS_Bio__Emboss_ajFileStdout); /* prototype */
   XS(XS_Bio__Emboss_ajFileTell); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajFileTempName); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajFileTempName); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajFileTestSkip); /* prototype */
   XS(XS_Bio__Emboss_ajFileTrace); /* prototype */
   XS(XS_Bio__Emboss_ajFileUnbuffer); /* prototype */
@@ -230,148 +258,16 @@
   XS(XS_Bio__Emboss_ajFileWriteInt4); /* prototype */
   XS(XS_Bio__Emboss_ajFileWriteInt8); /* prototype */
   XS(XS_Bio__Emboss_ajFileWriteStr); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphBox); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphBoxFill); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphCheckColour); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphCircle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphClose); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphCloseWin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphColourBack); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphColourFore); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataDel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataObjAddLine); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataObjAddRect); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataObjAddText); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataxySetMaxMin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataxyMaxMin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataxySetMaxima); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataxySetTypeC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDia); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDiaFill); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDots); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDumpDevices); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphGetCharSize); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphGetColour); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphGetOut); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphHoriBars); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphInfo); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphInitSeq); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphLabel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphLabelYRight); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphLine); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphLines); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphNew); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphNewPage); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphObjAddLine); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphObjAddRect); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphObjAddText); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphObjDel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDataObjDel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphOpen); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphOpenPlot); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphOpenWin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphPlenv); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphPoly); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphPolyFill); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphPrintType); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphRect); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphRectFill); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSet); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetDevice); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetCharSize); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetBackBlack); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetBackWhite); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetPenWidth); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetFillPat); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetFore); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetLineStyle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetMulti); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetName); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetOri); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSymbols); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphText); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextEnd); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextMid); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextLine); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextStart); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTrace); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTraceInt); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTri); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTriFill); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphUnused); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphVertBars); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyAddDataCalcPtr); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyAddDataPtrPtr); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyAddGraph); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyReplaceGraph); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataNew); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataNewI); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetSubtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetSubtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetTitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetTitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetXtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetXtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetYtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDataSetYtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyDisplay); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyInitGraphCalcPtr); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyNewI); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyCheckMaxMin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySet); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetCirclePoints); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetColour); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetFlag); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetGaps); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetJoinPoints); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetLineType); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetMaxMin); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetOut); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetOutC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetOverLap); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetSubtitleDo); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetTitleDo); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXBottom); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXLabelTop); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXTick); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXTop); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXEnd); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXGrid); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXInvTicks); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXLabel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXRangeII); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetXStart); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYLabelLeft); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYLeft); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYRight); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYTick); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYEnd); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYGrid); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYInvTicks); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYLabel); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYRangeII); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySetYStart); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySubtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxySubtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyTitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyTitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyXtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyXtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyYtitle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyYtitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphPartCircle); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDrawTextOnCurve); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphRectangleOnCurve); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextLength); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphTextHeight); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphDistPts); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphFitTextOnLine); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetDefCharSize); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphFillRectangleOnCurve); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
+#else
+#endif
   XS(XS_Bio__Emboss_ajHistClose); /* prototype */
   XS(XS_Bio__Emboss_ajHistCopyData); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajHistDelete); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajHistDelete); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajHistDisplay); /* prototype */
   XS(XS_Bio__Emboss_ajHistNew); /* prototype */
   XS(XS_Bio__Emboss_ajHistNewG); /* prototype */
@@ -389,7 +285,13 @@
   XS(XS_Bio__Emboss_ajHistSetXAxisC); /* prototype */
   XS(XS_Bio__Emboss_ajHistSetYAxisLeftC); /* prototype */
   XS(XS_Bio__Emboss_ajHistSetYAxisRightC); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajListAppend); /* prototype */
+  XS(XS_Bio__Emboss_ajListIterFree); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajListAppend); /* prototype */
+  XS(XS_Bio__Emboss_ajListIterFree); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajListCopy); /* prototype */
   XS(XS_Bio__Emboss_ajListDel); /* prototype */
   XS(XS_Bio__Emboss_ajListFree); /* prototype */
@@ -399,7 +301,6 @@
   XS(XS_Bio__Emboss_ajListIterBackDone); /* prototype */
   XS(XS_Bio__Emboss_ajListIterBackMore); /* prototype */
   XS(XS_Bio__Emboss_ajListIterBackNext); /* prototype */
-  XS(XS_Bio__Emboss_ajListIterFree); /* prototype */
   XS(XS_Bio__Emboss_ajListIterNext); /* prototype */
   XS(XS_Bio__Emboss_ajListIterMore); /* prototype */
   XS(XS_Bio__Emboss_ajListIterDone); /* prototype */
@@ -442,11 +343,18 @@
   XS(XS_Bio__Emboss_ajRecToPol); /* prototype */
   XS(XS_Bio__Emboss_ajRound); /* prototype */
   XS(XS_Bio__Emboss_ajRoundF); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajMemAlloc); /* prototype */
   XS(XS_Bio__Emboss_ajMemCalloc); /* prototype */
   XS(XS_Bio__Emboss_ajMemCalloc0); /* prototype */
-  XS(XS_Bio__Emboss_ajMemFree); /* prototype */
   XS(XS_Bio__Emboss_ajMemResize); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajMemAlloc); /* prototype */
+  XS(XS_Bio__Emboss_ajMemCalloc); /* prototype */
+  XS(XS_Bio__Emboss_ajMemCalloc0); /* prototype */
+  XS(XS_Bio__Emboss_ajMemResize); /* prototype */
+#endif
+  XS(XS_Bio__Emboss_ajMemFree); /* prototype */
   XS(XS_Bio__Emboss_ajMemStat); /* prototype */
   XS(XS_Bio__Emboss_ajMemExit); /* prototype */
   XS(XS_Bio__Emboss_ajNamDatabase); /* prototype */
@@ -476,17 +384,26 @@
   XS(XS_Bio__Emboss_ajRangeNewI); /* prototype */
   XS(XS_Bio__Emboss_ajRangeDefault); /* prototype */
   XS(XS_Bio__Emboss_ajRangeDel); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajRangeGet); /* prototype */
   XS(XS_Bio__Emboss_ajRangeFile); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrExtract); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrExtractList); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrStuff); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrMask); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajRangeGet); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeFile); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrExtractList); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrExtract); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrStuff); /* prototype */
+  XS(XS_Bio__Emboss_ajRangeStrMask); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajRangeNumber); /* prototype */
   XS(XS_Bio__Emboss_ajRangeText); /* prototype */
   XS(XS_Bio__Emboss_ajRangeValues); /* prototype */
   XS(XS_Bio__Emboss_ajRangeChange); /* prototype */
   XS(XS_Bio__Emboss_ajRangeBegin); /* prototype */
-  XS(XS_Bio__Emboss_ajRangeStrExtractList); /* prototype */
-  XS(XS_Bio__Emboss_ajRangeStrExtract); /* prototype */
-  XS(XS_Bio__Emboss_ajRangeStrStuff); /* prototype */
-  XS(XS_Bio__Emboss_ajRangeStrMask); /* prototype */
   XS(XS_Bio__Emboss_ajRangeOverlapSingle); /* prototype */
   XS(XS_Bio__Emboss_ajRangeOverlaps); /* prototype */
   XS(XS_Bio__Emboss_ajRangeOrdered); /* prototype */
@@ -663,7 +580,11 @@
   XS(XS_Bio__Emboss_ajSeqABIGetNData); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIGetPrimerOffset); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIGetPrimerPosition); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajSeqABIGetSignal); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajSeqABIGetSignal); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajSeqABIGetTraceOffset); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIMachineName); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIReadSeq); /* prototype */
@@ -672,7 +593,11 @@
   XS(XS_Bio__Emboss_ajSeqAccessAsis); /* prototype */
   XS(XS_Bio__Emboss_ajSeqAccessFile); /* prototype */
   XS(XS_Bio__Emboss_ajSeqAccessOffset); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajSeqMethod); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajSeqMethod); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajSeqPrintAccess); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallFile); /* prototype */
   XS(XS_Bio__Emboss_ajSeqAllRead); /* prototype */
@@ -721,8 +646,25 @@
 #ifdef HAVE_EMBOSS_2_6_0
   XS(XS_Bio__Emboss_ajSssWriteXyz); /* prototype */
 #endif
+#ifdef HAVE_EMBOSS_2_9_0
   XS(XS_Bio__Emboss_ajCharFree); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFix); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFixI); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFixTestI); /* prototype */
+  XS(XS_Bio__Emboss_ajStrStr); /* prototype */
+  XS(XS_Bio__Emboss_ajStrTokenCount); /* prototype */
+  XS(XS_Bio__Emboss_ajStrTokenCountR); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajCharFree); /* prototype */
+  XS(XS_Bio__Emboss_ajCharNewC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFix); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFixI); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFixTestI); /* prototype */
+  XS(XS_Bio__Emboss_ajStrStr); /* prototype */
+  XS(XS_Bio__Emboss_ajStrTokenCount); /* prototype */
+  XS(XS_Bio__Emboss_ajStrTokenCountR); /* prototype */
+#endif
   XS(XS_Bio__Emboss_ajCharNew); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewL); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewLS); /* prototype */
@@ -780,9 +722,6 @@
   XS(XS_Bio__Emboss_ajStrFindCase); /* prototype */
   XS(XS_Bio__Emboss_ajStrFindCaseC); /* prototype */
   XS(XS_Bio__Emboss_ajStrFill); /* prototype */
-  XS(XS_Bio__Emboss_ajStrFix); /* prototype */
-  XS(XS_Bio__Emboss_ajStrFixI); /* prototype */
-  XS(XS_Bio__Emboss_ajStrFixTestI); /* prototype */
   XS(XS_Bio__Emboss_ajStrFromBool); /* prototype */
   XS(XS_Bio__Emboss_ajStrFromDouble); /* prototype */
   XS(XS_Bio__Emboss_ajStrFromDoubleE); /* prototype */
@@ -862,7 +801,6 @@
   XS(XS_Bio__Emboss_ajStrSetC); /* prototype */
   XS(XS_Bio__Emboss_ajStrSize); /* prototype */
   XS(XS_Bio__Emboss_ajStrStat); /* prototype */
-  XS(XS_Bio__Emboss_ajStrStr); /* prototype */
   XS(XS_Bio__Emboss_ajStrSub); /* prototype */
   XS(XS_Bio__Emboss_ajStrSubstitute); /* prototype */
   XS(XS_Bio__Emboss_ajStrSubstituteCC); /* prototype */
@@ -881,8 +819,6 @@
   XS(XS_Bio__Emboss_ajStrToken); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenAss); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenClear); /* prototype */
-  XS(XS_Bio__Emboss_ajStrTokenCount); /* prototype */
-  XS(XS_Bio__Emboss_ajStrTokenCountR); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenInit); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenReset); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenRest); /* prototype */
@@ -943,6 +879,8 @@
   XS(XS_Bio__Emboss_ajUtilRev4); /* prototype */
   XS(XS_Bio__Emboss_ajUtilRev8); /* prototype */
   XS(XS_Bio__Emboss_ajUtilUid); /* prototype */
+#ifdef HAVE_EMBOSS_2_9_0
+#else
   XS(XS_Bio__Emboss_ajXyzPdbtospNew); /* prototype */
   XS(XS_Bio__Emboss_ajXyzPdbtospDel); /* prototype */
   XS(XS_Bio__Emboss_ajXyzPdbtospRead); /* prototype */
@@ -1093,6 +1031,7 @@
   XS(XS_Bio__Emboss_ajXyzHetRawRead); /* prototype */
   XS(XS_Bio__Emboss_ajXyzHetRead); /* prototype */
   XS(XS_Bio__Emboss_ajXyzHetWrite); /* prototype */
+#endif
   XS(XS_Bio__Emboss_embGrpCompareTwoGnodes); /* prototype */
   XS(XS_Bio__Emboss_embGrpGetProgGroups); /* prototype */
   XS(XS_Bio__Emboss_embGrpGroupsListDel); /* prototype */
@@ -1104,3 +1043,300 @@
   XS(XS_Bio__Emboss_embGrpOutputProgsList); /* prototype */
   XS(XS_Bio__Emboss_embGrpSortGroupsList); /* prototype */
   XS(XS_Bio__Emboss_embGrpMakeUnique); /* prototype */
+#ifndef HAVE_EMBOSS_2_9_0
+  XS(XS_Bio__Emboss_ajGraphBox); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphBoxFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCheckColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCircle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphClose); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCloseWin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphColourBack); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphColourFore); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataDel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataObjAddLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataObjAddRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataObjAddText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataxySetMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataxyMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataxySetMaxima); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataxySetTypeC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDia); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDiaFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDots); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDumpDevices); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetOut); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphHoriBars); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphInfo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphInitSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLabelYRight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLines); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphNew); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphNewPage); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphObjAddLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphObjAddRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphObjAddText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphObjDel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataObjDel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpen); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpenPlot); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpenWin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlenv); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPoly); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPolyFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPrintType); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRectFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSet); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetDevice); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetBackBlack); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetBackWhite); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetPenWidth); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetFillPat); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetFore); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetLineStyle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetMulti); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetName); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetOri); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSymbols); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextMid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTraceInt); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTri); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTriFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphUnused); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphVertBars); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyAddDataCalcPtr); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyAddDataPtrPtr); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyAddGraph); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyReplaceGraph); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataNew); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataNewI); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetSubtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetSubtitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetXtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetXtitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetYtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDataSetYtitleC); /* prototype */
+#ifdef HAVE_EMBOSS_2_8_0
+  XS(XS_Bio__Emboss_ajGraphxyDel); /* prototype */
+#else
+  XS(XS_Bio__Emboss_ajGraphxyDel); /* prototype */
+#endif
+  XS(XS_Bio__Emboss_ajGraphxyDisplay); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyInitGraphCalcPtr); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyNewI); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyCheckMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySet); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetCirclePoints); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetFlag); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetGaps); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetJoinPoints); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetLineType); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetOut); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetOutC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetOverLap); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetSubtitleDo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetTitleDo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXBottom); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXLabelTop); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXTick); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXTop); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXGrid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXInvTicks); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXRangeII); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLabelLeft); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLeft); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYRight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYTick); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYGrid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYInvTicks); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYRangeII); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySubtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySubtitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyXtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyXtitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyYtitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyYtitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPartCircle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDrawTextOnCurve); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRectangleOnCurve); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextLength); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextHeight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDistPts); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphFitTextOnLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetDefCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphFillRectangleOnCurve); /* prototype */
+#endif
+#ifdef HAVE_EMBOSS_2_9_0
+  XS(XS_Bio__Emboss_ajGraphBox); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphBoxFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCheckColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCircle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphClose); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphCloseWin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphColourBack); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphColourFore); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataAddLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataAddRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataAddText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphArrayMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetMaxima); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetTypeC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphClear); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDia); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDiaFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDots); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDumpDevices); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetOut); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetSubTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetSubTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetXTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetXTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetYTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphGetYTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphHoriBars); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphInfo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphInitSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphIsData); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLabelYRight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphLines); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphNew); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphNewPage); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphAddLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphAddRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphAddText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataDel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpen); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpenPlot); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphOpenWin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlenv); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPoly); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPolyFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPrintType); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRect); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRectFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSet); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetDevice); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetBackBlack); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetBackWhite); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetPenWidth); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetFillPat); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetFore); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetLineStyle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetMulti); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetName); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetOri); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSymbols); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphText); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextMid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTraceInt); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTri); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTriFill); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphUnused); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphVertBars); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataCalcXY); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetXY); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataAdd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataReplace); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataNew); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataNewI); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetSubTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetSubTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetXTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetXTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetYTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetYTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyDisplay); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyNewI); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxyCheckMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySet); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetCirclePoints); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetColour); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetFlag); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetJoinPoints); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPlpDataSetLineType); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetMaxMin); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetOut); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetOutC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetOverLap); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetSubTitleDo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetTitleDo); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXBottom); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXLabelTop); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXTick); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXTop); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXGrid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXInvTicks); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXRangeII); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetXStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLabelLeft); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLeft); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYRight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYTick); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYGrid); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYInvTicks); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYLabel); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYRangeII); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetYStart); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetSubTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetSubTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetXTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetXTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetYTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetYTitleC); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphxySetGaps); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphPartCircle); /* prototype */
+#if 0
+  XS(XS_Bio__Emboss_ajComputeCoord); /* prototype */
+#endif
+  XS(XS_Bio__Emboss_ajGraphDrawTextOnCurve); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphRectangleOnCurve); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextLength); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphTextHeight); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDistPts); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphFitTextOnLine); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetDefCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphFillRectangleOnCurve); /* prototype */
+#endif

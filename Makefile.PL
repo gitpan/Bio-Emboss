@@ -102,6 +102,11 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
   Emboss_embgroup
 );
 
+@sub_modules_lib = qw(
+  Emboss_graph_25.xsx
+  Emboss_graph_29.xsx
+);
+
 # --- library modules plus main module
 @modules = ("Emboss", @modules_lib);
 
@@ -114,7 +119,7 @@ foreach $mod (@modules) {
 $OBJECT = join (" ", @OBJECTS);
 
 # --- list of .xs files in @modules_lib
-$xs_modules = join(" \\\n   ", map { "$_.xs"} @modules_lib);
+$xs_modules = join(" \\\n   ", map ("$_.xs", @modules_lib), @sub_modules_lib);
 
 # --- output of scripts/get_boot_for_modules.pl
 #     included by Emboss.xs
@@ -246,8 +251,8 @@ sub MY::postamble {
     my $postamble = <<"MAKE_FRAG";
 
 # --- recreate Methods.pm if any of the .xs files has changed
-lib/Bio/Emboss/Methods.pm: \$(XS_FILES)
-\t\$(PERL) scripts/get_methods.pl \$(XS_FILES) > \$\@
+lib/Bio/Emboss/Methods.pm:  Emboss.xs \$(EMBOSS_XS_MODULES)
+\t\$(PERL) scripts/get_methods.pl Emboss.xs \$(EMBOSS_XS_MODULES) > \$\@
 
 EMBOSS_BOOT_FILES = $emboss_boot
 EMBOSS_XS_MODULES = $xs_modules
@@ -289,17 +294,17 @@ sub write_config_h {
 #define EMBOSS_VERSION "$eversion"
 #endif
 EOB
-
-    if ($eversion ge "2.7.0") {
-	$configh .= "#define HAVE_EMBOSS_2_7_0\n";
-    }
-
-    if ($eversion ge "2.6.0") {
-	$configh .= "#define HAVE_EMBOSS_2_6_0\n";
-    }
-
-    if ($eversion ge "2.5.1") {
-	$configh .= "#define HAVE_EMBOSS_2_5_1\n";
+    my ($v);
+    foreach $v qw(2.9.0
+		  2.8.0
+		  2.7.0
+		  2.6.0
+		  2.5.1) {
+	if ($eversion ge $v) {
+	    my $label = $v;
+	    $label =~ tr/./_/;
+	    $configh .= "#define HAVE_EMBOSS_$label\n";
+	}
     }
 
     open (CONFIGH, ">$outfile");

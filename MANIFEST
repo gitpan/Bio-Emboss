@@ -6,6 +6,8 @@ Emboss_embgroup.xs
 Emboss_feat.xs
 Emboss_file.xs
 Emboss_graph.xs
+Emboss_graph_25.xsx
+Emboss_graph_29.xsx
 Emboss_hist.xs
 Emboss_list.xs
 Emboss_math.xs
@@ -47,3 +49,4 @@ t/seqret.pl
 t/seqret2.pl
 t/test3_seqret.pl
 typemap
+META.yml                                 Module meta-data (added by MakeMaker)

@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_range		PACKAGE = Bio::Emboss		
 
@@ -29,6 +30,57 @@ ajRangeDel (thys)
     OUTPUT:
        thys
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+AjPRange 
+ajRangeGet (s)
+       const AjPStr s
+    OUTPUT:
+       RETVAL
+
+AjPRange 
+ajRangeFile (name)
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajRangeStrExtract (thys, instr, outstr)
+       const AjPRange thys
+       const AjPStr instr
+       AjPStr &outstr
+    OUTPUT:
+       RETVAL
+       outstr
+
+AjBool
+ajRangeStrExtractList (thys, instr, outliststr)
+       const AjPRange thys
+       const AjPStr instr
+       AjPList outliststr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajRangeStrStuff (thys, instr, outstr)
+       const AjPRange thys
+       const AjPStr instr
+       AjPStr &outstr
+    OUTPUT:
+       RETVAL
+       outstr
+
+AjBool
+ajRangeStrMask (thys, maskchar, str)
+       const AjPRange thys
+       const AjPStr maskchar
+       AjPStr &str
+    OUTPUT:
+       RETVAL
+       str
+
+#else
+
 AjBool
 ajRangeGet (r, s)
        AjPRange &r
@@ -44,6 +96,43 @@ ajRangeFile (r, name)
     OUTPUT:
        RETVAL
        r
+
+AjBool
+ajRangeStrExtractList (outliststr, thys, instr)
+       AjPList outliststr
+       AjPRange thys
+       AjPStr instr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajRangeStrExtract (outstr, thys, instr)
+       AjPStr &outstr
+       AjPRange thys
+       AjPStr instr
+    OUTPUT:
+       RETVAL
+       outstr
+
+AjBool
+ajRangeStrStuff (outstr, thys, instr)
+       AjPStr &outstr
+       AjPRange thys
+       AjPStr instr
+    OUTPUT:
+       RETVAL
+       outstr
+
+AjBool
+ajRangeStrMask (str, thys, maskchar)
+       AjPStr &str
+       AjPRange thys
+       AjPStr maskchar
+    OUTPUT:
+       RETVAL
+       str
+
+#endif
 
 ajint
 ajRangeNumber (thys)
@@ -86,41 +175,6 @@ ajRangeBegin (thys, begin)
        ajint begin
     OUTPUT:
        RETVAL
-
-AjBool
-ajRangeStrExtractList (outliststr, thys, instr)
-       AjPList outliststr
-       AjPRange thys
-       AjPStr instr
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajRangeStrExtract (outstr, thys, instr)
-       AjPStr &outstr
-       AjPRange thys
-       AjPStr instr
-    OUTPUT:
-       RETVAL
-       outstr
-
-AjBool
-ajRangeStrStuff (outstr, thys, instr)
-       AjPStr &outstr
-       AjPRange thys
-       AjPStr instr
-    OUTPUT:
-       RETVAL
-       outstr
-
-AjBool
-ajRangeStrMask (str, thys, maskchar)
-       AjPStr &str
-       AjPRange thys
-       AjPStr maskchar
-    OUTPUT:
-       RETVAL
-       str
 
 ajint
 ajRangeOverlapSingle (start, end, pos, length)

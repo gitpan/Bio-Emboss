@@ -5,6 +5,8 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
+
 #include "ajhist.h"
 
 MODULE = Bio::Emboss_hist		PACKAGE = Bio::Emboss		
@@ -18,9 +20,21 @@ ajHistCopyData (hist, index, data)
        ajint index
        PLFLT *data
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+void
+ajHistDelete (hist)
+       AjPHist &hist
+    OUTPUT:
+       hist
+
+#else
+
 void
 ajHistDelete (hist)
        AjPHist hist
+
+#endif
 
 void
 ajHistDisplay (hist)

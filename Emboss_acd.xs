@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_acd		PACKAGE = Bio::Emboss		
 
@@ -144,11 +145,23 @@ ajAcdGetOutfile (token)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+AjPFile
+ajAcdGetCpdb (token)
+       char *token
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjPPdb
 ajAcdGetCpdb (token)
        char *token
     OUTPUT:
        RETVAL
+
+#endif
 
 AjPRange
 ajAcdGetRange (token)
@@ -168,11 +181,23 @@ ajAcdGetReport (token)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+AjPFile
+ajAcdGetScop (token)
+       char *token
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjPScop
 ajAcdGetScop (token)
        char *token
     OUTPUT:
        RETVAL
+
+#endif
 
 AjPStr*
 ajAcdGetSelect (token)
@@ -234,10 +259,21 @@ ajAcdPrintType (outf, full)
        AjPFile outf
        AjBool full
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+const char*
+ajAcdProgram ()
+    OUTPUT:
+       RETVAL
+
+#else
+
 char*
 ajAcdProgram ()
     OUTPUT:
        RETVAL
+
+#endif
 
 void
 ajAcdProgramS (pgm)

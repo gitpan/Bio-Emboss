@@ -15,6 +15,7 @@ AjPFileBuff    T_PTROBJ_AJP
 AjPFloat       T_PTROBJ_AJP
 AjPGraph       T_PTROBJ_AJP
 AjPGraphData   T_PTROBJ_AJP
+AjPGraphPlpData T_PTROBJ_AJP
 AjPHet	       T_PTROBJ_AJP
 AjPHetent      T_PTROBJ_AJP
 AjPHist	       T_PTROBJ_AJP
@@ -30,6 +31,7 @@ AjPMatrixf     T_PTROBJ_AJP
 AjPPdb	       T_PTROBJ_AJP
 AjPPdbtosp     T_PTROBJ_AJP
 AjPRange       T_PTROBJ_AJP
+const AjPRange       T_PTROBJ_AJP
 AjPRegexp      T_PTROBJ_AJP
 AjPReport      T_PTROBJ_AJP
 AjPScop	       T_PTROBJ_AJP
@@ -55,6 +57,7 @@ AjPSigpos      T_PTROBJ_AJP
 AjPStockholm   T_PTROBJ_AJP
 AjPStockholmdata T_PTROBJ_AJP
 AjPStr         T_PTROBJ_AJP
+const AjPStr   T_PTROBJ_AJP
 AjPStr*        T_PTROBJ_AJP
 AjPStrTok      T_PTROBJ_AJP
 AjPTrn         T_PTROBJ_AJP

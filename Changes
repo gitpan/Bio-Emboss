@@ -1,5 +1,8 @@
 Revision history for Perl extension Bio::Emboss.
 
+0.6  Tue Jul 20 15:18:03 CEST 2004
+	- support for EMBOSS-2.9.0
+
 0.5  Tue Dec  2 17:55:11 CET 2003
         - added OP_NOT, OP_REF and OP_REVERSE to emboss_redefs 
           (because of pcre_internal.h in EMBOSS-2.8.0)

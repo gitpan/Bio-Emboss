@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_file		PACKAGE = Bio::Emboss		
 
@@ -181,11 +182,15 @@ void
 ajFileBuffStripHtml (thys)
        AjPFileBuff thys
 
+#ifndef HAVE_EMBOSS_2_9_0
+
 ajint
 ajFileBuffStripSrs (thys)
        AjPFileBuff thys
     OUTPUT:
        RETVAL
+
+#endif
 
 void
 ajFileBuffTrace (thys)
@@ -543,6 +548,17 @@ ajFileSeek (thys, offset, wherefrom)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+AjBool
+ajFileStat (filename, mode)
+       const AjPStr filename
+       ajint mode
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjBool
 ajFileStat (filename, mode)
        AjPStr &filename
@@ -550,6 +566,8 @@ ajFileStat (filename, mode)
     OUTPUT:
        RETVAL
        filename
+
+#endif
 
 AjBool
 ajFileStderr (file)
@@ -575,11 +593,23 @@ ajFileTell (thys)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+const char*
+ajFileTempName (dir)
+       const char *dir
+    OUTPUT:
+       RETVAL
+
+#else
+
 char*
 ajFileTempName (dir)
        char *dir
     OUTPUT:
        RETVAL
+
+#endif
 
 AjBool
 ajFileTestSkip (fullname, exc, inc, keep, ignoredirectory)

@@ -2,6 +2,8 @@
 
 $mregex = q/(?:aj|emb)/;
 
+$Debug = 0;
+
 while (<>) {
     # --- lines starting with "aj.." or "emb..." ?
     next unless /^($mregex\w+).*\(.*\)/o;
@@ -9,10 +11,11 @@ while (<>) {
     $method = $1;
 
     # --- only once
-    next if $m_hash{ $method };
-    $m_hash{ $method } = 1;
+    unless ( $m_hash{ $method } ) {
+	push (@methods, $method);
+	$m_hash{ $method } = 1;
+    }
 
-    push (@methods, $method);
 
     # --- the following line starts with "AjP..." ?
     $_ = <>;
@@ -20,6 +23,27 @@ while (<>) {
 
     $class = $1;
 
+    # --- only once if method and class are identical
+    #     but add method to additional class if classes differ (and warn?)
+    if ( ref $m_hash{ $method } ) { # --- already found a class for $method
+	my $cl;
+	my $go_next = 1;
+	# --- test if method has links to different classes
+	foreach $cl ( @{$m_hash{ $method }} ) {
+	    if ($cl ne $class) {
+		push @{$m_hash{ $method }}, $class;
+		$go_next = 0;
+
+		if ($Debug) {
+		    warn "method $method for those classes: " .
+			join (", ", @{$m_hash{ $method }}) . "\n";
+		}
+	    }
+	}
+	next if $go_next;
+    } else {
+	$m_hash{ $method } = [ $class ];
+    }
     push @{ $all{$class} }, $method;
 }
 

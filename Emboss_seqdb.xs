@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_seqdb		PACKAGE = Bio::Emboss		
 
@@ -28,6 +29,17 @@ ajSeqAccessOffset (seqin)
     OUTPUT:
        RETVAL
 
+
+#ifdef HAVE_EMBOSS_2_9_0
+
+SeqPAccess
+ajSeqMethod (method)
+       const AjPStr method
+    OUTPUT:
+       RETVAL
+
+#else
+
 AjBool
 ajSeqMethod (method, access)
        AjPStr method
@@ -35,6 +47,8 @@ ajSeqMethod (method, access)
     OUTPUT:
        RETVAL
        access
+
+#endif
 
 void
 ajSeqPrintAccess (outf, full)

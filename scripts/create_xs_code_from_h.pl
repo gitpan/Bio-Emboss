@@ -4,7 +4,7 @@ while (<>) {
     next unless /\S/;
 
     chomp;
-    $type = $1 if s/^\s*(\w+(?:\s*\*)?)\s*//;
+    $type = $1 if s/^\s*((?:const\s+)?\w+(?:\s*\*)?)\s*//;
 
     s/;.*//;
 
@@ -14,7 +14,7 @@ while (<>) {
 
     @params = grep {$_ ne "void"} split (/\s*,\s*/, $paraml);
 
-    map { s/^const\s*//; } @params;
+    ##map { s/^const\s*//; } @params;
 
     @output = ();
     push (@output, "RETVAL") unless $type eq "void";

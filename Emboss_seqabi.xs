@@ -5,6 +5,7 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_seqabi		PACKAGE = Bio::Emboss		
 
@@ -75,6 +76,24 @@ ajSeqABIGetPrimerPosition (fp)
     OUTPUT:
        RETVAL
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+void
+ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
+       AjPFile fp
+       ajlong fwo_
+       ajshort &sigC
+       ajshort &sigA
+       ajshort &sigG
+       ajshort &sigT
+    OUTPUT:
+       sigC
+       sigA
+       sigG
+       sigT
+
+#else
+
 void
 ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
        AjPFile fp
@@ -83,6 +102,8 @@ ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
        ajshort sigA
        ajshort sigG
        ajshort sigT
+
+#endif
 
 AjBool
 ajSeqABIGetTraceOffset (fp, Offset)

@@ -11,6 +11,10 @@ MODULE = Bio::Emboss_xyz		PACKAGE = Bio::Emboss
 
  # code from ajxyz.h: automatically generated
 
+#ifdef HAVE_EMBOSS_2_9_0
+
+#else
+
 AjPPdbtosp
 ajXyzPdbtospNew (n)
        ajint n
@@ -1139,3 +1143,4 @@ ajXyzHetWrite (fptr, ptr, dogrep)
     OUTPUT:
        RETVAL
 
+#endif

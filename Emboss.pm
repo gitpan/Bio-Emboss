@@ -31,7 +31,7 @@ require Bio::Emboss::Methods;
 	
 );
 
-$VERSION = '0.5';
+$VERSION = '0.6';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -182,7 +182,7 @@ Bio::Emboss source tree.
 
 =head1 AUTHOR
 
-Peter Ernst, E<lt>P.Ernst@dkfz-heidelberg.deE<gt>
+Peter Ernst, E<lt>pernst@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
