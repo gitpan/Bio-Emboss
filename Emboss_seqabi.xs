@@ -9,6 +9,8 @@
 
 MODULE = Bio::Emboss_seqabi		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajseqabi.h: automatically generated
 
 ajint
@@ -40,7 +42,7 @@ ajSeqABIGetBaseSpace (fp)
 void
 ajSeqABIGetData (fp, Offset, numPoints, trace)
        AjPFile fp
-       ajlong &Offset
+       const ajlong &Offset
        ajlong numPoints
        AjPInt2d trace
     OUTPUT:
@@ -76,8 +78,6 @@ ajSeqABIGetPrimerPosition (fp)
     OUTPUT:
        RETVAL
 
-#ifdef HAVE_EMBOSS_2_9_0
-
 void
 ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
        AjPFile fp
@@ -91,19 +91,6 @@ ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
        sigA
        sigG
        sigT
-
-#else
-
-void
-ajSeqABIGetSignal (fp, fwo_, sigC, sigA, sigG, sigT)
-       AjPFile fp
-       ajlong fwo_
-       ajshort sigC
-       ajshort sigA
-       ajshort sigG
-       ajshort sigT
-
-#endif
 
 AjBool
 ajSeqABIGetTraceOffset (fp, Offset)

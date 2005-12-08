@@ -13,6 +13,8 @@
 
 MODULE = Bio::Emboss		PACKAGE = Bio::Emboss
 
+PROTOTYPES: ENABLE
+
 INCLUDE: const-xs.inc
 
 INCLUDE: emboss-boot-xs.inc

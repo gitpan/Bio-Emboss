@@ -5,14 +5,18 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_seqread		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajseqread.h: automatically generated
+
 
 AjPSeqall
 ajSeqallFile (usa)
-       AjPStr usa
+       const AjPStr usa
     OUTPUT:
        RETVAL
 
@@ -25,15 +29,25 @@ ajSeqAllRead (thys, seqin)
 
 AjBool
 ajSeqGetFromUsa (thys, protein, seq)
-       AjPStr thys
+       const AjPStr thys
        AjBool protein
        AjPSeq &seq
     OUTPUT:
        RETVAL
        seq
 
+AjBool
+ajSeqFormatTest (format)
+       const AjPStr format
+    OUTPUT:
+       RETVAL
+
 void
 ajSeqinClear (thys)
+       AjPSeqin thys
+
+void
+ajSeqinClearPos (thys)
        AjPSeqin thys
 
 void
@@ -46,36 +60,6 @@ AjPSeqin
 ajSeqinNew ()
     OUTPUT:
        RETVAL
-
-AjBool
-ajSeqParseFasta (str, id, acc, sv, desc)
-       AjPStr str
-       AjPStr& id
-       AjPStr& acc
-       AjPStr& sv
-       AjPStr& desc
-    OUTPUT:
-       RETVAL
-       id
-       acc
-       sv
-       desc
-
-AjBool
-ajSeqParseNcbi (str, id, acc, sv, gi, desc)
-       AjPStr str
-       AjPStr& id
-       AjPStr& acc
-       AjPStr& sv
-       AjPStr& gi
-       AjPStr& desc
-    OUTPUT:
-       RETVAL
-       id
-       acc
-       sv
-       gi
-       desc
 
 void
 ajSeqinSetNuc (seqin)
@@ -94,9 +78,74 @@ ajSeqinSetRange (seqin, ibegin, iend)
 void
 ajSeqinUsa (pthis, Usa)
        AjPSeqin& pthis
-       AjPStr Usa
+       const AjPStr Usa
     OUTPUT:
        pthis
+
+AjBool
+ajSeqParseFasta (str, id, acc, sv, desc)
+       const AjPStr str
+       AjPStr& id
+       AjPStr& acc
+       AjPStr& sv
+       AjPStr& desc
+    OUTPUT:
+       RETVAL
+       id
+       acc
+       sv
+       desc
+
+AjBool
+ajSeqParseNcbi (str, id, acc, sv, gi, desc)
+       const AjPStr str
+       AjPStr& id
+       AjPStr& acc
+       AjPStr& sv
+       AjPStr& gi
+       AjPStr& desc
+    OUTPUT:
+       RETVAL
+       id
+       acc
+       sv
+       gi
+       desc
+
+void
+ajSeqQueryClear (thys)
+       AjPSeqQuery thys
+
+void
+ajSeqQueryDel (pthis)
+       AjPSeqQuery &pthis
+    OUTPUT:
+       pthis
+
+AjBool
+ajSeqQueryIs (qry)
+       const AjPSeqQuery qry
+    OUTPUT:
+       RETVAL
+
+AjPSeqQuery
+ajSeqQueryNew ()
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqQueryStarclear (qry)
+       AjPSeqQuery qry
+
+void
+ajSeqQueryTrace (qry)
+       const AjPSeqQuery qry
+
+AjBool
+ajSeqQueryWild (qry)
+       AjPSeqQuery qry
+    OUTPUT:
+       RETVAL
 
 void
 ajSeqPrintInFormat (outf, full)
@@ -113,7 +162,37 @@ ajSeqRead (thys, seqin)
 ajint
 ajSeqsetApp (thys, seq)
        AjPSeqset thys
-       AjPSeq seq
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqsetGetFromUsa (thys, seq)
+       const AjPStr thys
+       AjPSeqset &seq
+    OUTPUT:
+       RETVAL
+       seq
+
+AjBool
+ajSeqsetFromList (thys, list)
+       AjPSeqset thys
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetFromPair (thys, seqa, seqb)
+       AjPSeqset thys
+       const AjPSeq seqa
+       const AjPSeq seqb
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqsetallRead (thys, seqin)
+       AjPList thys
+       AjPSeqin seqin
     OUTPUT:
        RETVAL
 
@@ -121,21 +200,6 @@ AjBool
 ajSeqsetRead (thys, seqin)
        AjPSeqset thys
        AjPSeqin seqin
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqsetFromList (thys, list)
-       AjPSeqset thys
-       AjPList list
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqsetFromPair (thys, seqa, seqb)
-       AjPSeqset thys
-       AjPSeq seqa
-       AjPSeq seqb
     OUTPUT:
        RETVAL
 

@@ -9,14 +9,14 @@
 
 MODULE = Bio::Emboss_mem		PACKAGE = Bio::Emboss		
 
- # code from ajmem.h: automatically generated
+PROTOTYPES: ENABLE
 
-#ifdef HAVE_EMBOSS_2_9_0
+ # code from ajmem.h: automatically generated
 
 void *
 ajMemAlloc (nbytes, file, line, nofail)
        ajlong nbytes
-       char *file
+       const char *file
        ajint line
        AjBool nofail
     OUTPUT:
@@ -26,7 +26,7 @@ void *
 ajMemCalloc (count, nbytes, file, line, nofail)
        ajlong count
        ajlong nbytes
-       char *file
+       const char *file
        ajint line
        AjBool nofail
     OUTPUT:
@@ -36,70 +36,32 @@ void *
 ajMemCalloc0 (count, nbytes, file, line, nofail)
        ajlong count
        ajlong nbytes
-       char *file
+       const char *file
        ajint line
        AjBool nofail
     OUTPUT:
        RETVAL
+
+void
+ajMemFree (ptr, file, line)
+       char *ptr
+       const char *file
+       ajint line
 
 void *
 ajMemResize (ptr, nbytes, file, line, nofail)
        char *ptr
        ajlong nbytes
-       char *file
+       const char *file
        ajint line
        AjBool nofail
     OUTPUT:
        RETVAL
 
-#else
-
-void *
-ajMemAlloc (nbytes, file, line)
-       ajlong nbytes
-       char *file
-       ajint line
-    OUTPUT:
-       RETVAL
-
-void *
-ajMemCalloc (count, nbytes, file, line)
-       ajlong count
-       ajlong nbytes
-       char *file
-       ajint line
-    OUTPUT:
-       RETVAL
-
-void *
-ajMemCalloc0 (count, nbytes, file, line)
-       ajlong count
-       ajlong nbytes
-       char *file
-       ajint line
-    OUTPUT:
-       RETVAL
-
-void *
-ajMemResize (ptr, nbytes, file, line)
-       char *ptr
-       ajlong nbytes
-       char *file
-       ajint line
-    OUTPUT:
-       RETVAL
-
-#endif
-
-void
-ajMemFree (ptr, file, line)
-       char *ptr
-       char *file
-       ajint line
 
 void
 ajMemStat (title)
-       char* title
+       const char* title
 
 void
 ajMemExit ()

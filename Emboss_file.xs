@@ -9,60 +9,144 @@
 
 MODULE = Bio::Emboss_file		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajfile.h: automatically generated
 
 void
+ajDirDel (pthis)
+       AjPDir & pthis
+    OUTPUT:
+       pthis
+
+void
+ajDiroutDel (pthis)
+       AjPDir & pthis
+    OUTPUT:
+       pthis
+
+AjPStr
+ajDirExt (thys)
+       const AjPDir  thys
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajDirName (thys)
+       const AjPDir  thys
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDirNew (name)
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDirNewS (name, ext)
+       const AjPStr name
+       const AjPStr ext
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDirNewSS (name, prefix, ext)
+       const AjPStr name
+       const AjPStr prefix
+       const AjPStr ext
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDiroutNew (name)
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDiroutNewS (name, ext)
+       const AjPStr name
+       const AjPStr ext
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajDiroutNewSS (name, prefix, ext)
+       const AjPStr name
+       const AjPStr prefix
+       const AjPStr ext
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFileBuffBuff (thys)
+       AjPFileBuff  thys
+    OUTPUT:
+       RETVAL
+
+void
 ajFileBuffClear (thys, lines)
-       AjPFileBuff thys
+       AjPFileBuff  thys
        ajint lines
 
 void
+ajFileBuffClearStore (thys, lines, rdline, store, astr)
+       AjPFileBuff  thys
+       ajint lines
+       const AjPStr rdline
+       AjBool store
+       AjPStr &astr
+    OUTPUT:
+       astr
+
+void
 ajFileBuffDel (pthis)
-       AjPFileBuff& pthis
+       AjPFileBuff & pthis
     OUTPUT:
        pthis
 
 AjBool
 ajFileBuffEmpty (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 AjBool
 ajFileBuffEnd (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 AjBool
 ajFileBuffEof (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileBuffFile (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 void
 ajFileBuffFix (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
 
 FILE*
 ajFileBuffFp (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 void
 ajFileBuffFreeClear (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
 
 AjBool
 ajFileBuffGet (thys, pdest)
-       AjPFileBuff thys
+       AjPFileBuff  thys
        AjPStr &pdest
     OUTPUT:
        RETVAL
@@ -70,7 +154,7 @@ ajFileBuffGet (thys, pdest)
 
 AjBool
 ajFileBuffGetL (thys, pdest, fpos)
-       AjPFileBuff thys
+       AjPFileBuff  thys
        AjPStr &pdest
        ajlong& fpos
     OUTPUT:
@@ -80,7 +164,7 @@ ajFileBuffGetL (thys, pdest, fpos)
 
 AjBool
 ajFileBuffGetStore (thys, pdest, store, astr)
-       AjPFileBuff thys
+       AjPFileBuff  thys
        AjPStr& pdest
        AjBool store
        AjPStr &astr
@@ -89,19 +173,38 @@ ajFileBuffGetStore (thys, pdest, store, astr)
        pdest
        astr
 
+AjBool
+ajFileBuffGetStoreL (thys, pdest, fpos, store, astr)
+       AjPFileBuff  thys
+       AjPStr& pdest
+       ajlong& fpos
+       AjBool store
+       AjPStr &astr
+    OUTPUT:
+       RETVAL
+       pdest
+       fpos
+       astr
+
+AjBool
+ajFileBuffIsBuffered (thys)
+       const AjPFileBuff  thys
+    OUTPUT:
+       RETVAL
+
 void
 ajFileBuffLoad (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
 
 void
 ajFileBuffLoadC (thys, str)
-       AjPFileBuff thys
-       char* str
+       AjPFileBuff  thys
+       const char* str
 
 void
 ajFileBuffLoadS (thys, str)
-       AjPFileBuff thys
-       AjPStr str
+       AjPFileBuff  thys
+       const AjPStr str
 
 AjPFileBuff
 ajFileBuffNew ()
@@ -110,34 +213,48 @@ ajFileBuffNew ()
 
 AjPFileBuff
 ajFileBuffNewDC (dir, filename)
-       AjPStr dir
-       char* filename
+       const AjPStr dir
+       const char* filename
     OUTPUT:
        RETVAL
 
 AjPFileBuff
 ajFileBuffNewDF (dir, filename)
-       AjPStr dir
-       AjPStr filename
+       const AjPStr dir
+       const AjPStr filename
     OUTPUT:
        RETVAL
 
 AjPFileBuff
 ajFileBuffNewDW (dir, wildfile)
-       AjPStr dir
-       AjPStr wildfile
+       const AjPStr dir
+       const AjPStr wildfile
+    OUTPUT:
+       RETVAL
+
+AjPFileBuff
+ajFileBuffNewDWE (dir, wildfile, exclude)
+       const AjPStr dir
+       const AjPStr wildfile
+       const AjPStr exclude
+    OUTPUT:
+       RETVAL
+
+AjPFileBuff
+ajFileBuffNewF (fp)
+       FILE *fp
     OUTPUT:
        RETVAL
 
 AjPFileBuff
 ajFileBuffNewFile (file)
-       AjPFile file
+       AjPFile  file
     OUTPUT:
        RETVAL
 
 AjPFileBuff
 ajFileBuffNewIn (name)
-       AjPStr name
+       const AjPStr name
     OUTPUT:
        RETVAL
 
@@ -149,26 +266,42 @@ ajFileBuffNewInList (list)
 
 AjPFileBuff
 ajFileBuffNewS (data)
-       AjPStr data
+       const AjPStr data
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFileBuffNobuff (thys)
+       AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
 void
-ajFileBuffNobuff (thys)
-       AjPFileBuff thys
+ajFileBuffPrint (thys, title)
+       const AjPFileBuff  thys
+       const char* title
 
 void
 ajFileBuffReset (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
 
 void
 ajFileBuffResetPos (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
+
+void
+ajFileBuffResetStore (thys, store, astr)
+       AjPFileBuff  thys
+       AjBool store
+       AjPStr &astr
+    OUTPUT:
+       astr
 
 AjBool
-ajFileBuffSetFile (pthys, file)
-       AjPFileBuff& pthys
-       AjPFile file
+ajFileBuffSetFile (pthys, file, samefile)
+       AjPFileBuff & pthys
+       AjPFile  file
+       AjBool   samefile
     OUTPUT:
        RETVAL
        pthys
@@ -180,68 +313,64 @@ ajFileBuffSize ()
 
 void
 ajFileBuffStripHtml (thys)
-       AjPFileBuff thys
+       AjPFileBuff  thys
 
-#ifndef HAVE_EMBOSS_2_9_0
-
-ajint
-ajFileBuffStripSrs (thys)
-       AjPFileBuff thys
+AjBool
+ajFileBuffStripHtmlPre (thys)
+       AjPFileBuff  thys
     OUTPUT:
        RETVAL
 
-#endif
-
 void
 ajFileBuffTrace (thys)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
 
 void
 ajFileBuffTraceFull (thys, nlines, nfree)
-       AjPFileBuff thys
+       const AjPFileBuff  thys
        size_t nlines
        size_t nfree
 
 void
 ajFileClose (pthis)
-       AjPFile &pthis
+       AjPFile  &pthis
     OUTPUT:
        pthis
 
 void
 ajFileDataDirNew (tfile, dir, fnew)
-       AjPStr tfile
-       AjPStr dir
-       AjPFile &fnew
+       const AjPStr tfile
+       const AjPStr dir
+       AjPFile  &fnew
     OUTPUT:
        fnew
 
 void
 ajFileDataDirNewC (s, d, f)
-       char *s
-       char* d
-       AjPFile &f
+       const char *s
+       const char* d
+       AjPFile&  f
     OUTPUT:
        f
 
 void
 ajFileDataNew (filename, newfileptr)
-       AjPStr filename
-       AjPFile &newfileptr
+       const AjPStr filename
+       AjPFile  &newfileptr
     OUTPUT:
        newfileptr
 
 void
 ajFileDataNewC (s, f)
-       char *s
-       AjPFile &f
+       const char *s
+       AjPFile  &f
     OUTPUT:
        f
 
 void
 ajFileDataNewWrite (tfile, fnew)
-       AjPStr tfile
-       AjPFile &fnew
+       const AjPStr tfile
+       AjPFile  &fnew
     OUTPUT:
        fnew
 
@@ -279,18 +408,38 @@ ajFileDirTrim (name)
        RETVAL
        name
 
+AjBool
+ajFileExtnTrim (name)
+       AjPStr& name
+    OUTPUT:
+       RETVAL
+       name
+
+AjBool
+ajFileDirExtnTrim (name)
+       AjPStr& name
+    OUTPUT:
+       RETVAL
+       name
+
+AjBool
+ajFileEof (thys)
+       const AjPFile  thys
+    OUTPUT:
+       RETVAL
+
 void
 ajFileExit ()
 
 AjPList
 ajFileFileList (files)
-       AjPStr files
+       const AjPStr files
     OUTPUT:
        RETVAL
 
 FILE*
 ajFileFp (thys)
-       AjPFile thys
+       const AjPFile  thys
     OUTPUT:
        RETVAL
 
@@ -303,13 +452,13 @@ ajFileGetwd (dir)
 
 AjPStr
 ajFileGetName (thys)
-       AjPFile thys
+       const AjPFile  thys
     OUTPUT:
        RETVAL
 
 AjBool
 ajFileGets (thys, pdest)
-       AjPFile thys
+       AjPFile  thys
        AjPStr &pdest
     OUTPUT:
        RETVAL
@@ -317,7 +466,7 @@ ajFileGets (thys, pdest)
 
 AjBool
 ajFileGetsL (thys, pdest, fpos)
-       AjPFile thys
+       AjPFile  thys
        AjPStr &pdest
        ajlong& fpos
     OUTPUT:
@@ -327,7 +476,7 @@ ajFileGetsL (thys, pdest, fpos)
 
 AjBool
 ajFileGetsTrim (thys, pdest)
-       AjPFile thys
+       AjPFile  thys
        AjPStr &pdest
     OUTPUT:
        RETVAL
@@ -335,7 +484,7 @@ ajFileGetsTrim (thys, pdest)
 
 AjBool
 ajFileGetsTrimL (thys, pdest, fpos)
-       AjPFile thys
+       AjPFile  thys
        AjPStr &pdest
        ajlong& fpos
     OUTPUT:
@@ -343,22 +492,37 @@ ajFileGetsTrimL (thys, pdest, fpos)
        pdest
        fpos
 
-ajlong
-ajFileLength (fname)
-       AjPStr fname
+AjBool
+ajFileHasDir (name)
+       const AjPStr name
     OUTPUT:
        RETVAL
 
-const char* 
+ajlong
+ajFileLength (fname)
+       const AjPStr fname
+    OUTPUT:
+       RETVAL
+
+const char*
 ajFileName (thys)
-       AjPFile thys
+       const AjPFile  thys
     OUTPUT:
        RETVAL
 
 AjBool
+ajFileNameDir (filename, dir, name)
+       AjPStr& filename
+       const AjPDir  dir
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+       filename
+
+AjBool
 ajFileNameDirSet (filename, dir)
        AjPStr& filename
-       AjPStr dir
+       const AjPStr dir
     OUTPUT:
        RETVAL
        filename
@@ -366,7 +530,7 @@ ajFileNameDirSet (filename, dir)
 AjBool
 ajFileNameDirSetC (filename, dir)
        AjPStr& filename
-       char* dir
+       const char* dir
     OUTPUT:
        RETVAL
        filename
@@ -374,7 +538,7 @@ ajFileNameDirSetC (filename, dir)
 AjBool
 ajFileNameExt (filename, extension)
        AjPStr& filename
-       AjPStr extension
+       const AjPStr extension
     OUTPUT:
        RETVAL
        filename
@@ -382,7 +546,7 @@ ajFileNameExt (filename, extension)
 AjBool
 ajFileNameExtC (filename, extension)
        AjPStr& filename
-       char* extension
+       const char* extension
     OUTPUT:
        RETVAL
        filename
@@ -408,28 +572,43 @@ ajFileNew ()
 
 AjPFile
 ajFileNewApp (name)
-       AjPStr name
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPFile
+ajFileNewDirF (dir, filename)
+       const AjPDir  dir
+       const AjPStr filename
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewDC (dir, filename)
-       AjPStr dir
-       char* filename
+       const AjPStr dir
+       const char* filename
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewDF (dir, filename)
-       AjPStr dir
-       AjPStr filename
+       const AjPStr dir
+       const AjPStr filename
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewDW (dir, wildfile)
-       AjPStr dir
-       AjPStr wildfile
+       const AjPStr dir
+       const AjPStr wildfile
+    OUTPUT:
+       RETVAL
+
+AjPFile
+ajFileNewDWE (dir, wildfile, exclude)
+       const AjPStr dir
+       const AjPStr wildfile
+       const AjPStr exclude
     OUTPUT:
        RETVAL
 
@@ -438,23 +617,23 @@ ajFileNewF (file)
        FILE* file
     OUTPUT:
        RETVAL
-       file
+
 
 AjPFile
 ajFileNewIn (name)
-       AjPStr name
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewInC (name)
-       char *name
+       const char *name
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewInPipe (name)
-       AjPStr name
+       const AjPStr name
     OUTPUT:
        RETVAL
 
@@ -466,30 +645,43 @@ ajFileNewInList (list)
 
 AjPFile
 ajFileNewOut (name)
-       AjPStr name
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPFile
+ajFileNewOutC (name)
+       const char *name
     OUTPUT:
        RETVAL
 
 AjPFile
 ajFileNewOutD (dir, name)
-       AjPStr dir
-       AjPStr name
+       const AjPStr dir
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPFile
+ajFileNewOutDir (dir, name)
+       const AjPDir  dir
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 void
 ajFileOutHeader (thys)
-       AjPFile thys
+       AjPFile  thys
 
 void
 ajFileOutClose (pthis)
-       AjPFile &pthis
+       AjPFile  &pthis
     OUTPUT:
        pthis
 
 AjBool
 ajFileNext (thys)
-       AjPFile thys
+       AjPFile  thys
     OUTPUT:
        RETVAL
 
@@ -498,20 +690,22 @@ ajFileRead (ptr, element_size, count, thys)
        char * ptr
        size_t element_size
        size_t count
-       AjPFile thys
+       AjPFile  thys
     OUTPUT:
        RETVAL
 
-FILE*
-ajFileReopen (thys, name)
-       AjPFile thys
-       AjPStr name
+
+AjBool
+ajFileReadAppend (thys, pbuff)
+       AjPFile  thys
+       AjPStr& pbuff
     OUTPUT:
        RETVAL
+       pbuff
 
 AjBool
 ajFileReadLine (thys, pdest)
-       AjPFile thys
+       AjPFile  thys
        AjPStr &pdest
     OUTPUT:
        RETVAL
@@ -519,36 +713,50 @@ ajFileReadLine (thys, pdest)
 
 ajuint
 ajFileReadUint (thys, Bigendian)
-       AjPFile thys
+       AjPFile  thys
        AjBool Bigendian
+    OUTPUT:
+       RETVAL
+
+FILE*
+ajFileReopen (thys, name)
+       AjPFile  thys
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 ajint
 ajFileScan (path, filename, result, show, dolist, list, rlist, recurs, outf)
-       AjPStr path
-       AjPStr filename
+       const AjPStr path
+       const AjPStr filename
        AjPList &result
        AjBool show
        AjBool dolist
        AjPList &list
        AjPList rlist
        AjBool recurs
-       AjPFile outf
+       AjPFile  outf
     OUTPUT:
        RETVAL
        result
        list
 
+
 ajint
 ajFileSeek (thys, offset, wherefrom)
-       AjPFile thys
+       AjPFile  thys
        ajlong offset
        ajint wherefrom
     OUTPUT:
        RETVAL
 
-#ifdef HAVE_EMBOSS_2_9_0
+AjBool
+ajFileSetDir (pname, dir)
+       AjPStr &pname
+       const AjPStr dir
+    OUTPUT:
+       RETVAL
+       pname
 
 AjBool
 ajFileStat (filename, mode)
@@ -557,43 +765,29 @@ ajFileStat (filename, mode)
     OUTPUT:
        RETVAL
 
-#else
-
-AjBool
-ajFileStat (filename, mode)
-       AjPStr &filename
-       ajint mode
-    OUTPUT:
-       RETVAL
-       filename
-
-#endif
-
 AjBool
 ajFileStderr (file)
-       AjPFile file
+       const AjPFile  file
     OUTPUT:
        RETVAL
 
 AjBool
 ajFileStdin (file)
-       AjPFile file
+       const AjPFile  file
     OUTPUT:
        RETVAL
 
 AjBool
 ajFileStdout (file)
-       AjPFile file
+       const AjPFile  file
     OUTPUT:
        RETVAL
 
 ajlong
 ajFileTell (thys)
-       AjPFile thys
+       const AjPFile  thys
     OUTPUT:
        RETVAL
-
-#ifdef HAVE_EMBOSS_2_9_0
 
 const char*
 ajFileTempName (dir)
@@ -601,21 +795,11 @@ ajFileTempName (dir)
     OUTPUT:
        RETVAL
 
-#else
-
-char*
-ajFileTempName (dir)
-       char *dir
-    OUTPUT:
-       RETVAL
-
-#endif
-
 AjBool
 ajFileTestSkip (fullname, exc, inc, keep, ignoredirectory)
-       AjPStr fullname
-       AjPStr exc
-       AjPStr inc
+       const AjPStr fullname
+       const AjPStr exc
+       const AjPStr inc
        AjBool keep
        AjBool ignoredirectory
     OUTPUT:
@@ -623,16 +807,16 @@ ajFileTestSkip (fullname, exc, inc, keep, ignoredirectory)
 
 void
 ajFileTrace (thys)
-       AjPFile thys
+       const AjPFile  thys
 
 void
 ajFileUnbuffer (thys)
-       AjPFile thys
+       AjPFile  thys
 
 size_t
 ajFileWrite (thys, ptr, element_size, count)
-       AjPFile thys
-       char * ptr
+       AjPFile  thys
+       const char * ptr
        size_t element_size
        size_t count
     OUTPUT:
@@ -640,45 +824,81 @@ ajFileWrite (thys, ptr, element_size, count)
 
 ajint
 ajFileWriteByte (thys, ch)
-       AjPFile thys
+       AjPFile  thys
        char ch
     OUTPUT:
        RETVAL
 
 ajint
 ajFileWriteChar (thys, str, len)
-       AjPFile thys
-       char* str
+       AjPFile  thys
+       const char* str
        ajint len
     OUTPUT:
        RETVAL
 
 ajint
 ajFileWriteInt2 (thys, i)
-       AjPFile thys
+       AjPFile  thys
        short i
     OUTPUT:
        RETVAL
 
 ajint
 ajFileWriteInt4 (thys, i)
-       AjPFile thys
+       AjPFile  thys
        ajint i
     OUTPUT:
        RETVAL
 
 ajint
 ajFileWriteInt8 (thys, i)
-       AjPFile thys
+       AjPFile  thys
        ajlong i
     OUTPUT:
        RETVAL
 
 ajint
 ajFileWriteStr (thys, str, len)
-       AjPFile thys
-       AjPStr str
+       AjPFile  thys
+       const AjPStr str
        ajint len
+    OUTPUT:
+       RETVAL
+
+void
+ajOutfileClose (pthis)
+       AjPOutfile & pthis
+    OUTPUT:
+       pthis
+
+void
+ajOutfileDel (pthis)
+       AjPOutfile & pthis
+    OUTPUT:
+       pthis
+
+AjPFile
+ajOutfileFile (thys)
+       const AjPOutfile  thys
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajOutfileFormat (thys)
+       const AjPOutfile  thys
+    OUTPUT:
+       RETVAL
+
+FILE*
+ajOutfileFp (thys)
+       const AjPOutfile  thys
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajOutfileNew (name)
+       const AjPStr name
     OUTPUT:
        RETVAL
 

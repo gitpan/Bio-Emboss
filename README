@@ -1,7 +1,7 @@
-Bio::Emboss perl module version 0.7
+Bio::Emboss perl module version 1.0
 ===================================
 
-This module interfaces to the libraries of the EMBOSS package
+This module is an interface to the libraries of the EMBOSS package
 (European Molecular Biology Open Software Suite).
 
 With this module you can access EMBOSS databases and use EMBOSS
@@ -40,7 +40,8 @@ This module requires an EMBOSS installation (including .h files
 of the source distribution) available at
 http://emboss.sourceforge.net/
 
-The module was tested with EMBOSS (versions 2.5.1 ... 2.10.0).
+The module was tested with EMBOSS (versions 3.0.0).
+For older EMBOSS versions use Bio::Emboss-0.7.
 
 COPYRIGHT AND LICENCE
 

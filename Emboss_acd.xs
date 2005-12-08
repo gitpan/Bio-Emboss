@@ -9,6 +9,8 @@
 
 MODULE = Bio::Emboss_acd		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajacd.h: automatically generated
 
 AjBool
@@ -32,225 +34,360 @@ ajAcdFilter ()
 
 AjPAlign
 ajAcdGetAlign (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFloat
 ajAcdGetArray (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjBool
 ajAcdGetBool (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPCod
 ajAcdGetCodon (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPFile
+ajAcdGetCpdb (token)
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFile
 ajAcdGetDatafile (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajAcdGetDirectory (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajAcdGetDirectoryName (token)
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPList
 ajAcdGetDirlist (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloState*
+ajAcdGetDiscretestates (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloState
+ajAcdGetDiscretestatesI (token, num)
+       const char *token
+       ajint num
+    OUTPUT:
+       RETVAL
+
+AjPPhyloDist
+ajAcdGetDistances (token)
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFeattable
 ajAcdGetFeat (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFeattabOut
 ajAcdGetFeatout (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPList
 ajAcdGetFilelist (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 float
 ajAcdGetFloat (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloFreq
+ajAcdGetFrequencies (token)
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPGraph
 ajAcdGetGraph (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPGraph
 ajAcdGetGraphxy (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFile
 ajAcdGetInfile (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 ajint
 ajAcdGetInt (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPStr*
 ajAcdGetList (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPStr
 ajAcdGetListI (token, num)
-       char *token
+       const char *token
        ajint num
     OUTPUT:
        RETVAL
 
 AjPMatrix
 ajAcdGetMatrix (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPMatrixf
 ajAcdGetMatrixf (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutcodon (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutcpdb (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutdata (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPDir
+ajAcdGetOutdir (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajAcdGetOutdirName (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutdiscrete (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutdistance (token)
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPFile
 ajAcdGetOutfile (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
-
-#ifdef HAVE_EMBOSS_2_9_0
 
 AjPFile
-ajAcdGetCpdb (token)
-       char *token
+ajAcdGetOutfileall (token)
+       const char *token
     OUTPUT:
        RETVAL
 
-#else
-
-AjPPdb
-ajAcdGetCpdb (token)
-       char *token
+AjPOutfile
+ajAcdGetOutfreq (token)
+       const char *token
     OUTPUT:
        RETVAL
 
-#endif
+AjPOutfile
+ajAcdGetOutmatrix (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutmatrixf (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutproperties (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOutscop (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPOutfile
+ajAcdGetOuttree (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloProp
+ajAcdGetProperties (token)
+       const char *token
+    OUTPUT:
+       RETVAL
 
 AjPRange
 ajAcdGetRange (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPRegexp
 ajAcdGetRegexp (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPReport
 ajAcdGetReport (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
-
-#ifdef HAVE_EMBOSS_2_9_0
 
 AjPFile
 ajAcdGetScop (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
-
-#else
-
-AjPScop
-ajAcdGetScop (token)
-       char *token
-    OUTPUT:
-       RETVAL
-
-#endif
 
 AjPStr*
 ajAcdGetSelect (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPStr
 ajAcdGetSelectI (token, num)
-       char *token
+       const char *token
        ajint num
     OUTPUT:
        RETVAL
 
 AjPSeq
 ajAcdGetSeq (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPSeqall
 ajAcdGetSeqall (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPSeqout
 ajAcdGetSeqout (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPSeqout
 ajAcdGetSeqoutall (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPSeqout
 ajAcdGetSeqoutset (token)
-       char *token
+       const char *token
     OUTPUT:
        RETVAL
 
 AjPSeqset
 ajAcdGetSeqset (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPSeqset*
+ajAcdGetSeqsetall (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPSeqset
+ajAcdGetSeqsetallI (token, num)
+       const char *token
+       ajint num
     OUTPUT:
        RETVAL
 
 AjPStr
 ajAcdGetString (token)
-       char *token
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajAcdGetToggle (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloTree*
+ajAcdGetTree (token)
+       const char *token
+    OUTPUT:
+       RETVAL
+
+AjPPhyloTree
+ajAcdGetTreeI (token, num)
+       const char *token
+       ajint num
     OUTPUT:
        RETVAL
 
@@ -259,27 +396,27 @@ ajAcdPrintType (outf, full)
        AjPFile outf
        AjBool full
 
-#ifdef HAVE_EMBOSS_2_9_0
+void
+ajAcdPrintQual (outf, full)
+       AjPFile outf
+       AjBool full
 
 const char*
 ajAcdProgram ()
     OUTPUT:
        RETVAL
 
-#else
-
-char*
-ajAcdProgram ()
-    OUTPUT:
-       RETVAL
-
-#endif
-
 void
 ajAcdProgramS (pgm)
-       AjPStr  &pgm
+       AjPStr& pgm
     OUTPUT:
        pgm
+
+AjBool
+ajAcdSetControl (optionName)
+       const char* optionName
+    OUTPUT:
+       RETVAL
 
 AjBool
 ajAcdStdout ()
@@ -288,8 +425,7 @@ ajAcdStdout ()
 
 AjPStr
 ajAcdValue (token)
-       char* token
+       const char* token
     OUTPUT:
        RETVAL
-
 

@@ -9,33 +9,35 @@
 
 MODULE = Bio::Emboss_seqwrite		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajseqwrite.h: automatically generated
 
 void
 ajSeqAllWrite (outseq, seq)
-       AjPSeqout outseq
-       AjPSeq seq
+       AjPSeqout  outseq
+       const AjPSeq seq
 
 AjBool
 ajSeqFileNewOut (seqout, name)
-       AjPSeqout seqout
-       AjPStr name
+       AjPSeqout  seqout
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 ajint
 ajSeqoutCheckGcg (outseq)
-       AjPSeqout outseq
+       const AjPSeqout  outseq
     OUTPUT:
        RETVAL
 
 void
 ajSeqoutClear (thys)
-       AjPSeqout thys
+       AjPSeqout  thys
 
 void
 ajSeqoutDel (thys)
-       AjPSeqout& thys
+       AjPSeqout & thys
     OUTPUT:
        thys
 
@@ -65,27 +67,27 @@ ajSeqoutNewF (file)
 
 AjBool
 ajSeqoutOpen (thys)
-       AjPSeqout thys
+       AjPSeqout  thys
     OUTPUT:
        RETVAL
 
 AjBool
 ajSeqOutSetFormat (thys, format)
-       AjPSeqout thys
-       AjPStr format
+       AjPSeqout  thys
+       const AjPStr format
     OUTPUT:
        RETVAL
 
 AjBool
 ajSeqOutSetFormatC (thys, format)
-       AjPSeqout thys
-       char* format
+       AjPSeqout  thys
+       const char* format
     OUTPUT:
        RETVAL
 
 void
 ajSeqoutTrace (seq)
-       AjPSeqout seq
+       const AjPSeqout  seq
 
 void
 ajSeqPrintOutFormat (outf, full)
@@ -94,38 +96,34 @@ ajSeqPrintOutFormat (outf, full)
 
 void
 ajSeqoutUsa (pthis, Usa)
-       AjPSeqout& pthis
-       AjPStr Usa
+       AjPSeqout & pthis
+       const AjPStr Usa
     OUTPUT:
        pthis
 
 void
 ajSeqsetWrite (seqout, seq)
-       AjPSeqout seqout
-       AjPSeqset seq
+       AjPSeqout  seqout
+       const AjPSeqset seq
 
 void
 ajSeqWrite (seqout, seq)
-       AjPSeqout seqout
-       AjPSeq seq
+       AjPSeqout  seqout
+       const AjPSeq seq
 
 void
 ajSeqWriteClose (outseq)
-       AjPSeqout outseq
+       AjPSeqout  outseq
 
 void
 ajSeqWriteXyz (outf, seq, prefix)
        AjPFile outf
-       AjPStr seq
-       char *prefix
-
-#ifdef HAVE_EMBOSS_2_6_0
+       const AjPStr seq
+       const char *prefix
 
 void
 ajSssWriteXyz (outf, seq, prefix)
        AjPFile outf
-       AjPStr seq
-       char *prefix
-
-#endif
+       const AjPStr seq
+       const char *prefix
 

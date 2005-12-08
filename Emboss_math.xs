@@ -5,8 +5,11 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_math		PACKAGE = Bio::Emboss		
+
+PROTOTYPES: ENABLE
 
  # code from ajmath.h: automatically generated
 
@@ -26,10 +29,11 @@ ajGaussProb (mean, sd, score)
 
 float
 ajGeoMean (s, n)
-       float *s
+       const float &s
        ajint n
     OUTPUT:
        RETVAL
+       s
 
 void
 ajPolToRec (radius, angle, x, y)

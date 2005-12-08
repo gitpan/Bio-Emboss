@@ -17,6 +17,9 @@ foreach $file (@ARGV) {
 
 	next unless /\(/;
 
+	# --- AjO...*  => AjP...
+	s/AjO(\w+)\*/AjP$1/g;
+
 	while (! /;/) {
 	    $a = <CPP>;
 	    chomp;

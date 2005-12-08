@@ -11,34 +11,30 @@
 
 MODULE = Bio::Emboss_hist		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
+ # code from ajhist.h: automatically generated
+
 void
 ajHistClose ()
 
 void
 ajHistCopyData (hist, index, data)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       PLFLT *data
+       const PLFLT *data
+    OUTPUT:
 
-#ifdef HAVE_EMBOSS_2_9_0
 
 void
 ajHistDelete (hist)
-       AjPHist &hist
+       AjPHist & hist
     OUTPUT:
        hist
 
-#else
-
-void
-ajHistDelete (hist)
-       AjPHist hist
-
-#endif
-
 void
 ajHistDisplay (hist)
-       AjPHist hist
+       const AjPHist  hist
 
 AjPHist
 ajHistNew (numofsets, numofpoints)
@@ -57,80 +53,82 @@ ajHistNewG (numofsets, numofpoints, graph)
 
 void
 ajHistSetBlackandWhite (hist, set)
-       AjPHist hist
+       AjPHist  hist
        AjBool set
 
 void
 ajHistSetColour (hist, index, colour)
-       AjPHist hist
+       AjPHist  hist
        ajint index
        ajint colour
 
 void
 ajHistSetMultiTitle (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       AjPStr title
+       const AjPStr title
 
 void
 ajHistSetMultiTitleC (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       char *title
+       const char *title
 
 void
 ajHistSetMultiXTitle (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       AjPStr title
+       const AjPStr title
 
 void
 ajHistSetMultiXTitleC (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       char *title
+       const char *title
 
 void
 ajHistSetMultiYTitle (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       AjPStr title
+       const AjPStr title
 
 void
 ajHistSetMultiYTitleC (hist, index, title)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       char *title
+       const char *title
 
 void
 ajHistSetPattern (hist, index, style)
-       AjPHist hist
+       AjPHist  hist
        ajint index
        ajint style
 
 void
 ajHistSetPtrToData (hist, index, data)
-       AjPHist hist
+       AjPHist  hist
        ajint index
-       PLFLT *data
+       PLFLT &data
+    OUTPUT:
+       data
 
 void
-ajHistSetTitleC (hist, string)
-       AjPHist hist
-       char* string
+ajHistSetTitleC (hist, strng)
+       AjPHist  hist
+       const char* strng
 
 void
-ajHistSetXAxisC (hist, string)
-       AjPHist hist
-       char* string
+ajHistSetXAxisC (hist, strng)
+       AjPHist  hist
+       const char* strng
 
 void
-ajHistSetYAxisLeftC (hist, string)
-       AjPHist hist
-       char* string
+ajHistSetYAxisLeftC (hist, strng)
+       AjPHist  hist
+       const  char* strng
 
 void
-ajHistSetYAxisRightC (hist, string)
-       AjPHist hist
-       char* string
+ajHistSetYAxisRightC (hist, strng)
+       AjPHist  hist
+       const char* strng
 

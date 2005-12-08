@@ -14,12 +14,6 @@ use ExtUtils::MakeMaker;
 $EMB_ROOT     = "/usr/local";
 
 
-# --- path to EMBOSS' sources (for the *.h files)
-#     (not needed since EMBOSS-2.10.0)
-
-#$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
-
-
 # --- external libraries required by EMBOSS
 #     XLIB and LIBS from the EMBOSS Makefile 
 #     (<emboss-build-dir>/emboss/Makefile)
@@ -27,6 +21,17 @@ $EMB_ROOT     = "/usr/local";
 $EMB_EXT_LIBS = "";
 #$EMB_EXT_LIBS = "-L/usr/X11R6/lib -lX11 -lm  -lgd -lpng -lz";
 #$EMB_EXT_LIBS = "-L/usr/openwin/lib -lX11 -lsocket -lm -lnsl -lgd -lpng -lz";
+
+
+
+#
+# --- Look at these settings if building fails ....
+#
+
+# --- path to EMBOSS' sources (for the *.h files)
+#     (not needed since EMBOSS-2.10.0)
+
+#$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
 
 
 # --- DEFS from the EMBOSS Makefile; maybe not needed
@@ -46,27 +51,38 @@ $EMB_DEFS = "";
 #
 @emb_libs = qw(nucleus ajax ajaxg plplot);
 
-$EMB_LIBS = "-L$EMB_ROOT/lib " .
-            join (" ", map { "-l$_" } @emb_libs) .
-           " " . $EMB_EXT_LIBS;
+if (-d "$EMB_ROOT/lib") {
+    @lib_search_dirs = qw(lib);
+} elsif (-d "$EMB_ROOT/ajax/.libs") {
+    @lib_search_dirs = qw(plplot/.libs ajax/.libs nucleus/.libs);
+} else {
+    @lib_search_dirs = qw(plplot ajax nucleus);
+}
+
+$EMB_LIBS = join (" ", map { "-L$EMB_ROOT/$_" } @lib_search_dirs) .  " " .
+            join (" ", map { "-l$_" } @emb_libs) .  " " .
+            $EMB_EXT_LIBS;
 unless ($EMB_SRC_ROOT) {
     $EMB_INC = "-I$EMB_ROOT/include";
 } else {
     $EMB_INC =  join " ", map { "-I$EMB_SRC_ROOT/$_" } @emb_libs;
 }
 
-print "Searching EMBOSS libraries in $EMB_ROOT/lib\n";
+print "Searching EMBOSS libraries in $EMB_LIBS\n";
 print "Searching EMBOSS headers in $EMB_INC\n";
 
 
 # --- look for EMBOSS in $EMB_ROOT and $EMB_SRC_ROOT
 #     (disable if you change $EMB_LIBS or $EMB_INC manually)
-$check_installation = 1;
+# ---- check function needs update
+$check_installation = 0;
 
 
 # --- trying to get the EMBOSS version from the application 'embossversion'
 #     (if this doesn't work, set $EMB_VERSION here to e.g. "2.5.1"
 $embossversion = "$EMB_ROOT/bin/embossversion";
+$embossversion = "$EMB_ROOT/emboss/embossversion" unless -x $embossversion;
+
 $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 
 
@@ -87,34 +103,67 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 
 # --- list of modules in this package
 @modules_lib = qw(
-  Emboss_acd 
-  Emboss_feat
-  Emboss_file
-  Emboss_graph
-  Emboss_hist
-  Emboss_list
-  Emboss_math
-  Emboss_mem
-  Emboss_nam
-  Emboss_range
-  Emboss_report
-  Emboss_seq
-  Emboss_seqabi
-  Emboss_seqdb
-  Emboss_seqread
-  Emboss_seqtype
-  Emboss_seqwrite
-  Emboss_str
-  Emboss_translate
-  Emboss_util
-  Emboss_xyz
+Emboss_acd
+Emboss_align
+Emboss_assert
+Emboss_cod
+Emboss_dmx
+Emboss_domain
+Emboss_feat
+Emboss_file
+Emboss_graph
+Emboss_hist
+Emboss_index
+Emboss_list
+Emboss_math
+Emboss_matrices
+Emboss_mem
+Emboss_mess
+Emboss_nam
+Emboss_nexus
+Emboss_pdb
+Emboss_pdbio
+Emboss_phylo
+Emboss_range
+Emboss_reg
+Emboss_report
+Emboss_seq
+Emboss_seqabi
+Emboss_seqdb
+Emboss_seqread
+Emboss_seqtype
+Emboss_seqwrite
+Emboss_str
+Emboss_time
+Emboss_translate
+Emboss_tree
+Emboss_util
+Emboss_vector
+Emboss_xyz
 
-  Emboss_embgroup
+Emboss_embcom
+Emboss_embcons
+Emboss_embdata
+Emboss_embdbi
+Emboss_embdmx
+Emboss_embdomain
+Emboss_embest
+Emboss_embexit
+Emboss_embgroup
+Emboss_embindex
+Emboss_embmat
+Emboss_embmisc
+Emboss_embmol
+Emboss_embnmer
+Emboss_emboss
+Emboss_embpdb
+Emboss_embprop
+Emboss_embshow
+Emboss_embword
+Emboss_embxyz
 );
 
 @sub_modules_lib = qw(
-  Emboss_graph_25.xsx
-  Emboss_graph_29.xsx
 );
 
 # --- library modules plus main module
@@ -280,7 +329,7 @@ epods: \$(INST_LIB)/Bio/Emboss/Ajax.pod
 
 # --- how to create Ajax POD
 \$(INST_LIB)/Bio/Emboss/Ajax.pod:
-\t\$(PERL) scripts/extract_doc_for_pod.pl $EMB_SRC_ROOT/ajax/*.c > \$\@
+\ttest "$EMB_SRC_ROOT" != "" && \$(PERL) scripts/extract_doc_for_pod.pl $EMB_SRC_ROOT/ajax/*.c > \$\@
 
 # --- wrapper for emboss.h with some undefs and redefs
 #     (solve name conflicts between PERL and EMBOSS)

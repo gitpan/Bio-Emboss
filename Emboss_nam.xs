@@ -5,20 +5,32 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_nam		PACKAGE = Bio::Emboss		
+
+PROTOTYPES: ENABLE
 
  # code from ajnam.h: automatically generated
 
 AjBool
 ajNamDatabase (name)
-       AjPStr name
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 AjBool
+ajNamDbAccess (dbname, qry, method)
+       const AjPStr dbname
+       const AjPSeqQuery qry
+       AjPStr& method
+    OUTPUT:
+       RETVAL
+       method
+
+AjBool
 ajNamDbDetails (name, type, id, qry, all, comment, release)
-       AjPStr name
+       const AjPStr name
        AjPStr& type
        AjBool& id
        AjBool& qry
@@ -35,8 +47,16 @@ ajNamDbDetails (name, type, id, qry, all, comment, release)
        release
 
 AjBool
+ajNamDbGetAlias (dbname, dbalias)
+       const AjPStr dbname
+       AjPStr& dbalias
+    OUTPUT:
+       RETVAL
+       dbalias
+
+AjBool
 ajNamDbGetDbalias (dbname, dbalias)
-       AjPStr dbname
+       const AjPStr dbname
        AjPStr& dbalias
     OUTPUT:
        RETVAL
@@ -44,7 +64,7 @@ ajNamDbGetDbalias (dbname, dbalias)
 
 AjBool
 ajNamDbGetUrl (dbname, url)
-       AjPStr dbname
+       const AjPStr dbname
        AjPStr& url
     OUTPUT:
        RETVAL
@@ -64,7 +84,7 @@ ajNamDbQuery (qry)
 
 AjBool
 ajNamDbTest (dbname)
-       AjPStr dbname
+       const AjPStr dbname
     OUTPUT:
        RETVAL
 
@@ -75,11 +95,25 @@ void
 ajNamDebugDatabases ()
 
 void
+ajNamDebugResources ()
+
+void
+ajNamDebugVariables ()
+
+void
 ajNamExit ()
 
 AjBool
 ajNamGetenv (name, value)
-       AjPStr name
+       const AjPStr name
+       AjPStr& value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamGetenvC (name, value)
+       const char* name
        AjPStr& value
     OUTPUT:
        RETVAL
@@ -87,7 +121,7 @@ ajNamGetenv (name, value)
 
 AjBool
 ajNamGetValue (name, value)
-       AjPStr name
+       const AjPStr name
        AjPStr& value
     OUTPUT:
        RETVAL
@@ -95,7 +129,7 @@ ajNamGetValue (name, value)
 
 AjBool
 ajNamGetValueC (name, value)
-       char *name
+       const char *name
        AjPStr& value
     OUTPUT:
        RETVAL
@@ -103,7 +137,13 @@ ajNamGetValueC (name, value)
 
 void
 ajNamInit (prefix)
-       char* prefix
+       const char* prefix
+
+AjBool
+ajNamIsDbname (name)
+       const AjPStr name
+    OUTPUT:
+       RETVAL
 
 void
 ajNamListDatabases ()
@@ -113,10 +153,19 @@ ajNamListListDatabases (dbnames)
        AjPList dbnames
 
 void
+ajNamListListResources (dbnames)
+       AjPList dbnames
+
+void
 ajNamListOrigin ()
 
 void
 ajNamPrintDbAttr (outf, full)
+       AjPFile outf
+       AjBool full
+
+void
+ajNamPrintRsAttr (outf, full)
        AjPFile outf
        AjBool full
 
@@ -161,4 +210,39 @@ ajNamRootVersion (version)
     OUTPUT:
        RETVAL
        version
+
+AjBool
+ajNamRsAttrValue (name, attribute, value)
+       const AjPStr name
+       const AjPStr attribute
+       AjPStr &value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamRsAttrValueC (name, attribute, value)
+       const char *name
+       const char *attribute
+       AjPStr &value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamRsListValue (name, value)
+       const AjPStr name
+       AjPStr &value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamSetControl (optionName)
+       const char* optionName
+    OUTPUT:
+       RETVAL
+
+void
+ajNamVariables ()
 

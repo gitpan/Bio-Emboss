@@ -5,13 +5,21 @@
 #include "ppport.h"
 
 #include "emboss_perl.h"
+#include "bio_emboss_config.h"
 
 MODULE = Bio::Emboss_util		PACKAGE = Bio::Emboss		
+
+PROTOTYPES: ENABLE
 
  # code from ajutil.h: automatically generated
 
 void
 ajExit ()
+
+ajint
+ajExitAbort ()
+    OUTPUT:
+       RETVAL
 
 ajint
 ajExitBad ()
@@ -46,6 +54,24 @@ ajUtilRev8 (i)
        ajlong& i
     OUTPUT:
        i
+
+void
+ajUtilRevInt (sval)
+       ajint& sval
+    OUTPUT:
+       sval
+
+void
+ajUtilRevShort (ival)
+       short& ival
+    OUTPUT:
+       ival
+
+void
+ajUtilRevLong (lval)
+       ajlong& lval
+    OUTPUT:
+       lval
 
 AjBool
 ajUtilUid (dest)

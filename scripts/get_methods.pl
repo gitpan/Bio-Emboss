@@ -19,7 +19,7 @@ while (<>) {
 
     # --- the following line starts with "AjP..." ?
     $_ = <>;
-    next unless /^\s*AjP(\w+)/;
+    next unless /^\s*(?:const +)?AjP(\w+)/;
 
     $class = $1;
 

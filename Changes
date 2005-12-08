@@ -1,5 +1,9 @@
 Revision history for Perl extension Bio::Emboss.
 
+1.0  Thu Dec  8 15:10:32 CET 2005
+	- support for EMBOSS-3.0.0;
+          for older EMBOSS versions use Bio::Emboss-0.7
+
 0.7  Mon Feb 21 16:36:34 CET 2005
 	- support for EMBOSS-2.10.0
 

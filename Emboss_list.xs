@@ -7,165 +7,187 @@
 #include "emboss_perl.h"
 #include "bio_emboss_config.h"
 
+#include "ajlist.h"
+
 MODULE = Bio::Emboss_list		PACKAGE = Bio::Emboss		
+
+PROTOTYPES: ENABLE
 
  # code from ajlist.h: automatically generated
 
-#ifdef HAVE_EMBOSS_2_9_0
-
 void
 ajListAppend (list, tail)
-       AjPList list
-       AjPListNode &tail
+       AjPList  list
+       AjPListNode & tail
     OUTPUT:
        tail
 
-void
-ajListIterFree (iter)
-       AjIList &iter
-    OUTPUT:
-       iter
-
-#else
-
-void
-ajListAppend (list, tail)
-       AjPList list
-       AjPListNode tail
-
-void
-ajListIterFree (iter)
-       AjIList iter
-
-#endif
-
 AjPList
 ajListCopy (list)
-       AjPList list
+       const AjPList  list
     OUTPUT:
        RETVAL
 
 void
 ajListDel (list)
-       AjPList &list
+       AjPList  &list
     OUTPUT:
        list
+
+void
+ajListExit ()
+
 
 void
 ajListFree (list)
-       AjPList &list
+       AjPList  &list
     OUTPUT:
        list
 
+
+
+
+
+
 void
 ajListInsert (iter, x)
-       AjIList iter
+       AjIList  iter
        char * x
 
 AjIList
-ajListIter (listhead)
-       AjPList listhead
+ajListIter (list)
+       AjPList  list
     OUTPUT:
        RETVAL
 
 AjIList
-ajListIterBack (thys)
-       AjPList thys
+ajListIterBack (list)
+       AjPList  list
+    OUTPUT:
+       RETVAL
+
+AjIList
+ajListIterBackRead (list)
+       const AjPList  list
+    OUTPUT:
+       RETVAL
+
+AjIList
+ajListIterRead (list)
+       const AjPList  list
     OUTPUT:
        RETVAL
 
 AjBool
 ajListIterBackDone (iter)
-       AjIList iter
+       const AjIList  iter
     OUTPUT:
        RETVAL
 
 AjBool
 ajListIterBackMore (iter)
-       AjIList iter
+       const AjIList  iter
     OUTPUT:
        RETVAL
 
 void*
 ajListIterBackNext (iter)
-       AjIList iter
+       AjIList  iter
     OUTPUT:
        RETVAL
 
+void
+ajListIterFree (iter)
+       AjIList & iter
+    OUTPUT:
+       iter
+
 void*
 ajListIterNext (iter)
-       AjIList iter
+       AjIList  iter
     OUTPUT:
        RETVAL
 
 AjBool
 ajListIterMore (iter)
-       AjIList iter
+       const AjIList  iter
     OUTPUT:
        RETVAL
 
 AjBool
 ajListIterDone (iter)
-       AjIList iter
+       const AjIList  iter
     OUTPUT:
        RETVAL
 
 void
 ajListIterTrace (iter)
-       AjIList iter
+       const AjIList  iter
+
 
 ajint
 ajListLength (list)
-       AjPList list
+       const AjPList  list
     OUTPUT:
        RETVAL
+
+
+
+
+
+
+
+
+
 
 AjPList
 ajListNew ()
     OUTPUT:
        RETVAL
 
+
 void
 ajListPush (list, x)
-       AjPList list
+       AjPList  list
        char * x
 
 void
 ajListPushApp (list, x)
-       AjPList list
+       AjPList  list
        char * x
 
 void
 ajListReverse (list)
-       AjPList list
+       AjPList  list
 
 AjPList
 ajListstrCopy (list)
-       AjPList list
+       const AjPList  list
     OUTPUT:
        RETVAL
 
 void
 ajListstrDel (list)
-       AjPList &list
+       AjPList  &list
     OUTPUT:
        list
 
 void
 ajListstrFree (list)
-       AjPList &list
+       AjPList  &list
     OUTPUT:
        list
 
 void
 ajListstrIterTrace (iter)
-       AjIList iter
+       const AjIList  iter
 
 ajint
 ajListstrLength (list)
-       AjPList list
+       const AjPList  list
     OUTPUT:
        RETVAL
+
 
 AjPList
 ajListstrNew ()
@@ -173,8 +195,16 @@ ajListstrNew ()
        RETVAL
 
 AjBool
+ajListstrPeek (list, x)
+       const AjPList  list
+       AjPStr& x
+    OUTPUT:
+       RETVAL
+       x
+
+AjBool
 ajListstrPop (list, x)
-       AjPList list
+       AjPList  list
        AjPStr& x
     OUTPUT:
        RETVAL
@@ -182,7 +212,7 @@ ajListstrPop (list, x)
 
 AjBool
 ajListstrPopEnd (thys, x)
-       AjPList thys
+       AjPList  thys
        AjPStr &x
     OUTPUT:
        RETVAL
@@ -190,21 +220,29 @@ ajListstrPopEnd (thys, x)
 
 void
 ajListstrPush (list, x)
-       AjPList list
+       AjPList  list
        AjPStr x
 
 void
 ajListstrPushApp (list, x)
-       AjPList list
+       AjPList  list
        AjPStr x
 
 void
 ajListstrReverse (list)
-       AjPList list
+       AjPList  list
 
 ajint
 ajListstrToArray (list, array)
-       AjPList list
+       const AjPList  list
+       AjPStr*& array
+    OUTPUT:
+       RETVAL
+       array
+
+ajint
+ajListstrToArrayApp (list, array)
+       const AjPList  list
        AjPStr*& array
     OUTPUT:
        RETVAL
@@ -212,48 +250,46 @@ ajListstrToArray (list, array)
 
 void
 ajListstrTrace (list)
-       AjPList list
+       const AjPList  list
+
 
 void
 ajListTrace (list)
-       AjPList list
+       const AjPList  list
+
+
 
 void
 ajListPushList (list, pmore)
-       AjPList list
-       AjPList& pmore
+       AjPList  list
+       AjPList & pmore
     OUTPUT:
        pmore
 
 void
 ajListstrPushList (list, pmore)
-       AjPList list
-       AjPList& pmore
+       AjPList  list
+       AjPList & pmore
     OUTPUT:
        pmore
 
 void
 ajListRemove (iter)
-       AjIList iter
+       AjIList  iter
 
 ajint
 ajListstrClone (thys, newlist)
-       AjPList thys
-       AjPList newlist
+       const AjPList  thys
+       AjPList  newlist
     OUTPUT:
        RETVAL
 
 void
 ajListstrInsert (iter, x)
-       AjIList iter
+       AjIList  iter
        AjPStr x
 
 void
 ajListstrRemove (iter)
-       AjIList iter
-
-void
-ajListSort (thys, aa)
-       AjPList thys
-       void* aa
+       AjIList  iter
 

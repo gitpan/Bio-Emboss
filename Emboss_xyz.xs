@@ -9,6 +9,8 @@
 
 MODULE = Bio::Emboss_xyz		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajxyz.h: automatically generated
 
 #ifdef HAVE_EMBOSS_2_9_0

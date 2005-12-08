@@ -9,6 +9,8 @@
 
 MODULE = Bio::Emboss_seqdb		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
  # code from ajseqdb.h: automatically generated
 
 AjBool
@@ -29,26 +31,17 @@ ajSeqAccessOffset (seqin)
     OUTPUT:
        RETVAL
 
-
-#ifdef HAVE_EMBOSS_2_9_0
-
 SeqPAccess
 ajSeqMethod (method)
        const AjPStr method
     OUTPUT:
        RETVAL
 
-#else
-
 AjBool
-ajSeqMethod (method, access)
-       AjPStr method
-       SeqPAccess& access
+ajSeqMethodTest (method)
+       const AjPStr method
     OUTPUT:
        RETVAL
-       access
-
-#endif
 
 void
 ajSeqPrintAccess (outf, full)

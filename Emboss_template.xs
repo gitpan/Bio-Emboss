@@ -8,3 +8,5 @@
 
 MODULE = Bio::Emboss_template		PACKAGE = Bio::Emboss		
 
+PROTOTYPES: ENABLE
+
