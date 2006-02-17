@@ -262,10 +262,6 @@ ajAlignWrite (thys)
        AjPAlign  thys
 
 void
-ajAlignWriteClose (thys)
-       AjPAlign  thys
-
-void
 ajAlignWriteHeader (thys)
        AjPAlign  thys
 

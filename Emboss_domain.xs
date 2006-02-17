@@ -154,13 +154,6 @@ ajCathArrFindPdbid (arr, siz, id)
        RETVAL
        arr
 
-ajint
-ajCathMatchPdbid (hit1, hit2)
-       const char *hit1
-       const char *hit2
-    OUTPUT:
-       RETVAL
-
 AjPCath
 ajCathReadCNew (inf, entry)
        AjPFile inf

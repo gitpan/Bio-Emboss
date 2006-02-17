@@ -1,5 +1,10 @@
 Revision history for Perl extension Bio::Emboss.
 
+1.0.1  Wed Feb  8 16:21:57 CET 2006
+	- small fix: removed functions with missing implementation
+          in EMBOSS, in order to fix a dynamic linking problem on
+          MacOSX
+
 1.0  Thu Dec  8 15:10:32 CET 2005
 	- support for EMBOSS-3.0.0;
           for older EMBOSS versions use Bio::Emboss-0.7

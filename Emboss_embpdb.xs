@@ -31,46 +31,6 @@ embAtomDistance (atm1, atm2, vdw)
        RETVAL
 
 AjBool
-embPdbAtomIndexI (pdb, chn, idx)
-       const AjPPdb pdb
-       ajint chn
-       AjPInt &idx
-    OUTPUT:
-       RETVAL
-       idx
-
-AjBool
-embPdbAtomIndexC (pdb, chn, idx)
-       const AjPPdb pdb
-       char chn
-       AjPInt &idx
-    OUTPUT:
-       RETVAL
-       idx
-
-AjBool
-embPdbAtomIndexICA (pdb, chn, idx, nres)
-       const AjPPdb pdb
-       ajint chn
-       AjPInt &idx
-       ajint &nres
-    OUTPUT:
-       RETVAL
-       idx
-       nres
-
-AjBool
-embPdbAtomIndexCCA (pdb, chn, idx, nres)
-       const AjPPdb pdb
-       char chn
-       AjPInt &idx
-       ajint &nres
-    OUTPUT:
-       RETVAL
-       idx
-       nres
-
-AjBool
 embPdbToIdx (idx, pdb, res, chn)
        ajint &idx
        const AjPPdb pdb

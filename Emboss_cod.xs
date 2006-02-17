@@ -79,14 +79,6 @@ ajCodAssNameC (thys, name)
        const char* name
 
 void
-ajCodAss (thys)
-       AjPCod  thys
-
-void
-ajCodAssC (thys)
-       AjPCod  thys
-
-void
 ajCodBacktranslate (b, a, thys)
        AjPStr &b
        const AjPStr a

@@ -58,14 +58,6 @@ ajDebugFile ()
 
 
 
-AjBool
-ajMessPrompt (prompt, dfault, fmt)
-       const char *prompt
-       const char *dfault
-       const char *fmt
-    OUTPUT:
-       RETVAL
-
 char*
 ajMessSysErrorText ()
     OUTPUT:

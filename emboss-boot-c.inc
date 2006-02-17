@@ -107,7 +107,6 @@
   XS(XS_Bio__Emboss_ajAlignTraceT); /* prototype */
   XS(XS_Bio__Emboss_ajAlignValid); /* prototype */
   XS(XS_Bio__Emboss_ajAlignWrite); /* prototype */
-  XS(XS_Bio__Emboss_ajAlignWriteClose); /* prototype */
   XS(XS_Bio__Emboss_ajAlignWriteHeader); /* prototype */
   XS(XS_Bio__Emboss_ajAlignWriteTail); /* prototype */
   XS(XS_Bio__Emboss_ajCodAssCode); /* prototype */
@@ -123,8 +122,6 @@
   XS(XS_Bio__Emboss_ajCodAssSpeciesC); /* prototype */
   XS(XS_Bio__Emboss_ajCodAssName); /* prototype */
   XS(XS_Bio__Emboss_ajCodAssNameC); /* prototype */
-  XS(XS_Bio__Emboss_ajCodAss); /* prototype */
-  XS(XS_Bio__Emboss_ajCodAssC); /* prototype */
   XS(XS_Bio__Emboss_ajCodBacktranslate); /* prototype */
   XS(XS_Bio__Emboss_ajCodBase); /* prototype */
   XS(XS_Bio__Emboss_ajCodCai); /* prototype */
@@ -210,7 +207,6 @@
   XS(XS_Bio__Emboss_ajCathDel); /* prototype */
   XS(XS_Bio__Emboss_ajCathCopy); /* prototype */
   XS(XS_Bio__Emboss_ajCathArrFindPdbid); /* prototype */
-  XS(XS_Bio__Emboss_ajCathMatchPdbid); /* prototype */
   XS(XS_Bio__Emboss_ajCathReadCNew); /* prototype */
   XS(XS_Bio__Emboss_ajCathReadNew); /* prototype */
   XS(XS_Bio__Emboss_ajCathReadAllNew); /* prototype */
@@ -231,10 +227,7 @@
   XS(XS_Bio__Emboss_ajDomainGetAcc); /* prototype */
   XS(XS_Bio__Emboss_ajDomainGetSpr); /* prototype */
   XS(XS_Bio__Emboss_ajDomainGetN); /* prototype */
-  XS(XS_Bio__Emboss_ajFeatAdd); /* prototype */
-  XS(XS_Bio__Emboss_ajFeatAddC); /* prototype */
   XS(XS_Bio__Emboss_ajFeatIsChild); /* prototype */
-  XS(XS_Bio__Emboss_ajFeatClearTag); /* prototype */
   XS(XS_Bio__Emboss_ajFeatCopy); /* prototype */
   XS(XS_Bio__Emboss_ajFeatDel); /* prototype */
   XS(XS_Bio__Emboss_ajFeatExit); /* prototype */
@@ -313,7 +306,6 @@
   XS(XS_Bio__Emboss_ajFeattabOutSetBasename); /* prototype */
   XS(XS_Bio__Emboss_ajFeattabOutSetType); /* prototype */
   XS(XS_Bio__Emboss_ajFeattabOutSetTypeC); /* prototype */
-  XS(XS_Bio__Emboss_ajFeattabRead); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTagAdd); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTagAddC); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTagAddCC); /* prototype */
@@ -324,7 +316,6 @@
   XS(XS_Bio__Emboss_ajFeatTagval); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTest); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTrace); /* prototype */
-  XS(XS_Bio__Emboss_ajFeatTraceOld); /* prototype */
   XS(XS_Bio__Emboss_ajFeatTrimOffRange); /* prototype */
   XS(XS_Bio__Emboss_ajFeatUfoRead); /* prototype */
   XS(XS_Bio__Emboss_ajFeatUfoWrite); /* prototype */
@@ -485,7 +476,6 @@
   XS(XS_Bio__Emboss_ajGraphGetCharSize); /* prototype */
   XS(XS_Bio__Emboss_ajGraphGetColour); /* prototype */
   XS(XS_Bio__Emboss_ajGraphGetOut); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphGetOutputDeviceParams); /* prototype */
   XS(XS_Bio__Emboss_ajGraphGetSubTitle); /* prototype */
   XS(XS_Bio__Emboss_ajGraphGetSubTitleC); /* prototype */
   XS(XS_Bio__Emboss_ajGraphGetTitle); /* prototype */
@@ -558,7 +548,6 @@
   XS(XS_Bio__Emboss_ajGraphxyDel); /* prototype */
   XS(XS_Bio__Emboss_ajGraphxyDisplay); /* prototype */
   XS(XS_Bio__Emboss_ajGraphxyNewI); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyPrint); /* prototype */
   XS(XS_Bio__Emboss_ajGraphxyCheckMaxMin); /* prototype */
   XS(XS_Bio__Emboss_ajGraphxySet); /* prototype */
   XS(XS_Bio__Emboss_ajGraphxySetCirclePoints); /* prototype */
@@ -597,7 +586,6 @@
   XS(XS_Bio__Emboss_ajGraphSetSubTitleC); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetTitle); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetTitleC); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphxyTrace); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetXTitle); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetXTitleC); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetYTitle); /* prototype */
@@ -757,14 +745,11 @@
   XS(XS_Bio__Emboss_ajMessExit); /* prototype */
   XS(XS_Bio__Emboss_ajMessSetErr); /* prototype */
   XS(XS_Bio__Emboss_ajDebugFile); /* prototype */
-  XS(XS_Bio__Emboss_ajMessPrompt); /* prototype */
   XS(XS_Bio__Emboss_ajMessSysErrorText); /* prototype */
   XS(XS_Bio__Emboss_ajMessErrorCount); /* prototype */
   XS(XS_Bio__Emboss_ajMessCaughtMessage); /* prototype */
   XS(XS_Bio__Emboss_ajNamDatabase); /* prototype */
-  XS(XS_Bio__Emboss_ajNamDbAccess); /* prototype */
   XS(XS_Bio__Emboss_ajNamDbDetails); /* prototype */
-  XS(XS_Bio__Emboss_ajNamDbGetAlias); /* prototype */
   XS(XS_Bio__Emboss_ajNamDbGetDbalias); /* prototype */
   XS(XS_Bio__Emboss_ajNamDbGetUrl); /* prototype */
   XS(XS_Bio__Emboss_ajNamDbData); /* prototype */
@@ -817,23 +802,6 @@
   XS(XS_Bio__Emboss_ajAtomDel); /* prototype */
   XS(XS_Bio__Emboss_ajAtomCopy); /* prototype */
   XS(XS_Bio__Emboss_ajAtomListCopy); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomSSEnv); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv1); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv2); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv3); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv4); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv5); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv6); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv7); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv8); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv9); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv10); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv11); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv12); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv13); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv14); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv15); /* prototype */
-  XS(XS_Bio__Emboss_ajAtomEnv16); /* prototype */
   XS(XS_Bio__Emboss_ajResidueNew); /* prototype */
   XS(XS_Bio__Emboss_ajResidueDel); /* prototype */
   XS(XS_Bio__Emboss_ajPdbtospNew); /* prototype */
@@ -841,7 +809,6 @@
   XS(XS_Bio__Emboss_ajPdbtospArrFindPdbid); /* prototype */
   XS(XS_Bio__Emboss_ajChainNew); /* prototype */
   XS(XS_Bio__Emboss_ajChainDel); /* prototype */
-  XS(XS_Bio__Emboss_ajChainGetResidues); /* prototype */
   XS(XS_Bio__Emboss_ajPdbNew); /* prototype */
   XS(XS_Bio__Emboss_ajPdbDel); /* prototype */
   XS(XS_Bio__Emboss_ajPdbCopy); /* prototype */
@@ -953,10 +920,8 @@
   XS(XS_Bio__Emboss_ajReportSetSubTail); /* prototype */
   XS(XS_Bio__Emboss_ajReportSetSubTailC); /* prototype */
   XS(XS_Bio__Emboss_ajReportSetType); /* prototype */
-  XS(XS_Bio__Emboss_ajReportTrace); /* prototype */
   XS(XS_Bio__Emboss_ajReportValid); /* prototype */
   XS(XS_Bio__Emboss_ajReportWrite); /* prototype */
-  XS(XS_Bio__Emboss_ajReportWriteClose); /* prototype */
   XS(XS_Bio__Emboss_ajReportWriteHeader); /* prototype */
   XS(XS_Bio__Emboss_ajReportWriteTail); /* prototype */
   XS(XS_Bio__Emboss_ajIsAccession); /* prototype */
@@ -1031,7 +996,6 @@
   XS(XS_Bio__Emboss_ajSeqCvtNew); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCvtNewText); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCvtNewZero); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtSize); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCvtTrace); /* prototype */
   XS(XS_Bio__Emboss_ajSeqDel); /* prototype */
   XS(XS_Bio__Emboss_ajSeqEnd); /* prototype */
@@ -1437,7 +1401,6 @@
   XS(XS_Bio__Emboss_ajTimeTodayRefF); /* prototype */
   XS(XS_Bio__Emboss_ajTimeTrace); /* prototype */
   XS(XS_Bio__Emboss_ajTimeSet); /* prototype */
-  XS(XS_Bio__Emboss_ajTimeSetC); /* prototype */
   XS(XS_Bio__Emboss_ajTimeNew); /* prototype */
   XS(XS_Bio__Emboss_ajTimeDel); /* prototype */
   XS(XS_Bio__Emboss_ajTrnDel); /* prototype */
@@ -1773,10 +1736,6 @@
   XS(XS_Bio__Emboss_embNmerGetNoElements); /* prototype */
   XS(XS_Bio__Emboss_embAtomInContact); /* prototype */
   XS(XS_Bio__Emboss_embAtomDistance); /* prototype */
-  XS(XS_Bio__Emboss_embPdbAtomIndexI); /* prototype */
-  XS(XS_Bio__Emboss_embPdbAtomIndexC); /* prototype */
-  XS(XS_Bio__Emboss_embPdbAtomIndexICA); /* prototype */
-  XS(XS_Bio__Emboss_embPdbAtomIndexCCA); /* prototype */
   XS(XS_Bio__Emboss_embPdbToIdx); /* prototype */
   XS(XS_Bio__Emboss_embPdbListHeterogens); /* prototype */
   XS(XS_Bio__Emboss_embPdbidToSp); /* prototype */
@@ -1823,5 +1782,3 @@
   XS(XS_Bio__Emboss_embWordPrintTableF); /* prototype */
   XS(XS_Bio__Emboss_embWordMatchListConvToFeat); /* prototype */
   XS(XS_Bio__Emboss_embWordMatchMin); /* prototype */
-  XS(XS_Bio__Emboss_embXyzSeqsetNR); /* prototype */
-  XS(XS_Bio__Emboss_embXyzSeqsetNRRange); /* prototype */

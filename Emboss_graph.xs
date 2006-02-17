@@ -170,22 +170,6 @@ ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
        xoff
        yoff
 
-void
-ajGraphGetOutputDeviceParams (xp, yp, xleng, yleng, xoff, yoff)
-       float &xp
-       float &yp
-       ajint &xleng
-       ajint &yleng
-       ajint &xoff
-       ajint &yoff
-    OUTPUT:
-       xp
-       yp
-       xleng
-       yleng
-       xoff
-       yoff
-
 const AjPStr
 ajGraphGetSubTitle (thys)
        const AjPGraph thys
@@ -651,10 +635,6 @@ ajGraphxyNewI (numofpoints)
        RETVAL
 
 void
-ajGraphxyPrint (thys)
-       AjPGraph thys
-
-void
 ajGraphxyCheckMaxMin (thys)
        AjPGraph thys
 
@@ -850,10 +830,6 @@ void
 ajGraphSetTitleC (thys, title)
        AjPGraph thys
        const char *title
-
-void
-ajGraphxyTrace (thys)
-       AjPGraph thys
 
 void
 ajGraphSetXTitle (thys, title)

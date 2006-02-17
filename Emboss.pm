@@ -31,7 +31,7 @@ require Bio::Emboss::Methods;
 	
 );
 
-$VERSION = '1.0';
+$VERSION = '1.0.1';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -186,7 +186,7 @@ Peter Ernst, E<lt>pernst@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003 by Peter Ernst
+Copyright 2003-2006 by Peter Ernst
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

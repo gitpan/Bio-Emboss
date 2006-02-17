@@ -1,5 +1,5 @@
-Bio::Emboss perl module version 1.0
-===================================
+Bio::Emboss perl module version 1.0.1
+=====================================
 
 This module is an interface to the libraries of the EMBOSS package
 (European Molecular Biology Open Software Suite).
@@ -40,12 +40,12 @@ This module requires an EMBOSS installation (including .h files
 of the source distribution) available at
 http://emboss.sourceforge.net/
 
-The module was tested with EMBOSS (versions 3.0.0).
+The module was tested with EMBOSS (version 3.0.0).
 For older EMBOSS versions use Bio::Emboss-0.7.
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2003-2005 Peter Ernst <pernst@cpan.org>
+Copyright (C) 2003-2006 Peter Ernst <pernst@cpan.org>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

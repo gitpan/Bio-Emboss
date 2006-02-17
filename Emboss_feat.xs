@@ -13,43 +13,9 @@ PROTOTYPES: ENABLE
 
  # code from ajfeat.h: automatically generated
 
-AjPFeature
-ajFeatAdd (thys, type, start, end, score, strand, frame, desc)
-       AjPFeattable thys
-       const AjPStr type
-       ajint start
-       ajint end
-       float score
-       char strand
-       ajint frame
-       const AjPStr desc
-    OUTPUT:
-       RETVAL
-
-AjPFeature
-ajFeatAddC (thys, type, start, end, score, strand, frame, desc)
-       AjPFeattable thys
-       const char* type
-       ajint start
-       ajint end
-       float score
-       char strand
-       ajint frame
-       const AjPStr desc
-    OUTPUT:
-       RETVAL
-
 AjBool
 ajFeatIsChild (gf)
        const AjPFeature gf
-    OUTPUT:
-       RETVAL
-
-void *
-ajFeatClearTag (thys, table, tag)
-       AjPFeature thys
-       const AjPFeattable table
-       const AjPStr tag
     OUTPUT:
        RETVAL
 
@@ -561,12 +527,6 @@ ajFeattabOutSetTypeC (thys, type)
     OUTPUT:
        RETVAL
 
-AjPFeattable
-ajFeattabRead (ftin)
-       AjPFeattabIn ftin
-    OUTPUT:
-       RETVAL
-
 AjBool
 ajFeatTagAdd (thys, tag, value)
        AjPFeature thys
@@ -633,10 +593,6 @@ ajFeatTest ()
 void
 ajFeatTrace (thys)
        const AjPFeature thys
-
-void
-ajFeatTraceOld (thys)
-       const AjPFeattable thys
 
 AjBool
 ajFeatTrimOffRange (ft, ioffset, begin, end, dobegin, doend)

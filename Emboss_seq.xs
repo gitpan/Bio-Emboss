@@ -421,12 +421,6 @@ ajSeqCvtNewZero (bases)
        RETVAL
 
 
-ajint
-ajSeqCvtSize (cvt)
-       const AjPSeqCvt  cvt
-    OUTPUT:
-       RETVAL
-
 void
 ajSeqCvtTrace (cvt)
        const AjPSeqCvt  cvt

@@ -125,10 +125,6 @@ ajReportSetType (thys, ftable, seq)
        const AjPFeattable ftable
        const AjPSeq seq
 
-void
-ajReportTrace (thys)
-       const AjPReport  thys
-
 AjBool
 ajReportValid (thys)
        AjPReport  thys
@@ -140,10 +136,6 @@ ajReportWrite (thys, ftable, seq)
        AjPReport  thys
        const AjPFeattable ftable
        const AjPSeq seq
-
-void
-ajReportWriteClose (thys)
-       AjPReport  thys
 
 void
 ajReportWriteHeader (thys, ftable, seq)

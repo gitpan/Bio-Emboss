@@ -49,13 +49,6 @@ ajTimeSet (timefmt, mday, mon, year)
     OUTPUT:
        RETVAL
 
-AjBool
-ajTimeSetC (thys, timestr)
-       AjPTime  thys
-       const char* timestr
-    OUTPUT:
-       RETVAL
-
 AjPTime
 ajTimeNew ()
     OUTPUT:
