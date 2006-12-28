@@ -11,32 +11,32 @@ MODULE = Bio::Emboss_mem		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajmem.h: automatically generated
+ # code from ajmem.c: automatically generated
 
-void *
+void*
 ajMemAlloc (nbytes, file, line, nofail)
        ajlong nbytes
-       const char *file
+       const char* file
        ajint line
        AjBool nofail
     OUTPUT:
        RETVAL
 
-void *
+void*
 ajMemCalloc (count, nbytes, file, line, nofail)
        ajlong count
        ajlong nbytes
-       const char *file
+       const char* file
        ajint line
        AjBool nofail
     OUTPUT:
        RETVAL
 
-void *
+void*
 ajMemCalloc0 (count, nbytes, file, line, nofail)
        ajlong count
        ajlong nbytes
-       const char *file
+       const char* file
        ajint line
        AjBool nofail
     OUTPUT:
@@ -44,20 +44,37 @@ ajMemCalloc0 (count, nbytes, file, line, nofail)
 
 void
 ajMemFree (ptr, file, line)
-       char *ptr
-       const char *file
+       char& ptr
+       const char* file
        ajint line
 
-void *
+void*
 ajMemResize (ptr, nbytes, file, line, nofail)
-       char *ptr
+       char& ptr
        ajlong nbytes
-       const char *file
+       const char* file
        ajint line
        AjBool nofail
     OUTPUT:
        RETVAL
 
+ajint*
+ajMemArrB (size)
+       size_t size
+    OUTPUT:
+       RETVAL
+
+ajint*
+ajMemArrI (size)
+       size_t size
+    OUTPUT:
+       RETVAL
+
+float*
+ajMemArrF (size)
+       size_t size
+    OUTPUT:
+       RETVAL
 
 void
 ajMemStat (title)

@@ -11,12 +11,12 @@ MODULE = Bio::Emboss_embdomain		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embdomain.h: automatically generated
+ # code from embdomain.c: automatically generated
 
 AjPStr
 embScopToPdbid (scop, pdb)
        const AjPStr scop
-       AjPStr &pdb
+       AjPStr& pdb
     OUTPUT:
        RETVAL
        pdb
@@ -24,7 +24,7 @@ embScopToPdbid (scop, pdb)
 AjBool
 embScopToSp (scop, spr, list)
        const AjPStr scop
-       AjPStr &spr
+       AjPStr& spr
        const AjPList list
     OUTPUT:
        RETVAL
@@ -33,7 +33,7 @@ embScopToSp (scop, spr, list)
 AjBool
 embScopToAcc (scop, acc, list)
        const AjPStr scop
-       AjPStr &acc
+       AjPStr& acc
        const AjPList list
     OUTPUT:
        RETVAL

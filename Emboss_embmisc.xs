@@ -11,7 +11,7 @@ MODULE = Bio::Emboss_embmisc		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embmisc.h: automatically generated
+ # code from embmisc.c: automatically generated
 
 AjBool
 embMiscMatchPattern (str, pattern)

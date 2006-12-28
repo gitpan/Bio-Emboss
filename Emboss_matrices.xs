@@ -11,88 +11,139 @@ MODULE = Bio::Emboss_matrices		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajmatrices.h: automatically generated
+ # code from ajmatrices.c: automatically generated
 
-
-void
-ajMatrixChar (thys, i, label)
-       const AjPMatrix  thys
-       ajint i
-       AjPStr &label
-    OUTPUT:
-       label
-
-AjPSeqCvt
-ajMatrixCvt (thys)
-       const AjPMatrix  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajMatrixDel (thys)
-       AjPMatrix  &thys
-    OUTPUT:
-       thys
-
-const AjPStr
-ajMatrixName (thys)
-       const AjPMatrix  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajMatrixSeqNum (thys, seq, numseq)
-       const AjPMatrix  thys
-       const AjPSeq seq
-       AjPStr& numseq
-    OUTPUT:
-       RETVAL
-       numseq
-
-AjBool
-ajMatrixRead (pthis, filename)
-       AjPMatrix & pthis
+AjPMatrix
+ajMatrixNew (codes, n, filename)
+       AjPPStr codes
+       ajint n
        const AjPStr filename
     OUTPUT:
        RETVAL
-       pthis
 
-ajint
-ajMatrixSize (thys)
-       const AjPMatrix  thys
+AjPMatrix
+ajMatrixNewAsym (codes, n, rcodes, rn, filename)
+       AjPPStr codes
+       ajint n
+       AjPPStr rcodes
+       ajint rn
+       const AjPStr filename
     OUTPUT:
        RETVAL
 
-
-void
-ajMatrixfChar (thys, i, label)
-       const AjPMatrixf  thys
-       ajint i
-       AjPStr &label
+AjPMatrixf
+ajMatrixfNew (codes, n, filename)
+       AjPPStr codes
+       ajint n
+       const AjPStr filename
     OUTPUT:
-       label
+       RETVAL
 
-AjPSeqCvt
-ajMatrixfCvt (thys)
-       const AjPMatrixf  thys
+AjPMatrixf
+ajMatrixfNewAsym (codes, n, rcodes, rn, filename)
+       AjPPStr codes
+       ajint n
+       AjPPStr rcodes
+       ajint rn
+       const AjPStr filename
     OUTPUT:
        RETVAL
 
 void
 ajMatrixfDel (thys)
-       AjPMatrixf  &thys
+       AjPMatrixf& thys
     OUTPUT:
        thys
 
+void
+ajMatrixDel (thys)
+       AjPMatrix& thys
+    OUTPUT:
+       thys
+
+AjIntArray*
+ajMatrixArray (thys)
+       const AjPMatrix thys
+    OUTPUT:
+       RETVAL
+
+AjFloatArray*
+ajMatrixfArray (thys)
+       const AjPMatrixf thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajMatrixSize (thys)
+       const AjPMatrix thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajMatrixfSize (thys)
+       const AjPMatrixf thys
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajMatrixCvt (thys)
+       const AjPMatrix thys
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajMatrixfCvt (thys)
+       const AjPMatrixf thys
+    OUTPUT:
+       RETVAL
+
+void
+ajMatrixChar (thys, i, label)
+       const AjPMatrix thys
+       ajint i
+       AjPStr & label
+    OUTPUT:
+       label
+
+void
+ajMatrixfChar (thys, i, label)
+       const AjPMatrixf thys
+       ajint i
+       AjPStr & label
+    OUTPUT:
+       label
+
+const AjPStr
+ajMatrixName (thys)
+       const AjPMatrix thys
+    OUTPUT:
+       RETVAL
+
 const AjPStr
 ajMatrixfName (thys)
-       const AjPMatrixf  thys
+       const AjPMatrixf thys
     OUTPUT:
        RETVAL
 
 AjBool
-ajMatrixfSeqNum (thys, seq, numseq)
-       const AjPMatrixf  thys
+ajMatrixRead (pthis, filename)
+       AjPMatrix& pthis
+       const AjPStr filename
+    OUTPUT:
+       RETVAL
+       pthis
+
+AjBool
+ajMatrixfRead (pthis, filename)
+       AjPMatrixf& pthis
+       const AjPStr filename
+    OUTPUT:
+       RETVAL
+       pthis
+
+AjBool
+ajMatrixSeqNum (thys, seq, numseq)
+       const AjPMatrix thys
        const AjPSeq seq
        AjPStr& numseq
     OUTPUT:
@@ -100,16 +151,23 @@ ajMatrixfSeqNum (thys, seq, numseq)
        numseq
 
 AjBool
-ajMatrixfRead (pthis, filename)
-       AjPMatrixf & pthis
-       const AjPStr filename
+ajMatrixfSeqNum (thys, seq, numseq)
+       const AjPMatrixf thys
+       const AjPSeq seq
+       AjPStr& numseq
     OUTPUT:
        RETVAL
-       pthis
+       numseq
 
-ajint
-ajMatrixfSize (thys)
-       const AjPMatrixf  thys
+AjPStr
+ajMatrixGetCodes (thys)
+       const AjPMatrix thys
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajMatrixfGetCodes (thys)
+       const AjPMatrixf thys
     OUTPUT:
        RETVAL
 

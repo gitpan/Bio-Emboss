@@ -11,25 +11,12 @@ MODULE = Bio::Emboss_vector		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajvector.h: automatically generated
+ # code from ajvector.c: automatically generated
 
-float
-aj3dVectorAngle (ajp3dVectorFirst, ajp3dVectorSecond)
-       const AjP3dVector  ajp3dVectorFirst
-       const AjP3dVector  ajp3dVectorSecond
+AjP3dVector
+aj3dVectorNew ()
     OUTPUT:
        RETVAL
-
-
-void
-aj3dVectorBetweenPoints (ajp3dVectorBetweenPoints, startX, startY, startZ, endX, endY, endZ)
-       AjP3dVector  ajp3dVectorBetweenPoints
-       float startX
-       float startY
-       float startZ
-       float endX
-       float endY
-       float endZ
 
 AjP3dVector
 aj3dVectorCreate (fX, fY, fZ)
@@ -40,50 +27,62 @@ aj3dVectorCreate (fX, fY, fZ)
        RETVAL
 
 void
-aj3dVectorCrossProduct (ajp3dVectorFirst, ajp3dVectorSecond, ajp3dVectorCrossProduct)
-       const AjP3dVector  ajp3dVectorFirst
-       const AjP3dVector  ajp3dVectorSecond
-       AjP3dVector  ajp3dVectorCrossProduct
+aj3dVectorDel (pthis)
+       AjP3dVector& pthis
     OUTPUT:
+       pthis
 
+void
+aj3dVectorCrossProduct (first, second, crossProduct)
+       const AjP3dVector first
+       const AjP3dVector second
+       AjP3dVector crossProduct
+    OUTPUT:
+       crossProduct
+
+void
+aj3dVectorBetweenPoints (betweenPoints, fStartX, fStartY, fStartZ, fEndX, fEndY, fEndZ)
+       AjP3dVector betweenPoints
+       float fStartX
+       float fStartY
+       float fStartZ
+       float fEndX
+       float fEndY
+       float fEndZ
 
 float
-aj3dVectorDihedralAngle (ajp3dVectorA, ajp3dVectorB, ajp3dVectorC)
-       const AjP3dVector  ajp3dVectorA
-       const AjP3dVector  ajp3dVectorB
-       const AjP3dVector  ajp3dVectorC
+aj3dVectorLength (thys)
+       const AjP3dVector thys
+    OUTPUT:
+       RETVAL
+
+float
+aj3dVectorAngle (first, second)
+       const AjP3dVector first
+       const AjP3dVector second
+    OUTPUT:
+       RETVAL
+
+float
+aj3dVectorDihedralAngle (veca, vecb, vecc)
+       const AjP3dVector veca
+       const AjP3dVector vecb
+       const AjP3dVector vecc
+    OUTPUT:
+       RETVAL
+
+float
+aj3dVectorDotProduct (first, second)
+       const AjP3dVector first
+       const AjP3dVector second
     OUTPUT:
        RETVAL
 
 void
-aj3dVectorDel (ajp3dVectorToBeDestroyed)
-       AjP3dVector & ajp3dVectorToBeDestroyed
+aj3dVectorSum (first, second, sum)
+       const AjP3dVector first
+       const AjP3dVector second
+       AjP3dVector sum
     OUTPUT:
-       ajp3dVectorToBeDestroyed
-
-float
-aj3dVectorDotProduct (ajp3dVectorFirst, ajp3dVectorSecond)
-       const AjP3dVector  ajp3dVectorFirst
-       const AjP3dVector  ajp3dVectorSecond
-    OUTPUT:
-       RETVAL
-
-
-float
-aj3dVectorLength (ajp3dVectorToBeSized)
-       const AjP3dVector  ajp3dVectorToBeSized
-    OUTPUT:
-       RETVAL
-
-AjP3dVector
-aj3dVectorNew ()
-    OUTPUT:
-       RETVAL
-
-void
-aj3dVectorSum (ajp3dVectorFirst, ajp3dVectorSecond, ajp3dVectorSum)
-       const AjP3dVector  ajp3dVectorFirst
-       const AjP3dVector  ajp3dVectorSecond
-       AjP3dVector  ajp3dVectorSum
-    OUTPUT:
+       sum
 

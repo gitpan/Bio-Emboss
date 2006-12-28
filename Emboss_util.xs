@@ -11,18 +11,18 @@ MODULE = Bio::Emboss_util		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajutil.h: automatically generated
+ # code from ajutil.c: automatically generated
 
 void
 ajExit ()
 
 ajint
-ajExitAbort ()
+ajExitBad ()
     OUTPUT:
        RETVAL
 
 ajint
-ajExitBad ()
+ajExitAbort ()
     OUTPUT:
        RETVAL
 
@@ -30,53 +30,41 @@ void
 ajLogInfo ()
 
 AjBool
-ajUtilBigendian ()
-    OUTPUT:
-       RETVAL
-
-void
-ajUtilCatch ()
-
-void
-ajUtilRev2 (i)
-       short& i
-    OUTPUT:
-       i
-
-void
-ajUtilRev4 (i)
-       ajint& i
-    OUTPUT:
-       i
-
-void
-ajUtilRev8 (i)
-       ajlong& i
-    OUTPUT:
-       i
-
-void
-ajUtilRevInt (sval)
-       ajint& sval
-    OUTPUT:
-       sval
-
-void
-ajUtilRevShort (ival)
-       short& ival
-    OUTPUT:
-       ival
-
-void
-ajUtilRevLong (lval)
-       ajlong& lval
-    OUTPUT:
-       lval
-
-AjBool
 ajUtilUid (dest)
        AjPStr& dest
     OUTPUT:
        RETVAL
        dest
+
+AjBool
+ajUtilBigendian ()
+    OUTPUT:
+       RETVAL
+
+void
+ajUtilRev2 (sval)
+       short& sval
+
+void
+ajUtilRev4 (ival)
+       ajint& ival
+
+void
+ajUtilRev8 (ival)
+       ajlong& ival
+
+void
+ajUtilRevShort (sval)
+       short& sval
+
+void
+ajUtilRevInt (ival)
+       ajint& ival
+
+void
+ajUtilRevLong (lval)
+       ajlong& lval
+
+void
+ajUtilCatch ()
 

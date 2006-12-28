@@ -11,18 +11,62 @@ MODULE = Bio::Emboss_phylo		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajphylo.h: automatically generated
-
-void
-ajPhyloDistDel (pthis)
-       AjPPhyloDist & pthis
-    OUTPUT:
-       pthis
+ # code from ajphylo.c: automatically generated
 
 AjPPhyloDist
 ajPhyloDistNew ()
     OUTPUT:
        RETVAL
+
+AjPPhyloFreq
+ajPhyloFreqNew ()
+    OUTPUT:
+       RETVAL
+
+AjPPhyloProp
+ajPhyloPropNew ()
+    OUTPUT:
+       RETVAL
+
+AjPPhyloState
+ajPhyloStateNew ()
+    OUTPUT:
+       RETVAL
+
+AjPPhyloTree
+ajPhyloTreeNew ()
+    OUTPUT:
+       RETVAL
+
+void
+ajPhyloDistDel (pthis)
+       AjPPhyloDist& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloFreqDel (pthis)
+       AjPPhyloFreq& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloPropDel (pthis)
+       AjPPhyloProp& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloStateDel (pthis)
+       AjPPhyloState& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloTreeDel (pthis)
+       AjPPhyloTree& pthis
+    OUTPUT:
+       pthis
 
 AjPPhyloDist
 ajPhyloDistRead (filename, size, missing)
@@ -34,18 +78,7 @@ ajPhyloDistRead (filename, size, missing)
 
 void
 ajPhyloDistTrace (thys)
-       const AjPPhyloDist  thys
-
-void
-ajPhyloFreqDel (pthis)
-       AjPPhyloFreq & pthis
-    OUTPUT:
-       pthis
-
-AjPPhyloFreq
-ajPhyloFreqNew ()
-    OUTPUT:
-       RETVAL
+       const AjPPhyloDist thys
 
 AjPPhyloFreq
 ajPhyloFreqRead (filename, contchar, genedata, indiv)
@@ -58,24 +91,7 @@ ajPhyloFreqRead (filename, contchar, genedata, indiv)
 
 void
 ajPhyloFreqTrace (thys)
-       const AjPPhyloFreq  thys
-
-void
-ajPhyloPropDel (pthis)
-       AjPPhyloProp & pthis
-    OUTPUT:
-       pthis
-
-ajint
-ajPhyloPropGetSize (thys)
-       const AjPPhyloProp  thys
-    OUTPUT:
-       RETVAL
-
-AjPPhyloProp
-ajPhyloPropNew ()
-    OUTPUT:
-       RETVAL
+       const AjPPhyloFreq thys
 
 AjPPhyloProp
 ajPhyloPropRead (filename, propchars, len, size)
@@ -86,22 +102,17 @@ ajPhyloPropRead (filename, propchars, len, size)
     OUTPUT:
        RETVAL
 
-void
-ajPhyloPropTrace (thys)
-       const AjPPhyloProp  thys
-
-void
-ajPhyloStateDel (pthis)
-       AjPPhyloState & pthis
-    OUTPUT:
-       pthis
-
-AjPPhyloState
-ajPhyloStateNew ()
+ajint
+ajPhyloPropGetSize (thys)
+       const AjPPhyloProp thys
     OUTPUT:
        RETVAL
 
-AjPPhyloState *
+void
+ajPhyloPropTrace (thys)
+       const AjPPhyloProp thys
+
+AjPPhyloState*
 ajPhyloStateRead (filename, statechars)
        const AjPStr filename
        const AjPStr statechars
@@ -110,20 +121,9 @@ ajPhyloStateRead (filename, statechars)
 
 void
 ajPhyloStateTrace (thys)
-       const AjPPhyloState  thys
+       const AjPPhyloState thys
 
-void
-ajPhyloTreeDel (pthis)
-       AjPPhyloTree & pthis
-    OUTPUT:
-       pthis
-
-AjPPhyloTree
-ajPhyloTreeNew ()
-    OUTPUT:
-       RETVAL
-
-AjPPhyloTree *
+AjPPhyloTree*
 ajPhyloTreeRead (filename, size)
        const AjPStr filename
        ajint size
@@ -132,5 +132,5 @@ ajPhyloTreeRead (filename, size)
 
 void
 ajPhyloTreeTrace (thys)
-       const AjPPhyloTree  thys
+       const AjPPhyloTree thys
 

@@ -19,6 +19,7 @@ sub do_file {
 
     print "=over 4\n\n";
 
+OUTER:
     while (<FILE>) {
 	next unless s:/\*.*\@func\w*\s+aj:aj:;
 
@@ -45,6 +46,9 @@ sub do_file {
 
 	$c = '';
 	while (<FILE>) {
+	    if (m:/\*.*\@func\w*\s+aj:) {
+		redo OUTER;
+	    }
 	    if (/$a\s*(.*)/) {
 		$c = $1;
 		last;
@@ -52,7 +56,8 @@ sub do_file {
 	}
 
 	while ($c !~ /\)/) {
-	    $c .= <FILE>;
+ 	    $c .= <FILE>;
+	    redo OUTER if $c eq "";
 	}
     
 	$c =~ s/\).*/)/;

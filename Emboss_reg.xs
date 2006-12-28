@@ -11,8 +11,7 @@ MODULE = Bio::Emboss_reg		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajreg.h: automatically generated
-
+ # code from ajreg.c: automatically generated
 
 AjPRegexp
 ajRegComp (exp)
@@ -40,65 +39,72 @@ ajRegCompCaseC (exp)
 
 AjBool
 ajRegExec (prog, str)
-       AjPRegexp  prog
+       AjPRegexp prog
        const AjPStr str
     OUTPUT:
        RETVAL
 
 AjBool
 ajRegExecB (prog, str)
-       AjPRegexp  prog
+       AjPRegexp prog
        const AjPStr str
     OUTPUT:
        RETVAL
 
 AjBool
 ajRegExecC (prog, str)
-       AjPRegexp  prog
+       AjPRegexp prog
        const char* str
     OUTPUT:
        RETVAL
 
 ajint
-ajRegLenI (rp, isub)
-       const AjPRegexp  rp
-       ajint isub
-    OUTPUT:
-       RETVAL
-
-ajint
 ajRegOffset (rp)
-       const AjPRegexp  rp
+       const AjPRegexp rp
     OUTPUT:
        RETVAL
 
 ajint
 ajRegOffsetI (rp, isub)
-       const AjPRegexp  rp
+       const AjPRegexp rp
+       ajint isub
+    OUTPUT:
+       RETVAL
+
+ajint
+ajRegLenI (rp, isub)
+       const AjPRegexp rp
        ajint isub
     OUTPUT:
        RETVAL
 
 AjBool
+ajRegPost (rp, post)
+       const AjPRegexp rp
+       AjPStr& post
+    OUTPUT:
+       RETVAL
+       post
+
+AjBool
+ajRegPostC (rp, post)
+       const AjPRegexp rp
+       const char*& post
+    OUTPUT:
+       RETVAL
+       post
+
+AjBool
 ajRegPre (rp, dest)
-       const AjPRegexp  rp
+       const AjPRegexp rp
        AjPStr& dest
     OUTPUT:
        RETVAL
        dest
 
 AjBool
-ajRegPost (rp, post)
-       const AjPRegexp  rp
-       AjPStr& post
-    OUTPUT:
-       RETVAL
-       post
-
-
-AjBool
 ajRegSubI (rp, isub, dest)
-       const AjPRegexp  rp
+       const AjPRegexp rp
        ajint isub
        AjPStr& dest
     OUTPUT:
@@ -107,13 +113,13 @@ ajRegSubI (rp, isub, dest)
 
 void
 ajRegFree (pexp)
-       AjPRegexp & pexp
+       AjPRegexp& pexp
     OUTPUT:
        pexp
 
 void
 ajRegTrace (exp)
-       const AjPRegexp  exp
+       const AjPRegexp exp
 
 void
 ajRegExit ()

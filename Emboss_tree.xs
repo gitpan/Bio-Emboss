@@ -11,55 +11,7 @@ MODULE = Bio::Emboss_tree		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajtree.h: automatically generated
-
-AjBool
-ajTreeAddData (thys, data)
-       AjPTree  thys
-       char * data
-    OUTPUT:
-       RETVAL
-
-AjPTree
-ajTreeAddNode (thys)
-       AjPTree  thys
-    OUTPUT:
-       RETVAL
-
-AjPTree
-ajTreeAddSubNode (thys)
-       AjPTree  thys
-    OUTPUT:
-       RETVAL
-
-AjPTree
-ajTreeCopy (thys)
-       const AjPTree  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajTreeDel (pthis)
-       AjPTree & pthis
-    OUTPUT:
-       pthis
-
-void
-ajTreeExit ()
-
-void
-ajTreeFree (pthis)
-       AjPTree & pthis
-    OUTPUT:
-       pthis
-
-
-ajint
-ajTreeLength (thys)
-       const AjPTree  thys
-    OUTPUT:
-       RETVAL
-
+ # code from ajtree.c: automatically generated
 
 AjPTree
 ajTreeNew ()
@@ -67,42 +19,100 @@ ajTreeNew ()
        RETVAL
 
 AjPTree
+ajTreestrNew ()
+    OUTPUT:
+       RETVAL
+
+AjPTree
 ajTreestrCopy (thys)
-       const AjPTree  thys
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeCopy (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTreeLength (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTreestrLength (thys)
+       const AjPTree thys
     OUTPUT:
        RETVAL
 
 void
-ajTreestrDel (pthis)
-       AjPTree & pthis
+ajTreeFree (pthis)
+       AjPTree& pthis
     OUTPUT:
        pthis
 
 void
 ajTreestrFree (pthis)
-       AjPTree & pthis
+       AjPTree& pthis
     OUTPUT:
        pthis
 
+void
+ajTreeDel (pthis)
+       AjPTree& pthis
+    OUTPUT:
+       pthis
 
-AjPTree
-ajTreestrNew ()
+void
+ajTreestrDel (pthis)
+       AjPTree& pthis
+    OUTPUT:
+       pthis
+
+ajint
+ajTreeToArray (thys, array)
+       const AjPTree thys
+       void**& array
     OUTPUT:
        RETVAL
+       array
 
 ajint
 ajTreestrToArray (thys, array)
-       const AjPTree  thys
+       const AjPTree thys
        AjPStr*& array
     OUTPUT:
        RETVAL
        array
 
+void
+ajTreeDummyFunction ()
+
+AjBool
+ajTreeAddData (thys, data)
+       AjPTree thys
+       char* data
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeAddNode (thys)
+       AjPTree thys
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeAddSubNode (thys)
+       AjPTree thys
+    OUTPUT:
+       RETVAL
 
 void
 ajTreeTrace (thys)
-       const AjPTree  thys
+       const AjPTree thys
 
 void
-ajTreeDummyFunction ()
+ajTreeExit ()
 

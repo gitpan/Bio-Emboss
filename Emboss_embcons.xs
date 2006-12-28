@@ -11,10 +11,10 @@ MODULE = Bio::Emboss_embcons		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embcons.h: automatically generated
+ # code from embcons.c: automatically generated
 
 void
-embConsCalc (seqset, cmpmatrix, nseqs, mlen, fplural, setcase, identity, cons)
+embConsCalc (seqset, cmpmatrix, nseqs, mlen, fplural, setcase, identity, gaps, cons)
        const AjPSeqset seqset
        const AjPMatrix cmpmatrix
        ajint nseqs
@@ -22,7 +22,8 @@ embConsCalc (seqset, cmpmatrix, nseqs, mlen, fplural, setcase, identity, cons)
        float fplural
        float setcase
        ajint identity
-       AjPStr &cons
+       AjBool gaps
+       AjPStr & cons
     OUTPUT:
        cons
 

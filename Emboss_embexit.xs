@@ -11,8 +11,11 @@ MODULE = Bio::Emboss_embexit		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embexit.h: automatically generated
+ # code from embexit.c: automatically generated
 
 void
 embExit ()
+
+void
+embExitBad ()
 

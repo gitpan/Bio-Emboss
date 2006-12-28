@@ -11,5 +11,9 @@ MODULE = Bio::Emboss_assert		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajassert.h: automatically generated
+ # code from ajassert.c: automatically generated
+
+void
+assert (e)
+       ajint e
 

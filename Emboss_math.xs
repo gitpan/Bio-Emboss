@@ -11,11 +11,51 @@ MODULE = Bio::Emboss_math		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajmath.h: automatically generated
+ # code from ajmath.c: automatically generated
+
+ajint
+ajRound (i, round)
+       ajint i
+       ajint round
+    OUTPUT:
+       RETVAL
+
+float
+ajRoundF (a, nbits)
+       float a
+       ajint nbits
+    OUTPUT:
+       RETVAL
+
+void
+ajRecToPol (x, y, radius, angle)
+       float x
+       float y
+       float& radius
+       float& angle
+    OUTPUT:
+       radius
+       angle
+
+void
+ajPolToRec (radius, angle, x, y)
+       float radius
+       float angle
+       float& x
+       float& y
+    OUTPUT:
+       x
+       y
 
 float
 ajDegToRad (degrees)
        float degrees
+    OUTPUT:
+       RETVAL
+
+float
+ajRadToDeg (radians)
+       float radians
     OUTPUT:
        RETVAL
 
@@ -29,21 +69,10 @@ ajGaussProb (mean, sd, score)
 
 float
 ajGeoMean (s, n)
-       const float &s
+       const float* s
        ajint n
     OUTPUT:
        RETVAL
-       s
-
-void
-ajPolToRec (radius, angle, x, y)
-       float radius
-       float angle
-       float &x
-       float &y
-    OUTPUT:
-       x
-       y
 
 ajint
 ajPosMod (a, b)
@@ -52,11 +81,8 @@ ajPosMod (a, b)
     OUTPUT:
        RETVAL
 
-float
-ajRadToDeg (radians)
-       float radians
-    OUTPUT:
-       RETVAL
+void
+ajRandomSeed ()
 
 ajint
 ajRandomNumber ()
@@ -68,30 +94,24 @@ ajRandomNumberD ()
     OUTPUT:
        RETVAL
 
-void
-ajRandomSeed ()
-
-void
-ajRecToPol (x, y, radius, angle)
-       float x
-       float y
-       float &radius
-       float &angle
-    OUTPUT:
-       radius
-       angle
-
-ajint
-ajRound (i, round)
-       ajint i
-       ajint round
+unsigned long long
+ajSp64Crc (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
-float
-ajRoundF (a, nbits)
-       float a
-       ajint nbits
+ajint
+ajMathPos (len, ipos)
+       ajint len
+       ajint ipos
+    OUTPUT:
+       RETVAL
+
+ajint
+ajMathPosI (len, imin, ipos)
+       ajint len
+       ajint imin
+       ajint ipos
     OUTPUT:
        RETVAL
 

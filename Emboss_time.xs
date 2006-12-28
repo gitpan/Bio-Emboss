@@ -11,8 +11,12 @@ MODULE = Bio::Emboss_time		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajtime.h: automatically generated
+ # code from ajtime.c: automatically generated
 
+const AjPTime
+ajTimeTodayRef ()
+    OUTPUT:
+       RETVAL
 
 AjPTime
 ajTimeToday ()
@@ -26,11 +30,6 @@ ajTimeTodayF (timefmt)
        RETVAL
 
 const AjPTime
-ajTimeTodayRef ()
-    OUTPUT:
-       RETVAL
-
-const AjPTime
 ajTimeTodayRefF (timefmt)
        const char* timefmt
     OUTPUT:
@@ -38,16 +37,32 @@ ajTimeTodayRefF (timefmt)
 
 void
 ajTimeTrace (thys)
-       const AjPTime  thys
+       const AjPTime thys
 
 AjPTime
 ajTimeSet (timefmt, mday, mon, year)
-        const char *timefmt
+       const char* timefmt
        ajint mday
        ajint mon
        ajint year
     OUTPUT:
        RETVAL
+
+AjBool
+ajTimeSetS (thys, timestr)
+       AjPTime thys
+       const char* timestr
+    OUTPUT:
+       RETVAL
+       thys
+
+AjBool
+ajTimeLocal (timer, thys)
+       const time_t timer
+       AjPTime thys
+    OUTPUT:
+       RETVAL
+       thys
 
 AjPTime
 ajTimeNew ()
@@ -56,7 +71,10 @@ ajTimeNew ()
 
 void
 ajTimeDel (thys)
-       AjPTime  &thys
+       AjPTime& thys
     OUTPUT:
        thys
+
+void
+ajTimeExit ()
 

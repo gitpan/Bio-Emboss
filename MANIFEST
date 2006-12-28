@@ -6,8 +6,6 @@ Emboss_embgroup.xs
 Emboss_feat.xs
 Emboss_file.xs
 Emboss_graph.xs
-Emboss_graph_25.xsx
-Emboss_graph_29.xsx
 Emboss_hist.xs
 Emboss_list.xs
 Emboss_math.xs
@@ -22,10 +20,8 @@ Emboss_seqread.xs
 Emboss_seqtype.xs
 Emboss_seqwrite.xs
 Emboss_str.xs
-Emboss_template.xs
 Emboss_translate.xs
 Emboss_util.xs
-Emboss_xyz.xs
 
 Emboss_align.xs
 Emboss_assert.xs
@@ -45,12 +41,10 @@ Emboss_embmat.xs
 Emboss_embmisc.xs
 Emboss_embmol.xs
 Emboss_embnmer.xs
-Emboss_emboss.xs
 Emboss_embpdb.xs
 Emboss_embprop.xs
 Emboss_embshow.xs
 Emboss_embword.xs
-Emboss_embxyz.xs
 Emboss_index.xs
 Emboss_matrices.xs
 Emboss_mess.xs
@@ -62,6 +56,28 @@ Emboss_reg.xs
 Emboss_time.xs
 Emboss_tree.xs
 Emboss_vector.xs
+
+deprecated_Emboss_acd.xs
+deprecated_Emboss_hist.xs
+deprecated_Emboss_seq.xs
+deprecated_Emboss_str.xs
+
+Emboss_arr.xs
+Emboss_base.xs
+Emboss_call.xs
+Emboss_dan.xs
+Emboss_dom.xs
+Emboss_embiep.xs
+Emboss_embinit.xs
+Emboss_embpatlist.xs
+Emboss_embread.xs
+Emboss_except.xs
+Emboss_fmt.xs
+Emboss_graphxml.xs
+Emboss_pat.xs
+Emboss_sort.xs
+Emboss_sys.xs
+Emboss_table.xs
 
 MANIFEST
 Makefile.PL
@@ -80,10 +96,13 @@ scripts/extract_prototypes.pl
 scripts/get_boot_for_modules.pl
 scripts/get_methods.pl
 t/1.t
+t/2.t
 t/graphtest.acd
 t/graphtest.pl
 t/seqret.pl
 t/seqret2.pl
 t/test3_seqret.pl
+t/codes.english
+t/knowntypes.standard
 typemap
 META.yml                                 Module meta-data (added by MakeMaker)

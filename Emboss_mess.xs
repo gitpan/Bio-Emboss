@@ -11,66 +11,108 @@ MODULE = Bio::Emboss_mess		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajmess.h: automatically generated
-
-
-void
-ajMessCrashCodeFL (code)
-       const char *code
+ # code from ajmess.c: automatically generated
 
 void
-ajMessErrorInit (progname)
-       const char *progname
+ajMessInvokeDebugger ()
 
 void
 ajMessBeep ()
 
-AjBool
-ajMessErrorSetFile (errfile)
-       const char *errfile
-    OUTPUT:
-       RETVAL
+void
+ajUser (format)
+       const char* format
 
 void
-ajMessCodesDelete ()
+ajMessOut (format)
+       const char* format
 
 void
-ajMessOutCode (name)
-       const char *name
-
-void
-ajMessErrorCode (name)
-       const char *name
-
-void
-ajMessExit ()
-
-void
-ajMessSetErr (filename, line_num)
-       const char *filename
-       ajint line_num
-
-FILE*
-ajDebugFile ()
-    OUTPUT:
-       RETVAL
-
-
-
-
-char*
-ajMessSysErrorText ()
-    OUTPUT:
-       RETVAL
+ajMessDump (format)
+       const char* format
 
 ajint
 ajMessErrorCount ()
     OUTPUT:
        RETVAL
 
+void
+ajErr (format)
+       const char* format
+
+void
+ajDie (format)
+       const char* format
+
+void
+ajWarn (format)
+       const char* format
+
+void
+ajMessExitmsg (format)
+       const char* format
+
+void
+ajMessCrashFL (format)
+       const char* format
 
 char*
 ajMessCaughtMessage ()
     OUTPUT:
        RETVAL
+
+char*
+ajMessSysErrorText ()
+    OUTPUT:
+       RETVAL
+
+void
+ajMessErrorInit (progname)
+       const char* progname
+
+void
+ajMessSetErr (filename, line_num)
+       const char* filename
+       ajint line_num
+
+AjBool
+ajMessErrorSetFile (errfile)
+       const char* errfile
+    OUTPUT:
+       RETVAL
+
+void
+ajMessOutCode (code)
+       const char* code
+
+void
+ajMessErrorCode (code)
+       const char* code
+
+void
+ajMessCrashCodeFL (code)
+       const char* code
+
+void
+ajMessCodesDelete ()
+
+void
+ajDebug (fmt)
+       const char* fmt
+
+FILE*
+ajDebugFile ()
+    OUTPUT:
+       RETVAL
+
+ajint
+ajUserGet (pthis, fmt)
+       AjPStr& pthis
+       const char* fmt
+    OUTPUT:
+       RETVAL
+       pthis
+
+void
+ajMessExit ()
 

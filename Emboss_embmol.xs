@@ -11,13 +11,13 @@ MODULE = Bio::Emboss_embmol		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embmol.h: automatically generated
+ # code from embmol.c: automatically generated
 
 ajint
 embMolGetFrags (thys, rno, l)
        const AjPStr thys
        ajint rno
-       AjPList &l
+       AjPList& l
     OUTPUT:
        RETVAL
        l

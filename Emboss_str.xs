@@ -11,11 +11,7 @@ MODULE = Bio::Emboss_str		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajstr.h: automatically generated
-
-void
-ajCharFree (txt)
-       char** txt
+ # code from ajstr.c: automatically generated
 
 char*
 ajCharNewC (txt)
@@ -24,885 +20,181 @@ ajCharNewC (txt)
        RETVAL
 
 char*
-ajCharNew (thys)
-       const AjPStr  thys
+ajCharNewS (str)
+       const AjPStr str
     OUTPUT:
        RETVAL
 
 char*
-ajCharNewL (len)
-       ajint len
-    OUTPUT:
-       RETVAL
-
-char*
-ajCharNewLS (size, thys)
+ajCharNewRes (size)
        size_t size
-       const AjPStr  thys
     OUTPUT:
        RETVAL
-
-ajint
-ajCharPos (thys, ipos)
-       const char* thys
-       ajint ipos
-    OUTPUT:
-       RETVAL
-
-void
-ajCharToLower (txt)
-       char *txt
-
-void
-ajCharToUpper (txt)
-       char *txt
-
-AjBool
-ajStrApp (pthis, src)
-       AjPStr & pthis
-       const AjPStr  src
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAppC (pthis, txt)
-       AjPStr & pthis
-       const char *txt
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAppCI (pthis, txt, i)
-       AjPStr & pthis
-       const char *txt
-       size_t i
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAppK (pthis, chr)
-       AjPStr & pthis
-       const char chr
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAppKI (pthis, chr, number)
-       AjPStr & pthis
-       const char chr
-       ajint number
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAppSub (pthis, src, begin, end)
-       AjPStr & pthis
-       const AjPStr  src
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
-
-void
-ajStrArrayDel (pthis)
-       AjPStr *& pthis
-    OUTPUT:
-       pthis
-
-AjBool
-ajStrAss (pthis, str)
-       AjPStr & pthis
-       AjPStr  str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssC (pthis, txt)
-       AjPStr & pthis
-       const char* txt
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssCI (pthis, txt, i)
-       AjPStr & pthis
-       const char* txt
-       size_t i
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssCL (pthis, txt, i)
-       AjPStr & pthis
-       const char* txt
-       size_t i
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssI (pthis, str, i)
-       AjPStr & pthis
-       const AjPStr  str
-       size_t i
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssK (pthis, text)
-       AjPStr & pthis
-       const char text
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssL (pthis, str, i)
-       AjPStr & pthis
-       const AjPStr  str
-       size_t i
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssS (pthis, str)
-       AjPStr & pthis
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssSub (pthis, str, begin, end)
-       AjPStr & pthis
-       const AjPStr  str
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrAssSubC (pthis, txt, begin, end)
-       AjPStr & pthis
-       const char* txt
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrBlock (pthis, blksize)
-       AjPStr & pthis
-       ajint blksize
-    OUTPUT:
-       RETVAL
-       pthis
 
 char*
-ajStrBool (boule)
-       AjBool boule
+ajCharNewResC (txt, size)
+       const char* txt
+       size_t size
     OUTPUT:
        RETVAL
 
-char
-ajStrChar (thys, pos)
-       const AjPStr  thys
-       ajint pos
+char*
+ajCharNewResS (str, size)
+       const AjPStr str
+       size_t size
     OUTPUT:
        RETVAL
 
-AjBool
-ajStrCheck (thys)
-       const AjPStr  thys
+char*
+ajCharNewResLenC (txt, size, len)
+       const char* txt
+       size_t size
+       size_t len
     OUTPUT:
        RETVAL
-
-AjBool
-ajStrChomp (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrChompC (pthis, delim)
-       AjPStr & pthis
-       const char* delim
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrChompEnd (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrChop (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrClean (s)
-       AjPStr & s
-    OUTPUT:
-       RETVAL
-       s
-
-AjBool
-ajStrCleanWhite (s)
-       AjPStr & s
-    OUTPUT:
-       RETVAL
-       s
-
-AjBool
-ajStrClear (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-int
-ajStrCmpC (thys, text)
-       const AjPStr  thys
-       const char *text
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpCase (str1, str2)
-       const AjPStr  str1
-       const AjPStr  str2
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpCaseCC (str1, str2)
-       const char* str1
-       const char* str2
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmp (str1, str2)
-       const char * str1
-       const char * str2
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpO (thys, anoth)
-       const AjPStr  thys
-       const AjPStr  anoth
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpWild (thys, str)
-       const AjPStr  thys
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpWildC (thys, text)
-       const AjPStr  thys
-       const char* text
-    OUTPUT:
-       RETVAL
-
-int
-ajStrCmpWildCC (str, text)
-       const char* str
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrConvert (pthis, oldc, newc)
-       AjPStr & pthis
-       const AjPStr  oldc
-       const AjPStr  newc
-    OUTPUT:
-       RETVAL
-       pthis
-
-
-AjBool
-ajStrConvertCC (pthis, oldc, newc)
-       AjPStr & pthis
-       const char* oldc
-       const char* newc
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrCopy (pthis, str)
-       AjPStr & pthis
-       AjPStr  str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrCopyC (pthis, str)
-       AjPStr & pthis
-       const char* str
-    OUTPUT:
-       RETVAL
-       pthis
-
-ajint
-ajStrCountC (thys, str)
-       const AjPStr  thys
-       const char* str
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrCountK (thys, ch)
-       const AjPStr  thys
-       char ch
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrCut (pthis, begin, end)
-       AjPStr & pthis
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
 
 void
-ajStrDegap (pthis)
-       AjPStr & pthis
+ajCharDel (Ptxt)
+       char*& Ptxt
     OUTPUT:
-       pthis
-
-void
-ajStrDel (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       pthis
+       Ptxt
 
 AjBool
-ajStrDelim (pthis, ptoken, delim)
-       AjPStr & pthis
-       AjPStrTok  &ptoken
-       const char *delim
+ajCharFmtLower (txt)
+       char& txt
     OUTPUT:
        RETVAL
-       pthis
-       ptoken
 
 AjBool
-ajStrDelReuse (pthis)
-       AjPStr & pthis
+ajCharFmtUpper (txt)
+       char& txt
     OUTPUT:
        RETVAL
-       pthis
+
+AjBool
+ajCharMatchC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildNextC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildWordC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharPrefixC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharPrefixS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharPrefixCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharPrefixCaseS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharSuffixC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharSuffixS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharSuffixCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharSuffixCaseS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+int
+ajCharCmpCase (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+int
+ajCharCmpCaseLen (txt, txt2, len)
+       const char* txt
+       const char* txt2
+       size_t len
+    OUTPUT:
+       RETVAL
+
+int
+ajCharCmpWild (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
 
 AjPStr
-ajStrDup (thys)
-       AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajStrExit ()
-
-ajint
-ajStrFind (thys, text)
-       const AjPStr  thys
-       const AjPStr  text
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindAny (thys, text)
-       const AjPStr  thys
-       const AjPStr  text
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindAnyC (thys, txt)
-       const AjPStr  thys
+ajCharParseC (txt, txtdelim)
        const char* txt
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindC (thys, txt)
-       const AjPStr  thys
-       const char* txt
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindCase (thys, text)
-       const AjPStr  thys
-       const AjPStr  text
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindCaseC (thys, txt)
-       const AjPStr  thys
-       const char* txt
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrFindK (thys, chr)
-       const AjPStr  thys
-       const char chr
-    OUTPUT:
-       RETVAL
-
-void
-ajStrFill (pthis, count, fill)
-       AjPStr & pthis
-       ajint count
-       char fill
-    OUTPUT:
-       pthis
-
-void
-ajStrFix (pthys)
-       AjPStr  &pthys
-    OUTPUT:
-       pthys
-
-void
-ajStrFixI (pthys, ilen)
-       AjPStr  &pthys
-       ajint ilen
-    OUTPUT:
-       pthys
-
-void
-ajStrFixTestI (pthis, ilen)
-       AjPStr & pthis
-       ajint ilen
-    OUTPUT:
-       pthis
-
-AjBool
-ajStrFromBool (pthis, boule)
-       AjPStr & pthis
-       AjBool boule
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrFromDouble (pthis, val, precision)
-       AjPStr & pthis
-       double val
-       ajint precision
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrFromDoubleE (pthis, val, precision)
-       AjPStr & pthis
-       double val
-       ajint precision
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrFromFloat (pthis, val, precision)
-       AjPStr & pthis
-       float val
-       ajint precision
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrFromInt (pthis, val)
-       AjPStr  &pthis
-       ajint val
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrFromLong (pthis, val)
-       AjPStr  &pthis
-       ajlong val
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrInsert (pthis, pos, str)
-       AjPStr & pthis
-       ajint pos
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrInsertC (pthis, pos, str)
-       AjPStr & pthis
-       ajint pos
-       const char* str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrInsertK (pthis, begin, insert)
-       AjPStr & pthis
-       ajint begin
-       char insert
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrIsAlnum (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsAlpha (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsBool (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsDouble (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsFloat (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsHex (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsInt (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsLong (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsLower (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsNum (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsSpace (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsUpper (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsWild (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsWhite (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrIsWord (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjIStr
-ajStrIter (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjIStr
-ajStrIterBack (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjIStr
-ajStrIterBackNext (iter)
-       AjIStr  iter
-    OUTPUT:
-       RETVAL
-
-void
-ajStrIterFree (iter)
-       AjIStr  &iter
-    OUTPUT:
-       iter
-
-AjIStr
-ajStrIterNext (iter)
-       AjIStr  iter
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrJoin (pthis, pos1, addbit, pos2)
-       AjPStr & pthis
-       ajint pos1
-       const AjPStr  addbit
-       ajint pos2
-    OUTPUT:
-       RETVAL
-       pthis
-
-
-AjBool
-ajStrJoinC (pthis, pos1, addbit, pos2)
-       AjPStr & pthis
-       ajint pos1
-       const char* addbit
-       ajint pos2
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrKeepAlphaC (pthis, chars)
-       AjPStr & pthis
-       const char* chars
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrKeepC (pthis, chars)
-       AjPStr & pthis
-       const char* chars
-    OUTPUT:
-       RETVAL
-       pthis
-
-ajint
-ajStrLen (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrListToArray (str, array)
-       const AjPStr  str
-       AjPStr  *&array
-    OUTPUT:
-       RETVAL
-       array
-
-AjBool
-ajStrMask (str, begin, end, maskchar)
-       AjPStr & str
-       ajint begin
-       ajint end
-       char maskchar
-    OUTPUT:
-       RETVAL
-       str
-
-AjBool
-ajStrMatch (thys, str)
-       const AjPStr  thys
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchC (thys, txt)
-       const AjPStr  thys
-       const char* txt
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchCase (thys, str)
-       const AjPStr  thys
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchCaseC (thys, text)
-       const AjPStr  thys
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchCaseCC (thys, text)
-       const char* thys
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchCC (thys, text)
-       const char* thys
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWild (thys, wild)
-       const AjPStr  thys
-       const AjPStr  wild
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWildC (thys, text)
-       const AjPStr  thys
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWildCC (str, text)
-       const char* str
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWildCO (str, wild)
-       const char* str
-       const AjPStr  wild
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWord (str, text)
-       const AjPStr  str
-       const AjPStr  text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWordC (str, text)
-       const AjPStr  str
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMatchWordCC (str, text)
-       const char* str
-       const char* text
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrMod (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrModL (pthis, size)
-       AjPStr & pthis
-       size_t size
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrModMinL (pthis, size)
-       AjPStr & pthis
-       size_t size
-    OUTPUT:
-       RETVAL
-       pthis
-
-ajint
-ajStrNCmpC (thys, text, n)
-       const AjPStr  thys
-       const char *text
-       ajint n
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrNCmpCaseCC (str1, str2, len)
-       const char* str1
-       const char* str2
-       ajint len
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrNCmpO (thys, anoth, n)
-       const AjPStr  thys
-       const AjPStr  anoth
-       ajint n
+       const char* txtdelim
     OUTPUT:
        RETVAL
 
@@ -913,255 +205,1211 @@ ajStrNew ()
 
 AjPStr
 ajStrNewC (txt)
-       const char *txt
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajStrNewCIL (txt, len, size)
-       const char *txt
-       ajint len
-       size_t size
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajStrNewCL (txt, size)
-       const char *txt
-       size_t size
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajStrNewL (size)
-       size_t size
+       const char* txt
     OUTPUT:
        RETVAL
 
 AjPStr
 ajStrNewS (str)
-       const AjPStr  str
+       const AjPStr str
     OUTPUT:
        RETVAL
+
+AjPStr
+ajStrNewRef (refstr)
+       AjPStr refstr
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajStrNewRes (size)
+       size_t size
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajStrNewResC (txt, size)
+       const char* txt
+       size_t size
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajStrNewResS (str, size)
+       const AjPStr str
+       size_t size
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajStrNewResLenC (txt, size, len)
+       const char* txt
+       size_t size
+       size_t len
+    OUTPUT:
+       RETVAL
+
+void
+ajStrDel (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       Pstr
+
+AjBool
+ajStrDelStatic (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+void
+ajStrDelarray (PPstr)
+       AjPStr*& PPstr
+    OUTPUT:
+       PPstr
+
+AjBool
+ajStrAssignC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignK (Pstr, chr)
+       AjPStr& Pstr
+       char chr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignS (Pstr, str)
+       AjPStr& Pstr
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignEmptyC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignEmptyS (Pstr, str)
+       AjPStr& Pstr
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignLenC (Pstr, txt, len)
+       AjPStr& Pstr
+       const char* txt
+       size_t len
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignRef (Pstr, refstr)
+       AjPStr& Pstr
+       AjPStr refstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignResC (Pstr, size, txt)
+       AjPStr& Pstr
+       size_t size
+       const char* txt
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignResS (Pstr, size, str)
+       AjPStr& Pstr
+       size_t size
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignSubC (Pstr, txt, pos1, pos2)
+       AjPStr& Pstr
+       const char* txt
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAssignSubS (Pstr, str, pos1, pos2)
+       AjPStr& Pstr
+       const AjPStr str
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendK (Pstr, chr)
+       AjPStr& Pstr
+       char chr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendS (Pstr, str)
+       AjPStr& Pstr
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendCountK (Pstr, chr, num)
+       AjPStr& Pstr
+       char chr
+       size_t num
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendLenC (Pstr, txt, len)
+       AjPStr& Pstr
+       const char* txt
+       size_t len
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrAppendSubS (Pstr, str, pos1, pos2)
+       AjPStr& Pstr
+       const AjPStr str
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrInsertC (Pstr, pos, txt)
+       AjPStr& Pstr
+       ajint pos
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrInsertK (Pstr, pos, chr)
+       AjPStr& Pstr
+       ajint pos
+       char chr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrInsertS (Pstr, pos, str)
+       AjPStr& Pstr
+       ajint pos
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrJoinC (Pstr, pos, txt, posb)
+       AjPStr& Pstr
+       ajint pos
+       const char* txt
+       ajint posb
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrJoinS (Pstr, pos, str, posb)
+       AjPStr& Pstr
+       ajint pos
+       const AjPStr str
+       ajint posb
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMask (Pstr, pos1, pos2, maskchr)
+       AjPStr& Pstr
+       ajint pos1
+       ajint pos2
+       char maskchr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrPasteS (Pstr, pos, str)
+       AjPStr& Pstr
+       ajint pos
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPasteCountK (Pstr, pos, chr, num)
+       AjPStr& Pstr
+       ajint pos
+       char chr
+       size_t num
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPasteMaxC (Pstr, pos, txt, len)
+       AjPStr& Pstr
+       ajint pos
+       const char* txt
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPasteMaxS (Pstr, pos, str, len)
+       AjPStr& Pstr
+       ajint pos
+       const AjPStr str
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrCutComments (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrCutCommentsStart (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrCutEnd (Pstr, len)
+       AjPStr& Pstr
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrCutRange (Pstr, pos1, pos2)
+       AjPStr& Pstr
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrCutStart (Pstr, len)
+       AjPStr& Pstr
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepRange (Pstr, pos1, pos2)
+       AjPStr& Pstr
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrKeepSetC (Pstr, txt)
+       AjPStr & Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlphaC (Pstr, txt)
+       AjPStr & Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrQuoteStrip (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrQuoteStripAll (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrRemoveGap (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrRemoveHtml (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrRemoveLastNewline (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrRemoveSetC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrRemoveWhite (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrRemoveWhiteExcess (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrRemoveWild (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTrimC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTrimEndC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTrimStartC (Pstr, txt)
+       AjPStr& Pstr
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTrimWhite (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTrimWhiteEnd (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTruncateLen (Pstr, len)
+       AjPStr& Pstr
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrTruncatePos (Pstr, pos)
+       AjPStr& Pstr
+       ajint pos
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeCC (Pstr, txt, txtnew)
+       AjPStr& Pstr
+       const char* txt
+       const char* txtnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeCS (Pstr, txt, strnew)
+       AjPStr& Pstr
+       const char* txt
+       const AjPStr strnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeKK (Pstr, chr, chrnew)
+       AjPStr& Pstr
+       char chr
+       char chrnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeSC (Pstr, str, txtnew)
+       AjPStr& Pstr
+       const AjPStr str
+       const char* txtnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeSS (Pstr, str, strnew)
+       AjPStr& Pstr
+       const AjPStr str
+       const AjPStr strnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeSetCC (Pstr, txt, txtnew)
+       AjPStr& Pstr
+       const char* txt
+       const char* txtnew
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrExchangeSetSS (Pstr, str, strnew)
+       AjPStr& Pstr
+       const AjPStr str
+       const AjPStr strnew
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrRandom (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrReverse (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+ajint
+ajStrCalcCountC (str, txt)
+       const AjPStr str
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrCalcCountK (str, chr)
+       const AjPStr str
+       char chr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrHasParentheses (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsAlnum (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsAlpha (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsBool (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsDouble (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsFloat (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsHex (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsInt (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsLong (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsLower (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsNum (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsUpper (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsWhite (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsWild (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsWord (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrWhole (str, pos1, pos2)
+       const AjPStr str
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+
+char
+ajStrGetCharFirst (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+char
+ajStrGetCharLast (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+char
+ajStrGetCharPos (str, pos)
+       const AjPStr str
+       ajint pos
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrGetLen (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+const char*
+ajStrGetPtr (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrGetRes (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrGetRoom (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrGetUse (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrGetValid (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+char*
+ajStrGetuniquePtr (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajStrGetuniqueStr (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSetClear (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrSetRes (Pstr, size)
+       AjPStr& Pstr
+       size_t size
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSetResRound (Pstr, size)
+       AjPStr& Pstr
+       size_t size
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrSetValid (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSetValidLen (Pstr, len)
+       AjPStr& Pstr
+       size_t len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrToBool (str, Pval)
+       const AjPStr str
+       AjBool& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrToDouble (str, Pval)
+       const AjPStr str
+       double& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrToFloat (str, Pval)
+       const AjPStr str
+       float& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrToHex (str, Pval)
+       const AjPStr str
+       ajint& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrToInt (str, Pval)
+       const AjPStr str
+       ajint& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrToLong (str, Pval)
+       const AjPStr str
+       ajlong& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrFromBool (Pstr, val)
+       AjPStr& Pstr
+       AjBool val
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFromDouble (Pstr, val, precision)
+       AjPStr& Pstr
+       double val
+       ajint precision
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFromDoubleExp (Pstr, val, precision)
+       AjPStr& Pstr
+       double val
+       ajint precision
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFromFloat (Pstr, val, precision)
+       AjPStr& Pstr
+       float val
+       ajint precision
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFromInt (Pstr, val)
+       AjPStr& Pstr
+       ajint val
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFromLong (Pstr, val)
+       AjPStr& Pstr
+       ajlong val
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrFmtBlock (Pstr, len)
+       AjPStr& Pstr
+       ajint len
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtLower (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtLowerSub (Pstr, pos1, pos2)
+       AjPStr& Pstr
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtQuote (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtTitle (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtUpper (Pstr)
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtUpperSub (Pstr, pos1, pos2)
+       AjPStr& Pstr
+       ajint pos1
+       ajint pos2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtWrap (Pstr, width)
+       AjPStr& Pstr
+       ajint width
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtWrapLeft (Pstr, width, margin)
+       AjPStr& Pstr
+       ajint width
+       ajint margin
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildWordC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildWordS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWordAllS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWordOneS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPrefixC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPrefixS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPrefixCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrPrefixCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSuffixC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSuffixS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpLenC (str, txt2, len)
+       const AjPStr str
+       const char* txt2
+       size_t len
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpLenS (str, str2, len)
+       const AjPStr str
+       const AjPStr str2
+       size_t len
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpWildC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpWildS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrVcmp (str, str2)
+       const char* str
+       const char* str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindAnyC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindAnyK (str, chr)
+       const AjPStr str
+       char chr
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindAnyS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindlastC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindlastS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExtractFirst (str, Prest, Pword)
+       const AjPStr str
+       AjPStr& Prest
+       AjPStr& Pword
+    OUTPUT:
+       RETVAL
+       Prest
+       Pword
+
+AjBool
+ajStrExtractWord (str, Prest, Pword)
+       const AjPStr str
+       AjPStr& Prest
+       AjPStr& Pword
+    OUTPUT:
+       RETVAL
+       Prest
+       Pword
 
 const AjPStr
-ajStrNull ()
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrParentheses (s)
-       const AjPStr  s
+ajStrParseC (str, txtdelim)
+       const AjPStr str
+       const char* txtdelim
     OUTPUT:
        RETVAL
 
 ajint
-ajStrPos (thys, ipos)
-       const AjPStr  thys
-       ajint ipos
+ajStrParseCount (str)
+       const AjPStr str
     OUTPUT:
        RETVAL
 
 ajint
-ajStrPosI (thys, imin, ipos)
-       const AjPStr  thys
-       ajint imin
-       ajint ipos
+ajStrParseCountC (str, txtdelim)
+       const AjPStr str
+       const char * txtdelim
     OUTPUT:
        RETVAL
 
 ajint
-ajStrPosII (ilen, imin, ipos)
-       ajint ilen
-       ajint imin
-       ajint ipos
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefix (thys, pref)
-       const AjPStr  thys
-       const AjPStr  pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixC (thys, pref)
-       const AjPStr  thys
-       const char* pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCC (str, pref)
-       const char *str
-       const char* pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCase (thys, pref)
-       const AjPStr  thys
-       const AjPStr  pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCaseC (thys, pref)
-       const AjPStr  thys
-       const char* pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCaseCC (str, pref)
-       const char *str
-       const char* pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCaseCO (thys, pref)
-       const char* thys
-       const AjPStr  pref
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrPrefixCO (str, thys)
-       const char *str
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajStrQuote (s)
-       AjPStr  &s
-    OUTPUT:
-       s
-
-void
-ajStrQuoteStrip (s)
-       AjPStr  &s
-    OUTPUT:
-       s
-
-void
-ajStrQuoteStripAll (s)
-       AjPStr  &s
-    OUTPUT:
-       s
-
-void
-ajStrRandom (s)
-       AjPStr  &s
-    OUTPUT:
-       s
-
-AjBool
-ajStrReplace (pthis, pos1, overwrite, len)
-       AjPStr & pthis
-       ajint pos1
-       const AjPStr  overwrite
-       ajint len
-    OUTPUT:
-       RETVAL
-       pthis
-
-
-AjBool
-ajStrReplaceC (pthis, pos1, overwrite, len)
-       AjPStr & pthis
-       ajint pos1
-       const char* overwrite
-       ajint len
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrReplaceK (pthis, pos1, overwrite, len)
-       AjPStr & pthis
-       ajint pos1
-       char overwrite
-       ajint len
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrReplaceS (pthis, begin, overwrite)
-        AjPStr & pthis
-       ajint begin
-       const AjPStr  overwrite
-    OUTPUT:
-       RETVAL
-       pthis
-
-ajint
-ajStrRef (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajStrRemoveCharsC (thys, strng)
-       AjPStr & thys
-       const char *strng
-    OUTPUT:
-       thys
-
-void
-ajStrRemoveHtml (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       pthis
-
-void
-ajStrRemoveNewline (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       pthis
-
-AjBool
-ajStrRev (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-ajint
-ajStrRFindC (thys, text)
-       const AjPStr  thys
-       const char *text
+ajStrParseCountS (str, strdelim)
+       const AjPStr str
+       const AjPStr strdelim
     OUTPUT:
        RETVAL
 
 ajint
-ajStrRoom (thys)
-       const AjPStr  thys
+ajStrParseCountMultiC (str, txtdelim)
+       const AjPStr str
+       const char * txtdelim
     OUTPUT:
        RETVAL
-
-AjBool
-ajStrSet (pthis, str)
-       AjPStr & pthis
-       const AjPStr  str
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrSetC (pthis, str)
-       AjPStr & pthis
-       const char* str
-    OUTPUT:
-       RETVAL
-       pthis
 
 ajint
-ajStrSize (thys)
-       const AjPStr  thys
+ajStrParseSplit (str, PPstr)
+       const AjPStr str
+       AjPStr*& PPstr
+    OUTPUT:
+       RETVAL
+       PPstr
+
+const AjPStr
+ajStrParseWhite (str)
+       const AjPStr str
     OUTPUT:
        RETVAL
 
@@ -1169,358 +1417,193 @@ void
 ajStrStat (title)
        const char* title
 
-const char*
-ajStrStr (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-char*
-ajStrStrMod (thys)
-       AjPStr & thys
-    OUTPUT:
-       RETVAL
-       thys
-
-AjBool
-ajStrSub (pthis, begin, len)
-       AjPStr & pthis
-       ajint begin
-       ajint len
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrSubstitute (pthis, replace, putin)
-       AjPStr & pthis
-       const AjPStr  replace
-       const AjPStr  putin
-    OUTPUT:
-       RETVAL
-       pthis
-
-
-AjBool
-ajStrSubstituteCC (pthis, replace, putin)
-       AjPStr & pthis
-       const char* replace
-       const char* putin
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrSubstituteKK (pthis, replace, putin)
-       AjPStr & pthis
-       char replace
-       char putin
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrSuffix (thys, suff)
-       const AjPStr  thys
-       const AjPStr  suff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrSuffixC (thys, suff)
-       const AjPStr  thys
-       const char* suff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrSuffixCC (str, suff)
-       const char *str
-       const char* suff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrSuffixCO (str, suff)
-       const char *str
-       const AjPStr  suff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrToBool (thys, result)
-       const AjPStr  thys
-       AjBool& result
-    OUTPUT:
-       RETVAL
-       result
-
-AjBool
-ajStrToDouble (thys, result)
-       const AjPStr  thys
-       double& result
-    OUTPUT:
-       RETVAL
-       result
-
-AjBool
-ajStrToFloat (thys, result)
-       const AjPStr  thys
-       float& result
-    OUTPUT:
-       RETVAL
-       result
-
-AjBool
-ajStrToHex (thys, result)
-       const AjPStr  thys
-       ajint& result
-    OUTPUT:
-       RETVAL
-       result
-
-AjBool
-ajStrToInt (thys, result)
-       const AjPStr  thys
-       ajint& result
-    OUTPUT:
-       RETVAL
-       result
-
-AjPStr
-ajStrTok (thys)
-       const AjPStr  thys
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajStrTokC (thys, delim)
-       const AjPStr  thys
-       const char* delim
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajStrTokCC (thys, delim)
-       const char* thys
-       const char* delim
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajStrToken (pthis, ptoken, delim)
-       AjPStr & pthis
-       AjPStrTok  &ptoken
-       const char *delim
-    OUTPUT:
-       RETVAL
-       pthis
-       ptoken
-
-AjBool
-ajStrTokenAss (ptok, thys, delim)
-       AjPStrTok  &ptok
-       const AjPStr  thys
-       const char *delim
-    OUTPUT:
-       RETVAL
-       ptok
+void
+ajStrTrace (str)
+       const AjPStr str
 
 void
-ajStrTokenClear (token)
-       AjPStrTok  &token
-    OUTPUT:
-       token
+ajStrTraceFull (str)
+       const AjPStr str
 
-ajint
-ajStrTokenCount (line, delim)
-       const AjPStr  line
-       const char *delim
+void
+ajStrTraceTitle (str, title)
+       const AjPStr str
+       const char* title
+
+void
+ajStrExit ()
+
+AjIStr
+ajStrIterNew (str)
+       const AjPStr str
     OUTPUT:
        RETVAL
 
-ajint
-ajStrTokenCountR (line, delim)
-       const AjPStr  line
-       const char *delim
+AjIStr
+ajStrIterNewBack (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+void
+ajStrIterDel (iter)
+       AjIStr& iter
+    OUTPUT:
+       iter
+
+AjBool
+ajStrIterDone (iter)
+       const AjIStr iter
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIterDoneBack (iter)
+       const AjIStr iter
+    OUTPUT:
+       RETVAL
+
+void
+ajStrIterBegin (iter)
+       AjIStr iter
+
+void
+ajStrIterEnd (iter)
+       AjIStr iter
+
+const char*
+ajStrIterGetC (iter)
+       const AjIStr iter
+    OUTPUT:
+       RETVAL
+
+char
+ajStrIterGetK (iter)
+       const AjIStr iter
+    OUTPUT:
+       RETVAL
+
+void
+ajStrIterPutK (iter, chr)
+       AjIStr iter
+       char chr
+
+AjIStr
+ajStrIterNext (iter)
+       AjIStr iter
+    OUTPUT:
+       RETVAL
+
+AjIStr
+ajStrIterNextBack (iter)
+       AjIStr iter
     OUTPUT:
        RETVAL
 
 AjPStrTok
-ajStrTokenInit (thys, delim)
-       const AjPStr  thys
-       const char *delim
+ajStrTokenNewC (str, txtdelim)
+       const AjPStr str
+       const char* txtdelim
+    OUTPUT:
+       RETVAL
+
+AjPStrTok
+ajStrTokenNewS (str, strdelim)
+       const AjPStr str
+       const AjPStr strdelim
     OUTPUT:
        RETVAL
 
 void
-ajStrTokenReset (ptok)
-       AjPStrTok & ptok
+ajStrTokenDel (Ptoken)
+       AjPStrTok& Ptoken
     OUTPUT:
-       ptok
+       Ptoken
 
 AjBool
-ajStrTokenRest (pthis, ptoken)
-       AjPStr & pthis
-       AjPStrTok & ptoken
+ajStrTokenAssign (Ptoken, str)
+       AjPStrTok& Ptoken
+       const AjPStr str
     OUTPUT:
        RETVAL
-       pthis
-       ptoken
+       Ptoken
+
+AjBool
+ajStrTokenAssignC (Ptoken, str, txtdelim)
+       AjPStrTok& Ptoken
+       const AjPStr str
+       const char* txtdelim
+    OUTPUT:
+       RETVAL
+       Ptoken
+
+AjBool
+ajStrTokenAssignS (Ptoken, str, strdelim)
+       AjPStrTok& Ptoken
+       const AjPStr str
+       const AjPStr strdelim
+    OUTPUT:
+       RETVAL
+       Ptoken
 
 void
-ajStrTokenTrace (tok)
-       const AjPStrTok  tok
-
-AjBool
-ajStrToLong (thys, result)
-       const AjPStr  thys
-       ajlong& result
+ajStrTokenReset (Ptoken)
+       AjPStrTok& Ptoken
     OUTPUT:
-       RETVAL
-       result
-
-AjBool
-ajStrToLower (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrToLowerII (pthis, begin, end)
-       AjPStr & pthis
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrToTitle (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrToUpper (pthis)
-       AjPStr & pthis
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrToUpperII (pthis, begin, end)
-       AjPStr & pthis
-       ajint begin
-       ajint end
-    OUTPUT:
-       RETVAL
-       pthis
+       Ptoken
 
 void
-ajStrTrace (thys)
-       const AjPStr  thys
-
-void
-ajStrTraceChars (thys)
-       const AjPStr  thys
-
-void
-ajStrTraceT (thys, title)
-       const AjPStr  thys
-       const char* title
+ajStrTokenTrace (token)
+       const AjPStrTok token
 
 AjBool
-ajStrTrim (pthis, num)
-       AjPStr & pthis
-       ajint num
+ajStrTokenNextFind (Ptoken, Pstr)
+       AjPStrTok& Ptoken
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       pthis
+       Pstr
 
 AjBool
-ajStrTrimC (pthis, chars)
-       AjPStr & pthis
-       const char* chars
+ajStrTokenNextFindC (Ptoken, txtdelim, Pstr)
+       AjPStrTok& Ptoken
+       const char* txtdelim
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       pthis
+       Pstr
 
 AjBool
-ajStrTrimEndC (pthis, chars)
-       AjPStr & pthis
-       const char* chars
+ajStrTokenNextParse (Ptoken, Pstr)
+       AjPStrTok& Ptoken
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       pthis
+       Pstr
 
 AjBool
-ajStrTrimStartC (pthis, chars)
-       AjPStr & pthis
-       const char* chars
+ajStrTokenNextParseC (Ptoken, txtdelim, Pstr)
+       AjPStrTok& Ptoken
+       const char* txtdelim
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       pthis
+       Pstr
 
 AjBool
-ajStrTruncate (pthis, pos)
-       AjPStr & pthis
-       ajint pos
+ajStrTokenNextParseS (Ptoken, strdelim, Pstr)
+       AjPStrTok& Ptoken
+       const AjPStr strdelim
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       pthis
+       Pstr
 
 AjBool
-ajStrWhole (thys, begin, end)
-       const AjPStr  thys
-       ajint begin
-       ajint end
+ajStrTokenRestParse (Ptoken, Pstr)
+       AjPStrTok& Ptoken
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-
-AjBool
-ajStrWildPrefix (str)
-       AjPStr & str
-    OUTPUT:
-       RETVAL
-       str
-
-AjBool
-ajStrWrap (pthis, width)
-       AjPStr & pthis
-       ajint width
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrWrapLeft (pthis, width, left)
-       AjPStr & pthis
-       ajint width
-       ajint left
-    OUTPUT:
-       RETVAL
-       pthis
-
-AjBool
-ajStrUncomment (text)
-       AjPStr & text
-    OUTPUT:
-       RETVAL
-       text
-
-AjBool
-ajStrUncommentStart (text)
-       AjPStr & text
-    OUTPUT:
-       RETVAL
-       text
-
-char*
-ajStrYN (boule)
-       AjBool boule
-    OUTPUT:
-       RETVAL
+       Pstr
 

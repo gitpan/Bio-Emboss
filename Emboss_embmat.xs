@@ -11,25 +11,19 @@ MODULE = Bio::Emboss_embmat		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embmat.h: automatically generated
+ # code from embmat.c: automatically generated
 
 void
 embMatMatchDel (s)
-       EmbPMatMatch&  s
+       EmbPMatMatch & s
     OUTPUT:
        s
 
 void
 embMatPrintsInit (fp)
-       AjPFile &fp
+       AjPFile & fp
     OUTPUT:
        fp
-
-void
-embMatProtDelInt (s)
-       EmbPMatPrints&  s
-    OUTPUT:
-       s
 
 EmbPMatPrints
 embMatProtReadInt (fp)
@@ -37,14 +31,20 @@ embMatProtReadInt (fp)
     OUTPUT:
        RETVAL
 
+void
+embMatProtDelInt (s)
+       EmbPMatPrints & s
+    OUTPUT:
+       s
+
 ajint
 embMatProtScanInt (s, n, m, l, all, ordered, overlap)
        const AjPStr s
        const AjPStr n
-       const EmbPMatPrints  m
-       AjPList &l
-       AjBool &all
-       AjBool &ordered
+       const EmbPMatPrints m
+       AjPList & l
+       AjBool & all
+       AjBool & ordered
        AjBool overlap
     OUTPUT:
        RETVAL

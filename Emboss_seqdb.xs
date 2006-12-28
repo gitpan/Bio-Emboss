@@ -11,7 +11,19 @@ MODULE = Bio::Emboss_seqdb		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajseqdb.h: automatically generated
+ # code from ajseqdb.c: automatically generated
+
+AjBool
+ajSeqMethodTest (method)
+       const AjPStr method
+    OUTPUT:
+       RETVAL
+
+SeqPAccess
+ajSeqMethod (method)
+       const AjPStr method
+    OUTPUT:
+       RETVAL
 
 AjBool
 ajSeqAccessAsis (seqin)
@@ -31,20 +43,11 @@ ajSeqAccessOffset (seqin)
     OUTPUT:
        RETVAL
 
-SeqPAccess
-ajSeqMethod (method)
-       const AjPStr method
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqMethodTest (method)
-       const AjPStr method
-    OUTPUT:
-       RETVAL
-
 void
 ajSeqPrintAccess (outf, full)
        AjPFile outf
        AjBool full
+
+void
+ajSeqDbExit ()
 

@@ -11,64 +11,68 @@ MODULE = Bio::Emboss_align		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajalign.h: automatically generated
-
-void
-ajAlignClose (thys)
-       AjPAlign  thys
+ # code from ajalign.c: automatically generated
 
 AjBool
-ajAlignConsStats (thys, mymatrix, cons, retident, retsim, retgap, retlen)
-       const AjPSeqset thys
-       AjPMatrix mymatrix
-       AjPStr &cons
-       ajint& retident
-       ajint& retsim
-       ajint& retgap
-       ajint& retlen
-    OUTPUT:
-       RETVAL
-       cons
-       retident
-       retsim
-       retgap
-       retlen
-
-AjBool
-ajAlignDefine (pthys, seqset)
-       AjPAlign  pthys
+ajAlignDefine (thys, seqset)
+       AjPAlign thys
        AjPSeqset seqset
     OUTPUT:
        RETVAL
 
 AjBool
-ajAlignDefineSS (pthys, seqa, seqb)
-       AjPAlign  pthys
+ajAlignDefineSS (thys, seqa, seqb)
+       AjPAlign thys
        AjPSeq seqa
        AjPSeq seqb
     OUTPUT:
        RETVAL
 
 AjBool
-ajAlignDefineCC (pthys, seqa, seqb, namea, nameb)
-       AjPAlign  pthys
+ajAlignDefineCC (thys, seqa, seqb, namea, nameb)
+       AjPAlign thys
        const char* seqa
        const char* seqb
        const char* namea
-       const  char* nameb
+       const char* nameb
     OUTPUT:
        RETVAL
 
 void
 ajAlignDel (pthys)
-       AjPAlign & pthys
+       AjPAlign& pthys
     OUTPUT:
        pthys
 
+void
+ajAlignReset (thys)
+       AjPAlign thys
+    OUTPUT:
+       thys
+
 AjBool
 ajAlignOpen (thys, name)
-       AjPAlign  thys
+       AjPAlign thys
        const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajAlignFormatDefault (pformat)
+       AjPStr& pformat
+    OUTPUT:
+       RETVAL
+       pformat
+
+const char*
+ajAlignGetFilename (thys)
+       const AjPAlign thys
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajAlignGetFormat (thys)
+       const AjPAlign thys
     OUTPUT:
        RETVAL
 
@@ -81,11 +85,10 @@ ajAlignFindFormat (format, iformat)
        iformat
 
 AjBool
-ajAlignFormatDefault (pformat)
-       AjPStr& pformat
+ajAlignValid (thys)
+       AjPAlign thys
     OUTPUT:
        RETVAL
-       pformat
 
 AjPAlign
 ajAlignNew ()
@@ -93,64 +96,160 @@ ajAlignNew ()
        RETVAL
 
 void
-ajAlignPrintFormat (outf, full)
-       AjPFile outf
-       AjBool full
+ajAlignWrite (thys)
+       AjPAlign thys
 
 void
-ajAlignReset (thys)
-       AjPAlign  thys
+ajAlignClose (thys)
+       AjPAlign thys
+
+void
+ajAlignWriteHeader (thys)
+       AjPAlign thys
+
+void
+ajAlignWriteTail (thys)
+       AjPAlign thys
 
 void
 ajAlignSetHeader (thys, header)
-       AjPAlign  thys
-       const AjPStr header
-
-void
-ajAlignSetHeaderApp (thys, header)
-       AjPAlign  thys
+       AjPAlign thys
        const AjPStr header
 
 void
 ajAlignSetHeaderC (thys, header)
-       AjPAlign  thys
+       AjPAlign thys
        const char* header
 
 void
+ajAlignSetHeaderApp (thys, header)
+       AjPAlign thys
+       const AjPStr header
+
+void
+ajAlignSetTail (thys, tail)
+       AjPAlign thys
+       const AjPStr tail
+
+void
+ajAlignSetTailC (thys, tail)
+       AjPAlign thys
+       const char* tail
+
+void
+ajAlignSetTailApp (thys, tail)
+       AjPAlign thys
+       const AjPStr tail
+
+void
+ajAlignSetSubTail (thys, tail)
+       AjPAlign thys
+       const AjPStr tail
+
+void
+ajAlignSetSubTailC (thys, tail)
+       AjPAlign thys
+       const char* tail
+
+void
+ajAlignSetSubTailApp (thys, tail)
+       AjPAlign thys
+       const AjPStr tail
+
+void
+ajAlignSetSubHeader (thys, subheader)
+       AjPAlign thys
+       const AjPStr subheader
+
+void
+ajAlignSetSubHeaderC (thys, subheader)
+       AjPAlign thys
+       const char* subheader
+
+void
+ajAlignSetSubHeaderApp (thys, subheader)
+       AjPAlign thys
+       const AjPStr subheader
+
+void
+ajAlignSetSubHeaderPre (thys, subheader)
+       AjPAlign thys
+       const AjPStr subheader
+
+void
+ajAlignSetMatrixName (thys, matrix)
+       AjPAlign thys
+       const AjPStr matrix
+
+void
+ajAlignSetMatrixNameC (thys, matrix)
+       AjPAlign thys
+       const char* matrix
+
+void
+ajAlignSetMatrixInt (thys, matrix)
+       AjPAlign thys
+       const AjPMatrix matrix
+
+void
+ajAlignSetMatrixFloat (thys, matrix)
+       AjPAlign thys
+       const AjPMatrixf matrix
+
+void
 ajAlignSetGapI (thys, gappen, extpen)
-       AjPAlign  thys
+       AjPAlign thys
        ajint gappen
        ajint extpen
 
 void
 ajAlignSetGapR (thys, gappen, extpen)
-       AjPAlign  thys
+       AjPAlign thys
        float gappen
        float extpen
 
 void
-ajAlignSetMatrixName (thys, matrix)
-       AjPAlign  thys
-       const AjPStr matrix
+ajAlignSetScoreI (thys, score)
+       AjPAlign thys
+       ajint score
 
 void
-ajAlignSetMatrixNameC (thys, matrix)
-       AjPAlign  thys
-       const char* matrix
+ajAlignSetScoreL (thys, score)
+       AjPAlign thys
+       ajlong score
 
 void
-ajAlignSetMatrixInt (thys, matrix)
-       AjPAlign  thys
-       const AjPMatrix matrix
+ajAlignSetScoreR (thys, score)
+       AjPAlign thys
+       float score
 
 void
-ajAlignSetMatrixFloat (thys, matrix)
-       AjPAlign  thys
-       const AjPMatrixf matrix
+ajAlignSetStats (thys, iali, len, ident, sim, gaps, score)
+       AjPAlign thys
+       ajint iali
+       ajint len
+       ajint ident
+       ajint sim
+       ajint gaps
+       const AjPStr score
+
+void
+ajAlignSetSubStandard (thys, iali)
+       AjPAlign thys
+       ajint iali
+
+void
+ajAlignSetType (thys)
+       AjPAlign thys
+
+void
+ajAlignSetExternal (thys, external)
+       AjPAlign thys
+       AjBool external
 
 AjBool
 ajAlignSetRange (thys, start1, end1, len1, off1, start2, end2, len2, off2)
-       AjPAlign  thys
+       AjPAlign thys
        ajint start1
        ajint end1
        ajint len1
@@ -162,49 +261,9 @@ ajAlignSetRange (thys, start1, end1, len1, off1, start2, end2, len2, off2)
     OUTPUT:
        RETVAL
 
-void
-ajAlignSetScoreI (thys, score)
-       AjPAlign  thys
-       ajint score
-
-void
-ajAlignSetScoreR (thys, score)
-       AjPAlign  thys
-       float score
-
-void
-ajAlignSetSubHeader (thys, subheader)
-       AjPAlign  thys
-       const AjPStr subheader
-
-void
-ajAlignSetSubHeaderApp (thys, subheader)
-       AjPAlign  thys
-       const AjPStr subheader
-
-void
-ajAlignSetSubHeaderC (thys, subheader)
-       AjPAlign  thys
-       const char* subheader
-
-void
-ajAlignSetSubHeaderPre (thys, subheader)
-       AjPAlign  thys
-       const AjPStr subheader
-
-void
-ajAlignSetStats (thys, iali, len, ident, sim, gaps, score)
-       AjPAlign  thys
-       ajint iali
-       ajint len
-       ajint ident
-       ajint sim
-       ajint gaps
-       const AjPStr score
-
 AjBool
 ajAlignSetSubRange (thys, substart1, start1, end1, rev1, len1, substart2, start2, end2, rev2, len2)
-       AjPAlign  thys
+       AjPAlign thys
        ajint substart1
        ajint start1
        ajint end1
@@ -219,53 +278,37 @@ ajAlignSetSubRange (thys, substart1, start1, end1, rev1, len1, substart2, start2
        RETVAL
 
 void
-ajAlignSetSubStandard (thys, iali)
-       AjPAlign  thys
-       ajint iali
-
-void
-ajAlignSetTail (thys, tail)
-       AjPAlign  thys
-       const AjPStr tail
-
-void
-ajAlignSetTailApp (thys, tail)
-       AjPAlign  thys
-       const AjPStr tail
-
-void
-ajAlignSetTailC (thys, tail)
-       AjPAlign  thys
-       const char* tail
-
-void
-ajAlignSetType (thys)
-       AjPAlign  thys
+ajAlignTraceT (thys, title)
+       const AjPAlign thys
+       const char* title
 
 void
 ajAlignTrace (thys)
-       const AjPAlign  thys
+       const AjPAlign thys
 
 void
-ajAlignTraceT (thys, title)
-       const AjPAlign  thys
-       const char* title
+ajAlignPrintFormat (outf, full)
+       AjPFile outf
+       AjBool full
 
 AjBool
-ajAlignValid (thys)
-       AjPAlign  thys
+ajAlignConsStats (thys, mymatrix, cons, retident, retsim, retgap, retlen)
+       const AjPSeqset thys
+       AjPMatrix mymatrix
+       AjPStr& cons
+       ajint& retident
+       ajint& retsim
+       ajint& retgap
+       ajint& retlen
     OUTPUT:
        RETVAL
+       mymatrix
+       cons
+       retident
+       retsim
+       retgap
+       retlen
 
 void
-ajAlignWrite (thys)
-       AjPAlign  thys
-
-void
-ajAlignWriteHeader (thys)
-       AjPAlign  thys
-
-void
-ajAlignWriteTail (thys)
-       AjPAlign  thys
+ajAlignExit ()
 

@@ -11,10 +11,182 @@ MODULE = Bio::Emboss_graph		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajgraph.h: automatically generated
+ # code from ajgraph.c: automatically generated
+
+PLFLT
+plstrlW (x, y, dx, dy, text)
+       PLFLT x
+       PLFLT y
+       PLFLT dx
+       PLFLT dy
+       const char* text
+    OUTPUT:
+       RETVAL
+
+PLFLT
+plgchrW (x, y, dx, dy)
+       PLFLT x
+       PLFLT y
+       PLFLT dx
+       PLFLT dy
+    OUTPUT:
+       RETVAL
 
 void
-ajGraphBox (x0, y0, size)
+plxsfnam (fnam, ext)
+       const char* fnam
+       const char* ext
+
+void
+plxtrace (outf)
+       FILE* outf
+
+void
+plxswin (window)
+       const char* window
+
+int
+plfileinfo (tmp)
+       char& tmp
+    OUTPUT:
+       RETVAL
+       tmp
+
+void
+ajGraphSetDevice (thys)
+       const AjPGraph thys
+
+void
+ajGraphSetName (thys)
+       const AjPGraph thys
+
+void
+ajGraphLabel (x, y, title, subtitle)
+       const char* x
+       const char* y
+       const char* title
+       const char* subtitle
+
+void
+ajGraphSetPenWidth (width)
+       float width
+
+void
+ajGraphOpenPlot (thys, numofsets)
+       AjPGraph thys
+       ajint numofsets
+    OUTPUT:
+       thys
+
+void
+ajGraphOpenWin (thys, xmin, xmax, ymin, ymax)
+       AjPGraph thys
+       float xmin
+       float xmax
+       float ymin
+       float ymax
+    OUTPUT:
+       thys
+
+void
+ajGraphNewPage (resetdefaults)
+       AjBool resetdefaults
+
+void
+ajGraphCloseWin ()
+
+void
+ajGraphOpen (thys, xmin, xmax, ymin, ymax, flags)
+       AjPGraph thys
+       PLFLT xmin
+       PLFLT xmax
+       PLFLT ymin
+       PLFLT ymax
+       ajint flags
+    OUTPUT:
+       thys
+
+void
+ajGraphLabelYRight (text)
+       const char* text
+
+void
+ajGraphClose ()
+
+AjBool
+ajGraphSet (thys, type)
+       AjPGraph thys
+       const AjPStr type
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajGraphxySet (thys, type)
+       AjPGraph thys
+       const AjPStr type
+    OUTPUT:
+       RETVAL
+
+void
+ajGraphDumpDevices ()
+
+void
+ajGraphTraceInt (thys, outf)
+       const AjPGraph thys
+       FILE* outf
+
+void
+ajGraphTrace (thys)
+       const AjPGraph thys
+
+void
+ajGraphPlpDataTrace (thys)
+       const AjPGraphPlpData thys
+
+void
+ajGraphCircle (xcentre, ycentre, radius)
+       PLFLT xcentre
+       PLFLT ycentre
+       float radius
+
+void
+ajGraphPolyFill (n, x, y)
+       ajint n
+       PLFLT * x
+       PLFLT * y
+
+void
+ajGraphPoly (n, x, y)
+       ajint n
+       PLFLT * x
+       PLFLT * y
+
+void
+ajGraphTriFill (x1, y1, x2, y2, x3, y3)
+       PLFLT x1
+       PLFLT y1
+       PLFLT x2
+       PLFLT y2
+       PLFLT x3
+       PLFLT y3
+
+void
+ajGraphTri (x1, y1, x2, y2, x3, y3)
+       PLFLT x1
+       PLFLT y1
+       PLFLT x2
+       PLFLT y2
+       PLFLT x3
+       PLFLT y3
+
+void
+ajGraphDiaFill (x0, y0, size)
+       PLFLT x0
+       PLFLT y0
+       PLFLT size
+
+void
+ajGraphDia (x0, y0, size)
        PLFLT x0
        PLFLT y0
        PLFLT size
@@ -25,23 +197,31 @@ ajGraphBoxFill (x0, y0, size)
        PLFLT y0
        PLFLT size
 
-ajint
-ajGraphCheckColour (colour)
-       const AjPStr colour
-    OUTPUT:
-       RETVAL
+void
+ajGraphBox (x0, y0, size)
+       PLFLT x0
+       PLFLT y0
+       PLFLT size
 
 void
-ajGraphCircle (xcentre, ycentre, radius)
-       PLFLT xcentre
-       PLFLT ycentre
-       float radius
+ajGraphRectFill (x0, y0, x1, y1)
+       PLFLT x0
+       PLFLT y0
+       PLFLT x1
+       PLFLT y1
 
 void
-ajGraphClose ()
+ajGraphRect (x0, y0, x1, y1)
+       PLFLT x0
+       PLFLT y0
+       PLFLT x1
+       PLFLT y1
 
 void
-ajGraphCloseWin ()
+ajGraphSetBackWhite ()
+
+void
+ajGraphSetBackBlack ()
 
 void
 ajGraphColourBack ()
@@ -49,126 +229,65 @@ ajGraphColourBack ()
 void
 ajGraphColourFore ()
 
-void
-ajGraphPlpDataAddLine (graphs, x1, y1, x2, y2, colour)
-       AjPGraphPlpData graphs
-       float x1
-       float y1
-       float x2
-       float y2
+ajint
+ajGraphSetFore (colour)
        ajint colour
-
-void
-ajGraphPlpDataAddRect (graphs, x1, y1, x2, y2, colour, fill)
-       AjPGraphPlpData graphs
-       float x1
-       float y1
-       float x2
-       float y2
-       ajint colour
-       ajint fill
-
-void
-ajGraphPlpDataAddText (graphs, x1, y1, colour, text)
-       AjPGraphPlpData graphs
-       float x1
-       float y1
-       ajint colour
-       const char *text
-
-void
-ajGraphPlpDataSetMaxMin (graphdata, xmin, xmax, ymin, ymax)
-       AjPGraphPlpData graphdata
-       float xmin
-       float xmax
-       float ymin
-       float ymax
-
-void
-ajGraphArrayMaxMin (array, npoints, min, max)
-       const float &array
-       ajint npoints
-       float &min
-       float &max
     OUTPUT:
-       array
-       min
-       max
+       RETVAL
 
-void
-ajGraphPlpDataSetMaxima (graphdata, xmin, xmax, ymin, ymax)
-       AjPGraphPlpData graphdata
-       float xmin
-       float xmax
-       float ymin
-       float ymax
-
-void
-ajGraphPlpDataSetTypeC (graphdata, type)
-       AjPGraphPlpData graphdata
-       const char *type
-
-void
-ajGraphPlpDataTrace (thys)
-       const AjPGraphPlpData thys
-
-void
-ajGraphClear (thys)
-       AjPGraph thys
-
-void
-ajGraphDia (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
-       PLFLT size
-
-void
-ajGraphDiaFill (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
-       PLFLT size
-
-void
-ajGraphDots (x1, y1, numofdots)
-       PLFLT &x1
-       PLFLT &y1
-       ajint numofdots
+ajint
+ajGraphCheckColour (colour)
+       const AjPStr colour
     OUTPUT:
-       x1
-       y1
+       RETVAL
 
-void
-ajGraphDumpDevices ()
+ajint*
+ajGraphGetBaseColour ()
+    OUTPUT:
+       RETVAL
 
+ajint*
+ajGraphGetBaseColourProt (codes)
+       const AjPStr codes
+    OUTPUT:
+       RETVAL
+
+ajint*
+ajGraphGetBaseColourNuc (codes)
+       const AjPStr codes
+    OUTPUT:
+       RETVAL
 
 void
 ajGraphGetCharSize (defheight, currentheight)
-       float &defheight
-       float &currentheight
-    OUTPUT:
-       defheight
-       currentheight
+       float & defheight
+       float & currentheight
+
+void
+ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
+       float & xp
+       float & yp
+       ajint & xleng
+       ajint & yleng
+       ajint & xoff
+       ajint & yoff
+
+void
+ajGraphSetOri (ori)
+       ajint ori
+
+void
+ajGraphPlenv (xmin, xmax, ymin, ymax, flags)
+       float xmin
+       float xmax
+       float ymin
+       float ymax
+       ajint flags
 
 ajint
 ajGraphGetColour ()
     OUTPUT:
        RETVAL
-
-void
-ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
-       float &xp
-       float &yp
-       ajint &xleng
-       ajint &yleng
-       ajint &xoff
-       ajint &yoff
-    OUTPUT:
-       xp
-       yp
-       xleng
-       yleng
-       xoff
-       yoff
 
 const AjPStr
 ajGraphGetSubTitle (thys)
@@ -218,46 +337,23 @@ ajGraphGetYTitleC (thys)
     OUTPUT:
        RETVAL
 
-void
-ajGraphHoriBars (numofpoints, y, xmin, xmax)
-       ajint numofpoints
-       PLFLT &y
-       PLFLT &xmin
-       PLFLT &xmax
+ajint
+ajGraphSetLineStyle (style)
+       ajint style
     OUTPUT:
-       y
-       xmin
-       xmax
+       RETVAL
 
 ajint
-ajGraphInfo (files)
-       AjPList& files
-    OUTPUT:
-       RETVAL
-       files
-
-
-void
-ajGraphInitSeq (thys, seq)
-       AjPGraph thys
-       const AjPSeq seq
-
-AjBool
-ajGraphIsData (thys)
-       const AjPGraph thys
+ajGraphSetFillPat (style)
+       ajint style
     OUTPUT:
        RETVAL
 
-void
-ajGraphLabel (x, y, title, subtitle)
-       const char *x
-       const char *y
-       const char *title
-       const char *subtitle
-
-void
-ajGraphLabelYRight (text)
-       const char *text
+float
+ajGraphSetCharSize (size)
+       float size
+    OUTPUT:
+       RETVAL
 
 void
 ajGraphLine (x1, y1, x2, y2)
@@ -268,34 +364,431 @@ ajGraphLine (x1, y1, x2, y2)
 
 void
 ajGraphLines (x1, y1, x2, y2, numoflines)
-       PLFLT &x1
-       PLFLT &y1
-       PLFLT &x2
-       PLFLT &y2
+       PLFLT& x1
+       PLFLT& y1
+       PLFLT& x2
+       PLFLT& y2
        ajint numoflines
+
+void
+ajGraphDots (x1, y1, numofdots)
+       PLFLT* x1
+       PLFLT* y1
+       ajint numofdots
+
+void
+ajGraphSymbols (numofdots, x1, y1, symbol)
+       ajint numofdots
+       PLFLT* x1
+       PLFLT* y1
+       ajint symbol
+
+void
+ajGraphTextLine (x1, y1, x2, y2, text, just)
+       PLFLT x1
+       PLFLT y1
+       PLFLT x2
+       PLFLT y2
+       const char* text
+       PLFLT just
+
+void
+ajGraphText (x1, y1, text, just)
+       PLFLT x1
+       PLFLT y1
+       const char* text
+       PLFLT just
+
+void
+ajGraphTextStart (x1, y1, text)
+       PLFLT x1
+       PLFLT y1
+       const char* text
+
+void
+ajGraphTextEnd (x1, y1, text)
+       PLFLT x1
+       PLFLT y1
+       const char* text
+
+void
+ajGraphTextMid (x1, y1, text)
+       PLFLT x1
+       PLFLT y1
+       const char* text
+
+void
+ajGraphVertBars (numofpoints, x, ymin, ymax)
+       ajint numofpoints
+       PLFLT* x
+       PLFLT* ymin
+       PLFLT* ymax
+
+void
+ajGraphHoriBars (numofpoints, y, xmin, xmax)
+       ajint numofpoints
+       PLFLT* y
+       PLFLT* xmin
+       PLFLT* xmax
+
+void
+ajGraphInitSeq (thys, seq)
+       AjPGraph thys
+       const AjPSeq seq
+
+void
+ajGraphSetOut (thys, txt)
+       AjPGraph thys
+       const AjPStr txt
+
+void
+ajGraphSetOutC (thys, txt)
+       AjPGraph thys
+       const char* txt
+
+void
+ajGraphSetDir (thys, txt)
+       AjPGraph thys
+       const AjPStr txt
+
+void
+ajGraphPlpDataSetLineType (graphdata, type)
+       AjPGraphPlpData graphdata
+       ajint type
+
+void
+ajGraphxySetXStart (thys, val)
+       AjPGraph thys
+       float val
+
+void
+ajGraphxySetXEnd (thys, val)
+       AjPGraph thys
+       float val
+
+void
+ajGraphxySetYStart (thys, val)
+       AjPGraph thys
+       float val
+
+void
+ajGraphxySetYEnd (thys, val)
+       AjPGraph thys
+       float val
+
+void
+ajGraphPlpDataSetColour (graphdata, colour)
+       AjPGraphPlpData graphdata
+       ajint colour
+
+void
+ajGraphSetYTitle (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+void
+ajGraphSetYTitleC (thys, title)
+       AjPGraph thys
+       const char* title
+
+void
+ajGraphSetXTitle (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+void
+ajGraphSetXTitleC (thys, title)
+       AjPGraph thys
+       const char* title
+
+void
+ajGraphSetTitle (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+void
+ajGraphSetTitleC (thys, title)
+       AjPGraph thys
+       const char* title
+
+void
+ajGraphSetSubTitle (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+void
+ajGraphSetSubTitleC (thys, title)
+       AjPGraph thys
+       const char* title
+
+void
+ajGraphPlpDataSetYTitle (graphdata, title)
+       AjPGraphPlpData graphdata
+       const AjPStr title
+
+void
+ajGraphPlpDataSetYTitleC (graphdata, title)
+       AjPGraphPlpData graphdata
+       const char* title
+
+void
+ajGraphPlpDataSetXTitle (graphdata, title)
+       AjPGraphPlpData graphdata
+       const AjPStr title
+
+void
+ajGraphPlpDataSetXTitleC (graphdata, title)
+       AjPGraphPlpData graphdata
+       const char* title
+
+void
+ajGraphxyDel (pthis)
+       AjPGraph& pthis
     OUTPUT:
-       x1
-       y1
-       x2
-       y2
+       pthis
+
+AjPGraphPlpData
+ajGraphPlpDataNew ()
+    OUTPUT:
+       RETVAL
+
+void
+ajGraphPlpDataSetXY (graphdata, x, y)
+       AjPGraphPlpData graphdata
+       const float* x
+       const float* y
+
+void
+ajGraphPlpDataCalcXY (graphdata, numofpoints, start, incr, y)
+       AjPGraphPlpData graphdata
+       ajint numofpoints
+       float start
+       float incr
+       const float* y
+
+void
+ajGraphxySetXRangeII (thys, start, end)
+       AjPGraph thys
+       ajint start
+       ajint end
+
+void
+ajGraphxySetYRangeII (thys, start, end)
+       AjPGraph thys
+       ajint start
+       ajint end
+
+AjPGraphPlpData
+ajGraphPlpDataNewI (numofpoints)
+       ajint numofpoints
+    OUTPUT:
+       RETVAL
+
+ajint
+ajGraphDataAdd (thys, graphdata)
+       AjPGraph thys
+       AjPGraphPlpData graphdata
+    OUTPUT:
+       RETVAL
+
+ajint
+ajGraphDataReplace (thys, graphdata)
+       AjPGraph thys
+       AjPGraphPlpData graphdata
+    OUTPUT:
+       RETVAL
 
 AjPGraph
 ajGraphNew ()
     OUTPUT:
        RETVAL
 
-void
-ajGraphNewPage (resetdefaults)
-       AjBool resetdefaults
+AjPGraph
+ajGraphxyNewI (numsets)
+       ajint numsets
+    OUTPUT:
+       RETVAL
 
 void
-ajGraphAddLine (thys, x1, y1, x2, y2, colour)
+ajGraphSetMulti (thys, numsets)
        AjPGraph thys
-       float x1
-       float y1
-       float x2
-       float y2
-       ajint colour
+       ajint numsets
+    OUTPUT:
+       thys
+
+void
+ajGraphPlpDataSetTitle (graphdata, title)
+       AjPGraphPlpData graphdata
+       const AjPStr title
+
+void
+ajGraphPlpDataSetTitleC (graphdata, title)
+       AjPGraphPlpData graphdata
+       const char* title
+
+void
+ajGraphPlpDataSetSubTitle (graphdata, title)
+       AjPGraphPlpData graphdata
+       const AjPStr title
+
+void
+ajGraphPlpDataSetSubTitleC (graphdata, title)
+       AjPGraphPlpData graphdata
+       const char* title
+
+void
+ajGraphSetFlag (thys, flag, istrue)
+       AjPGraph thys
+       ajint flag
+       AjBool istrue
+
+void
+ajGraphxySetOverLap (thys, overlap)
+       AjPGraph thys
+       AjBool overlap
+
+void
+ajGraphxySetGaps (thys, overlap)
+       AjPGraph thys
+       AjBool overlap
+
+void
+ajGraphxySetXBottom (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXTop (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYRight (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYLeft (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXTick (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYTick (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXLabel (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYLabel (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphSetTitleDo (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphSetSubTitleDo (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetCirclePoints (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetJoinPoints (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXLabelTop (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYLabelLeft (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXInvTicks (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYInvTicks (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetXGrid (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetYGrid (thys, set)
+       AjPGraph thys
+       AjBool set
+
+void
+ajGraphxySetMaxMin (thys, xmin, xmax, ymin, ymax)
+       AjPGraph thys
+       float xmin
+       float xmax
+       float ymin
+       float ymax
+
+void
+ajGraphPlpDataSetMaxMin (graphdata, xmin, xmax, ymin, ymax)
+       AjPGraphPlpData graphdata
+       float xmin
+       float xmax
+       float ymin
+       float ymax
+
+void
+ajGraphArrayMaxMin (array, npoints, min, max)
+       const float* array
+       ajint npoints
+       float& min
+       float& max
+    OUTPUT:
+       min
+       max
+
+void
+ajGraphPlpDataSetMaxima (graphdata, xmin, xmax, ymin, ymax)
+       AjPGraphPlpData graphdata
+       float xmin
+       float xmax
+       float ymin
+       float ymax
+
+void
+ajGraphPlpDataSetTypeC (graphdata, type)
+       AjPGraphPlpData graphdata
+       const char* type
+
+void
+ajGraphxyCheckMaxMin (thys)
+       AjPGraph thys
+
+void
+ajGraphxyDisplay (thys, closeit)
+       AjPGraph thys
+       AjBool closeit
 
 void
 ajGraphAddRect (thys, x1, y1, x2, y2, colour, fill)
@@ -313,572 +806,58 @@ ajGraphAddText (thys, x1, y1, colour, text)
        float x1
        float y1
        ajint colour
-       const char *text
+       const char* text
+
+void
+ajGraphAddLine (thys, x1, y1, x2, y2, colour)
+       AjPGraph thys
+       float x1
+       float y1
+       float x2
+       float y2
+       ajint colour
 
 void
 ajGraphPlpDataDel (thys)
-       AjPGraphPlpData &thys
+       AjPGraphPlpData& thys
     OUTPUT:
        thys
 
 void
-ajGraphOpen (thys, xmin, xmax, ymin, ymax, flags)
+ajGraphClear (thys)
        AjPGraph thys
-       PLFLT xmin
-       PLFLT xmax
-       PLFLT ymin
-       PLFLT ymax
-       ajint flags
 
 void
-ajGraphOpenPlot (thys, numofsets)
-       AjPGraph thys
-       ajint numofsets
+ajGraphPlpDataAddRect (graphdata, x1, y1, x2, y2, colour, fill)
+       AjPGraphPlpData graphdata
+       float x1
+       float y1
+       float x2
+       float y2
+       ajint colour
+       ajint fill
 
 void
-ajGraphOpenWin (thys, xmin, xmax, ymin, ymax)
-       AjPGraph thys
-       float xmin
-       float xmax
-       float ymin
-       float ymax
+ajGraphPlpDataAddText (graphdata, x1, y1, colour, text)
+       AjPGraphPlpData graphdata
+       float x1
+       float y1
+       ajint colour
+       const char* text
 
 void
-ajGraphPlenv (xmin, xmax, ymin, ymax, flags)
-       float xmin
-       float xmax
-       float ymin
-       float ymax
-       ajint flags
-
-void
-ajGraphPoly (n, x, y)
-       ajint n
-       PLFLT &x
-       PLFLT &y
-    OUTPUT:
-       x
-       y
-
-void
-ajGraphPolyFill (n, x, y)
-       ajint n
-       PLFLT &x
-       PLFLT &y
-    OUTPUT:
-       x
-       y
+ajGraphPlpDataAddLine (graphdata, x1, y1, x2, y2, colour)
+       AjPGraphPlpData graphdata
+       float x1
+       float y1
+       float x2
+       float y2
+       ajint colour
 
 void
 ajGraphPrintType (outf, full)
        AjPFile outf
        AjBool full
-
-void
-ajGraphRect (x0, y0, x1, y1)
-       PLFLT x0
-       PLFLT y0
-       PLFLT x1
-       PLFLT y1
-
-void
-ajGraphRectFill (x0, y0, x1, y1)
-       PLFLT x0
-       PLFLT y0
-       PLFLT x1
-       PLFLT y1
-
-AjBool
-ajGraphSet (thys, type)
-       AjPGraph thys
-       const AjPStr type
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphSetDevice (thys)
-       const AjPGraph thys
-
-float
-ajGraphSetCharSize (size)
-       float size
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphSetBackBlack ()
-
-void
-ajGraphSetBackWhite ()
-
-void
-ajGraphSetPenWidth (width)
-       float width
-
-ajint
-ajGraphSetFillPat (style)
-       ajint style
-    OUTPUT:
-       RETVAL
-
-ajint
-ajGraphSetFore (colour)
-       ajint colour
-    OUTPUT:
-       RETVAL
-
-ajint
-ajGraphSetLineStyle (style)
-       ajint style
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphSetMulti (thys, numsets)
-       AjPGraph thys
-       ajint numsets
-
-void
-ajGraphSetName (thys)
-       const AjPGraph thys
-
-void
-ajGraphSetOri (ori)
-       ajint ori
-
-void
-ajGraphSymbols (numofdots, x1, y1, symbol)
-        ajint numofdots
-       PLFLT &x1
-       PLFLT &y1
-       ajint symbol
-    OUTPUT:
-       x1
-       y1
-
-void
-ajGraphText (x1, y1, text, just)
-       PLFLT x1
-       PLFLT y1
-       const char *text
-       PLFLT just
-
-void
-ajGraphTextEnd (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
-       const char *text
-
-void
-ajGraphTextMid (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
-       const char *text
-
-void
-ajGraphTextLine (x1, y1, x2, y2, text, just)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
-       const char *text
-       PLFLT just
-
-void
-ajGraphTextStart (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
-       const char *text
-
-void
-ajGraphTrace (thys)
-       const AjPGraph thys
-
-void
-ajGraphTraceInt (thys, outf)
-       const AjPGraph thys
-       FILE* outf
-    OUTPUT:
-
-
-void
-ajGraphTri (x1, y1, x2, y2, x3, y3)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
-       PLFLT x3
-       PLFLT y3
-
-void
-ajGraphTriFill (x1, y1, x2, y2, x3, y3)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
-       PLFLT x3
-       PLFLT y3
-
-void
-ajGraphUnused ()
-
-void
-ajGraphVertBars (numofpoints, x, ymin, ymax)
-       ajint numofpoints
-       PLFLT &x
-       PLFLT &ymin
-       PLFLT &ymax
-    OUTPUT:
-       x
-       ymin
-       ymax
-
-void
-ajGraphPlpDataCalcXY (graphdata, numofpoints, start, incr, y)
-       AjPGraphPlpData graphdata
-       ajint numofpoints
-       float start
-       float incr
-       const float& y
-    OUTPUT:
-       y
-
-void
-ajGraphPlpDataSetXY (graphdata, x, y)
-       AjPGraphPlpData graphdata
-       const float &x
-       const float &y
-    OUTPUT:
-       x
-       y
-
-ajint
-ajGraphDataAdd (thys, graphdata)
-       AjPGraph thys
-       AjPGraphPlpData graphdata
-    OUTPUT:
-       RETVAL
-
-ajint
-ajGraphDataReplace (thys, graphdata)
-       AjPGraph thys
-       AjPGraphPlpData graphdata
-    OUTPUT:
-       RETVAL
-
-AjPGraphPlpData
-ajGraphPlpDataNew ()
-    OUTPUT:
-       RETVAL
-
-AjPGraphPlpData
-ajGraphPlpDataNewI (numsets)
-       ajint numsets
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphPlpDataSetSubTitle (graphdata, title)
-       AjPGraphPlpData graphdata
-       const AjPStr title
-
-void
-ajGraphPlpDataSetSubTitleC (graphdata, title)
-       AjPGraphPlpData graphdata
-       const char *title
-
-void
-ajGraphPlpDataSetTitle (graphdata, title)
-       AjPGraphPlpData graphdata
-       const AjPStr title
-
-void
-ajGraphPlpDataSetTitleC (graphdata, title)
-       AjPGraphPlpData graphdata
-       const char *title
-
-void
-ajGraphPlpDataSetXTitle (graphdata, title)
-       AjPGraphPlpData graphdata
-       const AjPStr title
-
-void
-ajGraphPlpDataSetXTitleC (graphdata, title)
-       AjPGraphPlpData graphdata
-       const char *title
-
-void
-ajGraphPlpDataSetYTitle (graphdata, title)
-       AjPGraphPlpData graphdata
-       const AjPStr title
-
-void
-ajGraphPlpDataSetYTitleC (graphdata, title)
-       AjPGraphPlpData graphdata
-       const char *title
-
-void
-ajGraphxyDel (pmult)
-       AjPGraph& pmult
-    OUTPUT:
-       pmult
-
-void
-ajGraphxyDisplay (thys, closeit)
-       AjPGraph thys
-       AjBool closeit 
-
-AjPGraph
-ajGraphxyNewI (numofpoints)
-       ajint numofpoints
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphxyCheckMaxMin (thys)
-       AjPGraph thys
-
-AjBool
-ajGraphxySet (thys, type)
-       AjPGraph thys
-       const AjPStr type
-    OUTPUT:
-       RETVAL
-
-void
-ajGraphxySetCirclePoints (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphPlpDataSetColour (graphdata, colour)
-       AjPGraphPlpData graphdata
-       ajint colour
-
-void
-ajGraphSetFlag (thys, flag, istrue)
-       AjPGraph thys
-       ajint flag
-       AjBool istrue
-
-void
-ajGraphxySetGaps (thys, overlap)
-       AjPGraph thys
-       AjBool overlap
-
-void
-ajGraphxySetJoinPoints (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphPlpDataSetLineType (graphdata, type)
-       AjPGraphPlpData graphdata
-       ajint type
-
-void
-ajGraphxySetMaxMin (thys, xmin, xmax, ymin, ymax)
-       AjPGraph thys
-       float xmin
-       float xmax
-       float ymin
-       float ymax
-
-void
-ajGraphSetOut (thys, txt)
-       AjPGraph thys
-       const AjPStr txt
-
-void
-ajGraphSetOutC (thys, txt)
-       AjPGraph thys
-       const char *txt
-
-void
-ajGraphxySetOverLap (thys, overlap)
-       AjPGraph thys
-       AjBool overlap
-
-void
-ajGraphSetSubTitleDo (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphSetTitleDo (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXBottom (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXLabelTop (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXTick (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXTop (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXEnd (thys, val)
-       AjPGraph thys
-       float val
-
-void
-ajGraphxySetXGrid (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXInvTicks (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXLabel (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetXRangeII (thys, start, end)
-       AjPGraph thys
-       ajint start
-       ajint end
-
-void
-ajGraphxySetXStart (thys, val)
-       AjPGraph thys
-       float val
-
-void
-ajGraphxySetYLabelLeft (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYLeft (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYRight (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYTick (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYEnd (thys, val)
-       AjPGraph thys
-       float val
-
-void
-ajGraphxySetYGrid (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYInvTicks (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYLabel (thys, set)
-       AjPGraph thys
-       AjBool set
-
-void
-ajGraphxySetYRangeII (thys, start, end)
-       AjPGraph thys
-       ajint start
-       ajint end
-
-void
-ajGraphxySetYStart (thys, val)
-       AjPGraph thys
-       float val
-
-void
-ajGraphSetSubTitle (thys, title)
-       AjPGraph thys
-       const AjPStr title
-
-void
-ajGraphSetSubTitleC (thys, title)
-       AjPGraph thys
-       const char *title
-
-void
-ajGraphSetTitle (thys, title)
-       AjPGraph thys
-       const AjPStr title
-
-void
-ajGraphSetTitleC (thys, title)
-       AjPGraph thys
-       const char *title
-
-void
-ajGraphSetXTitle (thys, title)
-       AjPGraph thys
-       const AjPStr title
-
-void
-ajGraphSetXTitleC (thys, title)
-       AjPGraph thys
-       const char *title
-
-void
-ajGraphSetYTitle (thys, title)
-       AjPGraph thys
-       const AjPStr title
-
-void
-ajGraphSetYTitleC (thys, title)
-       AjPGraph thys
-       const char *title
-
-
-void
-ajGraphPartCircle (xcentre, ycentre, radius, StartAngle, EndAngle)
-       PLFLT xcentre
-       PLFLT ycentre
-       float radius
-       PLFLT StartAngle
-       PLFLT EndAngle
-
-
-void
-ajGraphDrawTextOnCurve (xcentre, ycentre, Radius, StartAngle, EndAngle, Text, just)
-       PLFLT xcentre
-       PLFLT ycentre
-       PLFLT Radius
-       PLFLT StartAngle
-       PLFLT EndAngle
-       const char *Text
-       PLFLT just
-
-void
-ajGraphRectangleOnCurve (xcentre, ycentre, Radius, BoxHeight, StartAngle, EndAngle)
-       PLFLT xcentre
-       PLFLT ycentre
-       PLFLT Radius
-       PLFLT BoxHeight
-       PLFLT StartAngle
-       PLFLT EndAngle
 
 PLFLT
 ajGraphTextLength (x1, y1, x2, y2, text)
@@ -886,7 +865,7 @@ ajGraphTextLength (x1, y1, x2, y2, text)
        PLFLT y1
        PLFLT x2
        PLFLT y2
-       const char *text
+       const char* text
     OUTPUT:
        RETVAL
 
@@ -908,23 +887,65 @@ ajGraphDistPts (x1, y1, x2, y2)
     OUTPUT:
        RETVAL
 
+float
+ajGraphSetDefCharSize (size)
+       float size
+    OUTPUT:
+       RETVAL
+
 PLFLT
 ajGraphFitTextOnLine (x1, y1, x2, y2, text, TextHeight)
        PLFLT x1
        PLFLT y1
        PLFLT x2
        PLFLT y2
-       const char *text
+       const char* text
        PLFLT TextHeight
     OUTPUT:
        RETVAL
 
+void
+ajGraphPartCircle (xcentre, ycentre, Radius, StartAngle, EndAngle)
+       PLFLT xcentre
+       PLFLT ycentre
+       PLFLT Radius
+       PLFLT StartAngle
+       PLFLT EndAngle
 
-float
-ajGraphSetDefCharSize (size)
-       float size
+PLFLT*
+ajComputeCoord (xcentre, ycentre, Radius, Angle)
+       PLFLT xcentre
+       PLFLT ycentre
+       PLFLT Radius
+       PLFLT Angle
     OUTPUT:
        RETVAL
+
+void
+ajGraphDrawTextOnCurve (xcentre, ycentre, Radius, StartAngle, EndAngle, Text, just)
+       PLFLT xcentre
+       PLFLT ycentre
+       PLFLT Radius
+       PLFLT StartAngle
+       PLFLT EndAngle
+       const char* Text
+       PLFLT just
+
+void
+ajGraphRectangleOnCurve (xcentre, ycentre, Radius, BoxHeight, StartAngle, EndAngle)
+       PLFLT xcentre
+       PLFLT ycentre
+       PLFLT Radius
+       PLFLT BoxHeight
+       PLFLT StartAngle
+       PLFLT EndAngle
+
+ajint
+ajGraphInfo (files)
+       AjPList& files
+    OUTPUT:
+       RETVAL
+       files
 
 void
 ajGraphFillRectangleOnCurve (xcentre, ycentre, Radius, BoxHeight, StartAngle, EndAngle)
@@ -934,4 +955,13 @@ ajGraphFillRectangleOnCurve (xcentre, ycentre, Radius, BoxHeight, StartAngle, En
        PLFLT BoxHeight
        PLFLT StartAngle
        PLFLT EndAngle
+
+AjBool
+ajGraphIsData (thys)
+       const AjPGraph thys
+    OUTPUT:
+       RETVAL
+
+void
+ajGraphUnused ()
 

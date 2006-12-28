@@ -11,88 +11,512 @@ MODULE = Bio::Emboss_seq		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajseq.h: automatically generated
+ # code from ajseq.c: automatically generated
+
+AjPSeq
+ajSeqNew ()
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewNameC (txt, name)
+       const char* txt
+       const char* name
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewNameS (str, name)
+       const AjPStr str
+       const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewRangeC (txt, offset, offend, rev)
+       const char* txt
+       ajint offset
+       ajint offend
+       AjBool rev
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewRangeS (str, offset, offend, rev)
+       const AjPStr str
+       ajint offset
+       ajint offend
+       AjBool rev
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewRes (size)
+       size_t size
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajSeqNewSeq (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqAssignAccC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignAccS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignDescC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignDescS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignEntryC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignEntryS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignFileC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignFileS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignFullC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignFullS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignGiC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignGiS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignNameC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignNameS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignSeqC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignSeqLenC (seq, txt, len)
+       AjPSeq seq
+       const char* txt
+       ajint len
+
+void
+ajSeqAssignSeqS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignSvC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignSvS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignUfoC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignUfoS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqAssignUsaC (seq, txt)
+       AjPSeq seq
+       const char* txt
+
+void
+ajSeqAssignUsaS (seq, str)
+       AjPSeq seq
+       const AjPStr str
+
+void
+ajSeqSetOffsets (seq, offset, origlen)
+       AjPSeq seq
+       ajint offset
+       ajint origlen
+
+void
+ajSeqSetRange (seq, pos1, pos2)
+       AjPSeq seq
+       ajint pos1
+       ajint pos2
+
+void
+ajSeqSetRangeRev (seq, pos1, pos2)
+       AjPSeq seq
+       ajint pos1
+       ajint pos2
+
+void
+ajSeqComplementOnly (seq)
+       AjPSeq seq
+
+void
+ajSeqFmtLower (seq)
+       AjPSeq seq
+
+void
+ajSeqFmtUpper (seq)
+       AjPSeq seq
+
+void
+ajSeqReverseDo (seq)
+       AjPSeq seq
+
+void
+ajSeqReverseForce (seq)
+       AjPSeq seq
+
+void
+ajSeqReverseOnly (seq)
+       AjPSeq seq
+
+const char*
+ajSeqGetAccC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetAccS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetBegin (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetBeginTrue (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetDescC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetDescS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetEnd (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetEndTrue (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetEntryC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetEntryS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPFeattable
+ajSeqGetFeat (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajSeqGetFeatCopy (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetGiC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetGiS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetLen (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetLenTrue (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetNameC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetNameS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetOffend (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetOffset (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGetRange (seq, begin, end)
+       const AjPSeq seq
+       ajint& begin
+       ajint& end
+    OUTPUT:
+       RETVAL
+       begin
+       end
 
 AjBool
-ajIsAccession (accnum)
-       const AjPStr accnum
+ajSeqGetRev (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetSeqC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetSeqS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+char*
+ajSeqGetSeqCopyC (seq)
+       const AjPSeq seq
     OUTPUT:
        RETVAL
 
 AjPStr
-ajIsSeqversion (sv)
-       const AjPStr sv
+ajSeqGetSeqCopyS (seq)
+       const AjPSeq seq
     OUTPUT:
        RETVAL
 
-AjPSelex
-ajSelexNew (n)
-       ajint n
+const char*
+ajSeqGetSvC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetSvS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetTaxC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetTaxS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqGetUsaC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetUsaS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqIsNuc (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqIsProt (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqIsReversedTrue (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqIsReversed (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqIsTrimmed (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCalcCheckgcg (seq)
+       const AjPSeq seq
     OUTPUT:
        RETVAL
 
 void
-ajSelexDel (thys)
-       AjPSelex &thys
+ajSeqCalcCount (seq, b)
+       const AjPSeq seq
+       ajint& b
     OUTPUT:
-       thys
+       b
 
-AjPSelexdata
-ajSelexdataNew ()
+ajuint
+ajSeqCalcCrc (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+float
+ajSeqCalcMolwt (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCalcTrueposMin (seq, imin, ipos)
+       const AjPSeq seq
+       ajint imin
+       ajint ipos
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCalcTruepos (seq, ipos)
+       const AjPSeq seq
+       ajint ipos
     OUTPUT:
        RETVAL
 
 void
-ajSelexdataDel (thys)
-       AjPSelexdata &thys
-    OUTPUT:
-       thys
+ajSeqExit ()
 
-void
-ajSelexSQDel (thys)
-       AjPSelexSQ &thys
-    OUTPUT:
-       thys
-
-AjPSelexSQ
-ajSelexSQNew ()
-    OUTPUT:
-       RETVAL
-
-AjPStockholm
-ajStockholmNew (i)
-       ajint i
+AjPSeqall
+ajSeqallNew ()
     OUTPUT:
        RETVAL
 
 void
-ajStockholmDel (thys)
-       AjPStockholm &thys
+ajSeqallDel (Pseq)
+       AjPSeqall& Pseq
     OUTPUT:
-       thys
+       Pseq
 
 void
-ajStockholmdataDel (thys)
-       AjPStockholmdata &thys
-    OUTPUT:
-       thys
+ajSeqallSetRange (seq, ibegin, iend)
+       AjPSeqall seq
+       ajint ibegin
+       ajint iend
 
-AjPStockholmdata
-ajStockholmdataNew ()
-    OUTPUT:
-       RETVAL
+void
+ajSeqallSetRangeRev (seq, ibegin, iend)
+       AjPSeqall seq
+       ajint ibegin
+       ajint iend
 
 ajint
 ajSeqallBegin (seq)
        const AjPSeqall seq
     OUTPUT:
        RETVAL
-
-void
-ajSeqallDel (thys)
-       AjPSeqall &thys
-    OUTPUT:
-       thys
 
 ajint
 ajSeqallEnd (seq)
@@ -101,30 +525,8 @@ ajSeqallEnd (seq)
        RETVAL
 
 const AjPStr
-ajSeqallGetName (thys)
-       const AjPSeqall thys
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqallGetNameSeq (thys)
-       const AjPSeqall thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqallGetRange (thys, begin, end)
-       const AjPSeqall thys
-       ajint& begin
-       ajint& end
-    OUTPUT:
-       RETVAL
-       begin
-       end
-
-const AjPStr
-ajSeqallGetUsa (thys)
-       const AjPSeqall thys
+ajSeqallGetFilename (seq)
+       const AjPSeqall seq
     OUTPUT:
        RETVAL
 
@@ -134,377 +536,21 @@ ajSeqallLen (seqall)
     OUTPUT:
        RETVAL
 
-AjPSeqall
-ajSeqallNew ()
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqallClear (thys)
-       AjPSeqall thys
-
-AjBool
-ajSeqallNext (seqall, retseq)
-       AjPSeqall seqall
-       AjPSeq& retseq
-    OUTPUT:
-       RETVAL
-       retseq
-
-void
-ajSeqallReverse (thys)
-       AjPSeqall thys
-
-void
-ajSeqallSetRange (seq, ibegin, iend)
-       AjPSeqall seq
-       ajint ibegin
-       ajint iend
-
-void
-ajSeqallToLower (seqall)
-       AjPSeqall seqall
-
-void
-ajSeqallToUpper (seqall)
-       AjPSeqall seqall
-
-void
-ajSeqAssAcc (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssAccC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssDesc (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssDescC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssEntry (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssEntryC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssFile (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssFull (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssFullC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssGi (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssGiC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssName (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssNameC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssSeq (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssSeqC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssSeqCI (thys, text, ilen)
-       AjPSeq thys
-       const char* text
-       ajint ilen
-
-void
-ajSeqAssSv (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssSvC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssUfo (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssUfoC (thys, text)
-       AjPSeq thys
-       const char* text
-
-void
-ajSeqAssUsa (thys, str)
-       AjPSeq thys
-       const AjPStr str
-
-void
-ajSeqAssUsaC (thys, text)
-       AjPSeq thys
-       const char* text
-
-char
-ajSeqBaseComp (base)
-       char base
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqBegin (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-const char*
-ajSeqChar (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-char*
-ajSeqCharCopy (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-char*
-ajSeqCharCopyL (seq, size)
-       const AjPSeq seq
-       size_t size
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqCheckGcg (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqClear (thys)
-       AjPSeq thys
-
-void
-ajSeqCompOnly (thys)
-       AjPSeq thys
-
-void
-ajSeqGarbageOn (thys)
-       AjPSeq &thys
-    OUTPUT:
-       thys
-
-void
-ajSeqGarbageOff (thys)
-       AjPSeq &thys
-    OUTPUT:
-       thys
-
-void
-ajSeqCompOnlyStr (thys)
-       AjPStr& thys
-    OUTPUT:
-       thys
-
-AjPFeattable
-ajSeqCopyFeat (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqCount (thys, b)
-       const AjPStr thys
-       ajint &b
-    OUTPUT:
-       b
-
-ajuint
-ajSeqCrc (seq)
-       const AjPStr seq 
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqCvtDel (thys)
-       AjPSeqCvt & thys
-    OUTPUT:
-       thys
-
-ajint
-ajSeqCvtK (thys, ch)
-       const AjPSeqCvt  thys
-       char ch
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqCvtKS (thys, ch)
-       const AjPSeqCvt  thys
-       const AjPStr ch
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqCvtKSRow (thys, ch)
-       const AjPSeqCvt  thys
-       const AjPStr ch
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqCvtKSColumn (thys, ch)
-       const AjPSeqCvt  thys
-       const AjPStr ch
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqCvtLen (thys)
-       const AjPSeqCvt  thys
-    OUTPUT:
-       RETVAL
-
-AjPSeqCvt
-ajSeqCvtNew (bases)
-       const char* bases
-    OUTPUT:
-       RETVAL
-
-AjPSeqCvt
-ajSeqCvtNewText (bases)
-       const char* bases
-    OUTPUT:
-       RETVAL
-
-AjPSeqCvt
-ajSeqCvtNewZero (bases)
-       const char* bases
-    OUTPUT:
-       RETVAL
-
-
-void
-ajSeqCvtTrace (cvt)
-       const AjPSeqCvt  cvt
-
-void
-ajSeqDel (pthis)
-       AjPSeq& pthis
-    OUTPUT:
-       pthis
-
-ajint
-ajSeqEnd (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqFill (seq, len)
-       AjPSeq seq
-       ajint len
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqGapCount (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqGapCountS (str)
-       const AjPStr str
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqGapStandard (thys, gapch)
-       AjPSeq thys
-       char gapch
-
-void
-ajSeqGapStandardS (thys, gapch)
-       AjPStr thys
-       char gapch
-
 const AjPStr
-ajSeqGetAcc (thys)
-       const AjPSeq thys
+ajSeqallGetName (seq)
+       const AjPSeqall seq
     OUTPUT:
        RETVAL
 
 const AjPStr
-ajSeqGetDesc (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqGetEntry (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-const AjPFeattable
-ajSeqGetFeat (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqGetGi (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqGetName (thys)
-       const AjPSeq thys
+ajSeqallGetNameSeq (seq)
+       const AjPSeqall seq
     OUTPUT:
        RETVAL
 
 ajint
-ajSeqGetRange (thys, begin, end)
-       const AjPSeq thys
+ajSeqallGetRange (seq, begin, end)
+       const AjPSeqall seq
        ajint& begin
        ajint& end
     OUTPUT:
@@ -512,275 +558,37 @@ ajSeqGetRange (thys, begin, end)
        begin
        end
 
-AjBool
-ajSeqGetReverse (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqGetReversed (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
 const AjPStr
-ajSeqGetSv (thys)
-       const AjPSeq thys
+ajSeqallGetUsa (seq)
+       const AjPSeqall seq
     OUTPUT:
        RETVAL
 
-const AjPStr
-ajSeqGetTax (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqGetUsa (thys)
-       const AjPSeq thys
+AjPSeqset
+ajSeqsetNew ()
     OUTPUT:
        RETVAL
 
 void
-ajSeqinTrace (thys)
-       const AjPSeqin thys
-
-AjBool
-ajSeqIsNuc (thys)
-       const AjPSeq thys
+ajSeqsetDel (Pseq)
+       AjPSeqset& Pseq
     OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqIsProt (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqLen (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
+       Pseq
 
 void
-ajSeqMakeUsa (thys, seqin)
-       AjPSeq thys
-       const AjPSeqin seqin
-
-void
-ajSeqMakeUsaS (thys, seqin, usa)
-       const AjPSeq thys
-       const AjPSeqin seqin
-       AjPStr& usa
-    OUTPUT:
-       usa
-
-void
-ajSeqMod (thys)
-       AjPSeq thys
-
-float
-ajSeqMW (seq)
-       const AjPStr seq
-    OUTPUT:
-       RETVAL
-
-const char*
-ajSeqName (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNew ()
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewC (seq, name)
-       const char* seq
-       const char* name
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewL (size)
-       size_t size
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewS (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewRange (seq, offset, offend, rev)
-       const AjPStr seq
-       ajint offset
-       ajint offend
-       AjBool rev
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewRangeCI (seq, len, offset, offend, rev)
-       const char* seq
-       ajint len
-       ajint offset
-       ajint offend
-       AjBool rev
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajSeqNewStr (seq)
-       const AjPStr seq
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqNum (thys, cvt, numseq)
-       const AjPSeq thys
-       const AjPSeqCvt  cvt
-       AjPStr &numseq
-    OUTPUT:
-       RETVAL
-       numseq
-
-AjBool
-ajSeqNumS (thys, cvt, numseq)
-       const AjPStr thys
-       const AjPSeqCvt  cvt
-       AjPStr &numseq
-    OUTPUT:
-       RETVAL
-       numseq
-
-AjBool
-ajSeqIsGarbage (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqIsReversed (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqIsTrimmed (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqOffset (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqOffend (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqPos (thys, ipos)
-       const AjPSeq thys
-       ajint ipos
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqPosI (thys, imin, ipos)
-       const AjPSeq thys
-       ajint imin
-       ajint ipos
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqPosII (ilen, imin, ipos)
-       ajint ilen
-       ajint imin
-       ajint ipos
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqReplace (thys, seq)
-       AjPSeq thys
-       const AjPStr seq
-
-void
-ajSeqReplaceC (thys, seq)
-       AjPSeq thys
-       const char* seq
-
-AjBool
-ajSeqRev (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqReverse (thys)
-       AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqReverseForce (thys)
-       AjPSeq thys
-
-void
-ajSeqReverseStr (thys)
-       AjPStr& thys
+ajSeqsetDelarray (thys)
+       AjPSeqset*& thys
     OUTPUT:
        thys
 
-void
-ajSeqRevOnly (thys)
-       AjPSeq thys
-
-ajint
-ajSeqsetBegin (seq)
-       const AjPSeqset seq
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqsetDel (thys)
-       AjPSeqset &thys
-    OUTPUT:
-       thys
-
-ajint
-ajSeqsetEnd (seq)
-       const AjPSeqset seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqsetFill (seq)
-       AjPSeqset seq
-    OUTPUT:
-       RETVAL
-
 const AjPStr
-ajSeqsetGetFormat (thys)
+ajSeqsetGetFilename (thys)
        const AjPSeqset thys
     OUTPUT:
        RETVAL
 
 const AjPStr
-ajSeqsetGetName (thys)
+ajSeqsetGetFormat (thys)
        const AjPSeqset thys
     OUTPUT:
        RETVAL
@@ -795,6 +603,85 @@ ajSeqsetGetRange (thys, begin, end)
        begin
        end
 
+const AjPStr
+ajSeqsetGetUsa (thys)
+       const AjPSeqset thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetFill (seq)
+       AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqsetReverse (thys)
+       AjPSeqset thys
+
+void
+ajSeqsetSetRange (seq, ibegin, iend)
+       AjPSeqset seq
+       ajint ibegin
+       ajint iend
+
+void
+ajSeqsetToLower (seqset)
+       AjPSeqset seqset
+
+void
+ajSeqsetToUpper (seqset)
+       AjPSeqset seqset
+
+void
+ajSeqsetTrim (seqset)
+       AjPSeqset seqset
+
+const AjPStr
+ajSeqsetAcc (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetBegin (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetEnd (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetLen (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqsetGetName (thys)
+       const AjPSeqset thys
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqsetName (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqsetSeq (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
 const AjPSeq
 ajSeqsetGetSeq (thys, i)
        const AjPSeqset thys
@@ -802,10 +689,28 @@ ajSeqsetGetSeq (thys, i)
     OUTPUT:
        RETVAL
 
-
-const AjPStr
-ajSeqsetGetUsa (thys)
+AjPSeq*
+ajSeqsetGetSeqArray (thys)
        const AjPSeqset thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetSize (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+float
+ajSeqsetTotweight (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+float
+ajSeqsetWeight (seq, i)
+       const AjPSeqset seq
+       ajint i
     OUTPUT:
        RETVAL
 
@@ -833,117 +738,23 @@ ajSeqsetIsRna (thys)
     OUTPUT:
        RETVAL
 
-ajint
-ajSeqsetLen (seq)
-       const AjPSeqset seq
+void
+ajSeqDel (Pseq)
+       AjPSeq& Pseq
     OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqsetName (seq, i)
-       const AjPSeqset seq
-       ajint i
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqsetAcc (seq, i)
-       const AjPSeqset seq
-       ajint i
-    OUTPUT:
-       RETVAL
-
-AjPSeqset
-ajSeqsetNew ()
-    OUTPUT:
-       RETVAL
+       Pseq
 
 void
-ajSeqSetOffsets (seq, ioff, ioriglen)
+ajSeqClear (seq)
        AjPSeq seq
-       ajint ioff
-       ajint ioriglen
 
 void
-ajSeqSetRange (seq, ibegin, iend)
+ajSeqallClear (seq)
+       AjPSeqall seq
+
+void
+ajSeqMod (seq)
        AjPSeq seq
-       ajint ibegin
-       ajint iend
-
-void
-ajSeqSetRangeDir (seq, ibegin, iend, rev)
-       AjPSeq seq
-       ajint ibegin
-       ajint iend
-       AjBool rev
-
-void
-ajSeqsetReverse (thys)
-       AjPSeqset thys
-
-const char*
-ajSeqsetSeq (seq, i)
-       const AjPSeqset seq
-       ajint i
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqsetSetRange (seq, ibegin, iend)
-       AjPSeqset seq
-       ajint ibegin
-       ajint iend
-
-ajint
-ajSeqsetSize (seq)
-       const AjPSeqset seq
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqsetToLower (seq)
-       AjPSeqset seq
-
-float
-ajSeqsetTotweight (seq)
-       const AjPSeqset seq
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqsetToUpper (seq)
-       AjPSeqset seq
-
-void
-ajSeqsetTrim (thys)
-       AjPSeqset thys
-
-float
-ajSeqsetWeight (seq, i)
-       const AjPSeqset seq
-       ajint i
-    OUTPUT:
-       RETVAL
-
-const AjPStr
-ajSeqStr (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajSeqStrCopy (thys)
-       const AjPSeq thys
-    OUTPUT:
-       RETVAL
-
-void
-ajSeqToLower (thys)
-       AjPSeq thys
-
-void
-ajSeqToUpper (thys)
-       AjPSeq thys
 
 void
 ajSeqTrace (seq)
@@ -955,12 +766,123 @@ ajSeqTraceT (seq, title)
        const char* title
 
 AjBool
-ajSeqFindOutFormat (format, iformat)
-       const AjPStr format
-       ajint& iformat
+ajSeqNum (seq, cvt, numseq)
+       const AjPSeq seq
+       const AjPSeqCvt cvt
+       AjPStr& numseq
     OUTPUT:
        RETVAL
-       iformat
+       numseq
+
+AjBool
+ajSeqNumS (seq, cvt, numseq)
+       const AjPStr seq
+       const AjPSeqCvt cvt
+       AjPStr& numseq
+    OUTPUT:
+       RETVAL
+       numseq
+
+AjBool
+ajSeqIsGarbage (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqCvtTrace (cvt)
+       const AjPSeqCvt cvt
+
+AjPSeqCvt
+ajSeqCvtNewZero (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNewZeroS (bases, n)
+       AjPPStr bases
+       int n
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNewZeroSS (bases, n, rbases, rn)
+       AjPPStr bases
+       int n
+       AjPPStr rbases
+       int rn
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNew (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqCvtDel (Pcvt)
+       AjPSeqCvt& Pcvt
+    OUTPUT:
+       Pcvt
+
+AjPSeqCvt
+ajSeqCvtNewText (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtLen (cvt)
+       const AjPSeqCvt cvt
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtK (cvt, ch)
+       const AjPSeqCvt cvt
+       char ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtKS (cvt, ch)
+       const AjPSeqCvt cvt
+       const AjPStr ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtKSRow (cvt, ch)
+       const AjPSeqCvt cvt
+       const AjPStr ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtKSColumn (cvt, ch)
+       const AjPSeqCvt cvt
+       const AjPStr ch
+    OUTPUT:
+       RETVAL
+
+AjPSeqout
+ajSeqoutNew ()
+    OUTPUT:
+       RETVAL
+
+AjPSeqout
+ajSeqoutNewF (file)
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqoutDel (Pseqout)
+       AjPSeqout& Pseqout
+    OUTPUT:
+       Pseqout
 
 AjBool
 ajSeqTrim (thys)
@@ -969,43 +891,89 @@ ajSeqTrim (thys)
        RETVAL
 
 ajint
-ajSeqTrueBegin (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqTrueEnd (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqTrueLen (seq)
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
-
-ajint
-ajSeqTruePos (thys, ipos)
+ajSeqGapCount (thys)
        const AjPSeq thys
-       ajint ipos
     OUTPUT:
        RETVAL
 
 ajint
-ajSeqTruePosI (thys, imin, ipos)
-       const AjPSeq thys
-       ajint imin
-       ajint ipos
+ajSeqGapCountS (str)
+       const AjPStr str
     OUTPUT:
        RETVAL
 
+void
+ajSeqGapStandard (thys, gapch)
+       AjPSeq thys
+       char gapch
+    OUTPUT:
+       thys
+
+void
+ajSeqGapStandardS (thys, gapch)
+       AjPStr thys
+       char gapch
+    OUTPUT:
+       thys
+
 ajint
-ajSeqTruePosII (ilen, imin, ipos)
-       ajint ilen
-       ajint imin
-       ajint ipos
+ajSeqFill (seq, len)
+       AjPSeq seq
+       ajint len
     OUTPUT:
        RETVAL
+
+void
+ajSeqDefName (thys, setname, multi)
+       AjPSeq thys
+       const AjPStr setname
+       AjBool multi
+    OUTPUT:
+       thys
+
+char
+ajSeqBaseComp (base)
+       char base
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajIsAccession (accnum)
+       const AjPStr accnum
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajIsSeqversion (sv)
+       const AjPStr sv
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqstrReverse (pthis)
+       AjPStr& pthis
+
+void
+ajSeqstrComplementOnly (pthis)
+       AjPStr& pthis
+
+float
+ajSeqstrCalcMolwt (seq)
+       const AjPStr seq
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajSeqstrCalcCrc (seq)
+       const AjPStr seq
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqGarbageOn (thys)
+       AjPSeq & thys
+
+void
+ajSeqGarbageOff (thys)
+       AjPSeq & thys
 

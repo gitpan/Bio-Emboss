@@ -35,15 +35,15 @@ $seqobj = ajSeqNew();
 ok(defined $seqobj);
 ok(ref ($seqobj), "Bio::Emboss::Seq");
 
-$seqobj->ajSeqAssSeqC($seqasis);
+$seqobj->ajSeqAssignSeqC($seqasis);
 ok ($seqobj->ajSeqIsProt());
 
 $seqobj2 = ajSeqNew();
 
 $seqall->ajSeqallNext($seqobj2);
 
-ok($seqobj->ajSeqLen(), $seqobj2->ajSeqLen());
+ok($seqobj->ajSeqGetLen(), $seqobj2->ajSeqGetLen());
 
-ok ($seqobj->ajSeqChar(), $seqobj2->ajSeqChar());
+ok ($seqobj->ajSeqGetSeqC(), $seqobj2->ajSeqGetSeqC());
 
 

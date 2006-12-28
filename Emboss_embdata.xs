@@ -11,13 +11,28 @@ MODULE = Bio::Emboss_embdata		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embdata.h: automatically generated
+ # code from embdata.c: automatically generated
 
 void
 embDataListDel (data)
-       AjPList &data
+       AjPList& data
     OUTPUT:
        data
+
+void
+embDataListRead (data, pfile)
+       AjPList data
+       AjPFile pfile
+    OUTPUT:
+       data
+
+void
+embDataListGetTables (fullList, returnList, required)
+       const AjPList fullList
+       AjPList returnList
+       ajuint required
+    OUTPUT:
+       returnList
 
 AjPTable
 embDataListGetTable (fullList, required)
@@ -25,15 +40,4 @@ embDataListGetTable (fullList, required)
        ajuint required
     OUTPUT:
        RETVAL
-
-void
-embDataListGetTables (fullList, returnList, required)
-       const AjPList fullList
-       AjPList returnList
-       ajuint required
-
-void
-embDataListRead (data, file)
-       AjPList data
-       AjPFile file
 

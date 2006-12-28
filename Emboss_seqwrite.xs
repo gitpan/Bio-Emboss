@@ -11,35 +11,60 @@ MODULE = Bio::Emboss_seqwrite		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajseqwrite.h: automatically generated
+ # code from ajseqwrite.c: automatically generated
 
 void
 ajSeqAllWrite (outseq, seq)
-       AjPSeqout  outseq
+       AjPSeqout outseq
+       const AjPSeq seq
+
+void
+ajSeqsetWrite (outseq, seq)
+       AjPSeqout outseq
+       const AjPSeqset seq
+
+void
+ajSeqWriteClose (outseq)
+       AjPSeqout outseq
+
+void
+ajSeqWrite (outseq, seq)
+       AjPSeqout outseq
        const AjPSeq seq
 
 AjBool
 ajSeqFileNewOut (seqout, name)
-       AjPSeqout  seqout
+       AjPSeqout seqout
        const AjPStr name
     OUTPUT:
        RETVAL
 
-ajint
-ajSeqoutCheckGcg (outseq)
-       const AjPSeqout  outseq
+AjBool
+ajSeqoutOpen (thys)
+       AjPSeqout thys
+    OUTPUT:
+       RETVAL
+       thys
+
+AjBool
+ajSeqOutFormatSingle (format)
+       AjPStr format
     OUTPUT:
        RETVAL
 
-void
-ajSeqoutClear (thys)
-       AjPSeqout  thys
-
-void
-ajSeqoutDel (thys)
-       AjPSeqout & thys
+AjBool
+ajSeqOutSetFormat (thys, format)
+       AjPSeqout thys
+       const AjPStr format
     OUTPUT:
-       thys
+       RETVAL
+
+AjBool
+ajSeqOutSetFormatC (thys, format)
+       AjPSeqout thys
+       const char * format
+    OUTPUT:
+       RETVAL
 
 AjBool
 ajSeqOutFormatDefault (pformat)
@@ -48,82 +73,69 @@ ajSeqOutFormatDefault (pformat)
        RETVAL
        pformat
 
-AjBool
-ajSeqOutFormatSingle (format)
-       AjPStr format
-    OUTPUT:
-       RETVAL
-
-AjPSeqout
-ajSeqoutNew ()
-    OUTPUT:
-       RETVAL
-
-AjPSeqout
-ajSeqoutNewF (file)
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqoutOpen (thys)
-       AjPSeqout  thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqOutSetFormat (thys, format)
-       AjPSeqout  thys
-       const AjPStr format
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSeqOutSetFormatC (thys, format)
-       AjPSeqout  thys
-       const char* format
-    OUTPUT:
-       RETVAL
+void
+ajSeqoutUsa (pthis, Usa)
+       AjPSeqout& pthis
+       const AjPStr Usa
 
 void
-ajSeqoutTrace (seq)
-       const AjPSeqout  seq
+ajSeqoutClear (thys)
+       AjPSeqout thys
 
 void
 ajSeqPrintOutFormat (outf, full)
        AjPFile outf
        AjBool full
 
-void
-ajSeqoutUsa (pthis, Usa)
-       AjPSeqout & pthis
-       const AjPStr Usa
+AjBool
+ajSeqFindOutFormat (format, iformat)
+       const AjPStr format
+       ajint& iformat
     OUTPUT:
-       pthis
+       RETVAL
+       iformat
+
+ajint
+ajSeqoutCheckGcg (outseq)
+       const AjPSeqout outseq
+    OUTPUT:
+       RETVAL
 
 void
-ajSeqsetWrite (seqout, seq)
-       AjPSeqout  seqout
-       const AjPSeqset seq
+ajSeqoutDefName (thys, setname, multi)
+       AjPSeqout thys
+       const AjPStr setname
+       AjBool multi
+    OUTPUT:
+       thys
 
 void
-ajSeqWrite (seqout, seq)
-       AjPSeqout  seqout
-       const AjPSeq seq
+ajSeqoutTrace (seq)
+       const AjPSeqout seq
 
 void
-ajSeqWriteClose (outseq)
-       AjPSeqout  outseq
+ajSeqoutCount (seqout, b)
+       const AjPSeqout seqout
+       ajint& b
+    OUTPUT:
+       b
 
 void
 ajSeqWriteXyz (outf, seq, prefix)
        AjPFile outf
        const AjPStr seq
-       const char *prefix
+       const char * prefix
+    OUTPUT:
+       outf
 
 void
 ajSssWriteXyz (outf, seq, prefix)
        AjPFile outf
        const AjPStr seq
-       const char *prefix
+       const char * prefix
+    OUTPUT:
+       outf
+
+void
+ajSeqWriteExit ()
 

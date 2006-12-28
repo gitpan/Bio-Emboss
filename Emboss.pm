@@ -31,7 +31,7 @@ require Bio::Emboss::Methods;
 	
 );
 
-$VERSION = '1.0.1';
+$VERSION = '2.0.0';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()

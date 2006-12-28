@@ -19,13 +19,13 @@ INCLUDE: const-xs.inc
 
 INCLUDE: emboss-boot-xs.inc
 
-int
+void
 embInitPerl(pgm, argv)
 	char *    pgm
         SV *      argv
     INIT:
      	I32 argc = 0;
-     	int i, n;
+     	int n;
 	char ** cargv;
 
      	if ((!SvROK(argv))
@@ -47,19 +47,17 @@ embInitPerl(pgm, argv)
 	   printf("carv[%d]: %s\n", n, cargv[n]);
 #endif
 	}
-	RETVAL = embInit(pgm, argc, cargv);
+	embInit(pgm, argc, cargv);
 	free(cargv);
-    OUTPUT:
-        RETVAL 
 
 
-int
+void
 ajGraphInitPerl(pgm, argv)
 	char *    pgm
         SV *      argv
     INIT:
      	I32 argc = 0;
-     	int i, n;
+     	int n;
 	char ** cargv;
 
      	if ((!SvROK(argv))
@@ -81,10 +79,8 @@ ajGraphInitPerl(pgm, argv)
 	   printf("carv[%d]: %s\n", n, cargv[n]);
 #endif
 	}
-	RETVAL = ajGraphInit(pgm, argc, cargv);
+	ajGraphInit(pgm, argc, cargv);
 	free(cargv);
-    OUTPUT:
-        RETVAL 
 
 
 

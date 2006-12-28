@@ -11,17 +11,17 @@ MODULE = Bio::Emboss_translate		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajtranslate.h: automatically generated
+ # code from ajtranslate.c: automatically generated
 
 void
 ajTrnDel (pthis)
-       AjPTrn & pthis
+       AjPTrn& pthis
     OUTPUT:
        pthis
 
 AjPTrn
-ajTrnNew (trnFileName)
-       const AjPStr trnFileName
+ajTrnNewC (filename)
+       const char* filename
     OUTPUT:
        RETVAL
 
@@ -32,15 +32,17 @@ ajTrnNewI (trnFileNameInt)
        RETVAL
 
 AjPTrn
-ajTrnNewC (trnFileName)
-       const char *trnFileName
+ajTrnNew (trnFileName)
+       const AjPStr trnFileName
     OUTPUT:
        RETVAL
 
 void
 ajTrnReadFile (trnObj, trnFile)
-       AjPTrn  trnObj
+       AjPTrn trnObj
        AjPFile trnFile
+    OUTPUT:
+       trnObj
 
 AjPSeq
 ajTrnNewPep (nucleicSeq, frame)
@@ -49,132 +51,191 @@ ajTrnNewPep (nucleicSeq, frame)
     OUTPUT:
        RETVAL
 
-const  AjPStr
+const AjPStr
 ajTrnCodon (trnObj, codon)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPStr codon
     OUTPUT:
        RETVAL
 
-const  AjPStr
+const AjPStr
 ajTrnRevCodon (trnObj, codon)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPStr codon
     OUTPUT:
        RETVAL
 
-const  AjPStr
+const AjPStr
 ajTrnCodonC (trnObj, codon)
-       const AjPTrn  trnObj
-       const char *codon
+       const AjPTrn trnObj
+       const char * codon
     OUTPUT:
        RETVAL
 
-const  AjPStr
+const AjPStr
 ajTrnRevCodonC (trnObj, codon)
-       const AjPTrn  trnObj
-       const char *codon
+       const AjPTrn trnObj
+       const char * codon
     OUTPUT:
        RETVAL
 
 char
 ajTrnCodonK (trnObj, codon)
-       const AjPTrn  trnObj
-       const char *codon
+       const AjPTrn trnObj
+       const char * codon
     OUTPUT:
        RETVAL
 
 char
 ajTrnRevCodonK (trnObj, codon)
-       const AjPTrn  trnObj
-       const char *codon
+       const AjPTrn trnObj
+       const char * codon
     OUTPUT:
        RETVAL
 
 void
 ajTrnC (trnObj, str, len, pep)
-       const AjPTrn  trnObj
-       const char *str
+       const AjPTrn trnObj
+       const char * str
        ajint len
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnRevC (trnObj, str, len, pep)
-       const AjPTrn  trnObj
-       const char *str
+       const AjPTrn trnObj
+       const char * str
        ajint len
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnAltRevC (trnObj, str, len, pep)
-       const AjPTrn  trnObj
-       const char *str
+       const AjPTrn trnObj
+       const char * str
        ajint len
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnStr (trnObj, str, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPStr str
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnRevStr (trnObj, str, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPStr str
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnAltRevStr (trnObj, str, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPStr str
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnSeq (trnObj, seq, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPSeq seq
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnRevSeq (trnObj, seq, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPSeq seq
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnAltRevSeq (trnObj, seq, pep)
-       const AjPTrn  trnObj
+       const AjPTrn trnObj
        const AjPSeq seq
-       AjPStr &pep
-    OUTPUT:
-       pep
+       AjPStr & pep
 
 void
 ajTrnCFrame (trnObj, seq, len, frame, pep)
-       const AjPTrn  trnObj
-       const char *seq
+       const AjPTrn trnObj
+       const char * seq
        ajint len
        ajint frame
-       AjPStr &pep
+       AjPStr & pep
+
+void
+ajTrnStrFrame (trnObj, seq, frame, pep)
+       const AjPTrn trnObj
+       const AjPStr seq
+       ajint frame
+       AjPStr & pep
+
+void
+ajTrnSeqFrame (trnObj, seq, frame, pep)
+       const AjPTrn trnObj
+       const AjPSeq seq
+       ajint frame
+       AjPStr & pep
+
+AjPSeq
+ajTrnSeqFramePep (trnObj, seq, frame)
+       const AjPTrn trnObj
+       const AjPSeq seq
+       ajint frame
     OUTPUT:
-       pep
+       RETVAL
+
+ajint
+ajTrnCDangle (trnObj, seq, len, frame, pep)
+       const AjPTrn trnObj
+       const char * seq
+       ajint len
+       ajint frame
+       AjPStr & pep
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTrnStrDangle (trnObj, seq, frame, pep)
+       const AjPTrn trnObj
+       const AjPStr seq
+       ajint frame
+       AjPStr & pep
+    OUTPUT:
+       RETVAL
+
+AjPSeq
+ajTrnSeqOrig (trnObj, seq, frame)
+       const AjPTrn trnObj
+       const AjPSeq seq
+       ajint frame
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajTrnGetTitle (thys)
+       const AjPTrn thys
+    OUTPUT:
+       RETVAL
+
+AjPStr
+ajTrnGetFileName (thys)
+       const AjPTrn thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTrnStartStop (trnObj, codon, aa)
+       const AjPTrn trnObj
+       const AjPStr codon
+       char & aa
+    OUTPUT:
+       RETVAL
+       aa
+
+ajint
+ajTrnStartStopC (trnObj, codon, aa)
+       const AjPTrn trnObj
+       const char * codon
+       char & aa
+    OUTPUT:
+       RETVAL
+       aa
 
 AjPStr
 ajTrnName (trnFileNameInt)
@@ -183,85 +244,5 @@ ajTrnName (trnFileNameInt)
        RETVAL
 
 void
-ajTrnStrFrame (trnObj, seq, frame, pep)
-       const AjPTrn  trnObj
-       const AjPStr seq
-       ajint frame
-       AjPStr &pep
-    OUTPUT:
-       pep
-
-void
-ajTrnSeqFrame (trnObj, seq, frame, pep)
-       const AjPTrn  trnObj
-       const AjPSeq seq
-       ajint frame
-       AjPStr &pep
-    OUTPUT:
-       pep
-
-AjPSeq
-ajTrnSeqFramePep (trnObj, seq, frame)
-       const AjPTrn  trnObj
-       const AjPSeq seq
-       ajint frame
-    OUTPUT:
-       RETVAL
-
-ajint
-ajTrnCDangle (trnObj, seq, len, frame, pep)
-       const AjPTrn  trnObj
-       const char *seq
-       ajint len
-       ajint frame
-       AjPStr &pep
-    OUTPUT:
-       RETVAL
-       pep
-
-ajint
-ajTrnStrDangle (trnObj, seq, frame, pep)
-       const AjPTrn  trnObj
-       const AjPStr seq
-       ajint frame
-       AjPStr &pep
-    OUTPUT:
-       RETVAL
-       pep
-
-AjPStr
-ajTrnGetTitle (thys)
-       const AjPTrn  thys
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajTrnGetFileName (thys)
-       const AjPTrn  thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajTrnStartStop (trnObj, codon, aa)
-       const AjPTrn  trnObj
-       const AjPStr codon
-       char *aa
-    OUTPUT:
-       RETVAL
-
-ajint
-ajTrnStartStopC (trnObj, codon, aa)
-       const AjPTrn  trnObj
-       const char *codon
-       char *aa
-    OUTPUT:
-       RETVAL
-
-AjPSeq
-ajTrnSeqOrig (trnObj, seq, frame)
-       const AjPTrn  trnObj
-       const AjPSeq seq
-       ajint frame
-    OUTPUT:
-       RETVAL
+ajTrnExit ()
 

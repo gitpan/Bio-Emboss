@@ -11,43 +11,15 @@ MODULE = Bio::Emboss_embprop		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embprop.h: automatically generated
+ # code from embprop.c: automatically generated
 
 void
-embPropAminoRead (fp)
-       AjPFile fp
-
-void
-embPropCalcFragments (s, n, begin, l, pa, unfavoured, overlap, allpartials, ncomp, npart, rname)
-       const char *s
-       ajint n
-       ajint begin
-       AjPList &l
-       AjPList &pa
-       AjBool unfavoured
-       AjBool overlap
-       AjBool allpartials
-       ajint &ncomp
-       ajint &npart
-       AjPStr &rname
-    OUTPUT:
-       l
-       pa
-       ncomp
-       npart
-       rname
-
-double
-embPropCalcMolextcoeff (s, start, end)
-       const char *s
-       ajint start
-       ajint end
-    OUTPUT:
-       RETVAL
+embPropAminoRead (mfptr)
+       AjPFile mfptr
 
 double
 embPropCalcMolwt (s, start, end)
-       const char *s
+       const char * s
        ajint start
        ajint end
     OUTPUT:
@@ -55,11 +27,19 @@ embPropCalcMolwt (s, start, end)
 
 double
 embPropCalcMolwtMod (s, start, end, nmass, cmass)
-       const char *s
+       const char * s
        ajint start
        ajint end
        double nmass
        double cmass
+    OUTPUT:
+       RETVAL
+
+double
+embPropCalcMolextcoeff (s, start, end)
+       const char * s
+       ajint start
+       ajint end
     OUTPUT:
        RETVAL
 
@@ -74,6 +54,29 @@ embPropIntToThree (c)
        ajint c
     OUTPUT:
        RETVAL
+
+void
+embPropCalcFragments (s, n, begin, l, pa, unfavoured, overlap, allpartials, ncomp, npart, rname, nterm, cterm, dorag)
+       const char * s
+       ajint n
+       ajint begin
+       AjPList & l
+       AjPList & pa
+       AjBool unfavoured
+       AjBool overlap
+       AjBool allpartials
+       ajint & ncomp
+       ajint & npart
+       AjPStr & rname
+       AjBool nterm
+       AjBool cterm
+       AjBool dorag
+    OUTPUT:
+       l
+       pa
+       ncomp
+       npart
+       rname
 
 AjPStr
 embPropProtGaps (seq, pad)
@@ -114,4 +117,7 @@ embPropTransition (base1, base2)
        char base2
     OUTPUT:
        RETVAL
+
+void
+embPropExit ()
 

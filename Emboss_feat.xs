@@ -11,125 +11,92 @@ MODULE = Bio::Emboss_feat		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajfeat.h: automatically generated
+ # code from ajfeat.c: automatically generated
 
 AjBool
-ajFeatIsChild (gf)
-       const AjPFeature gf
+ajFeattabOutOpen (thys, ufo)
+       AjPFeattabOut thys
+       const AjPStr ufo
     OUTPUT:
        RETVAL
 
-AjPFeature
-ajFeatCopy (orig)
-       const AjPFeature orig
+AjPFile
+ajFeattabOutFile (thys)
+       const AjPFeattabOut thys
     OUTPUT:
        RETVAL
-
-void
-ajFeatDel (pthis)
-       AjPFeature &pthis
-    OUTPUT:
-       pthis
-
-void
-ajFeatExit ()
-
-ajint
-ajFeatGetEnd (thys)
-       const AjPFeature thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatGetForward (thys)
-       const AjPFeature thys
-    OUTPUT:
-       RETVAL
-
-ajint
-ajFeatGetFrame (thys)
-       const AjPFeature thys
-    OUTPUT:
-       RETVAL
-
-
-AjBool
-ajFeatGetNote (thys, name, val)
-       const AjPFeature thys
-       const AjPStr name
-       AjPStr& val
-    OUTPUT:
-       RETVAL
-       val
-
-AjBool
-ajFeatGetNoteI (thys, name, count, val)
-       const AjPFeature thys
-       const AjPStr name
-       ajint count
-       AjPStr& val
-    OUTPUT:
-       RETVAL
-       val
-
-ajint
-ajFeatGetStart (thys)
-       const AjPFeature thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatGetTag (thys, name, num, val)
-       const AjPFeature thys
-       const AjPStr name
-       ajint num
-       AjPStr& val
-    OUTPUT:
-       RETVAL
-       val
-
 
 AjPStr
-ajFeatGetType (thys)
-       const AjPFeature thys
+ajFeattabOutFilename (thys)
+       const AjPFeattabOut thys
     OUTPUT:
        RETVAL
 
 AjBool
-ajFeatIsCompMult (gf)
-       const AjPFeature gf
+ajFeattabOutIsOpen (thys)
+       const AjPFeattabOut thys
     OUTPUT:
        RETVAL
 
 AjBool
-ajFeatIsLocal (gf)
-       const AjPFeature gf
+ajFeattabOutIsLocal (thys)
+       const AjPFeattabOut thys
     OUTPUT:
        RETVAL
 
 AjBool
-ajFeatIsLocalRange (gf, start, end)
-       const AjPFeature gf
-       ajint start
-       ajint end
+ajFeattabOutSet (thys, ufo)
+       AjPFeattabOut thys
+       const AjPStr ufo
     OUTPUT:
        RETVAL
 
-AjBool
-ajFeatIsMultiple (gf)
-       const AjPFeature gf
+AjPFeattabIn
+ajFeattabInNew ()
     OUTPUT:
        RETVAL
 
-AjBool
-ajFeatLocToSeq (seq, line, res, usa)
-       const AjPStr seq
-       const AjPStr line
-       AjPStr &res
-       const AjPStr usa
+AjPFeattabIn
+ajFeattabInNewSS (fmt, name, type)
+       const AjPStr fmt
+       const AjPStr name
+       const char* type
     OUTPUT:
        RETVAL
-       res
+
+AjPFeattabIn
+ajFeattabInNewSSF (fmt, name, type, buff)
+       const AjPStr fmt
+       const AjPStr name
+       const char* type
+       AjPFileBuff buff
+    OUTPUT:
+       RETVAL
+
+AjPFeattabOut
+ajFeattabOutNew ()
+    OUTPUT:
+       RETVAL
+
+void
+ajFeattabOutSetBasename (thys, basename)
+       AjPFeattabOut thys
+       const AjPStr basename
+
+AjPFeattabOut
+ajFeattabOutNewSSF (fmt, name, type, file)
+       const AjPStr fmt
+       const AjPStr name
+       const char* type
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajFeatRead (ftin)
+       AjPFeattabIn ftin
+    OUTPUT:
+       RETVAL
 
 AjPFeature
 ajFeatNew (thys, source, type, Start, End, score, strand, frame)
@@ -171,40 +138,42 @@ ajFeatNewProt (thys, source, type, Start, End, score)
     OUTPUT:
        RETVAL
 
-AjBool
-ajFeatOutFormatDefault (pformat)
-       AjPStr& pformat
+void
+ajFeattabInDel (pthis)
+       AjPFeattabIn& pthis
     OUTPUT:
-       RETVAL
-       pformat
-
-AjPFeattable
-ajFeatRead (ftin)
-       AjPFeattabIn ftin
-    OUTPUT:
-       RETVAL
+       pthis
 
 void
-ajFeatReverse (thys, ilen)
-       AjPFeature thys
-       ajint ilen
-
-AjBool
-ajFeatSetDesc (thys, desc)
-       AjPFeature thys
-       const AjPStr desc
+ajFeattableDel (pthis)
+       AjPFeattable& pthis
     OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatSetDescApp (thys, desc)
-       AjPFeature thys
-       const AjPStr desc
-    OUTPUT:
-       RETVAL
+       pthis
 
 void
-ajFeatSortByEnd (Feattab)
+ajFeatDel (pthis)
+       AjPFeature& pthis
+    OUTPUT:
+       pthis
+
+AjBool
+ajFeatUfoWrite (thys, featout, ufo)
+       const AjPFeattable thys
+       AjPFeattabOut featout
+       const AjPStr ufo
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattableWrite (thys, ufo)
+       AjPFeattable thys
+       const AjPStr ufo
+    OUTPUT:
+       RETVAL
+       thys
+
+void
+ajFeatSortByType (Feattab)
        AjPFeattable Feattab
 
 void
@@ -212,7 +181,7 @@ ajFeatSortByStart (Feattab)
        AjPFeattable Feattab
 
 void
-ajFeatSortByType (Feattab)
+ajFeatSortByEnd (Feattab)
        AjPFeattable Feattab
 
 void
@@ -220,36 +189,80 @@ ajFeattableAdd (thys, feature)
        AjPFeattable thys
        AjPFeature feature
 
-ajint
-ajFeattableBegin (thys)
-       const AjPFeattable thys
-    OUTPUT:
-       RETVAL
-
 void
 ajFeattableClear (thys)
        AjPFeattable thys
 
-AjPFeattable
-ajFeattableCopy (orig)
-       const AjPFeattable orig
+AjBool
+ajFeatOutFormatDefault (pformat)
+       AjPStr& pformat
+    OUTPUT:
+       RETVAL
+       pformat
+
+AjBool
+ajFeatWrite (ftout, features)
+       AjPFeattabOut ftout
+       const AjPFeattable features
     OUTPUT:
        RETVAL
 
-void
-ajFeattableDel (pthis)
-       AjPFeattable &pthis
+AjBool
+ajFeattableWriteGff (Feattab, file)
+       const AjPFeattable Feattab
+       AjPFile file
     OUTPUT:
-       pthis
+       RETVAL
 
-ajint
-ajFeattableEnd (thys)
+AjBool
+ajFeattableWriteDdbj (thys, file)
+       const AjPFeattable thys
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattableWriteEmbl (thys, file)
+       const AjPFeattable thys
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattableWriteGenbank (thys, file)
+       const AjPFeattable thys
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattableWriteSwiss (thys, file)
+       const AjPFeattable thys
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattableWritePir (thys, file)
+       const AjPFeattable thys
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajFeattableGetName (thys)
        const AjPFeattable thys
     OUTPUT:
        RETVAL
 
-AjPStr
-ajFeattableGetName (thys)
+const char*
+ajFeattableGetTypeC (thys)
+       const AjPFeattable thys
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajFeattableGetTypeS (thys)
        const AjPFeattable thys
     OUTPUT:
        RETVAL
@@ -267,8 +280,250 @@ ajFeattableIsProt (thys)
        RETVAL
 
 ajint
+ajFeattableBegin (thys)
+       const AjPFeattable thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeattableEnd (thys)
+       const AjPFeattable thys
+    OUTPUT:
+       RETVAL
+
+ajint
 ajFeattableLen (thys)
        const AjPFeattable thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeattableSize (thys)
+       const AjPFeattable thys
+    OUTPUT:
+       RETVAL
+
+void
+ajFeattabInClear (thys)
+       AjPFeattabIn thys
+
+AjBool
+ajFeatLocToSeq (seq, line, res, usa)
+       const AjPStr seq
+       const AjPStr line
+       AjPStr& res
+       const AjPStr usa
+    OUTPUT:
+       RETVAL
+       res
+
+ajint
+ajFeatGetLocs (str, cds, type)
+       const AjPStr str
+       AjPStr*& cds
+       const char* type
+    OUTPUT:
+       RETVAL
+       cds
+
+AjBool
+ajFeatGetNote (thys, name, val)
+       const AjPFeature thys
+       const AjPStr name
+       AjPStr& val
+    OUTPUT:
+       RETVAL
+       val
+
+AjBool
+ajFeatGetNoteC (thys, name, val)
+       const AjPFeature thys
+       const char* name
+       AjPStr& val
+    OUTPUT:
+       RETVAL
+       val
+
+AjBool
+ajFeatGetNoteCI (thys, name, count, val)
+       const AjPFeature thys
+       const char* name
+       ajint count
+       AjPStr& val
+    OUTPUT:
+       RETVAL
+       val
+
+AjBool
+ajFeatGetNoteI (thys, name, count, val)
+       const AjPFeature thys
+       const AjPStr name
+       ajint count
+       AjPStr& val
+    OUTPUT:
+       RETVAL
+       val
+
+AjBool
+ajFeatGetTag (thys, name, num, val)
+       const AjPFeature thys
+       const AjPStr name
+       ajint num
+       AjPStr& val
+    OUTPUT:
+       RETVAL
+       val
+
+const AjPStr
+ajFeatGetType (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajFeatGetSource (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeatGetStart (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+char
+ajFeatGetStrand (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeatGetEnd (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeatGetLength (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+float
+ajFeatGetScore (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatGetForward (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeatGetFrame (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajFeatGetTrans (str, cds)
+       const AjPStr str
+       AjPStr*& cds
+    OUTPUT:
+       RETVAL
+       cds
+
+void
+ajFeatTest ()
+
+void
+ajFeatSetDescApp (thys, desc)
+       AjPFeature thys
+       const AjPStr desc
+
+void
+ajFeatSetDesc (thys, desc)
+       AjPFeature thys
+       const AjPStr desc
+
+void
+ajFeatSetScore (thys, score)
+       AjPFeature thys
+       float score
+
+void
+ajFeatSetStrand (thys, score)
+       AjPFeature thys
+       float score
+
+AjBool
+ajFeattabInSetType (thys, type)
+       AjPFeattabIn thys
+       const AjPStr type
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattabInSetTypeC (thys, type)
+       AjPFeattabIn thys
+       const char* type
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattabOutSetType (thys, type)
+       AjPFeattabOut thys
+       const AjPStr type
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeattabOutSetTypeC (thys, type)
+       AjPFeattabOut thys
+       const char* type
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagSetC (thys, tag, value)
+       AjPFeature thys
+       const char* tag
+       const AjPStr value
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagSet (thys, tag, value)
+       AjPFeature thys
+       const AjPStr tag
+       const AjPStr value
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagAddCC (thys, tag, value)
+       AjPFeature thys
+       const char* tag
+       const char* value
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagAddC (thys, tag, value)
+       AjPFeature thys
+       const char* tag
+       const AjPStr value
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagAdd (thys, tag, value)
+       AjPFeature thys
+       const AjPStr tag
+       const AjPStr value
     OUTPUT:
        RETVAL
 
@@ -279,8 +534,44 @@ ajFeattableNew (name)
        RETVAL
 
 AjPFeattable
+ajFeatUfoRead (featin, ufo)
+       AjPFeattabIn featin
+       const AjPStr ufo
+    OUTPUT:
+       RETVAL
+
+void
+ajFeattableSetNuc (thys)
+       AjPFeattable thys
+
+void
+ajFeattableSetProt (thys)
+       AjPFeattable thys
+
+void
+ajFeattableReverse (thys)
+       AjPFeattable thys
+
+void
+ajFeatReverse (thys, ilen)
+       AjPFeature thys
+       ajint ilen
+
+void
+ajFeattableSetRange (thys, fbegin, fend)
+       AjPFeattable thys
+       ajint fbegin
+       ajint fend
+
+AjPFeattable
 ajFeattableNewDna (name)
        const AjPStr name
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajFeattableNewSeq (seq)
+       const AjPSeq seq
     OUTPUT:
        RETVAL
 
@@ -291,10 +582,88 @@ ajFeattableNewProt (name)
        RETVAL
 
 AjPFeattable
-ajFeattableNewSeq (seq)
-       const AjPSeq seq
+ajFeattableCopy (orig)
+       const AjPFeattable orig
     OUTPUT:
        RETVAL
+
+AjPFeature
+ajFeatCopy (orig)
+       const AjPFeature orig
+    OUTPUT:
+       RETVAL
+
+void
+ajFeatTrace (thys)
+       const AjPFeature thys
+
+void
+ajFeatTagTrace (thys)
+       const AjPFeature thys
+
+AjIList
+ajFeatTagIter (thys)
+       const AjPFeature thys
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatTagval (iter, tagnam, tagval)
+       AjIList iter
+       AjPStr& tagnam
+       AjPStr& tagval
+    OUTPUT:
+       RETVAL
+       tagnam
+       tagval
+
+void
+ajFeattableTrace (thys)
+       const AjPFeattable thys
+
+void
+ajFeatExit ()
+
+void
+ajFeatUnused ()
+
+AjBool
+ajFeatIsLocal (gf)
+       const AjPFeature gf
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatIsLocalRange (gf, start, end)
+       const AjPFeature gf
+       ajint start
+       ajint end
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatIsChild (gf)
+       const AjPFeature gf
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatIsMultiple (gf)
+       const AjPFeature gf
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajFeatIsCompMult (gf)
+       const AjPFeature gf
+    OUTPUT:
+       RETVAL
+
+void
+ajFeattabOutDel (thys)
+       AjPFeattabOut & thys
+    OUTPUT:
+       thys
 
 ajint
 ajFeattablePos (thys, ipos)
@@ -319,34 +688,6 @@ ajFeattablePosII (ilen, imin, ipos)
     OUTPUT:
        RETVAL
 
-void
-ajFeattableReverse (thys)
-       AjPFeattable  thys
-
-void
-ajFeattableSetDna (thys)
-       AjPFeattable thys
-
-void
-ajFeattableSetProt (thys)
-       AjPFeattable thys
-
-void
-ajFeattableSetRange (thys, fbegin, fend)
-       AjPFeattable thys
-       ajint fbegin
-       ajint fend
-
-ajint
-ajFeattableSize (thys)
-       const AjPFeattable thys
-    OUTPUT:
-       RETVAL
-
-void
-ajFeattableTrace (thys)
-       const AjPFeattable thys
-
 AjBool
 ajFeattableTrimOff (thys, ioffset, ilen)
        AjPFeattable thys
@@ -354,245 +695,6 @@ ajFeattableTrimOff (thys, ioffset, ilen)
        ajint ilen
     OUTPUT:
        RETVAL
-
-AjBool
-ajFeattableWrite (thys, ufo)
-       AjPFeattable thys
-       const AjPStr ufo
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWriteDdbj (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWriteEmbl (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWriteGenbank (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWriteGff (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWritePir (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattableWriteSwiss (features, file)
-       const AjPFeattable features
-       AjPFile file
-    OUTPUT:
-       RETVAL
-
-void
-ajFeattabInClear (thys)
-       AjPFeattabIn thys
-
-void
-ajFeattabInDel (pthis)
-       AjPFeattabIn& pthis
-    OUTPUT:
-       pthis
-
-AjPFeattabIn
-ajFeattabInNew ()
-    OUTPUT:
-       RETVAL
-
-AjPFeattabIn
-ajFeattabInNewSS (fmt, name, type)
-       const AjPStr fmt
-       const AjPStr name
-       const char* type
-    OUTPUT:
-       RETVAL
-
-AjPFeattabIn
-ajFeattabInNewSSF (fmt, name, type, buff)
-       const AjPStr fmt
-       const AjPStr name
-       const char* type
-       AjPFileBuff buff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabInSetType (thys, type)
-       AjPFeattabIn thys
-       const AjPStr type
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabInSetTypeC (thys, type)
-       AjPFeattabIn thys
-       const char* type
-    OUTPUT:
-       RETVAL
-
-void
-ajFeattabOutDel (pthis)
-       AjPFeattabOut& pthis
-    OUTPUT:
-       pthis
-
-AjPFile
-ajFeattabOutFile (thys)
-       const AjPFeattabOut thys
-    OUTPUT:
-       RETVAL
-
-AjPStr
-ajFeattabOutFilename (thys)
-       const AjPFeattabOut thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabOutIsLocal (thys)
-       const AjPFeattabOut thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabOutIsOpen (thys)
-       const AjPFeattabOut thys
-    OUTPUT:
-       RETVAL
-
-AjPFeattabOut
-ajFeattabOutNew ()
-    OUTPUT:
-       RETVAL
-
-AjPFeattabOut
-ajFeattabOutNewSSF (fmt, name, type, buff)
-       const AjPStr fmt
-       const AjPStr name
-       const char* type
-       AjPFile buff
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabOutOpen (thys, ufo)
-       AjPFeattabOut thys
-       const AjPStr ufo
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabOutSet (thys, ufo)
-       AjPFeattabOut thys
-       const AjPStr ufo
-    OUTPUT:
-       RETVAL
-
-void
-ajFeattabOutSetBasename (thys, basename)
-       AjPFeattabOut thys
-       const AjPStr basename
-
-AjBool
-ajFeattabOutSetType (thys, type)
-       AjPFeattabOut thys
-       const AjPStr type
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeattabOutSetTypeC (thys, type)
-       AjPFeattabOut thys
-       const char* type
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatTagAdd (thys, tag, value)
-       AjPFeature thys
-       const AjPStr tag
-       const AjPStr value
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatTagAddC (thys, tag, value)
-       AjPFeature thys
-       const char* tag
-       const AjPStr value
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatTagAddCC (thys, tag, value)
-       AjPFeature thys
-       const char* tag
-       const char* value
-    OUTPUT:
-       RETVAL
-
-AjIList
-ajFeatTagIter (thys)
-       const AjPFeature thys
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatTagSet (thys, tag, value)
-       AjPFeature thys
-       const AjPStr tag
-       const AjPStr value
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatTagSetC (thys, tag, value)
-       AjPFeature thys
-       const char* tag
-       const AjPStr value
-    OUTPUT:
-       RETVAL
-
-void
-ajFeatTagTrace (thys)
-       const AjPFeature thys
-
-AjBool
-ajFeatTagval (iter, tagnam, tagval)
-       AjIList iter
-       AjPStr& tagnam
-       AjPStr& tagval
-    OUTPUT:
-       RETVAL
-       tagnam
-       tagval
-
-void
-ajFeatTest ()
-
-void
-ajFeatTrace (thys)
-       const AjPFeature thys
 
 AjBool
 ajFeatTrimOffRange (ft, ioffset, begin, end, dobegin, doend)
@@ -605,25 +707,15 @@ ajFeatTrimOffRange (ft, ioffset, begin, end, dobegin, doend)
     OUTPUT:
        RETVAL
 
-AjPFeattable
-ajFeatUfoRead (tabin, Ufo)
-       AjPFeattabIn tabin
-       const AjPStr Ufo
+void
+ajFeatDefName (thys, setname)
+       AjPFeattable thys
+       const AjPStr setname
     OUTPUT:
-       RETVAL
+       thys
 
-AjBool
-ajFeatUfoWrite (thys, tabout, Ufo)
-       const AjPFeattable thys
-       AjPFeattabOut tabout
-       const AjPStr Ufo
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajFeatWrite (ftout, ft)
-       AjPFeattabOut ftout
-       const AjPFeattable ft
-    OUTPUT:
-       RETVAL
+void
+ajFeatPrintFormat (outf, full)
+       AjPFile outf
+       AjBool full
 

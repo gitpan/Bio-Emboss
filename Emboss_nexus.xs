@@ -11,29 +11,11 @@ MODULE = Bio::Emboss_nexus		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajnexus.h: automatically generated
+ # code from ajnexus.c: automatically generated
 
-void
-ajNexusDel (pthys)
-       AjPNexus & pthys
-    OUTPUT:
-       pthys
-
-ajint
-ajNexusGetNtaxa (thys)
-       const AjPNexus  thys
-    OUTPUT:
-       RETVAL
-
-AjPStr*
-ajNexusGetTaxa (thys)
-       const AjPNexus  thys
-    OUTPUT:
-       RETVAL
-
-AjPStr*
-ajNexusGetSequences (thys)
-       AjPNexus  thys
+AjPNexus
+ajNexusParse (buff)
+       AjPFileBuff buff
     OUTPUT:
        RETVAL
 
@@ -42,13 +24,31 @@ ajNexusNew ()
     OUTPUT:
        RETVAL
 
-AjPNexus
-ajNexusParse (buff)
-       AjPFileBuff buff
+void
+ajNexusDel (pthys)
+       AjPNexus& pthys
     OUTPUT:
-       RETVAL
+       pthys
 
 void
 ajNexusTrace (thys)
-       const AjPNexus  thys
+       const AjPNexus thys
+
+AjPStr*
+ajNexusGetTaxa (thys)
+       const AjPNexus thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajNexusGetNtaxa (thys)
+       const AjPNexus thys
+    OUTPUT:
+       RETVAL
+
+AjPStr*
+ajNexusGetSequences (thys)
+       AjPNexus thys
+    OUTPUT:
+       RETVAL
 

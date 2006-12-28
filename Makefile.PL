@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker;
 
 # --- installation path of EMBOSS (--PREFIX during EMBOSS' configure)
 #        (if you did no "make install" of EMBOSS,
-#         you must adjust $EMB_LIBS below manually)
+#         put here the path to the source code)
 
 $EMB_ROOT     = "/usr/local";
 
@@ -29,7 +29,6 @@ $EMB_EXT_LIBS = "";
 #
 
 # --- path to EMBOSS' sources (for the *.h files)
-#     (not needed since EMBOSS-2.10.0)
 
 #$EMB_SRC_ROOT = "/usr/local/src/EMBOSS-2.7.1";
 
@@ -59,13 +58,14 @@ if (-d "$EMB_ROOT/lib") {
     @lib_search_dirs = qw(plplot ajax nucleus);
 }
 
-$EMB_LIBS = join (" ", map { "-L$EMB_ROOT/$_" } @lib_search_dirs) .  " " .
+$EMB_LIBS = join (" ", map { "-L$EMB_ROOT/$_ -R$EMB_ROOT/$_" } @lib_search_dirs) .  " " .
             join (" ", map { "-l$_" } @emb_libs) .  " " .
             $EMB_EXT_LIBS;
-unless ($EMB_SRC_ROOT) {
+
+if (-d "$EMB_ROOT/include") {
     $EMB_INC = "-I$EMB_ROOT/include";
 } else {
-    $EMB_INC =  join " ", map { "-I$EMB_SRC_ROOT/$_" } @emb_libs;
+    $EMB_INC =  join " ", map { "-I$EMB_ROOT/$_" } grep { -d "$EMB_ROOT/$_"} @emb_libs;
 }
 
 print "Searching EMBOSS libraries in $EMB_LIBS\n";
@@ -95,6 +95,8 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 @emboss_redefs = qw(regexp OP_NOT OP_REF OP_REVERSE);
 
 
+# --- include functions that have been declared "deprecated"
+$INCLUDE_DEPRECATED_FUNCTIONS = 1;
 
 #
 # --- END of adjustments
@@ -105,12 +107,17 @@ $EMB_VERSION = `$embossversion -stdout -auto`; # e.g. 2.5.1
 @modules_lib = qw(
 Emboss_acd
 Emboss_align
+Emboss_arr
 Emboss_assert
+Emboss_base
+Emboss_call
 Emboss_cod
+Emboss_dan
 Emboss_dmx
 Emboss_domain
 Emboss_feat
 Emboss_file
+Emboss_fmt
 Emboss_graph
 Emboss_hist
 Emboss_index
@@ -133,13 +140,15 @@ Emboss_seqdb
 Emboss_seqread
 Emboss_seqtype
 Emboss_seqwrite
+Emboss_sort
 Emboss_str
+Emboss_sys
+Emboss_table
 Emboss_time
 Emboss_translate
 Emboss_tree
 Emboss_util
 Emboss_vector
-Emboss_xyz
 
 Emboss_embcom
 Emboss_embcons
@@ -150,18 +159,31 @@ Emboss_embdomain
 Emboss_embest
 Emboss_embexit
 Emboss_embgroup
+Emboss_embiep
 Emboss_embindex
+Emboss_embinit
 Emboss_embmat
 Emboss_embmisc
 Emboss_embmol
 Emboss_embnmer
-Emboss_emboss
+Emboss_embpatlist
 Emboss_embpdb
 Emboss_embprop
+Emboss_embread
 Emboss_embshow
 Emboss_embword
-Emboss_embxyz
-);
+
+		  );
+
+@depre_modules_lib = qw(
+deprecated_Emboss_acd
+deprecated_Emboss_hist
+deprecated_Emboss_seq
+deprecated_Emboss_str
+			);
+
+push (@modules_lib, @depre_modules_lib) if $INCLUDE_DEPRECATED_FUNCTIONS;
+
 
 @sub_modules_lib = qw(
 );
@@ -308,6 +330,9 @@ exit(0);
 #       Ajax docum. in POD format ( blib/Bio/Emboss/Ajax.pod)
 
 sub MY::postamble {
+    my $ajax_dir = $EMB_SRC_ROOT ? $EMB_SRC_ROOT : $EMB_ROOT;
+    $ajax_dir .= "/ajax";
+    $ajax_dir = "" unless -d $ajax_dir;
     my $postamble = <<"MAKE_FRAG";
 
 # --- recreate Methods.pm if any of the .xs files has changed
@@ -328,8 +353,19 @@ Emboss.c: \$(EMBOSS_BOOT_FILES)
 epods: \$(INST_LIB)/Bio/Emboss/Ajax.pod
 
 # --- how to create Ajax POD
+AJAX_DIR = $ajax_dir
 \$(INST_LIB)/Bio/Emboss/Ajax.pod:
-\ttest "$EMB_SRC_ROOT" != "" && \$(PERL) scripts/extract_doc_for_pod.pl $EMB_SRC_ROOT/ajax/*.c > \$\@
+\tif test "\$(AJAX_DIR)" != ""  ; then \\
+\t  if test -d "\$(AJAX_DIR)" ; then \\
+\t     \$(PERL) scripts/extract_doc_for_pod.pl \$(AJAX_DIR)/*.c > \$\@ ;\\
+\t  else \\
+\t     echo " *** AJAX_DIR=\$(AJAX_DIR) directory not found" ;\\
+\t  fi ;\\
+\telse \\
+\t  echo "\\n *** AJAX_DIR not defined" ;\\
+\t  echo " *** You need to specify EMB_SRC_ROOT in Makefile.PL or AJAX_DIR in Makefile" ;\\
+\tfi
+#\ttest "$EMB_SRC_ROOT" != "" && \$(PERL) scripts/extract_doc_for_pod.pl $EMB_SRC_ROOT/ajax/*.c > \$\@
 
 # --- wrapper for emboss.h with some undefs and redefs
 #     (solve name conflicts between PERL and EMBOSS)
@@ -355,7 +391,9 @@ sub write_config_h {
 #endif
 EOB
     my ($v);
-    foreach $v (qw(2.10.0
+    foreach $v (qw(
+		  4.0.0
+		  2.10.0
 		  2.9.0
 		  2.8.0
 		  2.7.0

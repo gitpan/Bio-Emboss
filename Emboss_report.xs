@@ -11,26 +11,27 @@ MODULE = Bio::Emboss_report		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajreport.h: automatically generated
-
-void
-ajReportClose (pthys)
-       AjPReport  pthys
+ # code from ajreport.c: automatically generated
 
 void
 ajReportDel (pthys)
-       AjPReport & pthys
+       AjPReport& pthys
     OUTPUT:
        pthys
 
-void
-ajReportDummyFunction ()
+AjBool
+ajReportOpen (thys, name)
+       AjPReport thys
+       const AjPStr name
+    OUTPUT:
+       RETVAL
 
-void
-ajReportFileAdd (thys, file, type)
-       AjPReport  thys
-       AjPFile file
-       const AjPStr type
+AjBool
+ajReportFormatDefault (pformat)
+       AjPStr& pformat
+    OUTPUT:
+       RETVAL
+       pformat
 
 AjBool
 ajReportFindFormat (format, iformat)
@@ -41,111 +42,126 @@ ajReportFindFormat (format, iformat)
        iformat
 
 AjBool
-ajReportFormatDefault (pformat)
-       AjPStr& pformat
+ajReportSetTags (thys, taglist)
+       AjPReport thys
+       const AjPStr taglist
     OUTPUT:
        RETVAL
-       pformat
 
+AjBool
+ajReportValid (thys)
+       AjPReport thys
+    OUTPUT:
+       RETVAL
 
 AjPReport
 ajReportNew ()
     OUTPUT:
        RETVAL
 
-AjBool
-ajReportOpen (thys, name)
-       AjPReport  thys
-       const AjPStr name
+void
+ajReportWrite (thys, ftable, seq)
+       AjPReport thys
+       const AjPFeattable ftable
+       const AjPSeq seq
+
+void
+ajReportClose (thys)
+       AjPReport thys
+
+ajint
+ajReportLists (thys, types, names, prints, sizes)
+       const AjPReport thys
+       AjPStr*& types
+       AjPStr*& names
+       AjPStr*& prints
+       ajint*& sizes
     OUTPUT:
        RETVAL
+       types
+       names
+       prints
+       sizes
+
+void
+ajReportWriteHeader (thys, ftable, seq)
+       AjPReport thys
+       const AjPFeattable ftable
+       const AjPSeq seq
+
+void
+ajReportWriteTail (thys, ftable, seq)
+       AjPReport thys
+       const AjPFeattable ftable
+       const AjPSeq seq
+
+void
+ajReportSetHeader (thys, header)
+       AjPReport thys
+       const AjPStr header
+
+void
+ajReportSetHeaderC (thys, header)
+       AjPReport thys
+       const char* header
+
+void
+ajReportSetSubHeader (thys, header)
+       AjPReport thys
+       const AjPStr header
+
+void
+ajReportSetSubHeaderC (thys, header)
+       AjPReport thys
+       const char* header
+
+void
+ajReportSetTail (thys, tail)
+       AjPReport thys
+       const AjPStr tail
+
+void
+ajReportSetTailC (thys, tail)
+       AjPReport thys
+       const char* tail
+
+void
+ajReportSetSubTail (thys, tail)
+       AjPReport thys
+       const AjPStr tail
+
+void
+ajReportSetSubTailC (thys, tail)
+       AjPReport thys
+       const char* tail
+
+void
+ajReportSetType (thys, ftable, seq)
+       AjPReport thys
+       const AjPFeattable ftable
+       const AjPSeq seq
+
+const AjPStr
+ajReportSeqName (thys, seq)
+       const AjPReport thys
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+void
+ajReportFileAdd (thys, file, type)
+       AjPReport thys
+       AjPFile file
+       const AjPStr type
 
 void
 ajReportPrintFormat (outf, full)
        AjPFile outf
        AjBool full
 
-const AjPStr
-ajReportSeqName (thys, seq)
-       const AjPReport  thys
-       const AjPSeq seq
-    OUTPUT:
-       RETVAL
+void
+ajReportDummyFunction ()
 
 void
-ajReportSetHeader (thys, header)
-       AjPReport  thys
-       const AjPStr header
-
-void
-ajReportSetHeaderC (thys, header)
-       AjPReport  thys
-       const char* header
-
-void
-ajReportSetSubHeader (thys, header)
-       AjPReport  thys
-       const AjPStr header
-
-void
-ajReportSetSubHeaderC (thys, header)
-       AjPReport  thys
-       const char* header
-
-AjBool
-ajReportSetTags (thys, taglist)
-       AjPReport  thys
-       const AjPStr taglist
-    OUTPUT:
-       RETVAL
-
-void
-ajReportSetTail (thys, tail)
-       AjPReport  thys
-       const AjPStr tail
-
-void
-ajReportSetTailC (thys, tail)
-       AjPReport  thys
-       const char* tail
-
-void
-ajReportSetSubTail (thys, tail)
-       AjPReport  thys
-       const AjPStr tail
-
-void
-ajReportSetSubTailC (thys, tail)
-       AjPReport  thys
-       const char* tail
-
-void
-ajReportSetType (thys, ftable, seq)
-       AjPReport  thys
-       const AjPFeattable ftable
-       const AjPSeq seq
-
-AjBool
-ajReportValid (thys)
-       AjPReport  thys
-    OUTPUT:
-       RETVAL
-
-void
-ajReportWrite (thys, ftable, seq)
-       AjPReport  thys
-       const AjPFeattable ftable
-       const AjPSeq seq
-
-void
-ajReportWriteHeader (thys, ftable, seq)
-       AjPReport  thys
-       const AjPFeattable ftable
-       const AjPSeq seq
-
-void
-ajReportWriteTail (thys, ftable, seq)
-       AjPReport  thys
-       const AjPFeattable ftable
-       const AjPSeq seq
+ajReportExit ()
 

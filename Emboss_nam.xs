@@ -11,16 +11,20 @@ MODULE = Bio::Emboss_nam		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from ajnam.h: automatically generated
+ # code from ajnam.c: automatically generated
+
+void
+ajNamPrintDbAttr (outf, full)
+       AjPFile outf
+       AjBool full
+
+void
+ajNamPrintRsAttr (outf, full)
+       AjPFile outf
+       AjBool full
 
 AjBool
-ajNamDatabase (name)
-       const AjPStr name
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajNamDbDetails (name, type, id, qry, all, comment, release)
+ajNamDbDetails (name, type, id, qry, all, comment, release, methods, defined)
        const AjPStr name
        AjPStr& type
        AjBool& id
@@ -28,6 +32,8 @@ ajNamDbDetails (name, type, id, qry, all, comment, release)
        AjBool& all
        AjPStr& comment
        AjPStr& release
+       AjPStr& methods
+       AjPStr& defined
     OUTPUT:
        RETVAL
        type
@@ -36,43 +42,17 @@ ajNamDbDetails (name, type, id, qry, all, comment, release)
        all
        comment
        release
+       methods
+       defined
 
-AjBool
-ajNamDbGetDbalias (dbname, dbalias)
-       const AjPStr dbname
-       AjPStr& dbalias
-    OUTPUT:
-       RETVAL
-       dbalias
-
-AjBool
-ajNamDbGetUrl (dbname, url)
-       const AjPStr dbname
-       AjPStr& url
-    OUTPUT:
-       RETVAL
-       url
-
-AjBool
-ajNamDbData (qry)
-       AjPSeqQuery qry
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajNamDbQuery (qry)
-       AjPSeqQuery qry
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajNamDbTest (dbname)
-       const AjPStr dbname
-    OUTPUT:
-       RETVAL
+void
+ajNamListOrigin ()
 
 void
 ajNamDebugOrigin ()
+
+void
+ajNamListDatabases ()
 
 void
 ajNamDebugDatabases ()
@@ -84,7 +64,25 @@ void
 ajNamDebugVariables ()
 
 void
-ajNamExit ()
+ajNamListListDatabases (dbnames)
+       AjPList dbnames
+    OUTPUT:
+       dbnames
+
+void
+ajNamListListResources (rsnames)
+       AjPList rsnames
+    OUTPUT:
+       rsnames
+
+void
+ajNamVariables ()
+
+AjBool
+ajNamIsDbname (name)
+       const AjPStr name
+    OUTPUT:
+       RETVAL
 
 AjBool
 ajNamGetenv (name, value)
@@ -112,66 +110,58 @@ ajNamGetValue (name, value)
 
 AjBool
 ajNamGetValueC (name, value)
-       const char *name
+       const char* name
        AjPStr& value
     OUTPUT:
        RETVAL
        value
 
-void
-ajNamInit (prefix)
-       const char* prefix
-
 AjBool
-ajNamIsDbname (name)
+ajNamDatabase (name)
        const AjPStr name
     OUTPUT:
        RETVAL
 
 void
-ajNamListDatabases ()
+ajNamInit (prefix)
+       const char* prefix
 
 void
-ajNamListListDatabases (dbnames)
-       AjPList dbnames
-
-void
-ajNamListListResources (dbnames)
-       AjPList dbnames
-
-void
-ajNamListOrigin ()
-
-void
-ajNamPrintDbAttr (outf, full)
-       AjPFile outf
-       AjBool full
-
-void
-ajNamPrintRsAttr (outf, full)
-       AjPFile outf
-       AjBool full
+ajNamExit ()
 
 AjBool
-ajNamResolve (name)
-       AjPStr& name
+ajNamDbTest (dbname)
+       const AjPStr dbname
     OUTPUT:
        RETVAL
-       name
 
 AjBool
-ajNamRoot (root)
-       AjPStr& root
+ajNamDbGetUrl (dbname, url)
+       const AjPStr dbname
+       AjPStr& url
     OUTPUT:
        RETVAL
-       root
+       url
 
 AjBool
-ajNamRootBase (rootbase)
-       AjPStr& rootbase
+ajNamDbGetDbalias (dbname, dbalias)
+       const AjPStr dbname
+       AjPStr& dbalias
     OUTPUT:
        RETVAL
-       rootbase
+       dbalias
+
+AjBool
+ajNamDbData (qry)
+       AjPSeqQuery qry
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajNamDbQuery (qry)
+       AjPSeqQuery qry
+    OUTPUT:
+       RETVAL
 
 AjBool
 ajNamRootInstall (root)
@@ -195,30 +185,25 @@ ajNamRootVersion (version)
        version
 
 AjBool
-ajNamRsAttrValue (name, attribute, value)
-       const AjPStr name
-       const AjPStr attribute
-       AjPStr &value
+ajNamRoot (root)
+       AjPStr& root
     OUTPUT:
        RETVAL
-       value
+       root
 
 AjBool
-ajNamRsAttrValueC (name, attribute, value)
-       const char *name
-       const char *attribute
-       AjPStr &value
+ajNamRootBase (rootbase)
+       AjPStr& rootbase
     OUTPUT:
        RETVAL
-       value
+       rootbase
 
 AjBool
-ajNamRsListValue (name, value)
-       const AjPStr name
-       AjPStr &value
+ajNamResolve (name)
+       AjPStr& name
     OUTPUT:
        RETVAL
-       value
+       name
 
 AjBool
 ajNamSetControl (optionName)
@@ -226,6 +211,29 @@ ajNamSetControl (optionName)
     OUTPUT:
        RETVAL
 
-void
-ajNamVariables ()
+AjBool
+ajNamRsAttrValue (name, attribute, value)
+       const AjPStr name
+       const AjPStr attribute
+       AjPStr & value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamRsAttrValueC (name, attribute, value)
+       const char * name
+       const char * attribute
+       AjPStr & value
+    OUTPUT:
+       RETVAL
+       value
+
+AjBool
+ajNamRsListValue (name, value)
+       const AjPStr name
+       AjPStr & value
+    OUTPUT:
+       RETVAL
+       value
 

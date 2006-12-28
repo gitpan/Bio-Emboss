@@ -11,12 +11,12 @@ MODULE = Bio::Emboss_embcom		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embcom.h: automatically generated
+ # code from embcom.c: automatically generated
 
 void
 embComComplexity (seq, name, len, jmin, jmax, l, step, sim, freq, omnia, fp, pf, print, num_seq, MedValue)
-       const char *seq
-       const char *name
+       const char * seq
+       const char * name
        ajint len
        ajint jmin
        ajint jmax
@@ -29,17 +29,9 @@ embComComplexity (seq, name, len, jmin, jmax, l, step, sim, freq, omnia, fp, pf,
        AjPFile pf
        ajint print
        ajint num_seq
-       float &MedValue
+       float & MedValue
     OUTPUT:
        MedValue
-
-void
-embComWriteValueOfSeq (fp, n, name, len, MedValue)
-       AjPFile fp
-       ajint n
-       const char *name
-       ajint len
-       float MedValue
 
 void
 embComWriteFile (fp, jmin, jmax, lwin, step, sim)
@@ -49,6 +41,14 @@ embComWriteFile (fp, jmin, jmax, lwin, step, sim)
        ajint lwin
        ajint step
        ajint sim
+
+void
+embComWriteValueOfSeq (fp, n, name, len, MedValue)
+       AjPFile fp
+       ajint n
+       const char * name
+       ajint len
+       float MedValue
 
 void
 embComUnused ()

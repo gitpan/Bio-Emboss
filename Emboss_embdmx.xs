@@ -11,29 +11,20 @@ MODULE = Bio::Emboss_embdmx		PACKAGE = Bio::Emboss
 
 PROTOTYPES: ENABLE
 
- # code from embdmx.h: automatically generated
-
-AjBool
-embDmxHitlistToScophits (in, out)
-       const AjPList in
-       AjPList &out
-    OUTPUT:
-       RETVAL
-       out
+ # code from embdmx.c: automatically generated
 
 AjBool
 embDmxScophitsToHitlist (in, out, iter)
        const AjPList in
-       AjPHitlist &out
-       AjIList &iter
+       AjPHitlist& out
+       AjIList& iter
     OUTPUT:
        RETVAL
        out
-       iter
 
 AjBool
 embDmxScophitToHit (to, from)
-       AjPHit &to
+       AjPHit& to
        const AjPScophit from
     OUTPUT:
        RETVAL
@@ -42,13 +33,19 @@ embDmxScophitToHit (to, from)
 AjBool
 embDmxScophitsAccToHitlist (in, out, iter)
        const AjPList in
-       AjPHitlist &out
-       AjIList &iter
+       AjPHitlist& out
+       AjIList& iter
     OUTPUT:
        RETVAL
        out
-       iter
 
+AjBool
+embDmxHitsWrite (outf, hits, maxhits)
+       AjPFile outf
+       AjPHitlist hits
+       ajint maxhits
+    OUTPUT:
+       RETVAL
 
 AjBool
 embDmxScopToScophit (source, target)
@@ -61,16 +58,15 @@ embDmxScopToScophit (source, target)
 AjBool
 embDmxScopalgToScop (align, scop_arr, scop_dim, list)
        const AjPScopalg align
-       const AjPScop &scop_arr
+       AjPScop const* scop_arr
        ajint scop_dim
        AjPList& list
     OUTPUT:
        RETVAL
-       scop_arr
        list
 
 AjBool
-embDmxScophitsOverlap (h1, h2, n)
+embDmxScophitsOverlapAcc (h1, h2, n)
        const AjPScophit h1
        const AjPScophit h2
        ajint n
@@ -78,7 +74,7 @@ embDmxScophitsOverlap (h1, h2, n)
        RETVAL
 
 AjBool
-embDmxScophitsOverlapAcc (h1, h2, n)
+embDmxScophitsOverlap (h1, h2, n)
        const AjPScophit h1
        const AjPScophit h2
        ajint n
@@ -93,6 +89,36 @@ embDmxScophitMerge (hit1, hit2)
        RETVAL
 
 AjBool
+embDmxScophitMergeInsertOther (list, hit1, hit2)
+       AjPList list
+       AjPScophit hit1
+       AjPScophit hit2
+    OUTPUT:
+       RETVAL
+       hit1
+       hit2
+
+AjBool
+embDmxScophitMergeInsertOtherTarget (list, hit1, hit2)
+       AjPList list
+       AjPScophit hit1
+       AjPScophit hit2
+    OUTPUT:
+       RETVAL
+       hit1
+       hit2
+
+AjBool
+embDmxScophitMergeInsertOtherTargetBoth (list, hit1, hit2)
+       AjPList list
+       AjPScophit hit1
+       AjPScophit hit2
+    OUTPUT:
+       RETVAL
+       hit1
+       hit2
+
+AjBool
 embDmxScophitMergeInsertThis (list, hit1, hit2, iter)
        const AjPList list
        AjPScophit hit1
@@ -100,6 +126,8 @@ embDmxScophitMergeInsertThis (list, hit1, hit2, iter)
        AjIList iter
     OUTPUT:
        RETVAL
+       hit1
+       hit2
 
 AjBool
 embDmxScophitMergeInsertThisTarget (list, hit1, hit2, iter)
@@ -109,6 +137,8 @@ embDmxScophitMergeInsertThisTarget (list, hit1, hit2, iter)
        AjIList iter
     OUTPUT:
        RETVAL
+       hit1
+       hit2
 
 AjBool
 embDmxScophitMergeInsertThisTargetBoth (list, hit1, hit2, iter)
@@ -118,36 +148,14 @@ embDmxScophitMergeInsertThisTargetBoth (list, hit1, hit2, iter)
        AjIList iter
     OUTPUT:
        RETVAL
-
-AjBool
-embDmxScophitMergeInsertOther (list, hit1, hit2)
-       AjPList list
-       AjPScophit hit1
-       AjPScophit hit2
-    OUTPUT:
-       RETVAL
-
-AjBool
-embDmxScophitMergeInsertOtherTargetBoth (list, hit1, hit2)
-       AjPList list
-       AjPScophit hit1
-       AjPScophit hit2
-    OUTPUT:
-       RETVAL
-
-AjBool
-embDmxScophitMergeInsertOtherTarget (list, hit1, hit2)
-       AjPList list
-       AjPScophit hit1
-       AjPScophit hit2
-    OUTPUT:
-       RETVAL
+       hit1
+       hit2
 
 AjBool
 embDmxSeqNR (input, keep, nset, matrix, gapopen, gapextend, thresh, CheckGarbage)
        const AjPList input
-       AjPInt &keep
-       ajint &nset
+       AjPInt& keep
+       ajint& nset
        const AjPMatrixf matrix
        float gapopen
        float gapextend
@@ -159,15 +167,15 @@ embDmxSeqNR (input, keep, nset, matrix, gapopen, gapextend, thresh, CheckGarbage
        nset
 
 AjBool
-embDmxSeqNRRange (input, keep, nset, matrix, gapopen, gapextend, thresh1, thresh2, CheckGarbage)
+embDmxSeqNRRange (input, keep, nset, matrix, gapopen, gapextend, threshlow, threshup, CheckGarbage)
        const AjPList input
-       AjPInt &keep
-       ajint &nset
+       AjPInt& keep
+       ajint& nset
        const AjPMatrixf matrix
        float gapopen
        float gapextend
-       float thresh1
-       float thresh2
+       float threshlow
+       float threshup
        AjBool CheckGarbage
     OUTPUT:
        RETVAL
@@ -177,11 +185,25 @@ embDmxSeqNRRange (input, keep, nset, matrix, gapopen, gapextend, thresh1, thresh
 AjBool
 embDmxSeqCompall (input, scores, matrix, gapopen, gapextend)
        const AjPList input
-       AjPFloat2d &scores
+       AjPFloat2d& scores
        const AjPMatrixf matrix
        float gapopen
        float gapextend
     OUTPUT:
        RETVAL
        scores
+
+AjPList
+embDmxScophitReadAllFasta (inf)
+       AjPFile inf
+    OUTPUT:
+       RETVAL
+
+AjBool
+embDmxHitlistToScophits (in, out)
+       const AjPList in
+       AjPList& out
+    OUTPUT:
+       RETVAL
+       out
 

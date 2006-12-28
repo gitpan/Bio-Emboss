@@ -7,9 +7,9 @@
 #include "emboss_perl.h"
 #include "bio_emboss_config.h"
 
-MODULE = Bio::Emboss_emboss		PACKAGE = Bio::Emboss		
+MODULE = Bio::Emboss_embinit		PACKAGE = Bio::Emboss		
 
 PROTOTYPES: ENABLE
 
- # code from emboss.h: automatically generated
+ # code from embinit.c: automatically generated
 
