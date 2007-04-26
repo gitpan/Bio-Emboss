@@ -100,18 +100,48 @@ ajSp64Crc (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajMathPos (len, ipos)
-       ajint len
+       ajuint len
        ajint ipos
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajMathPosI (len, imin, ipos)
-       ajint len
-       ajint imin
+       ajuint len
+       ajuint imin
        ajint ipos
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajSp32Crc (seq)
+       const AjPStr seq
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajNumLengthDouble (dnumber)
+       double dnumber
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajNumLengthFloat (fnumber)
+       float fnumber
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajNumLengthInt (inumber)
+       ajlong inumber
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajNumLengthUint (inumber)
+       ajulong inumber
     OUTPUT:
        RETVAL
 

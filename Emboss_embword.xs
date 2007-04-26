@@ -74,10 +74,8 @@ embWordBuildMatchTable (seq1MatchTable, seq2, orderit)
        RETVAL
 
 void
-embWordMatchMin (matchlist, seq1length, seq2length)
+embWordMatchMin (matchlist)
        AjPList matchlist
-       ajint seq1length
-       ajint seq2length
 
 AjBool
 embWordMatchIter (iter, start1, start2, len)

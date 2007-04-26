@@ -20,7 +20,7 @@ ajTableGet (table, key)
     OUTPUT:
        RETVAL
 
-void*
+const void*
 ajTableKey (table, key)
        const AjPTable table
        const char* key
@@ -38,7 +38,7 @@ ajStrTableTrace (table)
 void*
 ajTablePut (table, key, value)
        AjPTable table
-       const char* key
+       char* key
        char& value
     OUTPUT:
        RETVAL
@@ -56,12 +56,15 @@ ajTableRemove (table, key)
     OUTPUT:
        RETVAL
 
-void**
-ajTableToarray (table, end)
+ajuint
+ajTableToarray (table, keyarray, valarray)
        const AjPTable table
-       char& end
+       void**& keyarray
+       void**& valarray
     OUTPUT:
        RETVAL
+       keyarray
+       valarray
 
 void
 ajTableFree (table)

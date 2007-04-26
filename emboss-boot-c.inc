@@ -118,6 +118,7 @@
   XS(XS_Bio__Emboss_ajAlignPrintFormat); /* prototype */
   XS(XS_Bio__Emboss_ajAlignConsStats); /* prototype */
   XS(XS_Bio__Emboss_ajAlignExit); /* prototype */
+  XS(XS_Bio__Emboss_ajAlignGetLen); /* prototype */
   XS(XS_Bio__Emboss_ajChararrNew); /* prototype */
   XS(XS_Bio__Emboss_ajChararrNewL); /* prototype */
   XS(XS_Bio__Emboss_ajChararrDel); /* prototype */
@@ -238,6 +239,30 @@
   XS(XS_Bio__Emboss_ajLong3dLen); /* prototype */
   XS(XS_Bio__Emboss_ajLong3dLong); /* prototype */
   XS(XS_Bio__Emboss_ajArrExit); /* prototype */
+  XS(XS_Bio__Emboss_ajUintNew); /* prototype */
+  XS(XS_Bio__Emboss_ajUintNewL); /* prototype */
+  XS(XS_Bio__Emboss_ajUintDel); /* prototype */
+  XS(XS_Bio__Emboss_ajUintGet); /* prototype */
+  XS(XS_Bio__Emboss_ajUintPut); /* prototype */
+  XS(XS_Bio__Emboss_ajUintInc); /* prototype */
+  XS(XS_Bio__Emboss_ajUintDec); /* prototype */
+  XS(XS_Bio__Emboss_ajUintUint); /* prototype */
+  XS(XS_Bio__Emboss_ajUintLen); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dNew); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dNewL); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dNewLL); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dDel); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dGet); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dPut); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dLen); /* prototype */
+  XS(XS_Bio__Emboss_ajUint2dUint); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dNew); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dNewL); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dDel); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dGet); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dPut); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dLen); /* prototype */
+  XS(XS_Bio__Emboss_ajUint3dUint); /* prototype */
   XS(XS_Bio__Emboss_ajBaseCodes); /* prototype */
   XS(XS_Bio__Emboss_ajAZToInt); /* prototype */
   XS(XS_Bio__Emboss_ajIntToAZ); /* prototype */
@@ -248,6 +273,8 @@
   XS(XS_Bio__Emboss_ajBaseAa1ToAa3); /* prototype */
   XS(XS_Bio__Emboss_ajBaseProb); /* prototype */
   XS(XS_Bio__Emboss_ajBaseExit); /* prototype */
+  XS(XS_Bio__Emboss_ajBaseAa3ToAa1); /* prototype */
+  XS(XS_Bio__Emboss_ajBaseComp); /* prototype */
   XS(XS_Bio__Emboss_ajCall); /* prototype */
   XS(XS_Bio__Emboss_ajCallExit); /* prototype */
   XS(XS_Bio__Emboss_ajCodNew); /* prototype */
@@ -496,6 +523,9 @@
   XS(XS_Bio__Emboss_ajFeatTrimOffRange); /* prototype */
   XS(XS_Bio__Emboss_ajFeatDefName); /* prototype */
   XS(XS_Bio__Emboss_ajFeatPrintFormat); /* prototype */
+  XS(XS_Bio__Emboss_ajFeatLocMark); /* prototype */
+  XS(XS_Bio__Emboss_ajFeattableCopyLimit); /* prototype */
+  XS(XS_Bio__Emboss_ajFeattabOutClear); /* prototype */
   XS(XS_Bio__Emboss_ajOutfileNew); /* prototype */
   XS(XS_Bio__Emboss_ajDirNew); /* prototype */
   XS(XS_Bio__Emboss_ajDirNewS); /* prototype */
@@ -630,6 +660,7 @@
   XS(XS_Bio__Emboss_ajFileWriteStr); /* prototype */
   XS(XS_Bio__Emboss_ajFileBuffStripHtmlPre); /* prototype */
   XS(XS_Bio__Emboss_ajFileFileList); /* prototype */
+  XS(XS_Bio__Emboss_ajFileBuffGetTrim); /* prototype */
   XS(XS_Bio__Emboss_ajFmtPrint); /* prototype */
   XS(XS_Bio__Emboss_ajFmtError); /* prototype */
   XS(XS_Bio__Emboss_ajFmtPrintF); /* prototype */
@@ -695,7 +726,7 @@
   XS(XS_Bio__Emboss_ajGraphGetYTitleC); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetLineStyle); /* prototype */
   XS(XS_Bio__Emboss_ajGraphSetFillPat); /* prototype */
-  XS(XS_Bio__Emboss_ajGraphSetCharSize); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetCharScale); /* prototype */
   XS(XS_Bio__Emboss_ajGraphLine); /* prototype */
   XS(XS_Bio__Emboss_ajGraphLines); /* prototype */
   XS(XS_Bio__Emboss_ajGraphDots); /* prototype */
@@ -795,6 +826,9 @@
   XS(XS_Bio__Emboss_ajGraphFillRectangleOnCurve); /* prototype */
   XS(XS_Bio__Emboss_ajGraphIsData); /* prototype */
   XS(XS_Bio__Emboss_ajGraphUnused); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetDesc); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphSetTitlePlus); /* prototype */
+  XS(XS_Bio__Emboss_ajGraphDataReplaceI); /* prototype */
   XS(XS_Bio__Emboss_ajHistDisplay); /* prototype */
   XS(XS_Bio__Emboss_ajHistClose); /* prototype */
   XS(XS_Bio__Emboss_ajHistDelete); /* prototype */
@@ -915,6 +949,7 @@
   XS(XS_Bio__Emboss_ajListstrPopEnd); /* prototype */
   XS(XS_Bio__Emboss_ajListDummyFunction); /* prototype */
   XS(XS_Bio__Emboss_ajListExit); /* prototype */
+  XS(XS_Bio__Emboss_ajListFreeData); /* prototype */
   XS(XS_Bio__Emboss_ajRound); /* prototype */
   XS(XS_Bio__Emboss_ajRoundF); /* prototype */
   XS(XS_Bio__Emboss_ajRecToPol); /* prototype */
@@ -930,6 +965,11 @@
   XS(XS_Bio__Emboss_ajSp64Crc); /* prototype */
   XS(XS_Bio__Emboss_ajMathPos); /* prototype */
   XS(XS_Bio__Emboss_ajMathPosI); /* prototype */
+  XS(XS_Bio__Emboss_ajSp32Crc); /* prototype */
+  XS(XS_Bio__Emboss_ajNumLengthDouble); /* prototype */
+  XS(XS_Bio__Emboss_ajNumLengthFloat); /* prototype */
+  XS(XS_Bio__Emboss_ajNumLengthInt); /* prototype */
+  XS(XS_Bio__Emboss_ajNumLengthUint); /* prototype */
   XS(XS_Bio__Emboss_ajMatrixNew); /* prototype */
   XS(XS_Bio__Emboss_ajMatrixNewAsym); /* prototype */
   XS(XS_Bio__Emboss_ajMatrixfNew); /* prototype */
@@ -1119,6 +1159,9 @@
   XS(XS_Bio__Emboss_ajPhyloStateTrace); /* prototype */
   XS(XS_Bio__Emboss_ajPhyloTreeRead); /* prototype */
   XS(XS_Bio__Emboss_ajPhyloTreeTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajPhyloStateDelarray); /* prototype */
+  XS(XS_Bio__Emboss_ajPhyloTreeDelarray); /* prototype */
+  XS(XS_Bio__Emboss_ajPhyloExit); /* prototype */
   XS(XS_Bio__Emboss_ajRangeNewI); /* prototype */
   XS(XS_Bio__Emboss_ajRangeCopy); /* prototype */
   XS(XS_Bio__Emboss_ajRangeDel); /* prototype */
@@ -1150,7 +1193,6 @@
   XS(XS_Bio__Emboss_ajRegCompCase); /* prototype */
   XS(XS_Bio__Emboss_ajRegCompCaseC); /* prototype */
   XS(XS_Bio__Emboss_ajRegExec); /* prototype */
-  XS(XS_Bio__Emboss_ajRegExecB); /* prototype */
   XS(XS_Bio__Emboss_ajRegExecC); /* prototype */
   XS(XS_Bio__Emboss_ajRegOffset); /* prototype */
   XS(XS_Bio__Emboss_ajRegOffsetI); /* prototype */
@@ -1188,6 +1230,14 @@
   XS(XS_Bio__Emboss_ajReportPrintFormat); /* prototype */
   XS(XS_Bio__Emboss_ajReportDummyFunction); /* prototype */
   XS(XS_Bio__Emboss_ajReportExit); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendHeader); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendHeaderC); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendSubHeader); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendSubHeaderC); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendTail); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendTailC); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendSubTail); /* prototype */
+  XS(XS_Bio__Emboss_ajReportAppendSubTailC); /* prototype */
   XS(XS_Bio__Emboss_ajSeqNew); /* prototype */
   XS(XS_Bio__Emboss_ajSeqNewNameC); /* prototype */
   XS(XS_Bio__Emboss_ajSeqNewNameS); /* prototype */
@@ -1221,7 +1271,7 @@
   XS(XS_Bio__Emboss_ajSeqSetOffsets); /* prototype */
   XS(XS_Bio__Emboss_ajSeqSetRange); /* prototype */
   XS(XS_Bio__Emboss_ajSeqSetRangeRev); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqComplementOnly); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqComplement); /* prototype */
   XS(XS_Bio__Emboss_ajSeqFmtLower); /* prototype */
   XS(XS_Bio__Emboss_ajSeqFmtUpper); /* prototype */
   XS(XS_Bio__Emboss_ajSeqReverseDo); /* prototype */
@@ -1266,7 +1316,6 @@
   XS(XS_Bio__Emboss_ajSeqIsTrimmed); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCalcCheckgcg); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCalcCount); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCalcCrc); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCalcMolwt); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCalcTrueposMin); /* prototype */
   XS(XS_Bio__Emboss_ajSeqCalcTruepos); /* prototype */
@@ -1275,13 +1324,8 @@
   XS(XS_Bio__Emboss_ajSeqallDel); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallSetRange); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallSetRangeRev); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqallBegin); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqallEnd); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallGetFilename); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqallLen); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallGetName); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqallGetNameSeq); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqallGetRange); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallGetUsa); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetNew); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetDel); /* prototype */
@@ -1293,21 +1337,7 @@
   XS(XS_Bio__Emboss_ajSeqsetFill); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetReverse); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetSetRange); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetToLower); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetToUpper); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetTrim); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetAcc); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetBegin); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetEnd); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetLen); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetGetName); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetName); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetSeq); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetGetSeq); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetGetSeqArray); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetSize); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetTotweight); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetWeight); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetIsDna); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetIsNuc); /* prototype */
   XS(XS_Bio__Emboss_ajSeqsetIsProt); /* prototype */
@@ -1315,43 +1345,59 @@
   XS(XS_Bio__Emboss_ajSeqDel); /* prototype */
   XS(XS_Bio__Emboss_ajSeqClear); /* prototype */
   XS(XS_Bio__Emboss_ajSeqallClear); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqMod); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTrace); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqTraceT); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqNum); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqNumS); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqIsGarbage); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtTrace); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtNewZero); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtNewZeroS); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtNewZeroSS); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtNew); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtDel); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtNewText); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtLen); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtK); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtKS); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtKSRow); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqCvtKSColumn); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqoutNew); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqoutNewF); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqoutDel); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtGetCodeAsymS); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTrim); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqGapCount); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqGapCountS); /* prototype */
   XS(XS_Bio__Emboss_ajSeqGapStandard); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqGapStandardS); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqFill); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqDefName); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqBaseComp); /* prototype */
-  XS(XS_Bio__Emboss_ajIsAccession); /* prototype */
-  XS(XS_Bio__Emboss_ajIsSeqversion); /* prototype */
   XS(XS_Bio__Emboss_ajSeqstrReverse); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqstrComplementOnly); /* prototype */
   XS(XS_Bio__Emboss_ajSeqstrCalcMolwt); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqstrCalcCrc); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqGarbageOn); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqGarbageOff); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqSetName); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqSetNameMulti); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqSetUnique); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqGapFill); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqConvertNum); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCountGaps); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqTraceTitle); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetseqBegin); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetseqEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetseqLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetseqName); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetseqRange); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetOffend); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetOffset); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetFmtLower); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetFmtUpper); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetBegin); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetNameC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetNameS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetSeqarray); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetSize); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetTotweight); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqAccC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqAccS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqNameC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqNameS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqSeqC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqSeqS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetseqWeight); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqstrConvertNum); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtNewC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtNewEndC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtNewNumberC); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtNewStr); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtNewStrAsym); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtDel); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtGetCodeK); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtGetCodeS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqcvtGetLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqtestIsAccession); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqtestIsSeqversion); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqstrCountGaps); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqstrComplement); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABITest); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIReadSeq); /* prototype */
   XS(XS_Bio__Emboss_ajSeqABIMachineName); /* prototype */
@@ -1432,11 +1478,7 @@
   XS(XS_Bio__Emboss_ajSeqTypeIsAny); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTypeSummary); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTypeExit); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqAllWrite); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqsetWrite); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqWriteClose); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqWrite); /* prototype */
-  XS(XS_Bio__Emboss_ajSeqFileNewOut); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqTypeUnused); /* prototype */
   XS(XS_Bio__Emboss_ajSeqoutOpen); /* prototype */
   XS(XS_Bio__Emboss_ajSeqOutFormatSingle); /* prototype */
   XS(XS_Bio__Emboss_ajSeqOutSetFormat); /* prototype */
@@ -1453,6 +1495,13 @@
   XS(XS_Bio__Emboss_ajSeqWriteXyz); /* prototype */
   XS(XS_Bio__Emboss_ajSssWriteXyz); /* prototype */
   XS(XS_Bio__Emboss_ajSeqWriteExit); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutNew); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutNewFile); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutDel); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutWriteSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutWriteSet); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutClose); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqoutOpenFilename); /* prototype */
   XS(XS_Bio__Emboss_ajSortFloatDecI); /* prototype */
   XS(XS_Bio__Emboss_ajSortIntDecI); /* prototype */
   XS(XS_Bio__Emboss_ajSortFloatIncI); /* prototype */
@@ -1462,6 +1511,11 @@
   XS(XS_Bio__Emboss_ajSortIntDec); /* prototype */
   XS(XS_Bio__Emboss_ajSortFloatInc); /* prototype */
   XS(XS_Bio__Emboss_ajSortIntInc); /* prototype */
+  XS(XS_Bio__Emboss_ajSortUintDecI); /* prototype */
+  XS(XS_Bio__Emboss_ajSortUintIncI); /* prototype */
+  XS(XS_Bio__Emboss_ajSortTwoUintIncI); /* prototype */
+  XS(XS_Bio__Emboss_ajSortUintDec); /* prototype */
+  XS(XS_Bio__Emboss_ajSortUintInc); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewC); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewS); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewRes); /* prototype */
@@ -1688,6 +1742,34 @@
   XS(XS_Bio__Emboss_ajStrTokenNextParseC); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenNextParseS); /* prototype */
   XS(XS_Bio__Emboss_ajStrTokenRestParse); /* prototype */
+  XS(XS_Bio__Emboss_ajCharMatchWildCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajCharMatchWildCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajCharMatchWildNextCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajCharMatchWildWordCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajCharCmpWildCase); /* prototype */
+  XS(XS_Bio__Emboss_ajStrKeepSetS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrKeepSetAlpha); /* prototype */
+  XS(XS_Bio__Emboss_ajStrRemoveWhiteSpaces); /* prototype */
+  XS(XS_Bio__Emboss_ajStrExchangeSetRestCK); /* prototype */
+  XS(XS_Bio__Emboss_ajStrExchangeSetRestSK); /* prototype */
+  XS(XS_Bio__Emboss_ajStrIsCharsetC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrIsCharsetS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrIsCharsetCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrIsCharsetCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrToUint); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFromUint); /* prototype */
+  XS(XS_Bio__Emboss_ajStrMatchWildCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrMatchWildCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrMatchWildWordCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrMatchWildWordCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrSuffixCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrSuffixCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrCmpWildCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrCmpWildCaseS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFindRestC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFindRestS); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFindRestCaseC); /* prototype */
+  XS(XS_Bio__Emboss_ajStrFindRestCaseS); /* prototype */
   XS(XS_Bio__Emboss_ajSysBasename); /* prototype */
   XS(XS_Bio__Emboss_ajSysItoC); /* prototype */
   XS(XS_Bio__Emboss_ajSysItoUC); /* prototype */
@@ -1742,6 +1824,7 @@
   XS(XS_Bio__Emboss_ajTimeNew); /* prototype */
   XS(XS_Bio__Emboss_ajTimeDel); /* prototype */
   XS(XS_Bio__Emboss_ajTimeExit); /* prototype */
+  XS(XS_Bio__Emboss_ajTimeMake); /* prototype */
   XS(XS_Bio__Emboss_ajTrnDel); /* prototype */
   XS(XS_Bio__Emboss_ajTrnNewC); /* prototype */
   XS(XS_Bio__Emboss_ajTrnNewI); /* prototype */
@@ -1794,6 +1877,13 @@
   XS(XS_Bio__Emboss_ajTreeAddSubNode); /* prototype */
   XS(XS_Bio__Emboss_ajTreeTrace); /* prototype */
   XS(XS_Bio__Emboss_ajTreeExit); /* prototype */
+  XS(XS_Bio__Emboss_ajTreestrAddData); /* prototype */
+  XS(XS_Bio__Emboss_ajTreestrTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajTreeFollow); /* prototype */
+  XS(XS_Bio__Emboss_ajTreeNext); /* prototype */
+  XS(XS_Bio__Emboss_ajTreePrev); /* prototype */
+  XS(XS_Bio__Emboss_ajTreeDown); /* prototype */
+  XS(XS_Bio__Emboss_ajTreeUp); /* prototype */
   XS(XS_Bio__Emboss_ajExit); /* prototype */
   XS(XS_Bio__Emboss_ajExitBad); /* prototype */
   XS(XS_Bio__Emboss_ajExitAbort); /* prototype */
@@ -1807,6 +1897,7 @@
   XS(XS_Bio__Emboss_ajUtilRevInt); /* prototype */
   XS(XS_Bio__Emboss_ajUtilRevLong); /* prototype */
   XS(XS_Bio__Emboss_ajUtilCatch); /* prototype */
+  XS(XS_Bio__Emboss_ajUtilRevUint); /* prototype */
   XS(XS_Bio__Emboss_aj3dVectorNew); /* prototype */
   XS(XS_Bio__Emboss_aj3dVectorCreate); /* prototype */
   XS(XS_Bio__Emboss_aj3dVectorDel); /* prototype */
@@ -1817,7 +1908,11 @@
   XS(XS_Bio__Emboss_aj3dVectorDihedralAngle); /* prototype */
   XS(XS_Bio__Emboss_aj3dVectorDotProduct); /* prototype */
   XS(XS_Bio__Emboss_aj3dVectorSum); /* prototype */
+#ifdef HAVE_EMBOSS_4_1_0
   XS(XS_Bio__Emboss_embComComplexity); /* prototype */
+#else
+  XS(XS_Bio__Emboss_embComComplexity); /* prototype */
+#endif
   XS(XS_Bio__Emboss_embComWriteFile); /* prototype */
   XS(XS_Bio__Emboss_embComWriteValueOfSeq); /* prototype */
   XS(XS_Bio__Emboss_embComUnused); /* prototype */
@@ -1897,9 +1992,14 @@
   XS(XS_Bio__Emboss_embEstShuffleSeq); /* prototype */
   XS(XS_Bio__Emboss_embEstFreeAlign); /* prototype */
   XS(XS_Bio__Emboss_embEstPrintAlign); /* prototype */
+#ifdef HAVE_EMBOSS_4_1_0
   XS(XS_Bio__Emboss_embEstAlignNonRecursive); /* prototype */
-  XS(XS_Bio__Emboss_embEstAlignLinearSpace); /* prototype */
   XS(XS_Bio__Emboss_embEstOutBlastStyle); /* prototype */
+#else
+  XS(XS_Bio__Emboss_embEstAlignNonRecursive); /* prototype */
+  XS(XS_Bio__Emboss_embEstOutBlastStyle); /* prototype */
+#endif
+  XS(XS_Bio__Emboss_embEstAlignLinearSpace); /* prototype */
   XS(XS_Bio__Emboss_embExit); /* prototype */
   XS(XS_Bio__Emboss_embExitBad); /* prototype */
   XS(XS_Bio__Emboss_embGrpMakeNewGnode); /* prototype */
@@ -2120,6 +2220,54 @@
   XS(XS_Bio__Emboss_ajSeqTruePos); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTruePosI); /* prototype */
   XS(XS_Bio__Emboss_ajSeqTruePosII); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCalcCrc); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallBegin); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetNameSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqallGetRange); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetToLower); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetToUpper); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetAcc); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetBegin); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetEnd); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetName); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetName); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetSeq); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetGetSeqArray); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetSize); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetTotweight); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetWeight); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqMod); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqTraceT); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqNum); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqNumS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtTrace); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtNewZero); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtNewZeroS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtNewZeroSS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtNew); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtDel); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtNewText); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtLen); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtK); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtKS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqCvtKSRow); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqGapCount); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqGapCountS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqGapStandardS); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqFill); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqDefName); /* prototype */
+  XS(XS_Bio__Emboss_ajIsAccession); /* prototype */
+  XS(XS_Bio__Emboss_ajIsSeqversion); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqstrComplementOnly); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqAllWrite); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqsetWrite); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqWriteClose); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqWrite); /* prototype */
+  XS(XS_Bio__Emboss_ajSeqFileNewOut); /* prototype */
   XS(XS_Bio__Emboss_ajCharFree); /* prototype */
   XS(XS_Bio__Emboss_ajCharNew); /* prototype */
   XS(XS_Bio__Emboss_ajCharNewL); /* prototype */

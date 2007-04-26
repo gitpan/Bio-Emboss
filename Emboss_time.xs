@@ -78,3 +78,9 @@ ajTimeDel (thys)
 void
 ajTimeExit ()
 
+time_t
+ajTimeMake (thys)
+       const AjPTime thys
+    OUTPUT:
+       RETVAL
+

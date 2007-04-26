@@ -100,7 +100,7 @@ AjBool
 embPdbResidueIndexICA (pdb, chn, idx, nres)
        const AjPPdb pdb
        ajint chn
-       AjPInt& idx
+       AjPUint& idx
        ajint& nres
     OUTPUT:
        RETVAL
@@ -111,7 +111,7 @@ AjBool
 embPdbResidueIndexCCA (pdb, chn, idx, nres)
        const AjPPdb pdb
        char chn
-       AjPInt& idx
+       AjPUint& idx
        ajint& nres
     OUTPUT:
        RETVAL

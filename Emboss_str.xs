@@ -27,29 +27,29 @@ ajCharNewS (str)
 
 char*
 ajCharNewRes (size)
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 char*
 ajCharNewResC (txt, size)
        const char* txt
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 char*
 ajCharNewResS (str, size)
        const AjPStr str
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 char*
 ajCharNewResLenC (txt, size, len)
        const char* txt
-       size_t size
-       size_t len
+       ajuint size
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -180,7 +180,7 @@ int
 ajCharCmpCaseLen (txt, txt2, len)
        const char* txt
        const char* txt2
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -223,29 +223,29 @@ ajStrNewRef (refstr)
 
 AjPStr
 ajStrNewRes (size)
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 AjPStr
 ajStrNewResC (txt, size)
        const char* txt
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 AjPStr
 ajStrNewResS (str, size)
        const AjPStr str
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 AjPStr
 ajStrNewResLenC (txt, size, len)
        const char* txt
-       size_t size
-       size_t len
+       ajuint size
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -312,7 +312,7 @@ AjBool
 ajStrAssignLenC (Pstr, txt, len)
        AjPStr& Pstr
        const char* txt
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
        Pstr
@@ -328,7 +328,7 @@ ajStrAssignRef (Pstr, refstr)
 AjBool
 ajStrAssignResC (Pstr, size, txt)
        AjPStr& Pstr
-       size_t size
+       ajuint size
        const char* txt
     OUTPUT:
        RETVAL
@@ -337,7 +337,7 @@ ajStrAssignResC (Pstr, size, txt)
 AjBool
 ajStrAssignResS (Pstr, size, str)
        AjPStr& Pstr
-       size_t size
+       ajuint size
        const AjPStr str
     OUTPUT:
        RETVAL
@@ -391,7 +391,7 @@ AjBool
 ajStrAppendCountK (Pstr, chr, num)
        AjPStr& Pstr
        char chr
-       size_t num
+       ajuint num
     OUTPUT:
        RETVAL
        Pstr
@@ -400,7 +400,7 @@ AjBool
 ajStrAppendLenC (Pstr, txt, len)
        AjPStr& Pstr
        const char* txt
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
        Pstr
@@ -480,7 +480,7 @@ ajStrPasteCountK (Pstr, pos, chr, num)
        AjPStr& Pstr
        ajint pos
        char chr
-       size_t num
+       ajuint num
     OUTPUT:
        RETVAL
 
@@ -489,7 +489,7 @@ ajStrPasteMaxC (Pstr, pos, txt, len)
        AjPStr& Pstr
        ajint pos
        const char* txt
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -498,7 +498,7 @@ ajStrPasteMaxS (Pstr, pos, str, len)
        AjPStr& Pstr
        ajint pos
        const AjPStr str
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -517,7 +517,7 @@ ajStrCutCommentsStart (Pstr)
 AjBool
 ajStrCutEnd (Pstr, len)
        AjPStr& Pstr
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -533,7 +533,7 @@ ajStrCutRange (Pstr, pos1, pos2)
 AjBool
 ajStrCutStart (Pstr, len)
        AjPStr& Pstr
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -655,7 +655,7 @@ ajStrTrimWhiteEnd (Pstr)
 AjBool
 ajStrTruncateLen (Pstr, len)
        AjPStr& Pstr
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -737,14 +737,14 @@ ajStrReverse (Pstr)
        RETVAL
        Pstr
 
-ajint
+ajuint
 ajStrCalcCountC (str, txt)
        const AjPStr str
        const char* txt
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrCalcCountK (str, chr)
        const AjPStr str
        char chr
@@ -868,7 +868,7 @@ ajStrGetCharPos (str, pos)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrGetLen (str)
        const AjPStr str
     OUTPUT:
@@ -880,19 +880,19 @@ ajStrGetPtr (str)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrGetRes (str)
        const AjPStr str
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrGetRoom (str)
        const AjPStr str
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrGetUse (str)
        const AjPStr str
     OUTPUT:
@@ -926,14 +926,14 @@ ajStrSetClear (Pstr)
 AjBool
 ajStrSetRes (Pstr, size)
        AjPStr& Pstr
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
 
 AjBool
 ajStrSetResRound (Pstr, size)
        AjPStr& Pstr
-       size_t size
+       ajuint size
     OUTPUT:
        RETVAL
        Pstr
@@ -947,7 +947,7 @@ ajStrSetValid (Pstr)
 AjBool
 ajStrSetValidLen (Pstr, len)
        AjPStr& Pstr
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -1053,7 +1053,7 @@ ajStrFromLong (Pstr, val)
 AjBool
 ajStrFmtBlock (Pstr, len)
        AjPStr& Pstr
-       ajint len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -1100,15 +1100,15 @@ ajStrFmtUpperSub (Pstr, pos1, pos2)
 AjBool
 ajStrFmtWrap (Pstr, width)
        AjPStr& Pstr
-       ajint width
+       ajuint width
     OUTPUT:
        RETVAL
 
 AjBool
 ajStrFmtWrapLeft (Pstr, width, margin)
        AjPStr& Pstr
-       ajint width
-       ajint margin
+       ajuint width
+       ajuint margin
     OUTPUT:
        RETVAL
 
@@ -1235,7 +1235,7 @@ int
 ajStrCmpLenC (str, txt2, len)
        const AjPStr str
        const char* txt2
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -1257,7 +1257,7 @@ int
 ajStrCmpLenS (str, str2, len)
        const AjPStr str
        const AjPStr str2
-       size_t len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -1372,34 +1372,34 @@ ajStrParseC (str, txtdelim)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrParseCount (str)
        const AjPStr str
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrParseCountC (str, txtdelim)
        const AjPStr str
        const char * txtdelim
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrParseCountS (str, strdelim)
        const AjPStr str
        const AjPStr strdelim
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrParseCountMultiC (str, txtdelim)
        const AjPStr str
        const char * txtdelim
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajStrParseSplit (str, PPstr)
        const AjPStr str
        AjPStr*& PPstr
@@ -1606,4 +1606,204 @@ ajStrTokenRestParse (Ptoken, Pstr)
     OUTPUT:
        RETVAL
        Pstr
+
+AjBool
+ajCharMatchWildCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildCaseS (txt, str)
+       const char* txt
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildNextCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajCharMatchWildWordCaseC (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+int
+ajCharCmpWildCase (txt, txt2)
+       const char* txt
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetS (Pstr, str)
+       AjPStr & Pstr
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlpha (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrRemoveWhiteSpaces (Pstr)
+       AjPStr & Pstr
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangeSetRestCK (Pstr, txt, chrnew)
+       AjPStr& Pstr
+       const char* txt
+       char chrnew
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrExchangeSetRestSK (Pstr, str, chrnew)
+       AjPStr& Pstr
+       const AjPStr str
+       char chrnew
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrIsCharsetC (str, txt)
+       const AjPStr str
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsCharsetS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsCharsetCaseC (str, txt)
+       const AjPStr str
+       const char* txt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrIsCharsetCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrToUint (str, Pval)
+       const AjPStr str
+       ajuint& Pval
+    OUTPUT:
+       RETVAL
+       Pval
+
+AjBool
+ajStrFromUint (Pstr, val)
+       AjPStr& Pstr
+       ajuint val
+    OUTPUT:
+       RETVAL
+       Pstr
+
+AjBool
+ajStrMatchWildCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildWordCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrMatchWildWordCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSuffixCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrSuffixCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpWildCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+int
+ajStrCmpWildCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindRestC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindRestS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindRestCaseC (str, txt2)
+       const AjPStr str
+       const char* txt2
+    OUTPUT:
+       RETVAL
+
+ajint
+ajStrFindRestCaseS (str, str2)
+       const AjPStr str
+       const AjPStr str2
+    OUTPUT:
+       RETVAL
 

@@ -948,20 +948,20 @@ ajStrSuffixCO (str, suff)
 
 
 
-AjPStr
+const AjPStr
 ajStrTok (thys)
        const AjPStr  thys
     OUTPUT:
        RETVAL
 
-AjPStr
+const AjPStr
 ajStrTokC (thys, delim)
        const AjPStr  thys
        const char* delim
     OUTPUT:
        RETVAL
 
-AjPStr
+const AjPStr
 ajStrTokCC (thys, delim)
        const char* thys
        const char* delim

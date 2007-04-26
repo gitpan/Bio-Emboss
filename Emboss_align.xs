@@ -189,12 +189,12 @@ ajAlignSetMatrixNameC (thys, matrix)
 void
 ajAlignSetMatrixInt (thys, matrix)
        AjPAlign thys
-       const AjPMatrix matrix
+       AjPMatrix matrix
 
 void
 ajAlignSetMatrixFloat (thys, matrix)
        AjPAlign thys
-       const AjPMatrixf matrix
+       AjPMatrixf matrix
 
 void
 ajAlignSetGapI (thys, gappen, extpen)
@@ -311,4 +311,10 @@ ajAlignConsStats (thys, mymatrix, cons, retident, retsim, retgap, retlen)
 
 void
 ajAlignExit ()
+
+ajint
+ajAlignGetLen (thys)
+       const AjPAlign thys
+    OUTPUT:
+       RETVAL
 

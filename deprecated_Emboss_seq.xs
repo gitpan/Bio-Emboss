@@ -514,3 +514,276 @@ ajSeqTruePosII (ilen, imin, ipos)
     OUTPUT:
        RETVAL
 
+ajuint
+ajSeqCalcCrc (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqallBegin (seq)
+       const AjPSeqall seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqallEnd (seq)
+       const AjPSeqall seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqallLen (seqall)
+       const AjPSeqall seqall
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqallGetNameSeq (seq)
+       const AjPSeqall seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqallGetRange (seq, begin, end)
+       const AjPSeqall seq
+       ajint& begin
+       ajint& end
+    OUTPUT:
+       RETVAL
+       begin
+       end
+
+void
+ajSeqsetToLower (seqset)
+       AjPSeqset seqset
+
+void
+ajSeqsetToUpper (seqset)
+       AjPSeqset seqset
+
+const AjPStr
+ajSeqsetAcc (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetBegin (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetEnd (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetLen (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqsetGetName (thys)
+       const AjPSeqset thys
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqsetName (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqsetSeq (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+const AjPSeq
+ajSeqsetGetSeq (thys, i)
+       const AjPSeqset thys
+       ajint i
+    OUTPUT:
+       RETVAL
+
+AjPSeq*
+ajSeqsetGetSeqArray (thys)
+       const AjPSeqset thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqsetSize (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+float
+ajSeqsetTotweight (seq)
+       const AjPSeqset seq
+    OUTPUT:
+       RETVAL
+
+float
+ajSeqsetWeight (seq, i)
+       const AjPSeqset seq
+       ajint i
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqMod (seq)
+       AjPSeq seq
+
+void
+ajSeqTraceT (seq, title)
+       const AjPSeq seq
+       const char* title
+
+AjBool
+ajSeqNum (seq, cvt, numseq)
+       const AjPSeq seq
+       const AjPSeqCvt cvt
+       AjPStr& numseq
+    OUTPUT:
+       RETVAL
+       numseq
+
+AjBool
+ajSeqNumS (seq, cvt, numseq)
+       const AjPStr seq
+       const AjPSeqCvt cvt
+       AjPStr& numseq
+    OUTPUT:
+       RETVAL
+       numseq
+
+void
+ajSeqCvtTrace (cvt)
+       const AjPSeqCvt cvt
+
+AjPSeqCvt
+ajSeqCvtNewZero (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNewZeroS (bases, n)
+       AjPPStr bases
+       int n
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNewZeroSS (bases, n, rbases, rn)
+       AjPPStr bases
+       int n
+       AjPPStr rbases
+       int rn
+    OUTPUT:
+       RETVAL
+
+AjPSeqCvt
+ajSeqCvtNew (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqCvtDel (Pcvt)
+       AjPSeqCvt& Pcvt
+    OUTPUT:
+       Pcvt
+
+AjPSeqCvt
+ajSeqCvtNewText (bases)
+       const char* bases
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtLen (cvt)
+       const AjPSeqCvt cvt
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtK (cvt, ch)
+       const AjPSeqCvt cvt
+       char ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtKS (cvt, ch)
+       const AjPSeqCvt cvt
+       const AjPStr ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqCvtKSRow (cvt, ch)
+       const AjPSeqCvt cvt
+       const AjPStr ch
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGapCount (thys)
+       const AjPSeq thys
+    OUTPUT:
+       RETVAL
+
+ajint
+ajSeqGapCountS (str)
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqGapStandardS (thys, gapch)
+       AjPStr thys
+       char gapch
+    OUTPUT:
+       thys
+
+ajint
+ajSeqFill (seq, len)
+       AjPSeq seq
+       ajint len
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqDefName (thys, setname, multi)
+       AjPSeq thys
+       const AjPStr setname
+       AjBool multi
+    OUTPUT:
+       thys
+
+AjBool
+ajIsAccession (accnum)
+       const AjPStr accnum
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajIsSeqversion (sv)
+       const AjPStr sv
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqstrComplementOnly (pthis)
+       AjPStr& pthis
+

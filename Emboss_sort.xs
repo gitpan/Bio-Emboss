@@ -16,50 +16,78 @@ PROTOTYPES: ENABLE
 void
 ajSortFloatDecI (a, p, n)
        const float* a
-       ajint& p
-       ajint n
+       ajuint& p
+       ajuint n
 
 void
 ajSortIntDecI (a, p, n)
        const ajint* a
-       ajint& p
-       ajint n
+       ajuint& p
+       ajuint n
 
 void
 ajSortFloatIncI (a, p, n)
        const float* a
-       ajint& p
-       ajint n
+       ajuint& p
+       ajuint n
 
 void
 ajSortIntIncI (a, p, n)
        const ajint* a
-       ajint& p
-       ajint n
+       ajuint& p
+       ajuint n
 
 void
 ajSortTwoIntIncI (a, p, n)
        ajint& a
-       ajint& p
-       ajint n
+       ajuint& p
+       ajuint n
 
 void
 ajSortFloatDec (a, n)
        float& a
-       ajint n
+       ajuint n
 
 void
 ajSortIntDec (a, n)
        ajint& a
-       ajint n
+       ajuint n
 
 void
 ajSortFloatInc (a, n)
        float& a
-       ajint n
+       ajuint n
 
 void
 ajSortIntInc (a, n)
        ajint& a
-       ajint n
+       ajuint n
+
+void
+ajSortUintDecI (a, p, n)
+       const ajuint* a
+       ajuint& p
+       ajuint n
+
+void
+ajSortUintIncI (a, p, n)
+       const ajuint* a
+       ajuint& p
+       ajuint n
+
+void
+ajSortTwoUintIncI (a, p, n)
+       ajuint& a
+       ajuint& p
+       ajuint n
+
+void
+ajSortUintDec (a, n)
+       ajuint& a
+       ajuint n
+
+void
+ajSortUintInc (a, n)
+       ajuint& a
+       ajuint n
 

@@ -11,7 +11,8 @@ use ExtUtils::MakeMaker;
 #        (if you did no "make install" of EMBOSS,
 #         put here the path to the source code)
 
-$EMB_ROOT     = "/usr/local";
+$EMB_ROOT     = "";
+#$EMB_ROOT     = "/usr/local";
 
 
 # --- external libraries required by EMBOSS
@@ -23,6 +24,8 @@ $EMB_EXT_LIBS = "";
 #$EMB_EXT_LIBS = "-L/usr/openwin/lib -lX11 -lsocket -lm -lnsl -lgd -lpng -lz";
 
 
+# --- overwrite EMB_ROOT=xxx etc. from command-line if given
+@ARGV = extract_global_params (\@ARGV, qw (EMB_ROOT EMB_EXT_LIBS EMB_SRC_ROOT));
 
 #
 # --- Look at these settings if building fails ....
@@ -58,9 +61,31 @@ if (-d "$EMB_ROOT/lib") {
     @lib_search_dirs = qw(plplot ajax nucleus);
 }
 
-$EMB_LIBS = join (" ", map { "-L$EMB_ROOT/$_ -R$EMB_ROOT/$_" } @lib_search_dirs) .  " " .
+warn ("warning: **** \$EMB_ROOT not set\n") unless -d $EMB_ROOT;
+if ($EMB_EXT_LIBS eq "" and $EMB_ROOT ne "") {
+    my $themakefile = $EMB_SRC_ROOT ? $EMB_SRC_ROOT : $EMB_ROOT;
+    $themakefile .= "/emboss/Makefile";
+
+    warn "\n\$EMB_EXT_LIBS not defined.\n".
+	"Usually this variable must be set to a combined value\n".
+	"of XLIB and LIBS from the EMBOSS Makefile:\n\n";
+
+    if (-f $themakefile) {
+	my $grepres = `$^X -ne 'print if /^(X_\\w+LIBS|LIBS|XLIB)\\b/' $themakefile`;	warn $grepres . "\n";
+    } else {
+	warn "$themakefile (file not found)\n".
+	    "Can not find EMBOSS source to guess XLIB and LIBS\n".
+	    "Use parameter EMB_SRC_ROOT to set EMBOSS source location\n\n";
+    }
+}
+
+$EMB_LIBS = join (" ", map { "-L$EMB_ROOT/$_" } @lib_search_dirs) .  " " .
             join (" ", map { "-l$_" } @emb_libs) .  " " .
             $EMB_EXT_LIBS;
+if ($ENV{OSTYPE} eq "solaris") {
+     $EMB_LIBS = join (" ", map { "-R$EMB_ROOT/$_" } @lib_search_dirs) .
+          " " . $EMB_LIBS;
+}
 
 if (-d "$EMB_ROOT/include") {
     $EMB_INC = "-I$EMB_ROOT/include";
@@ -179,6 +204,7 @@ Emboss_embword
 deprecated_Emboss_acd
 deprecated_Emboss_hist
 deprecated_Emboss_seq
+deprecated_Emboss_seqwrite
 deprecated_Emboss_str
 			);
 
@@ -392,6 +418,7 @@ sub write_config_h {
 EOB
     my ($v);
     foreach $v (qw(
+		  4.1.0
 		  4.0.0
 		  2.10.0
 		  2.9.0
@@ -411,6 +438,23 @@ EOB
     close(CONFIGH);
 }
 
+
+# --- overwrite EMB_ROOT=xxx etc. from command-line if given
+sub extract_global_params {
+    my ($argvref, @argv_params) = @_;
+    my @nargv = ();
+  ARGS: 
+    foreach (@$argvref) {
+	foreach my $p (@argv_params) {
+	    if (/^$p=(.*)/) {
+		eval "\$$p = \$1";
+		next ARGS;
+	    }
+	}
+	push (@nargv, $_);
+    }
+    return @nargv;
+}
 
 sub version_ge {
     my @a = split (/\./, $_[0], 3);

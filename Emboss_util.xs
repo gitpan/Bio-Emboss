@@ -16,15 +16,11 @@ PROTOTYPES: ENABLE
 void
 ajExit ()
 
-ajint
+void
 ajExitBad ()
-    OUTPUT:
-       RETVAL
 
-ajint
+void
 ajExitAbort ()
-    OUTPUT:
-       RETVAL
 
 void
 ajLogInfo ()
@@ -67,4 +63,8 @@ ajUtilRevLong (lval)
 
 void
 ajUtilCatch ()
+
+void
+ajUtilRevUint (ival)
+       ajuint& ival
 

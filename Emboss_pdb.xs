@@ -481,7 +481,7 @@ ajPdbChnidToNum (id, pdb, chn)
 
 ajint
 ajPdbtospArrFindPdbid (arr, siz, id)
-       const AjPPdbtosp* arr
+       AjPPdbtosp const *arr
        ajint siz
        const AjPStr id
     OUTPUT:

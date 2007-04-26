@@ -35,13 +35,13 @@ ajTreeCopy (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajTreeLength (thys)
        const AjPTree thys
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajTreestrLength (thys)
        const AjPTree thys
     OUTPUT:
@@ -71,7 +71,7 @@ ajTreestrDel (pthis)
     OUTPUT:
        pthis
 
-ajint
+ajuint
 ajTreeToArray (thys, array)
        const AjPTree thys
        void**& array
@@ -79,7 +79,7 @@ ajTreeToArray (thys, array)
        RETVAL
        array
 
-ajint
+ajuint
 ajTreestrToArray (thys, array)
        const AjPTree thys
        AjPStr*& array
@@ -115,4 +115,46 @@ ajTreeTrace (thys)
 
 void
 ajTreeExit ()
+
+AjBool
+ajTreestrAddData (thys, data)
+       AjPTree thys
+       AjPStr data
+    OUTPUT:
+       RETVAL
+
+void
+ajTreestrTrace (thys)
+       const AjPTree thys
+
+AjPTree
+ajTreeFollow (thys, parent)
+       const AjPTree thys
+       const AjPTree parent
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeNext (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreePrev (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeDown (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
+
+AjPTree
+ajTreeUp (thys)
+       const AjPTree thys
+    OUTPUT:
+       RETVAL
 

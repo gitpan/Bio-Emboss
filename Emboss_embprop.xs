@@ -56,10 +56,9 @@ embPropIntToThree (c)
        RETVAL
 
 void
-embPropCalcFragments (s, n, begin, l, pa, unfavoured, overlap, allpartials, ncomp, npart, rname, nterm, cterm, dorag)
+embPropCalcFragments (s, n, l, pa, unfavoured, overlap, allpartials, ncomp, npart, rname, nterm, cterm, dorag)
        const char * s
        ajint n
-       ajint begin
        AjPList & l
        AjPList & pa
        AjBool unfavoured

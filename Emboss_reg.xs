@@ -44,12 +44,6 @@ ajRegExec (prog, str)
     OUTPUT:
        RETVAL
 
-AjBool
-ajRegExecB (prog, str)
-       AjPRegexp prog
-       const AjPStr str
-    OUTPUT:
-       RETVAL
 
 AjBool
 ajRegExecC (prog, str)

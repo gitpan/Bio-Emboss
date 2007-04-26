@@ -99,7 +99,7 @@ ajSysStrtok (s, t)
 
 char*
 ajSysStrtokR (s, t, ptrptr, buf)
-       const char * s
+       char & s
        const char * t
        char *& ptrptr
        AjPStr & buf

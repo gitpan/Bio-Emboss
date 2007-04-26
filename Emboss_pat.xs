@@ -18,13 +18,13 @@ ajPatternSeqNewList (plist, name, pat, mismatch)
        AjPPatlistSeq plist
        const AjPStr name
        const AjPStr pat
-       ajint mismatch
+       ajuint mismatch
     OUTPUT:
        RETVAL
 
 AjPPatternRegex
 ajPatternRegexNewList (plist, name, pat)
-       AjPatlistRegex plist
+       AjPPatlistRegex plist
        const AjPStr name
        const AjPStr pat
     OUTPUT:
@@ -32,74 +32,68 @@ ajPatternRegexNewList (plist, name, pat)
 
 void
 ajPatternRegexDel (pthys)
-       AjPPattern pthys
+       AjPPatternRegex& pthys
     OUTPUT:
        pthys
 
 void
 ajPatternSeqDel (pthys)
-       AjPPattern pthys
+       AjPPatternSeq& pthys
     OUTPUT:
        pthys
 
 const AjPStr
 ajPatternSeqGetName (thys)
-       AjPPatternSeq thys
+       const AjPPatternSeq thys
     OUTPUT:
        RETVAL
 
 const AjPStr
 ajPatternRegexGetName (thys)
-       AjPPatternRegex thys
+       const AjPPatternRegex thys
     OUTPUT:
        RETVAL
 
 const AjPStr
 ajPatternSeqGetPattern (thys)
-       AjPPatternSeq thys
+       const AjPPatternSeq thys
     OUTPUT:
        RETVAL
 
 const AjPStr
 ajPatternRegexGetPattern (thys)
-       AjPPatternRegex thys
+       const AjPPatternRegex thys
     OUTPUT:
        RETVAL
 
 AjPPatComp
 ajPatternSeqGetCompiled (thys)
-       AjPPatternSeq thys
+       const AjPPatternSeq thys
     OUTPUT:
        RETVAL
 
-void*
+AjPRegexp
 ajPatternRegexGetCompiled (thys)
-       AjPPatternRegex thys
+       const AjPPatternRegex thys
     OUTPUT:
        RETVAL
 
-AjBool
-ajPatternSeqGetprotein (thys)
-       AjPPattern thys
-    OUTPUT:
-       RETVAL
-
-ajint
+ajuint
 ajPatternRegexGetType (thys)
-       AjPPatternRegex thys
+       const AjPPatternRegex thys
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajPatternSeqGetMismatch (thys)
-       AjPPatternSeq thys
+       const AjPPatternSeq thys
     OUTPUT:
        RETVAL
 
 void
 ajPatternSeqSetCompiled (thys, pat)
        AjPPatternSeq thys
-       char* pat
+       char& pat
 
 void
 ajPatternRegexSetCompiled (thys, pat)
@@ -107,19 +101,15 @@ ajPatternRegexSetCompiled (thys, pat)
        AjPRegexp pat
 
 void
-ajPatternSeqDebug ()
+ajPatternSeqDebug (pat)
+       const AjPPatternSeq pat
 
 void
-ajPatternRegexDebug ()
+ajPatternRegexDebug (pat)
+       const AjPPatternRegex pat
 
 AjPPatlistRegex
 ajPatlistRegexNew ()
-    OUTPUT:
-       RETVAL
-
-AjPPatlistRegex
-ajPatlistRegexNew (type)
-       ajint type
     OUTPUT:
        RETVAL
 
@@ -147,95 +137,87 @@ ajPatlistSeqDel (pthys)
        pthys
 
 AjPPatlistSeq
-ajPatlistSeqRead (patspec, patname, protein, mismatches)
-       AjPStr patspec
-       AjPStr patname
+ajPatlistSeqRead (patspec, patname, fmt, protein, mismatches)
+       const AjPStr patspec
+       const AjPStr patname
+       const AjPStr fmt
        AjBool protein
-       ajint mismatches
+       ajuint mismatches
     OUTPUT:
        RETVAL
 
 AjPPatlistRegex
-ajPatlistRegexRead (patspec, patname, type, upper, lower)
+ajPatlistRegexRead (patspec, patname, fmt, type, upper, lower)
        const AjPStr patspec
        const AjPStr patname
-       ajint type
+       const AjPStr fmt
+       ajuint type
        AjBool upper
        AjBool lower
     OUTPUT:
        RETVAL
 
-ajint
-ajPatlistSeqGetSize (pthys)
-       const AjPPatlistSeq pthys
+ajuint
+ajPatlistSeqGetSize (thys)
+       const AjPPatlistSeq thys
     OUTPUT:
        RETVAL
 
-ajint
-ajPatlistRegexGetSize (pthys)
-       const AjPPatlistRegex pthys
+ajuint
+ajPatlistRegexGetSize (thys)
+       const AjPPatlistRegex thys
     OUTPUT:
        RETVAL
 
 AjBool
-ajPatlistSeqGetNext (pthys, pthys)
-       AjPPatlistSeq pthys
-       AjPPatternSeq& pthys
+ajPatlistSeqGetNext (thys, pattern)
+       AjPPatlistSeq thys
+       AjPPatternSeq& pattern
     OUTPUT:
        RETVAL
-       pthys
+       pattern
 
 AjBool
-ajPatlistRegexGetNext (pthys, pthys)
-       AjPPatlistRegex pthys
-       AjPPatternRegex& pthys
+ajPatlistRegexGetNext (thys, pattern)
+       AjPPatlistRegex thys
+       AjPPatternRegex& pattern
     OUTPUT:
        RETVAL
-       pthys
+       pattern
 
 void
-ajPatlistRegexRewind (pthys)
-       AjPPatlistRegex pthys
+ajPatlistRegexRewind (thys)
+       AjPPatlistRegex thys
 
 void
-ajPatlistSeqRewind (pthys)
-       AjPPatlistSeq pthys
+ajPatlistSeqRewind (thys)
+       AjPPatlistSeq thys
 
 void
-ajPatlistRegexRemoveCurrent (pthys)
-       AjPPatlistRegex pthys
+ajPatlistRegexRemoveCurrent (thys)
+       AjPPatlistRegex thys
 
 void
-ajPatlistSeqRemoveCurrent (pthys)
-       AjPPatlist pthys
+ajPatlistSeqRemoveCurrent (thys)
+       AjPPatlistSeq thys
 
 void
-ajPatlistAddSeq (pthys, pthys)
-       AjPPatlistSeq pthys
-       AjPPatternSeq pthys
+ajPatlistAddSeq (thys, pat)
+       AjPPatlistSeq thys
+       AjPPatternSeq pat
 
 void
-ajPatlistAddRegex (pthys, pthys)
-       AjPPatlistRegex pthys
-       AjPPatternRegex pthys
+ajPatlistAddRegex (thys, pat)
+       AjPPatlistRegex thys
+       AjPPatternRegex pat
 
-AjPPatComp
-ajPPatCompNew ()
-    OUTPUT:
-       RETVAL
-
-void
-ajPPatCompDel (pthys)
-       AjPPatComp& pthys
-    OUTPUT:
-       pthys
-
-ajint
-ajPatternRegexType ()
+ajuint
+ajPatternRegexType (type)
+       const AjPStr type
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajPatlistRegexDoc (plist, pdoc)
        AjPPatlistRegex plist
        AjPStr& pdoc
@@ -243,11 +225,34 @@ ajPatlistRegexDoc (plist, pdoc)
        RETVAL
        pdoc
 
-ajint
+ajuint
 ajPatlistSeqDoc (plist, pdoc)
        AjPPatlistSeq plist
        AjPStr& pdoc
     OUTPUT:
        RETVAL
        pdoc
+
+AjBool
+ajPatternSeqGetProtein (thys)
+       const AjPPatternSeq thys
+    OUTPUT:
+       RETVAL
+
+AjPPatlistRegex
+ajPatlistRegexNewType (type)
+       ajuint type
+    OUTPUT:
+       RETVAL
+
+AjPPatComp
+ajPatCompNew ()
+    OUTPUT:
+       RETVAL
+
+void
+ajPatCompDel (pthys)
+       AjPPatComp& pthys
+    OUTPUT:
+       pthys
 

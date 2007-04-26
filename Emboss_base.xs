@@ -72,3 +72,17 @@ ajBaseProb (base1, base2)
 void
 ajBaseExit ()
 
+AjBool
+ajBaseAa3ToAa1 (aa1, aa3)
+       char & aa1
+       const AjPStr aa3
+    OUTPUT:
+       RETVAL
+       aa1
+
+char
+ajBaseComp (base)
+       char base
+    OUTPUT:
+       RETVAL
+

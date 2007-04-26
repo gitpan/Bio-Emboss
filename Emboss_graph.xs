@@ -89,7 +89,8 @@ ajGraphOpenWin (thys, xmin, xmax, ymin, ymax)
        thys
 
 void
-ajGraphNewPage (resetdefaults)
+ajGraphNewPage (thys, resetdefaults)
+       AjPGraph thys
        AjBool resetdefaults
 
 void
@@ -131,8 +132,7 @@ void
 ajGraphDumpDevices ()
 
 void
-ajGraphTraceInt (thys, outf)
-       const AjPGraph thys
+ajGraphTraceInt (outf)
        FILE* outf
 
 void
@@ -162,60 +162,60 @@ ajGraphPoly (n, x, y)
        PLFLT * y
 
 void
-ajGraphTriFill (x1, y1, x2, y2, x3, y3)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphTriFill (xx1, yy1, xx2, yy2, x3, y3)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
        PLFLT x3
        PLFLT y3
 
 void
-ajGraphTri (x1, y1, x2, y2, x3, y3)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphTri (xx1, yy1, xx2, yy2, x3, y3)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
        PLFLT x3
        PLFLT y3
 
 void
-ajGraphDiaFill (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
+ajGraphDiaFill (xx0, yy0, size)
+       PLFLT xx0
+       PLFLT yy0
        PLFLT size
 
 void
-ajGraphDia (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
+ajGraphDia (xx0, yy0, size)
+       PLFLT xx0
+       PLFLT yy0
        PLFLT size
 
 void
-ajGraphBoxFill (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
+ajGraphBoxFill (xx0, yy0, size)
+       PLFLT xx0
+       PLFLT yy0
        PLFLT size
 
 void
-ajGraphBox (x0, y0, size)
-       PLFLT x0
-       PLFLT y0
+ajGraphBox (xx0, yy0, size)
+       PLFLT xx0
+       PLFLT yy0
        PLFLT size
 
 void
-ajGraphRectFill (x0, y0, x1, y1)
-       PLFLT x0
-       PLFLT y0
-       PLFLT x1
-       PLFLT y1
+ajGraphRectFill (xx0, yy0, xx1, yy1)
+       PLFLT xx0
+       PLFLT yy0
+       PLFLT xx1
+       PLFLT yy1
 
 void
-ajGraphRect (x0, y0, x1, y1)
-       PLFLT x0
-       PLFLT y0
-       PLFLT x1
-       PLFLT y1
+ajGraphRect (xx0, yy0, xx1, yy1)
+       PLFLT xx0
+       PLFLT yy0
+       PLFLT xx1
+       PLFLT yy1
 
 void
 ajGraphSetBackWhite ()
@@ -350,71 +350,71 @@ ajGraphSetFillPat (style)
        RETVAL
 
 float
-ajGraphSetCharSize (size)
-       float size
+ajGraphSetCharScale (scale)
+       float scale
     OUTPUT:
        RETVAL
 
 void
-ajGraphLine (x1, y1, x2, y2)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphLine (xx1, yy1, xx2, yy2)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
 
 void
-ajGraphLines (x1, y1, x2, y2, numoflines)
-       PLFLT& x1
-       PLFLT& y1
-       PLFLT& x2
-       PLFLT& y2
+ajGraphLines (xx1, yy1, xx2, yy2, numoflines)
+       PLFLT& xx1
+       PLFLT& yy1
+       PLFLT& xx2
+       PLFLT& yy2
        ajint numoflines
 
 void
-ajGraphDots (x1, y1, numofdots)
-       PLFLT* x1
-       PLFLT* y1
+ajGraphDots (xx1, yy1, numofdots)
+       PLFLT* xx1
+       PLFLT* yy1
        ajint numofdots
 
 void
-ajGraphSymbols (numofdots, x1, y1, symbol)
+ajGraphSymbols (numofdots, xx1, yy1, symbol)
        ajint numofdots
-       PLFLT* x1
-       PLFLT* y1
+       PLFLT* xx1
+       PLFLT* yy1
        ajint symbol
 
 void
-ajGraphTextLine (x1, y1, x2, y2, text, just)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphTextLine (xx1, yy1, xx2, yy2, text, just)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
        const char* text
        PLFLT just
 
 void
-ajGraphText (x1, y1, text, just)
-       PLFLT x1
-       PLFLT y1
+ajGraphText (xx1, yy1, text, just)
+       PLFLT xx1
+       PLFLT yy1
        const char* text
        PLFLT just
 
 void
-ajGraphTextStart (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
+ajGraphTextStart (xx1, yy1, text)
+       PLFLT xx1
+       PLFLT yy1
        const char* text
 
 void
-ajGraphTextEnd (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
+ajGraphTextEnd (xx1, yy1, text)
+       PLFLT xx1
+       PLFLT yy1
        const char* text
 
 void
-ajGraphTextMid (x1, y1, text)
-       PLFLT x1
-       PLFLT y1
+ajGraphTextMid (xx1, yy1, text)
+       PLFLT xx1
+       PLFLT yy1
        const char* text
 
 void
@@ -791,30 +791,30 @@ ajGraphxyDisplay (thys, closeit)
        AjBool closeit
 
 void
-ajGraphAddRect (thys, x1, y1, x2, y2, colour, fill)
+ajGraphAddRect (thys, xx1, yy1, xx2, yy2, colour, fill)
        AjPGraph thys
-       float x1
-       float y1
-       float x2
-       float y2
+       float xx1
+       float yy1
+       float xx2
+       float yy2
        ajint colour
        ajint fill
 
 void
-ajGraphAddText (thys, x1, y1, colour, text)
+ajGraphAddText (thys, xx1, yy1, colour, text)
        AjPGraph thys
-       float x1
-       float y1
+       float xx1
+       float yy1
        ajint colour
        const char* text
 
 void
-ajGraphAddLine (thys, x1, y1, x2, y2, colour)
+ajGraphAddLine (thys, xx1, yy1, xx2, yy2, colour)
        AjPGraph thys
-       float x1
-       float y1
-       float x2
-       float y2
+       float xx1
+       float yy1
+       float xx2
+       float yy2
        ajint colour
 
 void
@@ -828,30 +828,30 @@ ajGraphClear (thys)
        AjPGraph thys
 
 void
-ajGraphPlpDataAddRect (graphdata, x1, y1, x2, y2, colour, fill)
+ajGraphPlpDataAddRect (graphdata, xx1, yy1, xx2, yy2, colour, fill)
        AjPGraphPlpData graphdata
-       float x1
-       float y1
-       float x2
-       float y2
+       float xx1
+       float yy1
+       float xx2
+       float yy2
        ajint colour
        ajint fill
 
 void
-ajGraphPlpDataAddText (graphdata, x1, y1, colour, text)
+ajGraphPlpDataAddText (graphdata, xx1, yy1, colour, text)
        AjPGraphPlpData graphdata
-       float x1
-       float y1
+       float xx1
+       float yy1
        ajint colour
        const char* text
 
 void
-ajGraphPlpDataAddLine (graphdata, x1, y1, x2, y2, colour)
+ajGraphPlpDataAddLine (graphdata, xx1, yy1, xx2, yy2, colour)
        AjPGraphPlpData graphdata
-       float x1
-       float y1
-       float x2
-       float y2
+       float xx1
+       float yy1
+       float xx2
+       float yy2
        ajint colour
 
 void
@@ -860,30 +860,30 @@ ajGraphPrintType (outf, full)
        AjBool full
 
 PLFLT
-ajGraphTextLength (x1, y1, x2, y2, text)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphTextLength (xx1, yy1, xx2, yy2, text)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
        const char* text
     OUTPUT:
        RETVAL
 
 PLFLT
-ajGraphTextHeight (x1, x2, y1, y2)
-       PLFLT x1
-       PLFLT x2
-       PLFLT y1
-       PLFLT y2
+ajGraphTextHeight (xx1, xx2, yy1, yy2)
+       PLFLT xx1
+       PLFLT xx2
+       PLFLT yy1
+       PLFLT yy2
     OUTPUT:
        RETVAL
 
 PLFLT
-ajGraphDistPts (x1, y1, x2, y2)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphDistPts (xx1, yy1, xx2, yy2)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
     OUTPUT:
        RETVAL
 
@@ -894,11 +894,11 @@ ajGraphSetDefCharSize (size)
        RETVAL
 
 PLFLT
-ajGraphFitTextOnLine (x1, y1, x2, y2, text, TextHeight)
-       PLFLT x1
-       PLFLT y1
-       PLFLT x2
-       PLFLT y2
+ajGraphFitTextOnLine (xx1, yy1, xx2, yy2, text, TextHeight)
+       PLFLT xx1
+       PLFLT yy1
+       PLFLT xx2
+       PLFLT yy2
        const char* text
        PLFLT TextHeight
     OUTPUT:
@@ -964,4 +964,22 @@ ajGraphIsData (thys)
 
 void
 ajGraphUnused ()
+
+void
+ajGraphSetDesc (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+void
+ajGraphSetTitlePlus (thys, title)
+       AjPGraph thys
+       const AjPStr title
+
+ajint
+ajGraphDataReplaceI (thys, graphdata, num)
+       AjPGraph thys
+       AjPGraphPlpData graphdata
+       ajint num
+    OUTPUT:
+       RETVAL
 

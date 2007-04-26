@@ -28,56 +28,56 @@ ajSeqTypeCheckIn (thys, seqin)
        RETVAL
 
 char
-ajSeqTypeNucS (pthys)
-       const AjPStr pthys
+ajSeqTypeNucS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeDnaS (pthys)
-       const AjPStr pthys
+ajSeqTypeDnaS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeRnaS (pthys)
-       const AjPStr pthys
+ajSeqTypeRnaS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeGapdnaS (pthys)
-       const AjPStr pthys
+ajSeqTypeGapdnaS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeGaprnaS (pthys)
-       const AjPStr pthys
+ajSeqTypeGaprnaS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeGapnucS (pthys)
-       const AjPStr pthys
+ajSeqTypeGapnucS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeAnyprotS (pthys)
-       const AjPStr pthys
+ajSeqTypeAnyprotS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeProtS (pthys)
-       const AjPStr pthys
+ajSeqTypeProtS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
 char
-ajSeqTypeGapanyS (pthys)
-       const AjPStr pthys
+ajSeqTypeGapanyS (thys)
+       const AjPStr thys
     OUTPUT:
        RETVAL
 
@@ -154,4 +154,7 @@ ajSeqTypeSummary (type_name, Ptype, gaps)
 
 void
 ajSeqTypeExit ()
+
+void
+ajSeqTypeUnused ()
 

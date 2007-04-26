@@ -185,12 +185,13 @@ ajSeqParseFasta (instr, id, acc, sv, desc)
        desc
 
 AjBool
-ajSeqParseNcbi (instr, id, acc, sv, gi, desc)
+ajSeqParseNcbi (instr, id, acc, sv, gi, db, desc)
        const AjPStr instr
        AjPStr& id
        AjPStr& acc
        AjPStr& sv
        AjPStr& gi
+       AjPStr& db
        AjPStr& desc
     OUTPUT:
        RETVAL
@@ -198,6 +199,7 @@ ajSeqParseNcbi (instr, id, acc, sv, gi, desc)
        acc
        sv
        gi
+       db
        desc
 
 AjBool

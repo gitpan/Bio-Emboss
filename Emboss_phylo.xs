@@ -134,3 +134,18 @@ void
 ajPhyloTreeTrace (thys)
        const AjPPhyloTree thys
 
+void
+ajPhyloStateDelarray (pthis)
+       AjPPhyloState*& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloTreeDelarray (pthis)
+       AjPPhyloTree*& pthis
+    OUTPUT:
+       pthis
+
+void
+ajPhyloExit ()
+

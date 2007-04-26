@@ -880,7 +880,7 @@ ajint
 ajFileWriteStr (thys, str, len)
        AjPFile thys
        const AjPStr str
-       ajint len
+       ajuint len
     OUTPUT:
        RETVAL
 
@@ -895,4 +895,12 @@ ajFileFileList (files)
        const AjPStr files
     OUTPUT:
        RETVAL
+
+AjBool
+ajFileBuffGetTrim (thys, pdest)
+       AjPFileBuff thys
+       AjPStr& pdest
+    OUTPUT:
+       RETVAL
+       pdest
 

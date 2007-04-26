@@ -88,7 +88,7 @@ ajListCopy (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajListstrClone (thys, newlist)
        const AjPList thys
        AjPList newlist
@@ -114,7 +114,7 @@ ajListLast (thys, x)
 AjBool
 ajListNth (thys, n, x)
        const AjPList thys
-       ajint n
+       ajuint n
        void*& x
     OUTPUT:
        RETVAL
@@ -160,13 +160,13 @@ void
 ajListstrReverse (thys)
        AjPList thys
 
-ajint
+ajuint
 ajListLength (thys)
        const AjPList thys
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajListstrLength (thys)
        const AjPList thys
     OUTPUT:
@@ -196,7 +196,7 @@ ajListstrDel (pthis)
     OUTPUT:
        pthis
 
-ajint
+ajuint
 ajListToArray (thys, array)
        const AjPList thys
        void**& array
@@ -204,7 +204,7 @@ ajListToArray (thys, array)
        RETVAL
        array
 
-ajint
+ajuint
 ajListstrToArray (thys, array)
        const AjPList thys
        AjPStr*& array
@@ -212,7 +212,7 @@ ajListstrToArray (thys, array)
        RETVAL
        array
 
-ajint
+ajuint
 ajListstrToArrayApp (thys, array)
        const AjPList thys
        AjPStr*& array
@@ -348,4 +348,10 @@ ajListDummyFunction (array)
 
 void
 ajListExit ()
+
+void
+ajListFreeData (pthis)
+       AjPList& pthis
+    OUTPUT:
+       pthis
 

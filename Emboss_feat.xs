@@ -317,7 +317,7 @@ ajFeatLocToSeq (seq, line, res, usa)
        RETVAL
        res
 
-ajint
+ajuint
 ajFeatGetLocs (str, cds, type)
        const AjPStr str
        AjPStr*& cds
@@ -386,7 +386,7 @@ ajFeatGetSource (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeatGetStart (thys)
        const AjPFeature thys
     OUTPUT:
@@ -398,13 +398,13 @@ ajFeatGetStrand (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeatGetEnd (thys)
        const AjPFeature thys
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeatGetLength (thys)
        const AjPFeature thys
     OUTPUT:
@@ -428,7 +428,7 @@ ajFeatGetFrame (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeatGetTrans (str, cds)
        const AjPStr str
        AjPStr*& cds
@@ -455,9 +455,9 @@ ajFeatSetScore (thys, score)
        float score
 
 void
-ajFeatSetStrand (thys, score)
+ajFeatSetStrand (thys, rev)
        AjPFeature thys
-       float score
+       AjBool rev
 
 AjBool
 ajFeattabInSetType (thys, type)
@@ -636,8 +636,8 @@ ajFeatIsLocal (gf)
 AjBool
 ajFeatIsLocalRange (gf, start, end)
        const AjPFeature gf
-       ajint start
-       ajint end
+       ajuint start
+       ajuint end
     OUTPUT:
        RETVAL
 
@@ -665,25 +665,25 @@ ajFeattabOutDel (thys)
     OUTPUT:
        thys
 
-ajint
+ajuint
 ajFeattablePos (thys, ipos)
        const AjPFeattable thys
        ajint ipos
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeattablePosI (thys, imin, ipos)
        const AjPFeattable thys
-       ajint imin
+       ajuint imin
        ajint ipos
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFeattablePosII (ilen, imin, ipos)
-       ajint ilen
-       ajint imin
+       ajuint ilen
+       ajuint imin
        ajint ipos
     OUTPUT:
        RETVAL
@@ -691,17 +691,17 @@ ajFeattablePosII (ilen, imin, ipos)
 AjBool
 ajFeattableTrimOff (thys, ioffset, ilen)
        AjPFeattable thys
-       ajint ioffset
-       ajint ilen
+       ajuint ioffset
+       ajuint ilen
     OUTPUT:
        RETVAL
 
 AjBool
 ajFeatTrimOffRange (ft, ioffset, begin, end, dobegin, doend)
        AjPFeature ft
-       ajint ioffset
-       ajint begin
-       ajint end
+       ajuint ioffset
+       ajuint begin
+       ajuint end
        AjBool dobegin
        AjBool doend
     OUTPUT:
@@ -718,4 +718,24 @@ void
 ajFeatPrintFormat (outf, full)
        AjPFile outf
        AjBool full
+
+AjBool
+ajFeatLocMark (seq, line)
+       AjPStr& seq
+       const AjPStr line
+    OUTPUT:
+       RETVAL
+
+AjPFeattable
+ajFeattableCopyLimit (orig, limit)
+       const AjPFeattable orig
+       ajint limit
+    OUTPUT:
+       RETVAL
+
+void
+ajFeattabOutClear (thys)
+       AjPFeattabOut & thys
+    OUTPUT:
+       thys
 

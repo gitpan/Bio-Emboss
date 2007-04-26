@@ -15,7 +15,7 @@ PROTOTYPES: ENABLE
 
 AjPRange
 ajRangeNewI (n)
-       ajint n
+       ajuint n
     OUTPUT:
        RETVAL
 
@@ -40,10 +40,10 @@ ajRangeGet (str)
 AjPRange
 ajRangeGetLimits (str, imin, imax, minsize, size)
        const AjPStr str
-       ajint imin
-       ajint imax
-       ajint minsize
-       ajint size
+       ajuint imin
+       ajuint imax
+       ajuint minsize
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -56,14 +56,14 @@ ajRangeFile (name)
 AjPRange
 ajRangeFileLimits (name, imin, imax, minsize, size)
        const AjPStr name
-       ajint imin
-       ajint imax
-       ajint minsize
-       ajint size
+       ajuint imin
+       ajuint imax
+       ajuint minsize
+       ajuint size
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajRangeNumber (thys)
        const AjPRange thys
     OUTPUT:
@@ -72,9 +72,9 @@ ajRangeNumber (thys)
 AjBool
 ajRangeValues (thys, element, start, end)
        const AjPRange thys
-       ajint element
-       ajint & start
-       ajint & end
+       ajuint element
+       ajuint & start
+       ajuint & end
     OUTPUT:
        RETVAL
        start
@@ -83,7 +83,7 @@ ajRangeValues (thys, element, start, end)
 AjBool
 ajRangeText (thys, element, text)
        const AjPRange thys
-       ajint element
+       ajuint element
        AjPStr & text
     OUTPUT:
        RETVAL
@@ -92,9 +92,9 @@ ajRangeText (thys, element, text)
 AjBool
 ajRangeChange (thys, element, start, end)
        AjPRange thys
-       ajint element
-       ajint start
-       ajint end
+       ajuint element
+       ajuint start
+       ajuint end
     OUTPUT:
        RETVAL
        thys
@@ -102,7 +102,7 @@ ajRangeChange (thys, element, start, end)
 AjBool
 ajRangeBegin (thys, begin)
        AjPRange thys
-       ajint begin
+       ajuint begin
     OUTPUT:
        RETVAL
 
@@ -188,20 +188,20 @@ ajRangeStrToLower (thys, str)
        RETVAL
        str
 
-ajint
+ajuint
 ajRangeOverlapSingle (start, end, pos, length)
-       ajint start
-       ajint end
-       ajint pos
-       ajint length
+       ajuint start
+       ajuint end
+       ajuint pos
+       ajuint length
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajRangeOverlaps (thys, pos, length)
        const AjPRange thys
-       ajint pos
-       ajint length
+       ajuint pos
+       ajuint length
     OUTPUT:
        RETVAL
 

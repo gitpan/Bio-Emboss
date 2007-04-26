@@ -1,4 +1,4 @@
-Bio::Emboss perl module version 2.0.0
+Bio::Emboss perl module version 4.1.0
 =====================================
 
 This module is an interface to the libraries of the EMBOSS package
@@ -10,15 +10,15 @@ look like any other EMBOSS program (command-line, web interface).
 
 INSTALLATION
 
-Before installation, edit Makefile.PL !
+  You must define EMB_ROOT       -- EMBOSS installation path
 
-  You must define $EMB_ROOT       -- EMBOSS installation path
+  Probably also EMB_EXT_LIBS     -- libraries used for building EMBOSS
 
-  Probably also $EMB_EXT_LIBS     -- libraries used for building EMBOSS
+You can do this by modifying Makefile.PL or putting the proper values
+on the command-line together with Makefile.PL:
 
-Then, to install this module type the following:
 
-   perl Makefile.PL
+   perl Makefile.PL [EMB_ROOT=/some/path] [EMB_EXT_LIBS="-L/abc -lxyz"]
    make
 
    make test                   # optional
@@ -38,13 +38,14 @@ This module requires an EMBOSS installation
 available for download at
 http://emboss.sourceforge.net/
 
-The module was tested with EMBOSS (version 4.0.0).
+The module was tested with EMBOSS (version 4.1.0).
+For EMBOSS-4.0.0 use Bio::Emboss-2.0.0
 For EMBOSS-3.0.0 use Bio::Emboss-1.0.1
 For older EMBOSS versions use Bio::Emboss-0.7.
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2003-2006 Peter Ernst <pernst@cpan.org>
+Copyright (C) 2003-2007 Peter Ernst <pernst@cpan.org>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

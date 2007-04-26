@@ -40,7 +40,7 @@ ajNexusGetTaxa (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajNexusGetNtaxa (thys)
        const AjPNexus thys
     OUTPUT:

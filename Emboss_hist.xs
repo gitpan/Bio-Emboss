@@ -43,51 +43,51 @@ ajHistNewG (numofsets, numofpoints, graph)
        RETVAL
 
 void
-ajHistSetMultiTitle (hist, index, title)
+ajHistSetMultiTitle (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const AjPStr title
 
 void
-ajHistSetMultiTitleC (hist, index, title)
+ajHistSetMultiTitleC (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const char * title
 
 void
-ajHistSetMultiXTitle (hist, index, title)
+ajHistSetMultiXTitle (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const AjPStr title
 
 void
-ajHistSetMultiXTitleC (hist, index, title)
+ajHistSetMultiXTitleC (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const char * title
 
 void
-ajHistSetMultiYTitle (hist, index, title)
+ajHistSetMultiYTitle (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const AjPStr title
 
 void
-ajHistSetMultiYTitleC (hist, index, title)
+ajHistSetMultiYTitleC (hist, indexnum, title)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const char * title
 
 void
-ajHistSetPtrToData (hist, index, data)
+ajHistSetPtrToData (hist, indexnum, data)
        AjPHist hist
-       ajint index
+       ajint indexnum
        PLFLT& data
 
 void
-ajHistCopyData (hist, index, data)
+ajHistCopyData (hist, indexnum, data)
        AjPHist hist
-       ajint index
+       ajint indexnum
        const PLFLT* data
 
 void

@@ -237,7 +237,7 @@ ajTrnStartStopC (trnObj, codon, aa)
        RETVAL
        aa
 
-AjPStr
+const AjPStr
 ajTrnName (trnFileNameInt)
        ajint trnFileNameInt
     OUTPUT:

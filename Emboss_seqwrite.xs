@@ -13,38 +13,12 @@ PROTOTYPES: ENABLE
 
  # code from ajseqwrite.c: automatically generated
 
-void
-ajSeqAllWrite (outseq, seq)
-       AjPSeqout outseq
-       const AjPSeq seq
-
-void
-ajSeqsetWrite (outseq, seq)
-       AjPSeqout outseq
-       const AjPSeqset seq
-
-void
-ajSeqWriteClose (outseq)
-       AjPSeqout outseq
-
-void
-ajSeqWrite (outseq, seq)
-       AjPSeqout outseq
-       const AjPSeq seq
-
 AjBool
-ajSeqFileNewOut (seqout, name)
+ajSeqoutOpen (seqout)
        AjPSeqout seqout
-       const AjPStr name
     OUTPUT:
        RETVAL
-
-AjBool
-ajSeqoutOpen (thys)
-       AjPSeqout thys
-    OUTPUT:
-       RETVAL
-       thys
+       seqout
 
 AjBool
 ajSeqOutFormatSingle (format)
@@ -79,8 +53,8 @@ ajSeqoutUsa (pthis, Usa)
        const AjPStr Usa
 
 void
-ajSeqoutClear (thys)
-       AjPSeqout thys
+ajSeqoutClear (seqout)
+       AjPSeqout seqout
 
 void
 ajSeqPrintOutFormat (outf, full)
@@ -116,7 +90,7 @@ ajSeqoutTrace (seq)
 void
 ajSeqoutCount (seqout, b)
        const AjPSeqout seqout
-       ajint& b
+       ajuint& b
     OUTPUT:
        b
 
@@ -138,4 +112,42 @@ ajSssWriteXyz (outf, seq, prefix)
 
 void
 ajSeqWriteExit ()
+
+AjPSeqout
+ajSeqoutNew ()
+    OUTPUT:
+       RETVAL
+
+AjPSeqout
+ajSeqoutNewFile (file)
+       AjPFile file
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqoutDel (Pseqout)
+       AjPSeqout& Pseqout
+    OUTPUT:
+       Pseqout
+
+void
+ajSeqoutWriteSeq (outseq, seq)
+       AjPSeqout outseq
+       const AjPSeq seq
+
+void
+ajSeqoutWriteSet (outseq, seq)
+       AjPSeqout outseq
+       const AjPSeqset seq
+
+void
+ajSeqoutClose (seqout)
+       AjPSeqout seqout
+
+AjBool
+ajSeqoutOpenFilename (seqout, name)
+       AjPSeqout seqout
+       const AjPStr name
+    OUTPUT:
+       RETVAL
 

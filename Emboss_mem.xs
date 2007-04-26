@@ -15,7 +15,7 @@ PROTOTYPES: ENABLE
 
 void*
 ajMemAlloc (nbytes, file, line, nofail)
-       ajlong nbytes
+       size_t nbytes
        const char* file
        ajint line
        AjBool nofail
@@ -24,8 +24,8 @@ ajMemAlloc (nbytes, file, line, nofail)
 
 void*
 ajMemCalloc (count, nbytes, file, line, nofail)
-       ajlong count
-       ajlong nbytes
+       size_t count
+       size_t nbytes
        const char* file
        ajint line
        AjBool nofail
@@ -34,8 +34,8 @@ ajMemCalloc (count, nbytes, file, line, nofail)
 
 void*
 ajMemCalloc0 (count, nbytes, file, line, nofail)
-       ajlong count
-       ajlong nbytes
+       size_t count
+       size_t nbytes
        const char* file
        ajint line
        AjBool nofail
@@ -43,15 +43,13 @@ ajMemCalloc0 (count, nbytes, file, line, nofail)
        RETVAL
 
 void
-ajMemFree (ptr, file, line)
-       char& ptr
-       const char* file
-       ajint line
+ajMemFree (ptr)
+       void* ptr
 
 void*
 ajMemResize (ptr, nbytes, file, line, nofail)
        char& ptr
-       ajlong nbytes
+       size_t nbytes
        const char* file
        ajint line
        AjBool nofail

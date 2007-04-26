@@ -42,7 +42,11 @@ for($y = $y1[0]+0.1; ($y+0.01) < $y1[2]; $y += 0.1) {
 
 
 ajGraphSetFore($oldc);
-ajGraphSetCharSize(0.8);
+if (Bio::Emboss->can("ajGraphSetCharScale")) { # newer
+    ajGraphSetCharScale(0.8);
+} else {
+    ajGraphSetCharSize(0.8);
+}
 ajGraphTextStart (0.3,0.75, "This is graphtest.pl !!");
 
 ajGraphCloseWin();

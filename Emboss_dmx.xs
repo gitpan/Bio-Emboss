@@ -40,7 +40,7 @@ ajDmxScophitDel (pthis)
 
 void
 ajDmxScophitDelWrap (ptr)
-       const void *& ptr
+       void *& ptr
     OUTPUT:
        ptr
 

@@ -59,11 +59,13 @@ ajReportNew ()
     OUTPUT:
        RETVAL
 
-void
+AjBool
 ajReportWrite (thys, ftable, seq)
        AjPReport thys
        const AjPFeattable ftable
        const AjPSeq seq
+    OUTPUT:
+       RETVAL
 
 void
 ajReportClose (thys)
@@ -75,7 +77,7 @@ ajReportLists (thys, types, names, prints, sizes)
        AjPStr*& types
        AjPStr*& names
        AjPStr*& prints
-       ajint*& sizes
+       ajuint*& sizes
     OUTPUT:
        RETVAL
        types
@@ -164,4 +166,44 @@ ajReportDummyFunction ()
 
 void
 ajReportExit ()
+
+void
+ajReportAppendHeader (thys, header)
+       AjPReport thys
+       const AjPStr header
+
+void
+ajReportAppendHeaderC (thys, header)
+       AjPReport thys
+       const char* header
+
+void
+ajReportAppendSubHeader (thys, header)
+       AjPReport thys
+       const AjPStr header
+
+void
+ajReportAppendSubHeaderC (thys, header)
+       AjPReport thys
+       const char* header
+
+void
+ajReportAppendTail (thys, tail)
+       AjPReport thys
+       const AjPStr tail
+
+void
+ajReportAppendTailC (thys, tail)
+       AjPReport thys
+       const char* tail
+
+void
+ajReportAppendSubTail (thys, tail)
+       AjPReport thys
+       const AjPStr tail
+
+void
+ajReportAppendSubTailC (thys, tail)
+       AjPReport thys
+       const char* tail
 

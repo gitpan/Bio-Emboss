@@ -324,7 +324,7 @@ ajCodPrintFormat (outf, full)
 
 void
 ajCodGetCodonlist (cod, list)
-       AjPCod cod
+       const AjPCod cod
        AjPList list
     OUTPUT:
        list

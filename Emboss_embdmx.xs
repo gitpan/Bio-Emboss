@@ -16,7 +16,7 @@ PROTOTYPES: ENABLE
 AjBool
 embDmxScophitsToHitlist (in, out, iter)
        const AjPList in
-       AjPHitlist& out
+       EmbPHitlist& out
        AjIList& iter
     OUTPUT:
        RETVAL
@@ -24,7 +24,7 @@ embDmxScophitsToHitlist (in, out, iter)
 
 AjBool
 embDmxScophitToHit (to, from)
-       AjPHit& to
+       EmbPHit& to
        const AjPScophit from
     OUTPUT:
        RETVAL
@@ -33,7 +33,7 @@ embDmxScophitToHit (to, from)
 AjBool
 embDmxScophitsAccToHitlist (in, out, iter)
        const AjPList in
-       AjPHitlist& out
+       EmbPHitlist& out
        AjIList& iter
     OUTPUT:
        RETVAL
@@ -42,7 +42,7 @@ embDmxScophitsAccToHitlist (in, out, iter)
 AjBool
 embDmxHitsWrite (outf, hits, maxhits)
        AjPFile outf
-       AjPHitlist hits
+       EmbPHitlist hits
        ajint maxhits
     OUTPUT:
        RETVAL
@@ -154,7 +154,7 @@ embDmxScophitMergeInsertThisTargetBoth (list, hit1, hit2, iter)
 AjBool
 embDmxSeqNR (input, keep, nset, matrix, gapopen, gapextend, thresh, CheckGarbage)
        const AjPList input
-       AjPInt& keep
+       AjPUint& keep
        ajint& nset
        const AjPMatrixf matrix
        float gapopen
@@ -169,7 +169,7 @@ embDmxSeqNR (input, keep, nset, matrix, gapopen, gapextend, thresh, CheckGarbage
 AjBool
 embDmxSeqNRRange (input, keep, nset, matrix, gapopen, gapextend, threshlow, threshup, CheckGarbage)
        const AjPList input
-       AjPInt& keep
+       AjPUint& keep
        ajint& nset
        const AjPMatrixf matrix
        float gapopen
@@ -202,7 +202,7 @@ embDmxScophitReadAllFasta (inf)
 AjBool
 embDmxHitlistToScophits (in, out)
        const AjPList in
-       AjPList& out
+       AjPList out
     OUTPUT:
        RETVAL
        out

@@ -13,6 +13,29 @@ PROTOTYPES: ENABLE
 
  # code from embcom.c: automatically generated
 
+#ifdef HAVE_EMBOSS_4_1_0
+
+void
+embComComplexity (seq, name, len, jmin, jmax, l, step, sim, freq, omnia, fp, pf, print, MedValue)
+       const char * seq
+       const char * name
+       ajint len
+       ajint jmin
+       ajint jmax
+       ajint l
+       ajint step
+       ajint sim
+       ajint freq
+       ajint omnia
+       AjPFile fp
+       AjPFile pf
+       ajint print
+       float & MedValue
+    OUTPUT:
+       MedValue
+
+#else
+
 void
 embComComplexity (seq, name, len, jmin, jmax, l, step, sim, freq, omnia, fp, pf, print, num_seq, MedValue)
        const char * seq
@@ -32,6 +55,8 @@ embComComplexity (seq, name, len, jmin, jmax, l, step, sim, freq, omnia, fp, pf,
        float & MedValue
     OUTPUT:
        MedValue
+
+#endif
 
 void
 embComWriteFile (fp, jmin, jmax, lwin, step, sim)

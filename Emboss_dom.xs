@@ -14,20 +14,20 @@ PROTOTYPES: ENABLE
  # code from ajdom.c: automatically generated
 
 AjPDomNodeEntry
-ajDomNodeListAppend (list, key)
+ajDomNodeListAppend (list, child)
        AjPDomNodeList list
-       AjPDomNode key
+       AjPDomNode child
     OUTPUT:
        RETVAL
        list
 
 AjPDomNode
-ajDomNodeAppendChild (list, key)
-       AjPDomNode list
-       AjPDomNode key
+ajDomNodeAppendChild (node, extrachild)
+       AjPDomNode node
+       AjPDomNode extrachild
     OUTPUT:
        RETVAL
-       list
+       node
 
 AjPDomNode
 ajDomRemoveChild (node, child)
@@ -37,14 +37,14 @@ ajDomRemoveChild (node, child)
        RETVAL
        node
 
-AjPBool
+AjBool
 ajDomNodeListExists (list, child)
        AjPDomNodeList list
-       AjPDomNode child
+       const AjPDomNode child
     OUTPUT:
        RETVAL
 
-AjPNodeEntry
+AjPDomNodeEntry
 ajDomNodeListRemove (list, child)
        AjPDomNodeList list
        AjPDomNode child
@@ -83,63 +83,61 @@ ajDomDocumentCreateNode (doc, nodetype)
        RETVAL
 
 AjPDomDocumentType
-ajDomImplementationCreateDocumentType (doc, qualname, publicid, systemid)
-       AjPDomDocument doc
-       AjPStr qualname
-       AjPStr publicid
-       AjPStr systemid
+ajDomImplementationCreateDocumentType (qualname, publicid, systemid)
+       const AjPStr qualname
+       const AjPStr publicid
+       const AjPStr systemid
     OUTPUT:
        RETVAL
 
 AjPDomDocumentType
-ajDomImplementationCreateDocumentTypeC (doc, qualname, publicid, systemid)
-       AjPDomDocument doc
-       char * qualname
-       char * publicid
-       char * systemid
+ajDomImplementationCreateDocumentTypeC (qualname, publicid, systemid)
+       const char * qualname
+       const char * publicid
+       const char * systemid
     OUTPUT:
        RETVAL
 
 AjPDomDocument
-ajDomImplementationCreateDocument (uri, qualname, publicid)
-       AjPStr uri
-       AjPStr qualname
-       AjPDomDocumentType publicid
+ajDomImplementationCreateDocument (uri, qualname, doctype)
+       const AjPStr uri
+       const AjPStr qualname
+       AjPDomDocumentType doctype
     OUTPUT:
        RETVAL
 
 AjPDomDocument
-ajDomImplementationCreateDocumentC (uri, qualname, publicid)
-       char * uri
-       char * qualname
-       AjPDomDocumentType publicid
+ajDomImplementationCreateDocumentC (uri, qualname, doctype)
+       const char * uri
+       const char * qualname
+       AjPDomDocumentType doctype
     OUTPUT:
        RETVAL
 
 AjPDomNode
 ajDomNodeMapGetItem (map, name)
-       AjPDomNodeMap map
+       const AjPDomNodeMap map
        const AjPStr name
     OUTPUT:
        RETVAL
 
 AjPDomNode
 ajDomNodeMapGetItemC (map, name)
-       AjPDomNodeMap map
+       const AjPDomNodeMap map
        const char * name
     OUTPUT:
        RETVAL
 
 AjPStr
 ajDomElementGetAttribute (element, name)
-       AjPDomElement element
+       const AjPDomElement element
        const AjPStr name
     OUTPUT:
        RETVAL
 
 AjPStr
 ajDomElementGetAttributeC (element, name)
-       AjPDomElement element
+       const AjPDomElement element
        const char * name
     OUTPUT:
        RETVAL
@@ -157,7 +155,6 @@ ajDomNodeMapRemoveItem (map, name)
        const AjPStr name
     OUTPUT:
        RETVAL
-       map
 
 AjPDomNode
 ajDomNodeMapRemoveItemC (map, name)
@@ -168,17 +165,16 @@ ajDomNodeMapRemoveItemC (map, name)
        map
 
 AjPDomNode
-ajDomNodeMapItem (map, index)
-       AjPDomNodeMap map
-       ajint index
+ajDomNodeMapItem (map, indexnum)
+       const AjPDomNodeMap map
+       ajint indexnum
     OUTPUT:
        RETVAL
-       map
 
 AjPDomNode
-ajDomNodeListItem (list, index)
+ajDomNodeListItem (list, indexnum)
        const AjPDomNodeList list
-       ajint index
+       ajint indexnum
     OUTPUT:
        RETVAL
 
@@ -196,12 +192,12 @@ ajDomElementSetAttributeC (element, name, value)
 
 void
 ajDomElementRemoveAttribute (element, name)
-       const AjPDomElement element
+       AjPDomElement element
        const AjPStr name
 
 void
 ajDomElementRemoveAttributeC (element, name)
-       const AjPDomElement element
+       AjPDomElement element
        const char * name
 
 AjPDomNode
@@ -224,7 +220,6 @@ ajDomElementSetAttributeNode (element, newattr)
        AjPDomNode newattr
     OUTPUT:
        RETVAL
-       element
 
 AjPDomNode
 ajDomElementRemoveAttributeNode (element, oldattr)
@@ -235,16 +230,16 @@ ajDomElementRemoveAttributeNode (element, oldattr)
        element
 
 AjPDomNodeList
-ajDomElementGetElementsByTagName (element, tagname)
+ajDomElementGetElementsByTagName (element, name)
        AjPDomElement element
-       const AjPStr tagname
+       const AjPStr name
     OUTPUT:
        RETVAL
 
 AjPDomNodeList
-ajDomElementGetElementsByTagNameC (element, tagname)
+ajDomElementGetElementsByTagNameC (element, name)
        AjPDomElement element
-       const char * tagname
+       const char * name
     OUTPUT:
        RETVAL
 
@@ -256,7 +251,7 @@ ajDomElementNormalise (element)
 
 AjPStr
 ajDomCharacterDataSubstringData (data, offset, count)
-       AjPDomCharacterData data
+       const AjPDomCharacterData data
        ajint offset
        ajint count
     OUTPUT:
@@ -320,7 +315,7 @@ ajDomCharacterDataReplaceDataC (data, offset, count, arg)
 
 ajint
 ajDomCharacterDataGetLength (data)
-       AjPDomCharacterData data
+       const AjPDomCharacterData data
     OUTPUT:
        RETVAL
 
@@ -362,16 +357,14 @@ ajDomDocumentCreateTextNode (doc, data)
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomText
 ajDomDocumentCreateTextNodeC (doc, data)
        AjPDomDocument doc
-       const char & data
+       const char * data
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomComment
 ajDomDocumentCreateComment (doc, data)
@@ -380,16 +373,14 @@ ajDomDocumentCreateComment (doc, data)
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomComment
 ajDomDocumentCreateCommentC (doc, data)
        AjPDomDocument doc
-       const char & data
+       const char * data
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomCDATASection
 ajDomDocumentCreateCDATASection (doc, data)
@@ -398,16 +389,14 @@ ajDomDocumentCreateCDATASection (doc, data)
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomCDATASection
 ajDomDocumentCreateCDATASectionC (doc, data)
        AjPDomDocument doc
-       const char & data
+       const char * data
     OUTPUT:
        RETVAL
        doc
-       data
 
 AjPDomAttr
 ajDomDocumentCreateAttribute (doc, name)
@@ -416,16 +405,14 @@ ajDomDocumentCreateAttribute (doc, name)
     OUTPUT:
        RETVAL
        doc
-       name
 
 AjPDomAttr
 ajDomDocumentCreateAttributeC (doc, name)
        AjPDomDocument doc
-       const char & name
+       const char * name
     OUTPUT:
        RETVAL
        doc
-       name
 
 AjPDomEntityReference
 ajDomDocumentCreateEntityReference (doc, name)
@@ -434,16 +421,14 @@ ajDomDocumentCreateEntityReference (doc, name)
     OUTPUT:
        RETVAL
        doc
-       name
 
 AjPDomEntityReference
 ajDomDocumentCreateEntityReferenceC (doc, name)
        AjPDomDocument doc
-       const AjPStr name
+       const char * name
     OUTPUT:
        RETVAL
        doc
-       name
 
 AjPDomPi
 ajDomDocumentCreateProcessingInstruction (doc, target, data)
@@ -479,28 +464,28 @@ ajDomDocumentGetElementsByTagNameC (doc, name)
 
 AjPDomDocumentType
 ajDomDocumentGetDoctype (doc)
-       AjPDomDocument doc
+       const AjPDomDocument doc
     OUTPUT:
        RETVAL
 
 AjPDomElement
 ajDomDocumentGetDocumentElement (doc)
-       AjPDomDocument doc
+       const AjPDomDocument doc
     OUTPUT:
        RETVAL
 
 void
 ajDomPrintNode (node, indent)
-       AjPDomNode node
+       const AjPDomNode node
        ajint indent
 
 void
 ajDomPrintNode2 (node)
-       AjPDomNode node
+       const AjPDomNode node
 
 void
 ajDomNodePrintNode (node)
-       AjPDomNode node
+       const AjPDomNode node
 
 AjPDomNode
 ajDomNodeInsertBefore (node, newchild, refchild)
@@ -512,22 +497,20 @@ ajDomNodeInsertBefore (node, newchild, refchild)
        node
 
 AjPDomNode
-ajDomNodeReplaceChild (node, newchild, refchild)
+ajDomNodeReplaceChild (node, newchild, oldchild)
        AjPDomNode node
        AjPDomNode newchild
-       AjPDomNode refchild
+       AjPDomNode oldchild
     OUTPUT:
        RETVAL
-       node
 
 AjPDomNodeEntry
-ajDomNodeListReplace (list, newchild, refchild)
+ajDomNodeListReplace (list, newchild, oldchild)
        AjPDomNodeList list
        AjPDomNode newchild
-       AjPDomNode refchild
+       AjPDomNode oldchild
     OUTPUT:
        RETVAL
-       list
 
 AjPDomNode
 ajDomNodeCloneNode (node, deep)
@@ -544,9 +527,24 @@ ajDomNodeHasChildNodes (node)
 
 ajint
 ajDomWrite (node, outf)
-       AjPDomDocument node
+       const AjPDomDocument node
        AjPFile outf
     OUTPUT:
        RETVAL
-       outf
+
+AjPDomNodeEntry
+ajDomNodeListInsert (list, newchild, refchild)
+       AjPDomNodeList list
+       AjPDomNode newchild
+       AjPDomNode refchild
+    OUTPUT:
+       RETVAL
+
+ajint
+ajDomWriteIndent (node, outf, indent)
+       const AjPDomDocument node
+       AjPFile outf
+       ajint indent
+    OUTPUT:
+       RETVAL
 

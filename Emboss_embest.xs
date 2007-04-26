@@ -57,6 +57,36 @@ embEstPrintAlign (ofile, genome, est, ge, width)
        const EmbPEstAlign ge
        ajint width
 
+#ifdef HAVE_EMBOSS_4_1_0
+
+EmbPEstAlign
+embEstAlignNonRecursive (est, genome, gap_penalty, intron_penalty, splice_penalty, splice_sites, backtrack, needleman, init_path)
+       const AjPSeq est
+       const AjPSeq genome
+       ajint gap_penalty
+       ajint intron_penalty
+       ajint splice_penalty
+       const AjPSeq splice_sites
+       ajint backtrack
+       ajint needleman
+       ajint init_path
+    OUTPUT:
+       RETVAL
+
+void
+embEstOutBlastStyle (blast, genome, est, ge, gap_penalty, intron_penalty, splice_penalty, gapped, reverse)
+       AjPFile blast
+       const AjPSeq genome
+       const AjPSeq est
+       const EmbPEstAlign ge
+       ajint gap_penalty
+       ajint intron_penalty
+       ajint splice_penalty
+       ajint gapped
+       ajint reverse
+
+#else
+
 EmbPEstAlign
 embEstAlignNonRecursive (est, genome, match, mismatch, gap_penalty, intron_penalty, splice_penalty, splice_sites, backtrack, needleman, init_path)
        const AjPSeq est
@@ -73,20 +103,6 @@ embEstAlignNonRecursive (est, genome, match, mismatch, gap_penalty, intron_penal
     OUTPUT:
        RETVAL
 
-EmbPEstAlign
-embEstAlignLinearSpace (est, genome, match, mismatch, gap_penalty, intron_penalty, splice_penalty, splice_sites, megabytes)
-       const AjPSeq est
-       const AjPSeq genome
-       ajint match
-       ajint mismatch
-       ajint gap_penalty
-       ajint intron_penalty
-       ajint splice_penalty
-       const AjPSeq splice_sites
-       float megabytes
-    OUTPUT:
-       RETVAL
-
 void
 embEstOutBlastStyle (blast, genome, est, ge, match, mismatch, gap_penalty, intron_penalty, splice_penalty, gapped, reverse)
        AjPFile blast
@@ -100,4 +116,20 @@ embEstOutBlastStyle (blast, genome, est, ge, match, mismatch, gap_penalty, intro
        ajint splice_penalty
        ajint gapped
        ajint reverse
+
+#endif
+
+EmbPEstAlign
+embEstAlignLinearSpace (est, genome, match, mismatch, gap_penalty, intron_penalty, splice_penalty, splice_sites, megabytes)
+       const AjPSeq est
+       const AjPSeq genome
+       ajint match
+       ajint mismatch
+       ajint gap_penalty
+       ajint intron_penalty
+       ajint splice_penalty
+       const AjPSeq splice_sites
+       float megabytes
+    OUTPUT:
+       RETVAL
 

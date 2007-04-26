@@ -61,6 +61,7 @@ deprecated_Emboss_acd.xs
 deprecated_Emboss_hist.xs
 deprecated_Emboss_seq.xs
 deprecated_Emboss_str.xs
+deprecated_Emboss_seqwrite.xs
 
 Emboss_arr.xs
 Emboss_base.xs
@@ -95,6 +96,7 @@ scripts/extract_doc_for_pod.pl
 scripts/extract_prototypes.pl
 scripts/get_boot_for_modules.pl
 scripts/get_methods.pl
+scripts/create_xs_files_from_src_annot.pl
 t/1.t
 t/2.t
 t/graphtest.acd

@@ -20,7 +20,7 @@ ajChararrNew ()
 
 AjPChar
 ajChararrNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -33,14 +33,14 @@ ajChararrDel (thys)
 char
 ajChararrGet (thys, elem)
        const AjPChar thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajChararrPut (thys, elem, v)
        AjPChar& thys
-       ajint elem
+       ajuint elem
        char v
     OUTPUT:
        RETVAL
@@ -59,7 +59,7 @@ ajIntNew ()
 
 AjPInt
 ajIntNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -72,14 +72,14 @@ ajIntDel (thys)
 ajint
 ajIntGet (thys, elem)
        const AjPInt thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajIntPut (thys, elem, v)
        AjPInt& thys
-       ajint elem
+       ajuint elem
        ajint v
     OUTPUT:
        RETVAL
@@ -88,14 +88,14 @@ ajIntPut (thys, elem, v)
 void
 ajIntInc (thys, elem)
        AjPInt& thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        thys
 
 void
 ajIntDec (thys, elem)
        AjPInt& thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        thys
 
@@ -105,7 +105,7 @@ ajIntInt (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajIntLen (thys)
        const AjPInt thys
     OUTPUT:
@@ -118,7 +118,7 @@ ajFloatNew ()
 
 AjPFloat
 ajFloatNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -131,14 +131,14 @@ ajFloatDel (thys)
 float
 ajFloatGet (thys, elem)
        const AjPFloat thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajFloatPut (thys, elem, v)
        AjPFloat& thys
-       ajint elem
+       ajuint elem
        float v
     OUTPUT:
        RETVAL
@@ -150,7 +150,7 @@ ajFloatFloat (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajFloatLen (thys)
        const AjPFloat thys
     OUTPUT:
@@ -163,7 +163,7 @@ ajDoubleNew ()
 
 AjPDouble
 ajDoubleNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -176,14 +176,14 @@ ajDoubleDel (thys)
 double
 ajDoubleGet (thys, elem)
        const AjPDouble thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajDoublePut (thys, elem, v)
        AjPDouble& thys
-       ajint elem
+       ajuint elem
        double v
     OUTPUT:
        RETVAL
@@ -195,7 +195,7 @@ ajDoubleDouble (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajDoubleLen (thys)
        const AjPDouble thys
     OUTPUT:
@@ -208,7 +208,7 @@ ajShortNew ()
 
 AjPShort
 ajShortNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -221,14 +221,14 @@ ajShortDel (thys)
 short
 ajShortGet (thys, elem)
        const AjPShort thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajShortPut (thys, elem, v)
        AjPShort& thys
-       ajint elem
+       ajuint elem
        short v
     OUTPUT:
        RETVAL
@@ -240,7 +240,7 @@ ajShortShort (thys)
     OUTPUT:
        RETVAL
 
-ajint
+ajuint
 ajShortLen (thys)
        const AjPShort thys
     OUTPUT:
@@ -253,7 +253,7 @@ ajLongNew ()
 
 AjPLong
 ajLongNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -266,14 +266,14 @@ ajLongDel (thys)
 ajlong
 ajLongGet (thys, elem)
        const AjPLong thys
-       ajint elem
+       ajuint elem
     OUTPUT:
        RETVAL
 
 AjBool
 ajLongPut (thys, elem, v)
        AjPLong& thys
-       ajint elem
+       ajuint elem
        ajlong v
     OUTPUT:
        RETVAL
@@ -285,7 +285,7 @@ ajLongLong (thys)
     OUTPUT:
        RETVAL
 
-ajlong
+ajuint
 ajLongLen (thys)
        const AjPLong thys
     OUTPUT:
@@ -313,7 +313,7 @@ ajFloatTrace (array, precision, text)
        ajint precision
        const char* text
 
-ajint
+ajuint
 ajArrCommaList (s, a)
        const AjPStr s
        AjPStr *& a
@@ -322,12 +322,11 @@ ajArrCommaList (s, a)
        a
 
 ajint*
-ajArrIntLine (line, delim, cols, startcol, endcol)
+ajArrIntLine (line, delim, startcol, endcol)
        const AjPStr line
        const char* delim
-       ajint cols
-       ajint startcol
-       ajint endcol
+       ajuint startcol
+       ajuint endcol
     OUTPUT:
        RETVAL
 
@@ -338,14 +337,14 @@ ajInt2dNew ()
 
 AjPInt2d
 ajInt2dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
 AjPInt2d
 ajInt2dNewLL (size, size2)
-       ajint size
-       ajint size2
+       ajuint size
+       ajuint size2
     OUTPUT:
        RETVAL
 
@@ -358,16 +357,16 @@ ajInt2dDel (thys)
 ajint
 ajInt2dGet (thys, elem1, elem2)
        const AjPInt2d thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
     OUTPUT:
        RETVAL
 
 AjBool
 ajInt2dPut (thys, elem1, elem2, v)
        AjPInt2d& thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
        ajint v
     OUTPUT:
        RETVAL
@@ -376,8 +375,8 @@ ajInt2dPut (thys, elem1, elem2, v)
 void
 ajInt2dLen (thys, len1, len2)
        const AjPInt2d thys
-       ajint& len1
-       ajint& len2
+       ajuint& len1
+       ajuint& len2
     OUTPUT:
        len1
        len2
@@ -395,7 +394,7 @@ ajInt3dNew ()
 
 AjPInt3d
 ajInt3dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -408,18 +407,18 @@ ajInt3dDel (thys)
 ajint
 ajInt3dGet (thys, elem1, elem2, elem3)
        const AjPInt3d thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
     OUTPUT:
        RETVAL
 
 AjBool
 ajInt3dPut (thys, elem1, elem2, elem3, v)
        AjPInt3d& thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
        ajint v
     OUTPUT:
        RETVAL
@@ -428,9 +427,9 @@ ajInt3dPut (thys, elem1, elem2, elem3, v)
 void
 ajInt3dLen (thys, len1, len2, len3)
        const AjPInt3d thys
-       ajint& len1
-       ajint& len2
-       ajint& len3
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
     OUTPUT:
        len1
        len2
@@ -449,7 +448,7 @@ ajFloat2dNew ()
 
 AjPFloat2d
 ajFloat2dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -462,16 +461,16 @@ ajFloat2dDel (thys)
 float
 ajFloat2dGet (thys, elem1, elem2)
        const AjPFloat2d thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
     OUTPUT:
        RETVAL
 
 AjBool
 ajFloat2dPut (thys, elem1, elem2, v)
        AjPFloat2d& thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
        float v
     OUTPUT:
        RETVAL
@@ -480,8 +479,8 @@ ajFloat2dPut (thys, elem1, elem2, v)
 void
 ajFloat2dLen (thys, len1, len2)
        const AjPFloat2d thys
-       ajint& len1
-       ajint& len2
+       ajuint& len1
+       ajuint& len2
     OUTPUT:
        len1
        len2
@@ -499,7 +498,7 @@ ajFloat3dNew ()
 
 AjPFloat3d
 ajFloat3dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -512,18 +511,18 @@ ajFloat3dDel (thys)
 float
 ajFloat3dGet (thys, elem1, elem2, elem3)
        const AjPFloat3d thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
     OUTPUT:
        RETVAL
 
 AjBool
 ajFloat3dPut (thys, elem1, elem2, elem3, v)
        AjPFloat3d& thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
        float v
     OUTPUT:
        RETVAL
@@ -532,9 +531,9 @@ ajFloat3dPut (thys, elem1, elem2, elem3, v)
 void
 ajFloat3dLen (thys, len1, len2, len3)
        const AjPFloat3d thys
-       ajint& len1
-       ajint& len2
-       ajint& len3
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
     OUTPUT:
        len1
        len2
@@ -553,7 +552,7 @@ ajDouble2dNew ()
 
 AjPDouble2d
 ajDouble2dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -566,16 +565,16 @@ ajDouble2dDel (thys)
 double
 ajDouble2dGet (thys, elem1, elem2)
        const AjPDouble2d thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
     OUTPUT:
        RETVAL
 
 AjBool
 ajDouble2dPut (thys, elem1, elem2, v)
        AjPDouble2d& thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
        double v
     OUTPUT:
        RETVAL
@@ -584,8 +583,8 @@ ajDouble2dPut (thys, elem1, elem2, v)
 void
 ajDouble2dLen (thys, len1, len2)
        const AjPDouble2d thys
-       ajint& len1
-       ajint& len2
+       ajuint& len1
+       ajuint& len2
     OUTPUT:
        len1
        len2
@@ -603,7 +602,7 @@ ajDouble3dNew ()
 
 AjPDouble3d
 ajDouble3dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -616,18 +615,18 @@ ajDouble3dDel (thys)
 double
 ajDouble3dGet (thys, elem1, elem2, elem3)
        const AjPDouble3d thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
     OUTPUT:
        RETVAL
 
 AjBool
 ajDouble3dPut (thys, elem1, elem2, elem3, v)
        AjPDouble3d& thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
        double v
     OUTPUT:
        RETVAL
@@ -636,9 +635,9 @@ ajDouble3dPut (thys, elem1, elem2, elem3, v)
 void
 ajDouble3dLen (thys, len1, len2, len3)
        const AjPDouble3d thys
-       ajint& len1
-       ajint& len2
-       ajint& len3
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
     OUTPUT:
        len1
        len2
@@ -657,7 +656,7 @@ ajShort2dNew ()
 
 AjPShort2d
 ajShort2dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -670,16 +669,16 @@ ajShort2dDel (thys)
 short
 ajShort2dGet (thys, elem1, elem2)
        const AjPShort2d thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
     OUTPUT:
        RETVAL
 
 AjBool
 ajShort2dPut (thys, elem1, elem2, v)
        AjPShort2d& thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
        short v
     OUTPUT:
        RETVAL
@@ -688,8 +687,8 @@ ajShort2dPut (thys, elem1, elem2, v)
 void
 ajShort2dLen (thys, len1, len2)
        const AjPShort2d thys
-       ajint& len1
-       ajint& len2
+       ajuint& len1
+       ajuint& len2
     OUTPUT:
        len1
        len2
@@ -707,7 +706,7 @@ ajShort3dNew ()
 
 AjPShort3d
 ajShort3dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -720,18 +719,18 @@ ajShort3dDel (thys)
 short
 ajShort3dGet (thys, elem1, elem2, elem3)
        const AjPShort3d thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
     OUTPUT:
        RETVAL
 
 AjBool
 ajShort3dPut (thys, elem1, elem2, elem3, v)
        AjPShort3d& thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
        short v
     OUTPUT:
        RETVAL
@@ -740,9 +739,9 @@ ajShort3dPut (thys, elem1, elem2, elem3, v)
 void
 ajShort3dLen (thys, len1, len2, len3)
        const AjPShort3d thys
-       ajint& len1
-       ajint& len2
-       ajint& len3
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
     OUTPUT:
        len1
        len2
@@ -761,7 +760,7 @@ ajLong2dNew ()
 
 AjPLong2d
 ajLong2dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -774,16 +773,16 @@ ajLong2dDel (thys)
 ajlong
 ajLong2dGet (thys, elem1, elem2)
        const AjPLong2d thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
     OUTPUT:
        RETVAL
 
 AjBool
 ajLong2dPut (thys, elem1, elem2, v)
        AjPLong2d& thys
-       ajint elem1
-       ajint elem2
+       ajuint elem1
+       ajuint elem2
        ajlong v
     OUTPUT:
        RETVAL
@@ -792,8 +791,8 @@ ajLong2dPut (thys, elem1, elem2, v)
 void
 ajLong2dLen (thys, len1, len2)
        const AjPLong2d thys
-       ajint& len1
-       ajint& len2
+       ajuint& len1
+       ajuint& len2
     OUTPUT:
        len1
        len2
@@ -811,7 +810,7 @@ ajLong3dNew ()
 
 AjPLong3d
 ajLong3dNewL (size)
-       ajint size
+       ajuint size
     OUTPUT:
        RETVAL
 
@@ -824,18 +823,18 @@ ajLong3dDel (thys)
 ajlong
 ajLong3dGet (thys, elem1, elem2, elem3)
        const AjPLong3d thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
     OUTPUT:
        RETVAL
 
 AjBool
 ajLong3dPut (thys, elem1, elem2, elem3, v)
        AjPLong3d& thys
-       ajint elem1
-       ajint elem2
-       ajint elem3
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
        ajlong v
     OUTPUT:
        RETVAL
@@ -844,9 +843,9 @@ ajLong3dPut (thys, elem1, elem2, elem3, v)
 void
 ajLong3dLen (thys, len1, len2, len3)
        const AjPLong3d thys
-       ajint& len1
-       ajint& len2
-       ajint& len3
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
     OUTPUT:
        len1
        len2
@@ -860,4 +859,174 @@ ajLong3dLong (thys)
 
 void
 ajArrExit ()
+
+AjPUint
+ajUintNew ()
+    OUTPUT:
+       RETVAL
+
+AjPUint
+ajUintNewL (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+void
+ajUintDel (thys)
+       AjPUint& thys
+    OUTPUT:
+       thys
+
+ajuint
+ajUintGet (thys, elem)
+       const AjPUint thys
+       ajuint elem
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajUintPut (thys, elem, v)
+       AjPUint& thys
+       ajuint elem
+       ajuint v
+    OUTPUT:
+       RETVAL
+       thys
+
+void
+ajUintInc (thys, elem)
+       AjPUint& thys
+       ajuint elem
+    OUTPUT:
+       thys
+
+void
+ajUintDec (thys, elem)
+       AjPUint& thys
+       ajuint elem
+    OUTPUT:
+       thys
+
+ajuint*
+ajUintUint (thys)
+       const AjPUint thys
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajUintLen (thys)
+       const AjPUint thys
+    OUTPUT:
+       RETVAL
+
+AjPUint2d
+ajUint2dNew ()
+    OUTPUT:
+       RETVAL
+
+AjPUint2d
+ajUint2dNewL (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+AjPUint2d
+ajUint2dNewLL (size, size2)
+       ajuint size
+       ajuint size2
+    OUTPUT:
+       RETVAL
+
+void
+ajUint2dDel (thys)
+       AjPUint2d& thys
+    OUTPUT:
+       thys
+
+ajuint
+ajUint2dGet (thys, elem1, elem2)
+       const AjPUint2d thys
+       ajuint elem1
+       ajuint elem2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajUint2dPut (thys, elem1, elem2, v)
+       AjPUint2d& thys
+       ajuint elem1
+       ajuint elem2
+       ajuint v
+    OUTPUT:
+       RETVAL
+       thys
+
+void
+ajUint2dLen (thys, len1, len2)
+       const AjPUint2d thys
+       ajuint& len1
+       ajuint& len2
+    OUTPUT:
+       len1
+       len2
+
+ajuint**
+ajUint2dUint (thys)
+       const AjPUint2d thys
+    OUTPUT:
+       RETVAL
+
+AjPUint3d
+ajUint3dNew ()
+    OUTPUT:
+       RETVAL
+
+AjPUint3d
+ajUint3dNewL (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+void
+ajUint3dDel (thys)
+       AjPUint3d& thys
+    OUTPUT:
+       thys
+
+ajuint
+ajUint3dGet (thys, elem1, elem2, elem3)
+       const AjPUint3d thys
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajUint3dPut (thys, elem1, elem2, elem3, v)
+       AjPUint3d& thys
+       ajuint elem1
+       ajuint elem2
+       ajuint elem3
+       ajuint v
+    OUTPUT:
+       RETVAL
+       thys
+
+void
+ajUint3dLen (thys, len1, len2, len3)
+       const AjPUint3d thys
+       ajuint& len1
+       ajuint& len2
+       ajuint& len3
+    OUTPUT:
+       len1
+       len2
+       len3
+
+ajuint***
+ajUint3dUint (thys)
+       const AjPUint3d thys
+    OUTPUT:
+       RETVAL
 
