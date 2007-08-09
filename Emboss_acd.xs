@@ -79,7 +79,7 @@ ajAcdGetDiscretestatesSingle (token)
     OUTPUT:
        RETVAL
 
-AjPPhyloDist
+AjPPhyloDist*
 ajAcdGetDistances (token)
        const char* token
     OUTPUT:
@@ -427,4 +427,10 @@ ajAcdExit (silent)
 
 void
 ajAcdUnused ()
+
+AjPPhyloDist
+ajAcdGetDistancesSingle (token)
+       const char* token
+    OUTPUT:
+       RETVAL
 

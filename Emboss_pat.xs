@@ -93,7 +93,7 @@ ajPatternSeqGetMismatch (thys)
 void
 ajPatternSeqSetCompiled (thys, pat)
        AjPPatternSeq thys
-       char& pat
+       char* pat
 
 void
 ajPatternRegexSetCompiled (thys, pat)

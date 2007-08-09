@@ -39,3 +39,87 @@ ajSeqFileNewOut (seqout, name)
     OUTPUT:
        RETVAL
 
+AjBool
+ajSeqOutFormatSingle (format)
+       AjPStr format
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqOutSetFormat (thys, format)
+       AjPSeqout thys
+       const AjPStr format
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqOutSetFormatC (thys, format)
+       AjPSeqout thys
+       const char * format
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqOutFormatDefault (pformat)
+       AjPStr& pformat
+    OUTPUT:
+       RETVAL
+       pformat
+
+void
+ajSeqoutUsa (pthis, Usa)
+       AjPSeqout& pthis
+       const AjPStr Usa
+
+void
+ajSeqPrintOutFormat (outf, full)
+       AjPFile outf
+       AjBool full
+
+AjBool
+ajSeqFindOutFormat (format, iformat)
+       const AjPStr format
+       ajint& iformat
+    OUTPUT:
+       RETVAL
+       iformat
+
+ajint
+ajSeqoutCheckGcg (outseq)
+       const AjPSeqout outseq
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqoutDefName (thys, setname, multi)
+       AjPSeqout thys
+       const AjPStr setname
+       AjBool multi
+    OUTPUT:
+       thys
+
+void
+ajSeqoutCount (seqout, b)
+       const AjPSeqout seqout
+       ajuint& b
+    OUTPUT:
+       b
+
+void
+ajSeqWriteXyz (outf, seq, prefix)
+       AjPFile outf
+       const AjPStr seq
+       const char * prefix
+    OUTPUT:
+       outf
+
+void
+ajSssWriteXyz (outf, seq, prefix)
+       AjPFile outf
+       const AjPStr seq
+       const char * prefix
+    OUTPUT:
+       outf
+
+void
+ajSeqWriteExit ()

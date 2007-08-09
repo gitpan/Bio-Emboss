@@ -13,53 +13,14 @@ PROTOTYPES: ENABLE
 
  # code from ajtime.c: automatically generated
 
-const AjPTime
-ajTimeTodayRef ()
-    OUTPUT:
-       RETVAL
-
-AjPTime
-ajTimeToday ()
-    OUTPUT:
-       RETVAL
-
-AjPTime
-ajTimeTodayF (timefmt)
-       const char* timefmt
-    OUTPUT:
-       RETVAL
-
-const AjPTime
-ajTimeTodayRefF (timefmt)
-       const char* timefmt
-    OUTPUT:
-       RETVAL
-
 void
 ajTimeTrace (thys)
        const AjPTime thys
 
-AjPTime
-ajTimeSet (timefmt, mday, mon, year)
-       const char* timefmt
-       ajint mday
-       ajint mon
-       ajint year
-    OUTPUT:
-       RETVAL
-
 AjBool
 ajTimeSetS (thys, timestr)
        AjPTime thys
-       const char* timestr
-    OUTPUT:
-       RETVAL
-       thys
-
-AjBool
-ajTimeLocal (timer, thys)
-       const time_t timer
-       AjPTime thys
+       const AjPStr timestr
     OUTPUT:
        RETVAL
        thys
@@ -70,17 +31,70 @@ ajTimeNew ()
        RETVAL
 
 void
-ajTimeDel (thys)
-       AjPTime& thys
+ajTimeDel (Ptime)
+       AjPTime& Ptime
     OUTPUT:
-       thys
+       Ptime
 
 void
 ajTimeExit ()
 
+AjPTime
+ajTimeNewDayFmt (timefmt, mday, mon, year)
+       const char* timefmt
+       ajint mday
+       ajint mon
+       ajint year
+    OUTPUT:
+       RETVAL
+
+AjPTime
+ajTimeNewTime (src)
+       const AjPTime src
+    OUTPUT:
+       RETVAL
+
+AjPTime
+ajTimeNewToday ()
+    OUTPUT:
+       RETVAL
+
+AjPTime
+ajTimeNewTodayFmt (timefmt)
+       const char* timefmt
+    OUTPUT:
+       RETVAL
+
 time_t
-ajTimeMake (thys)
+ajTimeGetTimetype (thys)
        const AjPTime thys
     OUTPUT:
        RETVAL
+
+const AjPTime
+ajTimeRefToday ()
+    OUTPUT:
+       RETVAL
+
+const AjPTime
+ajTimeRefTodayFmt (timefmt)
+       const char* timefmt
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajTimeSetC (thys, timestr)
+       AjPTime thys
+       const char* timestr
+    OUTPUT:
+       RETVAL
+       thys
+
+AjBool
+ajTimeSetLocal (thys, timer)
+       AjPTime thys
+       const time_t timer
+    OUTPUT:
+       RETVAL
+       thys
 

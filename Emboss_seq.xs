@@ -955,3 +955,311 @@ void
 ajSeqstrComplement (Pseq)
        AjPStr& Pseq
 
+const char*
+ajSeqGetDbC (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+const AjPStr
+ajSeqGetDbS (seq)
+       const AjPSeq seq
+    OUTPUT:
+       RETVAL
+
+AjPSeqDate
+ajSeqdateNew ()
+    OUTPUT:
+       RETVAL
+
+AjPSeqDate
+ajSeqdateNewDate (date)
+       const AjPSeqDate date
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqdateDel (Pdate)
+       AjPSeqDate& Pdate
+    OUTPUT:
+       Pdate
+
+AjBool
+ajSeqdateSetCreateS (date, datestr)
+       AjPSeqDate date
+       const AjPStr datestr
+    OUTPUT:
+       RETVAL
+       date
+
+AjBool
+ajSeqdateSetModifyS (date, datestr)
+       AjPSeqDate date
+       const AjPStr datestr
+    OUTPUT:
+       RETVAL
+       date
+
+AjBool
+ajSeqdateSetModseqS (date, datestr)
+       AjPSeqDate date
+       const AjPStr datestr
+    OUTPUT:
+       RETVAL
+       date
+
+AjPSeqRef
+ajSeqrefNew ()
+    OUTPUT:
+       RETVAL
+
+AjPSeqRef
+ajSeqrefNewRef (ref)
+       const AjPSeqRef ref
+    OUTPUT:
+       RETVAL
+
+void
+ajSeqrefDel (Pref)
+       AjPSeqRef& Pref
+    OUTPUT:
+       Pref
+
+AjBool
+ajSeqrefAppendAuthors (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendComment (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendGroupname (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendLocation (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendPosition (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendTitle (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefAppendXref (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefFmtAuthorsEmbl (ref, Pdest)
+       const AjPSeqRef ref
+       AjPStr& Pdest
+    OUTPUT:
+       RETVAL
+       Pdest
+
+AjBool
+ajSeqrefFmtAuthorsGb (ref, Pdest)
+       const AjPSeqRef ref
+       AjPStr& Pdest
+    OUTPUT:
+       RETVAL
+       Pdest
+
+AjBool
+ajSeqrefFmtLocationEmbl (ref, Pdest)
+       const AjPSeqRef ref
+       AjPStr& Pdest
+    OUTPUT:
+       RETVAL
+       Pdest
+
+AjBool
+ajSeqrefFmtLocationGb (ref, Pdest)
+       const AjPSeqRef ref
+       AjPStr& Pdest
+    OUTPUT:
+       RETVAL
+       Pdest
+
+AjBool
+ajSeqrefFmtTitleGb (ref, Pdest)
+       const AjPSeqRef ref
+       AjPStr& Pdest
+    OUTPUT:
+       RETVAL
+       Pdest
+
+AjBool
+ajSeqrefSetAuthors (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetComment (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetGroupname (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetLocation (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetLoctype (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetPosition (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetTitle (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetXref (ref, str)
+       AjPSeqRef ref
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefSetnumNumber (ref, num)
+       AjPSeqRef ref
+       ajuint num
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqrefStandard (ref)
+       AjPSeqRef ref
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqreflistClone (src, dest)
+       const AjPList src
+       AjPList dest
+    OUTPUT:
+       RETVAL
+       dest
+
+AjBool
+ajSeqclsSetEmbl (Pcls, clsembl)
+       AjPStr& Pcls
+       const AjPStr clsembl
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqclsSetGb (Pcls, clsgb)
+       AjPStr& Pcls
+       const AjPStr clsgb
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqclsGetEmbl (cls)
+       const AjPStr cls
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqdivSetEmbl (Pdivi, divembl)
+       AjPStr& Pdivi
+       const AjPStr divembl
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqdivSetGb (Pdivi, divgb)
+       AjPStr& Pdivi
+       const AjPStr divgb
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqdivGetEmbl (divi)
+       const AjPStr divi
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqdivGetGb (divi)
+       const AjPStr divi
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqmolSetEmbl (Pmol, molembl)
+       AjPStr& Pmol
+       const AjPStr molembl
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajSeqmolSetGb (Pmol, molgb)
+       AjPStr& Pmol
+       const AjPStr molgb
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqmolGetEmbl (mol)
+       const AjPStr mol
+    OUTPUT:
+       RETVAL
+
+const char*
+ajSeqmolGetGb (mol)
+       const AjPStr mol
+    OUTPUT:
+       RETVAL
+

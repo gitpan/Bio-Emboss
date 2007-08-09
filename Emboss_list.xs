@@ -24,225 +24,74 @@ ajListstrNew ()
        RETVAL
 
 void
-ajListPush (thys, x)
-       AjPList thys
-       char& x
+ajListPush (list, x)
+       AjPList list
+       char* x
 
 void
-ajListstrPush (thys, x)
-       AjPList thys
+ajListstrPush (list, x)
+       AjPList list
        AjPStr x
 
 void
-ajListTrace (thys)
-       const AjPList thys
+ajListTrace (list)
+       const AjPList list
 
 void
-ajListstrTrace (thys)
-       const AjPList thys
-
-AjPList
-ajListNewArgs (x)
-       char& x
-    OUTPUT:
-       RETVAL
-
-AjPList
-ajListstrNewArgs (x)
-       AjPStr x
-    OUTPUT:
-       RETVAL
-
-AjPListNode
-ajListNodesNew (x)
-       char& x
-    OUTPUT:
-       RETVAL
-
-void
-ajListAppend (thys, morenodes)
-       AjPList thys
-       AjPListNode& morenodes
-    OUTPUT:
-       morenodes
-
-void
-ajListPushApp (thys, x)
-       AjPList thys
-       char& x
-
-void
-ajListstrPushApp (thys, x)
-       AjPList thys
-       AjPStr x
-
-AjPList
-ajListstrCopy (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
-
-AjPList
-ajListCopy (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajListstrClone (thys, newlist)
-       const AjPList thys
-       AjPList newlist
-    OUTPUT:
-       RETVAL
+ajListstrTrace (list)
+       const AjPList list
 
 AjBool
-ajListFirst (thys, x)
-       const AjPList thys
+ajListPop (list, x)
+       AjPList list
        void*& x
     OUTPUT:
        RETVAL
        x
 
 AjBool
-ajListLast (thys, x)
-       const AjPList thys
+ajListPeek (list, x)
+       const AjPList list
        void*& x
     OUTPUT:
        RETVAL
        x
 
 AjBool
-ajListNth (thys, n, x)
-       const AjPList thys
-       ajuint n
-       void*& x
+ajListstrPop (list, Pstr)
+       AjPList list
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       x
+       Pstr
 
 AjBool
-ajListPop (thys, x)
-       AjPList thys
-       void*& x
+ajListstrPeek (list, Pstr)
+       const AjPList list
+       AjPStr& Pstr
     OUTPUT:
        RETVAL
-       x
-
-AjBool
-ajListPeek (thys, x)
-       const AjPList thys
-       void*& x
-    OUTPUT:
-       RETVAL
-       x
-
-AjBool
-ajListstrPop (thys, x)
-       AjPList thys
-       AjPStr& x
-    OUTPUT:
-       RETVAL
-       x
-
-AjBool
-ajListstrPeek (thys, x)
-       const AjPList thys
-       AjPStr& x
-    OUTPUT:
-       RETVAL
-       x
+       Pstr
 
 void
-ajListReverse (thys)
-       AjPList thys
+ajListReverse (list)
+       AjPList list
 
 void
-ajListstrReverse (thys)
-       AjPList thys
-
-ajuint
-ajListLength (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajListstrLength (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
+ajListstrReverse (list)
+       AjPList list
 
 void
-ajListFree (pthis)
-       AjPList& pthis
+ajListFree (Plist)
+       AjPList& Plist
     OUTPUT:
-       pthis
+       Plist
 
 void
-ajListstrFree (pthis)
-       AjPList& pthis
+ajListstrFree (Plist)
+       AjPList& Plist
     OUTPUT:
-       pthis
-
-void
-ajListDel (pthis)
-       AjPList& pthis
-    OUTPUT:
-       pthis
-
-void
-ajListstrDel (pthis)
-       AjPList& pthis
-    OUTPUT:
-       pthis
-
-ajuint
-ajListToArray (thys, array)
-       const AjPList thys
-       void**& array
-    OUTPUT:
-       RETVAL
-       array
-
-ajuint
-ajListstrToArray (thys, array)
-       const AjPList thys
-       AjPStr*& array
-    OUTPUT:
-       RETVAL
-       array
-
-ajuint
-ajListstrToArrayApp (thys, array)
-       const AjPList thys
-       AjPStr*& array
-    OUTPUT:
-       RETVAL
-       array
-
-AjIList
-ajListIter (thys)
-       AjPList thys
-    OUTPUT:
-       RETVAL
-
-AjIList
-ajListIterRead (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
-
-AjIList
-ajListIterBack (thys)
-       AjPList thys
-    OUTPUT:
-       RETVAL
-
-AjIList
-ajListIterBackRead (thys)
-       const AjPList thys
-    OUTPUT:
-       RETVAL
+       Plist
 
 AjBool
 ajListIterDone (iter)
@@ -250,108 +99,215 @@ ajListIterDone (iter)
     OUTPUT:
        RETVAL
 
-AjBool
-ajListIterBackDone (iter)
+void
+ajListIterTrace (iter)
        const AjIList iter
-    OUTPUT:
-       RETVAL
 
 void
-ajListIterFree (iter)
-       AjIList& iter
-    OUTPUT:
-       iter
-
-AjBool
-ajListIterMore (iter)
+ajListstrIterTrace (iter)
        const AjIList iter
+
+void
+ajListExit ()
+
+void
+ajListFreeData (Plist)
+       AjPList& Plist
+    OUTPUT:
+       Plist
+
+AjPList
+ajListNewListref (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+void
+ajListPushAppend (list, x)
+       AjPList list
+       char* x
+
+void
+ajListPushlist (list, Plist)
+       AjPList list
+       AjPList& Plist
+    OUTPUT:
+       Plist
+
+AjBool
+ajListPopLast (list, x)
+       AjPList list
+       void*& x
+    OUTPUT:
+       RETVAL
+       x
+
+ajuint
+ajListGetLength (list)
+       const AjPList list
     OUTPUT:
        RETVAL
 
 AjBool
-ajListIterBackMore (iter)
-       const AjIList iter
-    OUTPUT:
-       RETVAL
-
-void*
-ajListIterNext (iter)
-       AjIList iter
-    OUTPUT:
-       RETVAL
-
-void*
-ajListIterBackNext (iter)
-       AjIList iter
-    OUTPUT:
-       RETVAL
-
-void
-ajListRemove (iter)
-       AjIList iter
-
-void
-ajListstrRemove (iter)
-       AjIList iter
-
-void
-ajListInsert (iter, x)
-       AjIList iter
-       char& x
-
-void
-ajListstrInsert (iter, x)
-       AjIList iter
-       AjPStr x
-
-void
-ajListIterTrace (thys)
-       const AjIList thys
-
-void
-ajListstrIterTrace (thys)
-       const AjIList thys
-
-void
-ajListPushList (thys, pmore)
-       AjPList thys
-       AjPList& pmore
-    OUTPUT:
-       pmore
-
-void
-ajListstrPushList (thys, pmore)
-       AjPList thys
-       AjPList& pmore
-    OUTPUT:
-       pmore
-
-AjBool
-ajListPopEnd (thys, x)
-       AjPList thys
+ajListPeekFirst (list, x)
+       const AjPList list
        void*& x
     OUTPUT:
        RETVAL
        x
 
 AjBool
-ajListstrPopEnd (thys, x)
-       AjPList thys
-       AjPStr& x
+ajListPeekLast (list, x)
+       const AjPList list
+       void*& x
     OUTPUT:
        RETVAL
        x
 
+AjBool
+ajListPeekNumber (list, ipos, x)
+       const AjPList list
+       ajuint ipos
+       void*& x
+    OUTPUT:
+       RETVAL
+       x
+
+ajuint
+ajListToarray (list, array)
+       const AjPList list
+       void**& array
+    OUTPUT:
+       RETVAL
+       array
+
 void
-ajListDummyFunction (array)
+ajListUnused (array)
        void** array
 
-void
-ajListExit ()
+AjIList
+ajListIterNew (list)
+       AjPList list
+    OUTPUT:
+       RETVAL
+
+AjIList
+ajListIterNewBack (list)
+       AjPList list
+    OUTPUT:
+       RETVAL
+
+AjIList
+ajListIterNewread (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+AjIList
+ajListIterNewreadBack (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajListIterDoneBack (iter)
+       const AjIList iter
+    OUTPUT:
+       RETVAL
 
 void
-ajListFreeData (pthis)
-       AjPList& pthis
+ajListIterDel (iter)
+       AjIList& iter
     OUTPUT:
-       pthis
+       iter
+
+void*
+ajListIterGet (iter)
+       AjIList iter
+    OUTPUT:
+       RETVAL
+
+void*
+ajListIterGetBack (iter)
+       AjIList iter
+    OUTPUT:
+       RETVAL
+
+void
+ajListIterInsert (iter, x)
+       AjIList iter
+       char* x
+
+void
+ajListIterRemove (iter)
+       AjIList iter
+
+AjPList
+ajListstrNewList (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+AjPList
+ajListstrNewListref (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+void
+ajListstrPushAppend (list, x)
+       AjPList list
+       AjPStr x
+
+void
+ajListstrPushlist (list, Plist)
+       AjPList list
+       AjPList& Plist
+    OUTPUT:
+       Plist
+
+AjBool
+ajListstrPopLast (list, Pstr)
+       AjPList list
+       AjPStr& Pstr
+    OUTPUT:
+       RETVAL
+       Pstr
+
+ajuint
+ajListstrGetLength (list)
+       const AjPList list
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajListstrToarray (list, array)
+       const AjPList list
+       AjPStr*& array
+    OUTPUT:
+       RETVAL
+       array
+
+ajuint
+ajListstrToarrayAppend (list, array)
+       const AjPList list
+       AjPStr*& array
+    OUTPUT:
+       RETVAL
+       array
+
+void
+ajListstrFreeData (Plist)
+       AjPList& Plist
+    OUTPUT:
+       Plist
+
+void
+ajListstrIterInsert (iter, str)
+       AjIList iter
+       AjPStr str
+
+void
+ajListstrIterRemove (iter)
+       AjIList iter
 

@@ -23,48 +23,51 @@ void
 ajExitAbort ()
 
 void
-ajLogInfo ()
-
-AjBool
-ajUtilUid (dest)
-       AjPStr& dest
-    OUTPUT:
-       RETVAL
-       dest
-
-AjBool
-ajUtilBigendian ()
-    OUTPUT:
-       RETVAL
-
-void
-ajUtilRev2 (sval)
-       short& sval
-
-void
-ajUtilRev4 (ival)
-       ajint& ival
-
-void
-ajUtilRev8 (ival)
-       ajlong& ival
-
-void
-ajUtilRevShort (sval)
-       short& sval
-
-void
-ajUtilRevInt (ival)
-       ajint& ival
-
-void
-ajUtilRevLong (lval)
-       ajlong& lval
-
-void
 ajUtilCatch ()
 
 void
-ajUtilRevUint (ival)
+ajReset ()
+
+void
+ajByteRevInt (ival)
+       ajint& ival
+
+void
+ajByteRevLen2 (sval)
+       short& sval
+
+void
+ajByteRevLen4 (ival)
+       ajint& ival
+
+void
+ajByteRevLen8 (lval)
+       ajlong& lval
+
+void
+ajByteRevLong (lval)
+       ajlong& lval
+
+void
+ajByteRevShort (sval)
+       short& sval
+
+void
+ajByteRevUint (ival)
        ajuint& ival
+
+AjBool
+ajUtilGetBigendian ()
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajUtilGetUid (Puid)
+       AjPStr& Puid
+    OUTPUT:
+       RETVAL
+       Puid
+
+void
+ajUtilLoginfo ()
 

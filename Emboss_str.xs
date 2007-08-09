@@ -61,13 +61,13 @@ ajCharDel (Ptxt)
 
 AjBool
 ajCharFmtLower (txt)
-       char& txt
+       char* txt
     OUTPUT:
        RETVAL
 
 AjBool
 ajCharFmtUpper (txt)
-       char& txt
+       char* txt
     OUTPUT:
        RETVAL
 
@@ -1804,6 +1804,53 @@ ajint
 ajStrFindRestCaseS (str, str2)
        const AjPStr str
        const AjPStr str2
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlphaS (Pstr, str)
+       AjPStr & Pstr
+       const AjPStr str
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlphaRest (Pstr, Prest)
+       AjPStr & Pstr
+       AjPStr & Prest
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlphaRestC (Pstr, txt, Prest)
+       AjPStr & Pstr
+       const char* txt
+       AjPStr & Prest
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrKeepSetAlphaRestS (Pstr, str, Prest)
+       AjPStr & Pstr
+       const AjPStr str
+       AjPStr & Prest
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrExchangePosCC (Pstr, ipos, txt, txtnew)
+       AjPStr& Pstr
+       ajint ipos
+       const char* txt
+       const char* txtnew
+    OUTPUT:
+       RETVAL
+
+AjBool
+ajStrFmtWrapAt (Pstr, width, ch)
+       AjPStr& Pstr
+       ajuint width
+       char ch
     OUTPUT:
        RETVAL
 

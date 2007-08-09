@@ -904,3 +904,9 @@ ajFileBuffGetTrim (thys, pdest)
        RETVAL
        pdest
 
+AjBool
+ajFileNameValid (fname)
+       const AjPStr fname
+    OUTPUT:
+       RETVAL
+

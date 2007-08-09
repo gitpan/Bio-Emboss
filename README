@@ -1,4 +1,4 @@
-Bio::Emboss perl module version 4.1.0
+Bio::Emboss perl module version 5.0.0
 =====================================
 
 This module is an interface to the libraries of the EMBOSS package
@@ -38,7 +38,8 @@ This module requires an EMBOSS installation
 available for download at
 http://emboss.sourceforge.net/
 
-The module was tested with EMBOSS (version 4.1.0).
+The module was tested with EMBOSS (version 5.0.0).
+For EMBOSS-4.1.0 use Bio::Emboss-4.1.0
 For EMBOSS-4.0.0 use Bio::Emboss-2.0.0
 For EMBOSS-3.0.0 use Bio::Emboss-1.0.1
 For older EMBOSS versions use Bio::Emboss-0.7.

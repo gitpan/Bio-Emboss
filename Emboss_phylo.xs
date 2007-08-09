@@ -68,7 +68,7 @@ ajPhyloTreeDel (pthis)
     OUTPUT:
        pthis
 
-AjPPhyloDist
+AjPPhyloDist*
 ajPhyloDistRead (filename, size, missing)
        const AjPStr filename
        ajint size

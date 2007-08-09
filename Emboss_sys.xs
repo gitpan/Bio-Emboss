@@ -14,115 +14,104 @@ PROTOTYPES: ENABLE
  # code from ajsys.c: automatically generated
 
 void
-ajSysBasename (s)
-       AjPStr& s
+ajSysCanon (state)
+       AjBool state
+
+void
+ajSysExit ()
+
+AjBool
+ajSysArglistBuild (cmdline, Pname, PParglist)
+       const AjPStr cmdline
+       char*& Pname
+       char**& PParglist
+    OUTPUT:
+       RETVAL
+       Pname
+       PParglist
+
+void
+ajSysArglistFree (PParglist)
+       char**& PParglist
+    OUTPUT:
+       PParglist
 
 char
-ajSysItoC (v)
+ajSysCastItoc (v)
        ajint v
     OUTPUT:
        RETVAL
 
 unsigned char
-ajSysItoUC (v)
+ajSysCastItouc (v)
        ajint v
     OUTPUT:
        RETVAL
 
 AjBool
-ajSysWhich (s)
-       AjPStr& s
+ajSysFileUnlink (filename)
+       const AjPStr filename
     OUTPUT:
        RETVAL
-
-void
-ajSystem (cl)
-       const AjPStr cl
 
 AjBool
-ajSysUnlink (s)
-       const AjPStr s
+ajSysFileWhich (Pfilename)
+       AjPStr& Pfilename
     OUTPUT:
        RETVAL
-
-void
-ajSysCanon (state)
-       AjBool state
-
-AjBool
-ajSysArglist (cmdline, pgm, arglist)
-       const AjPStr cmdline
-       char*& pgm
-       char**& arglist
-    OUTPUT:
-       RETVAL
-       pgm
-       arglist
-
-void
-ajSysArgListFree (arglist)
-       char**& arglist
-    OUTPUT:
-       arglist
 
 FILE*
-ajSysFdopen (filedes, mode)
+ajSysFuncFdopen (filedes, mode)
        ajint filedes
        const char * mode
     OUTPUT:
        RETVAL
 
 char*
-ajSysStrdup (s)
-       const char * s
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSysIsRegular (s)
-       const char * s
-    OUTPUT:
-       RETVAL
-
-AjBool
-ajSysIsDirectory (s)
-       const char * s
-    OUTPUT:
-       RETVAL
-
-char*
-ajSysStrtok (s, t)
-       const char * s
-       const char * t
-    OUTPUT:
-       RETVAL
-
-char*
-ajSysStrtokR (s, t, ptrptr, buf)
-       char & s
-       const char * t
-       char *& ptrptr
-       AjPStr & buf
-    OUTPUT:
-       RETVAL
-       buf
-
-char*
-ajSysFgets (buf, size, fp)
-       char & buf
+ajSysFuncFgets (buf, size, fp)
+       char& buf
        int size
-       FILE * fp
+       FILE* fp
     OUTPUT:
        RETVAL
        buf
 
 FILE*
-ajSysFopen (name, flags)
+ajSysFuncFopen (name, flags)
        const char * name
        const char* flags
     OUTPUT:
        RETVAL
 
+char*
+ajSysFuncStrdup (dupstr)
+       const char * dupstr
+    OUTPUT:
+       RETVAL
+
+char*
+ajSysFuncStrtok (srcstr, delimstr)
+       const char * srcstr
+       const char * delimstr
+    OUTPUT:
+       RETVAL
+
+char*
+ajSysFuncStrtokR (srcstr, delimstr, ptrptr, buf)
+       const char & srcstr
+       const char * delimstr
+       const char *& ptrptr
+       AjPStr & buf
+    OUTPUT:
+       RETVAL
+       buf
+
 void
-ajSysExit ()
+ajSysSystem (cmdline)
+       const AjPStr cmdline
+
+void
+ajSysSystemOut (cmdline, outfname)
+       const AjPStr cmdline
+       const AjPStr outfname
 

@@ -13,45 +13,6 @@ PROTOTYPES: ENABLE
 
  # code from ajgraph.c: automatically generated
 
-PLFLT
-plstrlW (x, y, dx, dy, text)
-       PLFLT x
-       PLFLT y
-       PLFLT dx
-       PLFLT dy
-       const char* text
-    OUTPUT:
-       RETVAL
-
-PLFLT
-plgchrW (x, y, dx, dy)
-       PLFLT x
-       PLFLT y
-       PLFLT dx
-       PLFLT dy
-    OUTPUT:
-       RETVAL
-
-void
-plxsfnam (fnam, ext)
-       const char* fnam
-       const char* ext
-
-void
-plxtrace (outf)
-       FILE* outf
-
-void
-plxswin (window)
-       const char* window
-
-int
-plfileinfo (tmp)
-       char& tmp
-    OUTPUT:
-       RETVAL
-       tmp
-
 void
 ajGraphSetDevice (thys)
        const AjPGraph thys
@@ -92,6 +53,8 @@ void
 ajGraphNewPage (thys, resetdefaults)
        AjPGraph thys
        AjBool resetdefaults
+    OUTPUT:
+       thys
 
 void
 ajGraphCloseWin ()
@@ -130,10 +93,6 @@ ajGraphxySet (thys, type)
 
 void
 ajGraphDumpDevices ()
-
-void
-ajGraphTraceInt (outf)
-       FILE* outf
 
 void
 ajGraphTrace (thys)
@@ -818,10 +777,10 @@ ajGraphAddLine (thys, xx1, yy1, xx2, yy2, colour)
        ajint colour
 
 void
-ajGraphPlpDataDel (thys)
-       AjPGraphPlpData& thys
+ajGraphPlpDataDel (pthys)
+       AjPGraphPlpData& pthys
     OUTPUT:
-       thys
+       pthys
 
 void
 ajGraphClear (thys)
@@ -982,4 +941,33 @@ ajGraphDataReplaceI (thys, graphdata, num)
        ajint num
     OUTPUT:
        RETVAL
+
+float
+ajGraphSetCharSize (size)
+       float size
+    OUTPUT:
+       RETVAL
+
+void
+ajGraphAddTextScale (thys, xx1, yy1, colour, scale, text)
+       AjPGraph thys
+       float xx1
+       float yy1
+       ajint colour
+       float scale
+       const char* text
+
+void
+ajGraphPlpDataAddTextScale (graphdata, xx1, yy1, colour, scale, text)
+       AjPGraphPlpData graphdata
+       float xx1
+       float yy1
+       ajint colour
+       float scale
+       const char* text
+
+void
+ajGraphSetPage (width, height)
+       ajuint width
+       ajuint height
 

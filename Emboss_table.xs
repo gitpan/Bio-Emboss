@@ -13,39 +13,15 @@ PROTOTYPES: ENABLE
 
  # code from ajtable.c: automatically generated
 
-void*
-ajTableGet (table, key)
-       const AjPTable table
-       const char* key
-    OUTPUT:
-       RETVAL
-
-const void*
-ajTableKey (table, key)
-       const AjPTable table
-       const char* key
-    OUTPUT:
-       RETVAL
-
 void
 ajTableTrace (table)
-       const AjPTable table
-
-void
-ajStrTableTrace (table)
        const AjPTable table
 
 void*
 ajTablePut (table, key, value)
        AjPTable table
        char* key
-       char& value
-    OUTPUT:
-       RETVAL
-
-ajint
-ajTableLength (table)
-       const AjPTable table
+       char* value
     OUTPUT:
        RETVAL
 
@@ -67,105 +43,170 @@ ajTableToarray (table, keyarray, valarray)
        valarray
 
 void
-ajTableFree (table)
-       AjPTable& table
+ajTableFree (Ptable)
+       AjPTable& Ptable
     OUTPUT:
-       table
-
-AjPTable
-ajStrTableNewCaseC (hint)
-       ajint hint
-    OUTPUT:
-       RETVAL
-
-AjPTable
-ajStrTableNewCase (hint)
-       ajint hint
-    OUTPUT:
-       RETVAL
-
-AjPTable
-ajStrTableNewC (hint)
-       ajint hint
-    OUTPUT:
-       RETVAL
-
-AjPTable
-ajStrTableNew (hint)
-       ajint hint
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajStrTableHashCaseC (key, hashsize)
-       const char* key
-       ajuint hashsize
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajStrTableHashCase (key, hashsize)
-       const char* key
-       ajuint hashsize
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajStrTableHashC (key, hashsize)
-       const char* key
-       ajuint hashsize
-    OUTPUT:
-       RETVAL
-
-ajuint
-ajStrTableHash (key, hashsize)
-       const char* key
-       ajuint hashsize
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrTableCmpCaseC (x, y)
-       const char* x
-       const char* y
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrTableCmpCase (x, y)
-       const char* x
-       const char* y
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrTableCmpC (x, y)
-       const char* x
-       const char* y
-    OUTPUT:
-       RETVAL
-
-ajint
-ajStrTableCmp (x, y)
-       const char* x
-       const char* y
-    OUTPUT:
-       RETVAL
-
-void
-ajStrTablePrint (table)
-       const AjPTable table
-
-void
-ajStrTablePrintC (table)
-       const AjPTable table
-
-void
-ajStrTableFree (ptable)
-       AjPTable& ptable
-    OUTPUT:
-       ptable
+       Ptable
 
 void
 ajTableExit ()
+
+AjPTable
+ajTableNewLen (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+void*
+ajTableFetch (table, key)
+       const AjPTable table
+       const char* key
+    OUTPUT:
+       RETVAL
+
+const void*
+ajTableFetchKey (table, key)
+       const AjPTable table
+       const char* key
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajTableGetLength (table)
+       const AjPTable table
+    OUTPUT:
+       RETVAL
+
+void*
+ajTableRemoveKey (table, key, truekey)
+       AjPTable table
+       const char* key
+       void*& truekey
+    OUTPUT:
+       RETVAL
+       truekey
+
+AjPTable
+ajTablestrNew ()
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablestrNewCase ()
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablestrNewCaseLen (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablestrNewLen (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTablestrCmp (x, y)
+       const char* x
+       const char* y
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTablestrCmpCase (x, y)
+       const char* x
+       const char* y
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajTablestrHash (key, hashsize)
+       const char* key
+       ajuint hashsize
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajTablestrHashCase (key, hashsize)
+       const char* key
+       ajuint hashsize
+    OUTPUT:
+       RETVAL
+
+void
+ajTablestrPrint (table)
+       const AjPTable table
+
+void
+ajTablestrTrace (table)
+       const AjPTable table
+
+void
+ajTablestrFree (Ptable)
+       AjPTable& Ptable
+    OUTPUT:
+       Ptable
+
+void
+ajTablestrFreeKey (Ptable)
+       AjPTable& Ptable
+    OUTPUT:
+       Ptable
+
+AjPTable
+ajTablecharNew ()
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablecharNewCase ()
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablecharNewCaseLen (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+AjPTable
+ajTablecharNewLen (size)
+       ajuint size
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTablecharCmp (x, y)
+       const char* x
+       const char* y
+    OUTPUT:
+       RETVAL
+
+ajint
+ajTablecharCmpCase (x, y)
+       const char* x
+       const char* y
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajTablecharHash (key, hashsize)
+       const char* key
+       ajuint hashsize
+    OUTPUT:
+       RETVAL
+
+ajuint
+ajTablecharHashCase (key, hashsize)
+       const char* key
+       ajuint hashsize
+    OUTPUT:
+       RETVAL
+
+void
+ajTablecharPrint (table)
+       const AjPTable table
 

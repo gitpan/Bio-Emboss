@@ -59,9 +59,14 @@ Emboss_vector.xs
 
 deprecated_Emboss_acd.xs
 deprecated_Emboss_hist.xs
+deprecated_Emboss_list.xs
 deprecated_Emboss_seq.xs
-deprecated_Emboss_str.xs
 deprecated_Emboss_seqwrite.xs
+deprecated_Emboss_str.xs
+deprecated_Emboss_sys.xs
+deprecated_Emboss_table.xs
+deprecated_Emboss_time.xs
+deprecated_Emboss_util.xs
 
 Emboss_arr.xs
 Emboss_base.xs

@@ -51,7 +51,8 @@ $EMB_DEFS = "";
 #                nucleus, ajax and plplot in $EMB_SRC_ROOT by default,
 #                or the include subdirectory in $EMB_ROOT.
 #
-@emb_libs = qw(nucleus ajax ajaxg plplot);
+@emb_libs = qw(nucleus ajax ajaxg eplplot);
+@emb_lib_dirs = qw(plplot ajax nucleus);
 
 if (-d "$EMB_ROOT/lib") {
     @lib_search_dirs = qw(lib);
@@ -90,7 +91,7 @@ if ($ENV{OSTYPE} eq "solaris") {
 if (-d "$EMB_ROOT/include") {
     $EMB_INC = "-I$EMB_ROOT/include";
 } else {
-    $EMB_INC =  join " ", map { "-I$EMB_ROOT/$_" } grep { -d "$EMB_ROOT/$_"} @emb_libs;
+    $EMB_INC =  join " ", map { "-I$EMB_ROOT/$_" } grep { -d "$EMB_ROOT/$_"} @emb_lib_dirs;
 }
 
 print "Searching EMBOSS libraries in $EMB_LIBS\n";
@@ -203,9 +204,14 @@ Emboss_embword
 @depre_modules_lib = qw(
 deprecated_Emboss_acd
 deprecated_Emboss_hist
+deprecated_Emboss_list
 deprecated_Emboss_seq
 deprecated_Emboss_seqwrite
 deprecated_Emboss_str
+deprecated_Emboss_sys
+deprecated_Emboss_table
+deprecated_Emboss_time
+deprecated_Emboss_util
 			);
 
 push (@modules_lib, @depre_modules_lib) if $INCLUDE_DEPRECATED_FUNCTIONS;

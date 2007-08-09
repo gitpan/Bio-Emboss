@@ -1030,3 +1030,21 @@ ajUint3dUint (thys)
     OUTPUT:
        RETVAL
 
+double*
+ajArrDoubleLine (line, delim, startcol, endcol)
+       const AjPStr line
+       const char* delim
+       ajuint startcol
+       ajuint endcol
+    OUTPUT:
+       RETVAL
+
+float*
+ajArrFloatLine (line, delim, startcol, endcol)
+       const AjPStr line
+       const char* delim
+       ajuint startcol
+       ajuint endcol
+    OUTPUT:
+       RETVAL
+

@@ -139,6 +139,7 @@ AjPPdb			T_PTROBJ_AJP
 AjPPdbtosp		T_PTROBJ_AJP
 AjPPdbtosp const *	T_PTROBJ_AJP
 AjPPhyloDist		T_PTROBJ_AJP
+AjPPhyloDist*		T_PTROBJ_AJP
 AjPPhyloFreq		T_PTROBJ_AJP
 AjPPhyloProp		T_PTROBJ_AJP
 AjPPhyloState		T_PTROBJ_AJP
@@ -309,11 +310,17 @@ const EmbPPatMatch	T_PTROBJ_AJP
 const EmbPPatRestrict	T_PTROBJ_AJP
 const EmbPShow		T_PTROBJ_AJP
 
+AjPSeqDate		T_PTROBJ_AJP
+AjPSeqRef		T_PTROBJ_AJP
+const AjPSeqDate	T_PTROBJ_AJP
+const AjPSeqRef		T_PTROBJ_AJP
+
+
 INPUT
 T_PTROBJ_AJP
   if (sv_derived_from($arg, \"${(my $ntt=$ntype)=~s/^(?:const +)?(?:AjP|(AjI))/Bio::Emboss::$1/;\$ntt}\")) {
       IV tmp = SvIV((SV*)SvRV($arg));
-      $var = ($type) tmp;
+      $var = INT2PTR($type, tmp);
   } else if (SvIV($arg) == 0) {
       $var = ($type) 0;
   } else

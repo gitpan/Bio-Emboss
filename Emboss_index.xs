@@ -351,3 +351,10 @@ ajBtreeHybLeafList (cache, rootblock, idname, list)
        const AjPStr idname
        AjPList list
 
+void
+ajBtreeDumpHybKeys (cache, dmin, dmax, outf)
+       AjPBtcache cache
+       ajint dmin
+       ajint dmax
+       AjPFile outf
+

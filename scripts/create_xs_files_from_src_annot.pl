@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use FileHandle;
+use Data::Dumper;
 use Getopt::Long;
 
 use strict;
@@ -94,7 +95,7 @@ sub create_xs_code_from_doc {
 	if ( /\/\* \@func (\w+)/) { # inside @func ... @@ block
 	    my $funcname = $1;
 	    my @params = ();
-	    my $return = undef;
+	    my $return = "void"; #undef;
 	    while (<FILE>) {
 		last if /\*\* \@\@/ or /\*\//; # end of @@ block
 		if (/\*\* \@param +\[(\w+)\] +(\w+) *\[(.+?)\](?: |$)/) { # a @param line
@@ -158,7 +159,9 @@ sub type_to_prototype {
     my $name = $h->{name};
 
     unless ($type =~ /void *\*\*/) {
-	$type =~ s/void *\*/char\*/; # handle void* as char*, but not void**
+	if ($type =~ s/void *\*/char\*/) { # handle void* as char*, but not void**
+	    ## warn "replaced void* => char* in " . Dumper($h) . " $infile\n";
+	}
     }
     $type =~ s/^CONST +//;       # remove CAPITAL CONST
 
@@ -175,7 +178,12 @@ sub type_to_prototype {
 	# do nothing
 
     } elsif ($rw =~ /u/ ) {
-	unless ($type =~ /\bFILE/) {
+	if ($type =~ /\bchar\*$/) {
+	    $h->{isout} = 1;
+	    warn "HERE" . Dumper($h) . " $infile\n";
+	} elsif ($type =~ /\bFILE/) {
+	    # do nothing
+	} else {
 	    my $ok = $type =~ s/\*$/\&/;
 
 	    $h->{isout} = 1 if $ok;

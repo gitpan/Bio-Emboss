@@ -48,7 +48,7 @@ ajMemFree (ptr)
 
 void*
 ajMemResize (ptr, nbytes, file, line, nofail)
-       char& ptr
+       void* ptr
        size_t nbytes
        const char* file
        ajint line
