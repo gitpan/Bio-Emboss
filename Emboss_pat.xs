@@ -94,6 +94,8 @@ void
 ajPatternSeqSetCompiled (thys, pat)
        AjPPatternSeq thys
        char* pat
+    OUTPUT:
+       pat
 
 void
 ajPatternRegexSetCompiled (thys, pat)

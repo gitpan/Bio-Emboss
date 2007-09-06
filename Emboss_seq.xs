@@ -652,6 +652,8 @@ ajSeqGapStandard (seq, gapchar)
 void
 ajSeqstrReverse (Pseq)
        AjPStr& Pseq
+    OUTPUT:
+       Pseq
 
 float
 ajSeqstrCalcMolwt (seq)
@@ -954,6 +956,8 @@ ajSeqstrCountGaps (seq)
 void
 ajSeqstrComplement (Pseq)
        AjPStr& Pseq
+    OUTPUT:
+       Pseq
 
 const char*
 ajSeqGetDbC (seq)
@@ -1197,6 +1201,7 @@ ajSeqclsSetEmbl (Pcls, clsembl)
        const AjPStr clsembl
     OUTPUT:
        RETVAL
+       Pcls
 
 AjBool
 ajSeqclsSetGb (Pcls, clsgb)
@@ -1204,6 +1209,7 @@ ajSeqclsSetGb (Pcls, clsgb)
        const AjPStr clsgb
     OUTPUT:
        RETVAL
+       Pcls
 
 const char*
 ajSeqclsGetEmbl (cls)
@@ -1217,6 +1223,7 @@ ajSeqdivSetEmbl (Pdivi, divembl)
        const AjPStr divembl
     OUTPUT:
        RETVAL
+       Pdivi
 
 AjBool
 ajSeqdivSetGb (Pdivi, divgb)
@@ -1224,6 +1231,7 @@ ajSeqdivSetGb (Pdivi, divgb)
        const AjPStr divgb
     OUTPUT:
        RETVAL
+       Pdivi
 
 const char*
 ajSeqdivGetEmbl (divi)
@@ -1243,6 +1251,7 @@ ajSeqmolSetEmbl (Pmol, molembl)
        const AjPStr molembl
     OUTPUT:
        RETVAL
+       Pmol
 
 AjBool
 ajSeqmolSetGb (Pmol, molgb)
@@ -1250,6 +1259,7 @@ ajSeqmolSetGb (Pmol, molgb)
        const AjPStr molgb
     OUTPUT:
        RETVAL
+       Pmol
 
 const char*
 ajSeqmolGetEmbl (mol)

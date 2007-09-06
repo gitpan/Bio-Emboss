@@ -119,6 +119,8 @@ ajCodRead (thys, fn, format)
 void
 ajCodSetBacktranslate (thys)
        AjPCod & thys
+    OUTPUT:
+       thys
 
 char*
 ajCodTriplet (idx)

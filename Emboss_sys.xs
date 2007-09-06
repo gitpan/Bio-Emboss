@@ -59,6 +59,7 @@ ajSysFileWhich (Pfilename)
        AjPStr& Pfilename
     OUTPUT:
        RETVAL
+       Pfilename
 
 FILE*
 ajSysFuncFdopen (filedes, mode)
@@ -104,6 +105,8 @@ ajSysFuncStrtokR (srcstr, delimstr, ptrptr, buf)
        AjPStr & buf
     OUTPUT:
        RETVAL
+       srcstr
+       ptrptr
        buf
 
 void

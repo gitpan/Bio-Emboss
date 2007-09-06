@@ -725,6 +725,7 @@ ajFeatLocMark (seq, line)
        const AjPStr line
     OUTPUT:
        RETVAL
+       seq
 
 AjPFeattable
 ajFeattableCopyLimit (orig, limit)

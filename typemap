@@ -329,3 +329,9 @@ T_PTROBJ_AJP
 OUTPUT
 T_PTROBJ_AJP
   sv_setref_pv($arg, \"${(my $ntt=$ntype)=~s/^(?:const +)?(?:AjP|(AjI))/Bio::Emboss::$1/;\$ntt}\", (void*)$var);
+
+
+#OUTPUT
+#T_PTROBJ_AJP
+#  if ${my $a = ($var ne "RETVAL") ? "(${var}__sv) SvIV_set(${var}__sv, PTR2IV($var))" : "(0)" ; \$a} ;
+#  else sv_setref_pv($arg, \"${(my $ntt=$ntype)=~s/^(?:const +)?(?:AjP|(AjI))/Bio::Emboss::$1/;\$ntt}\", (void*)$var);

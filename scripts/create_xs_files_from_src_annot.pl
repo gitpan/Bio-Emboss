@@ -128,7 +128,13 @@ sub create_xs_code_from_doc {
 	    $l2 = "       $l2\n" if $l2;
 
 	    my @output = map {$_->{name}} 
-	                  grep { $_->{rw} =~ /[wd]/ } @params;
+	                   grep { $_->{isout} } @params;
+
+	    #foreach (@params) { 
+	    #	if ($_->{isout} and !($_->{rw} =~ /[wd]/))  {
+	    #	    warn  "added to OUTPUT because of update: " . Dumper($_) . " $infile\n"
+	    #	}
+	    #};
 
 	    unshift (@output, "RETVAL") unless $return eq "void";
 
@@ -180,13 +186,13 @@ sub type_to_prototype {
     } elsif ($rw =~ /u/ ) {
 	if ($type =~ /\bchar\*$/) {
 	    $h->{isout} = 1;
-	    warn "HERE" . Dumper($h) . " $infile\n";
 	} elsif ($type =~ /\bFILE/) {
 	    # do nothing
 	} else {
 	    my $ok = $type =~ s/\*$/\&/;
 
 	    $h->{isout} = 1 if $ok;
+	    warn "\$rw =~ /u/ but no out because of missing \& in parameter: " . Dumper($h) . " $infile\n" unless $ok;
 	}
 
     } elsif ($rw =~ /[wd]/ ) {

@@ -221,6 +221,9 @@ void
 ajGraphGetCharSize (defheight, currentheight)
        float & defheight
        float & currentheight
+    OUTPUT:
+       defheight
+       currentheight
 
 void
 ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
@@ -230,6 +233,13 @@ ajGraphGetOut (xp, yp, xleng, yleng, xoff, yoff)
        ajint & yleng
        ajint & xoff
        ajint & yoff
+    OUTPUT:
+       xp
+       yp
+       xleng
+       yleng
+       xoff
+       yoff
 
 void
 ajGraphSetOri (ori)
@@ -328,6 +338,11 @@ ajGraphLines (xx1, yy1, xx2, yy2, numoflines)
        PLFLT& xx2
        PLFLT& yy2
        ajint numoflines
+    OUTPUT:
+       xx1
+       yy1
+       xx2
+       yy2
 
 void
 ajGraphDots (xx1, yy1, numofdots)

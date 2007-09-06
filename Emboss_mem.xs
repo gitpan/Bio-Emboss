@@ -45,6 +45,8 @@ ajMemCalloc0 (count, nbytes, file, line, nofail)
 void
 ajMemFree (ptr)
        void* ptr
+    OUTPUT:
+       ptr
 
 void*
 ajMemResize (ptr, nbytes, file, line, nofail)
@@ -55,6 +57,7 @@ ajMemResize (ptr, nbytes, file, line, nofail)
        AjBool nofail
     OUTPUT:
        RETVAL
+       ptr
 
 ajint*
 ajMemArrB (size)

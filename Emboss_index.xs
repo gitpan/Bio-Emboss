@@ -140,6 +140,8 @@ ajBtreeWildNew (cache, wild)
 void
 ajBtreeWildDel (thys)
        AjPBtWild& thys
+    OUTPUT:
+       thys
 
 AjPBtKeyWild
 ajBtreeKeyWildNew (cache, wild)
@@ -151,6 +153,8 @@ ajBtreeKeyWildNew (cache, wild)
 void
 ajBtreeKeyWildDel (thys)
        AjPBtKeyWild& thys
+    OUTPUT:
+       thys
 
 AjPBtpage
 ajBtreeFindInsertW (cache, key)

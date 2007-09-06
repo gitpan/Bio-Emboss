@@ -64,12 +64,14 @@ ajCharFmtLower (txt)
        char* txt
     OUTPUT:
        RETVAL
+       txt
 
 AjBool
 ajCharFmtUpper (txt)
        char* txt
     OUTPUT:
        RETVAL
+       txt
 
 AjBool
 ajCharMatchC (txt, txt2)
@@ -422,6 +424,7 @@ ajStrInsertC (Pstr, pos, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrInsertK (Pstr, pos, chr)
@@ -430,6 +433,7 @@ ajStrInsertK (Pstr, pos, chr)
        char chr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrInsertS (Pstr, pos, str)
@@ -438,6 +442,7 @@ ajStrInsertS (Pstr, pos, str)
        const AjPStr str
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrJoinC (Pstr, pos, txt, posb)
@@ -447,6 +452,7 @@ ajStrJoinC (Pstr, pos, txt, posb)
        ajint posb
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrJoinS (Pstr, pos, str, posb)
@@ -456,6 +462,7 @@ ajStrJoinS (Pstr, pos, str, posb)
        ajint posb
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrMask (Pstr, pos1, pos2, maskchr)
@@ -474,6 +481,7 @@ ajStrPasteS (Pstr, pos, str)
        const AjPStr str
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrPasteCountK (Pstr, pos, chr, num)
@@ -483,6 +491,7 @@ ajStrPasteCountK (Pstr, pos, chr, num)
        ajuint num
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrPasteMaxC (Pstr, pos, txt, len)
@@ -492,6 +501,7 @@ ajStrPasteMaxC (Pstr, pos, txt, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrPasteMaxS (Pstr, pos, str, len)
@@ -501,18 +511,21 @@ ajStrPasteMaxS (Pstr, pos, str, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrCutComments (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrCutCommentsStart (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrCutEnd (Pstr, len)
@@ -520,6 +533,7 @@ ajStrCutEnd (Pstr, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrCutRange (Pstr, pos1, pos2)
@@ -536,6 +550,7 @@ ajStrCutStart (Pstr, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrKeepRange (Pstr, pos1, pos2)
@@ -552,6 +567,7 @@ ajStrKeepSetC (Pstr, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrKeepSetAlphaC (Pstr, txt)
@@ -559,18 +575,21 @@ ajStrKeepSetAlphaC (Pstr, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrQuoteStrip (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrQuoteStripAll (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrRemoveGap (Pstr)
@@ -606,18 +625,21 @@ ajStrRemoveWhite (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrRemoveWhiteExcess (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrRemoveWild (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTrimC (Pstr, txt)
@@ -625,6 +647,7 @@ ajStrTrimC (Pstr, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTrimEndC (Pstr, txt)
@@ -632,6 +655,7 @@ ajStrTrimEndC (Pstr, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTrimStartC (Pstr, txt)
@@ -639,18 +663,21 @@ ajStrTrimStartC (Pstr, txt)
        const char* txt
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTrimWhite (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTrimWhiteEnd (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTruncateLen (Pstr, len)
@@ -658,6 +685,7 @@ ajStrTruncateLen (Pstr, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrTruncatePos (Pstr, pos)
@@ -665,6 +693,7 @@ ajStrTruncatePos (Pstr, pos)
        ajint pos
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeCC (Pstr, txt, txtnew)
@@ -673,6 +702,7 @@ ajStrExchangeCC (Pstr, txt, txtnew)
        const char* txtnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeCS (Pstr, txt, strnew)
@@ -681,6 +711,7 @@ ajStrExchangeCS (Pstr, txt, strnew)
        const AjPStr strnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeKK (Pstr, chr, chrnew)
@@ -689,6 +720,7 @@ ajStrExchangeKK (Pstr, chr, chrnew)
        char chrnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeSC (Pstr, str, txtnew)
@@ -697,6 +729,7 @@ ajStrExchangeSC (Pstr, str, txtnew)
        const char* txtnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeSS (Pstr, str, strnew)
@@ -705,6 +738,7 @@ ajStrExchangeSS (Pstr, str, strnew)
        const AjPStr strnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeSetCC (Pstr, txt, txtnew)
@@ -729,6 +763,7 @@ ajStrRandom (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrReverse (Pstr)
@@ -909,12 +944,14 @@ ajStrGetuniquePtr (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjPStr
 ajStrGetuniqueStr (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrSetClear (Pstr)
@@ -929,6 +966,7 @@ ajStrSetRes (Pstr, size)
        ajuint size
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrSetResRound (Pstr, size)
@@ -943,6 +981,7 @@ ajStrSetValid (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrSetValidLen (Pstr, len)
@@ -950,6 +989,7 @@ ajStrSetValidLen (Pstr, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrToBool (str, Pval)
@@ -1056,12 +1096,14 @@ ajStrFmtBlock (Pstr, len)
        ajuint len
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtLower (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtLowerSub (Pstr, pos1, pos2)
@@ -1070,24 +1112,28 @@ ajStrFmtLowerSub (Pstr, pos1, pos2)
        ajint pos2
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtQuote (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtTitle (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtUpper (Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtUpperSub (Pstr, pos1, pos2)
@@ -1096,6 +1142,7 @@ ajStrFmtUpperSub (Pstr, pos1, pos2)
        ajint pos2
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtWrap (Pstr, width)
@@ -1103,6 +1150,7 @@ ajStrFmtWrap (Pstr, width)
        ajuint width
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtWrapLeft (Pstr, width, margin)
@@ -1111,6 +1159,7 @@ ajStrFmtWrapLeft (Pstr, width, margin)
        ajuint margin
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrMatchC (str, txt2)
@@ -1562,6 +1611,7 @@ ajStrTokenNextFind (Ptoken, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1571,6 +1621,7 @@ ajStrTokenNextFindC (Ptoken, txtdelim, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1579,6 +1630,7 @@ ajStrTokenNextParse (Ptoken, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1588,6 +1640,7 @@ ajStrTokenNextParseC (Ptoken, txtdelim, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1597,6 +1650,7 @@ ajStrTokenNextParseS (Ptoken, strdelim, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1605,6 +1659,7 @@ ajStrTokenRestParse (Ptoken, Pstr)
        AjPStr& Pstr
     OUTPUT:
        RETVAL
+       Ptoken
        Pstr
 
 AjBool
@@ -1648,18 +1703,21 @@ ajStrKeepSetS (Pstr, str)
        const AjPStr str
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrKeepSetAlpha (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrRemoveWhiteSpaces (Pstr)
        AjPStr & Pstr
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrExchangeSetRestCK (Pstr, txt, chrnew)
@@ -1813,6 +1871,7 @@ ajStrKeepSetAlphaS (Pstr, str)
        const AjPStr str
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrKeepSetAlphaRest (Pstr, Prest)
@@ -1820,6 +1879,8 @@ ajStrKeepSetAlphaRest (Pstr, Prest)
        AjPStr & Prest
     OUTPUT:
        RETVAL
+       Pstr
+       Prest
 
 AjBool
 ajStrKeepSetAlphaRestC (Pstr, txt, Prest)
@@ -1828,6 +1889,8 @@ ajStrKeepSetAlphaRestC (Pstr, txt, Prest)
        AjPStr & Prest
     OUTPUT:
        RETVAL
+       Pstr
+       Prest
 
 AjBool
 ajStrKeepSetAlphaRestS (Pstr, str, Prest)
@@ -1836,6 +1899,8 @@ ajStrKeepSetAlphaRestS (Pstr, str, Prest)
        AjPStr & Prest
     OUTPUT:
        RETVAL
+       Pstr
+       Prest
 
 AjBool
 ajStrExchangePosCC (Pstr, ipos, txt, txtnew)
@@ -1845,6 +1910,7 @@ ajStrExchangePosCC (Pstr, ipos, txt, txtnew)
        const char* txtnew
     OUTPUT:
        RETVAL
+       Pstr
 
 AjBool
 ajStrFmtWrapAt (Pstr, width, ch)
@@ -1853,4 +1919,5 @@ ajStrFmtWrapAt (Pstr, width, ch)
        char ch
     OUTPUT:
        RETVAL
+       Pstr
 

@@ -19,6 +19,7 @@ ajSeqTypeCheckS (pthys, type_name)
        const AjPStr type_name
     OUTPUT:
        RETVAL
+       pthys
 
 AjBool
 ajSeqTypeCheckIn (thys, seqin)
@@ -98,6 +99,8 @@ void
 ajSeqGapS (seq, gapc)
        AjPStr& seq
        char gapc
+    OUTPUT:
+       seq
 
 void
 ajSeqSetNuc (thys)

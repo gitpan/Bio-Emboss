@@ -99,6 +99,8 @@ ajTrnC (trnObj, str, len, pep)
        const char * str
        ajint len
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnRevC (trnObj, str, len, pep)
@@ -106,6 +108,8 @@ ajTrnRevC (trnObj, str, len, pep)
        const char * str
        ajint len
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnAltRevC (trnObj, str, len, pep)
@@ -113,42 +117,56 @@ ajTrnAltRevC (trnObj, str, len, pep)
        const char * str
        ajint len
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnStr (trnObj, str, pep)
        const AjPTrn trnObj
        const AjPStr str
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnRevStr (trnObj, str, pep)
        const AjPTrn trnObj
        const AjPStr str
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnAltRevStr (trnObj, str, pep)
        const AjPTrn trnObj
        const AjPStr str
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnSeq (trnObj, seq, pep)
        const AjPTrn trnObj
        const AjPSeq seq
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnRevSeq (trnObj, seq, pep)
        const AjPTrn trnObj
        const AjPSeq seq
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnAltRevSeq (trnObj, seq, pep)
        const AjPTrn trnObj
        const AjPSeq seq
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnCFrame (trnObj, seq, len, frame, pep)
@@ -157,6 +175,8 @@ ajTrnCFrame (trnObj, seq, len, frame, pep)
        ajint len
        ajint frame
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnStrFrame (trnObj, seq, frame, pep)
@@ -164,6 +184,8 @@ ajTrnStrFrame (trnObj, seq, frame, pep)
        const AjPStr seq
        ajint frame
        AjPStr & pep
+    OUTPUT:
+       pep
 
 void
 ajTrnSeqFrame (trnObj, seq, frame, pep)
@@ -171,6 +193,8 @@ ajTrnSeqFrame (trnObj, seq, frame, pep)
        const AjPSeq seq
        ajint frame
        AjPStr & pep
+    OUTPUT:
+       pep
 
 AjPSeq
 ajTrnSeqFramePep (trnObj, seq, frame)
@@ -189,6 +213,7 @@ ajTrnCDangle (trnObj, seq, len, frame, pep)
        AjPStr & pep
     OUTPUT:
        RETVAL
+       pep
 
 ajint
 ajTrnStrDangle (trnObj, seq, frame, pep)
@@ -198,6 +223,7 @@ ajTrnStrDangle (trnObj, seq, frame, pep)
        AjPStr & pep
     OUTPUT:
        RETVAL
+       pep
 
 AjPSeq
 ajTrnSeqOrig (trnObj, seq, frame)

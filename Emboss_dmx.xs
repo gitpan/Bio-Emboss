@@ -69,18 +69,21 @@ ajDmxScophitTargetLowPriority (h)
        AjPScophit & h
     OUTPUT:
        RETVAL
+       h
 
 AjBool
 ajDmxScophitTarget2 (h)
        AjPScophit & h
     OUTPUT:
        RETVAL
+       h
 
 AjBool
 ajDmxScophitTarget (h)
        AjPScophit & h
     OUTPUT:
        RETVAL
+       h
 
 AjBool
 ajDmxScophitCheckTarget (ptr)

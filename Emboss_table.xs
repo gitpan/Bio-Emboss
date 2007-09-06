@@ -24,6 +24,7 @@ ajTablePut (table, key, value)
        char* value
     OUTPUT:
        RETVAL
+       value
 
 void*
 ajTableRemove (table, key)

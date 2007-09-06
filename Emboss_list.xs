@@ -27,6 +27,8 @@ void
 ajListPush (list, x)
        AjPList list
        char* x
+    OUTPUT:
+       x
 
 void
 ajListstrPush (list, x)
@@ -126,6 +128,8 @@ void
 ajListPushAppend (list, x)
        AjPList list
        char* x
+    OUTPUT:
+       x
 
 void
 ajListPushlist (list, Plist)
@@ -237,6 +241,8 @@ void
 ajListIterInsert (iter, x)
        AjIList iter
        char* x
+    OUTPUT:
+       x
 
 void
 ajListIterRemove (iter)

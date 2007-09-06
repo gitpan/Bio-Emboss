@@ -52,6 +52,7 @@ ajFmtPrintS (pthis, fmt)
        const char* fmt
     OUTPUT:
        RETVAL
+       pthis
 
 AjPStr
 ajFmtPrintAppS (pthis, fmt)
@@ -59,6 +60,7 @@ ajFmtPrintAppS (pthis, fmt)
        const char* fmt
     OUTPUT:
        RETVAL
+       pthis
 
 char*
 ajFmtString (fmt)

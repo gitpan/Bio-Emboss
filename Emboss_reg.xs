@@ -44,7 +44,6 @@ ajRegExec (prog, str)
     OUTPUT:
        RETVAL
 
-
 AjBool
 ajRegExecC (prog, str)
        AjPRegexp prog

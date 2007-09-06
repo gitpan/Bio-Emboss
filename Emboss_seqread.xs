@@ -28,6 +28,8 @@ void
 ajSeqinUsa (pthis, Usa)
        AjPSeqin& pthis
        const AjPStr Usa
+    OUTPUT:
+       pthis
 
 void
 ajSeqinSetNuc (seqin)

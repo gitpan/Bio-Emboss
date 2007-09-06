@@ -83,6 +83,8 @@ ajHistSetPtrToData (hist, indexnum, data)
        AjPHist hist
        ajint indexnum
        PLFLT& data
+    OUTPUT:
+       data
 
 void
 ajHistCopyData (hist, indexnum, data)

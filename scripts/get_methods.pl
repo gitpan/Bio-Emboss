@@ -70,33 +70,45 @@ EOF
 # --- make aliases in the symbol table
 
 foreach $class (sort keys %all) {
-    ## print "## package Bio::Emboss::$class;\n";
+    print "package Bio::Emboss::$class;\n";
 
     my $arr = $all{$class};
 
     foreach $method (@$arr) {
-## sub $method { Bio::Emboss::$method (\@_); }
+	# --- do some formatting (assume tablen == 8)
+	my $len = length($method) + 1;
+	my $ntabs = int((39 - $len) / 8); # 39 == (5 * 8) - 1
+	my $tabs = "\t" x $ntabs;
 	print <<EOF;
-*Bio::Emboss::${class}::$method = *Bio::Emboss::$method;
+*$method$tabs = *Bio::Emboss::$method;
 EOF
     }
     print "\n";
 }
 
-print "# --- list all methods of EMBOSS for the EXPORT :all tag\n\n";
+print <<EOF;
+# --- list all methods of EMBOSS for the EXPORT :all tag
 
-print "\@ALL_METHODS = qw(\n";
+package Bio::Emboss::Methods;
+
+\@ALL_METHODS = qw(
+EOF
+
 
 foreach $method (@methods){
     print "\t", $method, "\n";
 }
 
-print "\t);\n\n";
+
+print <<EOF;
+\t);
+
+# --- list ajAcdGet... methods of EMBOSS for the EXPORT :acd tag
+
+\@ACD_METHODS = qw(
+EOF
 
 
-print "# --- list ajAcdGet... methods of EMBOSS for the EXPORT :acd tag\n\n";
-
-print "\@ACD_METHODS = qw(\n";
 
 foreach $method (@methods){
     next unless $method =~ /^ajAcdGet/;
@@ -104,7 +116,8 @@ foreach $method (@methods){
     print "\t", $method, "\n";
 }
 
-print "\t);\n\n";
+print <<EOF;
+\t);
 
-
-print "1;\n"
+1;
+EOF

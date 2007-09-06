@@ -140,6 +140,7 @@ ajFileSetDir (pname, dir)
        const AjPStr dir
     OUTPUT:
        RETVAL
+       pname
 
 AjBool
 ajFileHasDir (name)
@@ -331,12 +332,14 @@ ajFileNameShorten (fname)
        AjPStr& fname
     OUTPUT:
        RETVAL
+       fname
 
 AjBool
 ajFileNameTrim (fname)
        AjPStr& fname
     OUTPUT:
        RETVAL
+       fname
 
 void
 ajFileDataNewWrite (tfile, fnew)
@@ -350,12 +353,14 @@ ajFileDir (dir)
        AjPStr& dir
     OUTPUT:
        RETVAL
+       dir
 
 AjBool
 ajFileDirPath (dir)
        AjPStr& dir
     OUTPUT:
        RETVAL
+       dir
 
 AjBool
 ajFileGetwd (dir)
@@ -369,10 +374,13 @@ ajFileDirUp (dir)
        AjPStr& dir
     OUTPUT:
        RETVAL
+       dir
 
 void
 ajFileDirFix (dir)
        AjPStr& dir
+    OUTPUT:
+       dir
 
 void
 ajFileExit ()
@@ -761,6 +769,7 @@ ajFileNameDir (filename, dir, name)
        const AjPStr name
     OUTPUT:
        RETVAL
+       filename
 
 AjBool
 ajFileNameDirSet (filename, dir)
@@ -768,6 +777,7 @@ ajFileNameDirSet (filename, dir)
        const AjPStr dir
     OUTPUT:
        RETVAL
+       filename
 
 AjBool
 ajFileNameDirSetC (filename, dir)
@@ -775,6 +785,7 @@ ajFileNameDirSetC (filename, dir)
        const char* dir
     OUTPUT:
        RETVAL
+       filename
 
 AjBool
 ajFileNameExt (filename, extension)
@@ -782,6 +793,7 @@ ajFileNameExt (filename, extension)
        const AjPStr extension
     OUTPUT:
        RETVAL
+       filename
 
 AjBool
 ajFileNameExtC (filename, extension)
@@ -789,6 +801,7 @@ ajFileNameExtC (filename, extension)
        const char* extension
     OUTPUT:
        RETVAL
+       filename
 
 ajint
 ajFileScan (path, filename, result, show, dolist, list, rlist, recurs, outf)
@@ -821,18 +834,21 @@ ajFileDirTrim (name)
        AjPStr& name
     OUTPUT:
        RETVAL
+       name
 
 AjBool
 ajFileExtnTrim (name)
        AjPStr& name
     OUTPUT:
        RETVAL
+       name
 
 AjBool
 ajFileDirExtnTrim (name)
        AjPStr& name
     OUTPUT:
        RETVAL
+       name
 
 const char*
 ajFileTempName (dir)

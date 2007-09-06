@@ -104,6 +104,7 @@ scripts/get_methods.pl
 scripts/create_xs_files_from_src_annot.pl
 t/1.t
 t/2.t
+t/3.t
 t/graphtest.acd
 t/graphtest.pl
 t/seqret.pl

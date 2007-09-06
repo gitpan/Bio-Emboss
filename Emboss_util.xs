@@ -31,30 +31,44 @@ ajReset ()
 void
 ajByteRevInt (ival)
        ajint& ival
+    OUTPUT:
+       ival
 
 void
 ajByteRevLen2 (sval)
        short& sval
+    OUTPUT:
+       sval
 
 void
 ajByteRevLen4 (ival)
        ajint& ival
+    OUTPUT:
+       ival
 
 void
 ajByteRevLen8 (lval)
        ajlong& lval
+    OUTPUT:
+       lval
 
 void
 ajByteRevLong (lval)
        ajlong& lval
+    OUTPUT:
+       lval
 
 void
 ajByteRevShort (sval)
        short& sval
+    OUTPUT:
+       sval
 
 void
 ajByteRevUint (ival)
        ajuint& ival
+    OUTPUT:
+       ival
 
 AjBool
 ajUtilGetBigendian ()
